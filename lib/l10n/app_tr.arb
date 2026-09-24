@@ -181,5 +181,9 @@
   "deleteConfirm": "\"{name}\" kaydı silinsin mi?",
   "peakCount": "{count} pik",
   "identifiedCount": "{count} tanımlandı",
-  "savedOn": "Kayıt tarihi: {date}"
+  "savedOn": "Kayıt tarihi: {date}",
+  "license": "Lisans",
+  "licenseText": "Bu uygulama özgür ve açık kaynaklı bir yazılımdır; GNU Genel Kamu Lisansı sürüm 3 (GPL-3.0) koşullarıyla dağıtılır. Ücretsizdir, reklam içermez ve hiçbir garanti verilmez. Bu lisansın koşullarına uyarak yeniden dağıtabilir ve değiştirebilirsiniz.",
+  "sourceCode": "Kaynak kodu",
+  "packageLicenses": "Kullanılan paketlerin lisansları"
 }

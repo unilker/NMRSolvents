@@ -319,5 +319,9 @@
         "type": "String"
       }
     }
-  }
+  },
+  "license": "License",
+  "licenseText": "This app is free and open-source software, distributed under the GNU General Public License version 3 (GPL-3.0). It is free of charge, contains no ads and comes with no warranty. You may redistribute and modify it under the terms of that license.",
+  "sourceCode": "Source code",
+  "packageLicenses": "Licenses of packages used"
 }

@@ -116,6 +116,14 @@ void main() {
       expect(find.textContaining('[$n] '), findsOneWidget);
     }
     expect(find.textContaining('10.1021/om100106e'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.byKey(const Key('packageLicenses')),
+      300,
+      scrollable: find.byType(Scrollable).last,
+    );
+    expect(find.textContaining('GPL-3.0'), findsWidgets);
+    expect(find.text('© 2026 Dr. İlker ÜN'), findsOneWidget);
+    expect(find.text(kSourceUrl), findsOneWidget);
   });
 
   testWidgets('pages leave room for the system navigation bar', (tester) async {

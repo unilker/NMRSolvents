@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../app_info.dart';
 import '../widgets/common.dart';
 
-/// About the app: developer, features, data provenance and references.
+/// About the app: developer, features, data provenance, references and
+/// license.
 class InfoScreen extends StatelessWidget {
   const InfoScreen({super.key});
 
@@ -136,6 +138,68 @@ class InfoScreen extends StatelessWidget {
           SectionHeader(l10n.referenceList),
           for (var i = 0; i < references.length; i++)
             ReferenceCard(references[i], number: i + 1),
+          SectionHeader(l10n.license),
+          Card(
+            margin: const EdgeInsets.symmetric(horizontal: 16),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(14, 12, 14, 4),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'GNU GPL v3.0',
+                    style: theme.textTheme.titleSmall?.copyWith(
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(l10n.licenseText, style: theme.textTheme.bodyMedium),
+                  const SizedBox(height: 8),
+                  Text(
+                    '© $kCopyrightYear $kDeveloper',
+                    style: theme.textTheme.bodySmall,
+                  ),
+                  const Divider(height: 20),
+                  Text(l10n.sourceCode, style: theme.textTheme.bodySmall),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: SelectableText(
+                          kSourceUrl,
+                          style: TextStyle(color: scheme.primary),
+                        ),
+                      ),
+                      IconButton(
+                        key: const Key('copySourceUrl'),
+                        tooltip: l10n.sourceCode,
+                        icon: const Icon(Icons.copy, size: 18),
+                        onPressed: () {
+                          Clipboard.setData(
+                            const ClipboardData(text: kSourceUrl),
+                          );
+                          ScaffoldMessenger.of(
+                            context,
+                          ).showSnackBar(SnackBar(content: Text(l10n.copied)));
+                        },
+                      ),
+                    ],
+                  ),
+                  TextButton.icon(
+                    key: const Key('packageLicenses'),
+                    onPressed: () => showLicensePage(
+                      context: context,
+                      applicationName: l10n.appTitle,
+                      applicationVersion: kAppVersion,
+                      applicationLegalese:
+                          '© $kCopyrightYear $kDeveloper · GPL-3.0',
+                    ),
+                    icon: const Icon(Icons.description_outlined, size: 18),
+                    label: Text(l10n.packageLicenses),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
