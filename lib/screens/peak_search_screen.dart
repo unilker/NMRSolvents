@@ -133,7 +133,8 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
                     ),
                   ],
                 ),
-                if (_mode == _Mode.single)
+                // Multiplicities are only reported for ¹H.
+                if (_mode == _Mode.single && _nucleus == Nucleus.h1)
                   Wrap(
                     spacing: 6,
                     runSpacing: 4,
@@ -204,15 +205,17 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
           ),
           subtitle: Text(
             [
-              if (hit.assignment != null) hit.assignment!,
+              if (hit.signal?.assignment case final a?) prettyFormula(a),
               context.l10n.deltaPpm(
                 hit.delta.toStringAsFixed(_nucleus == Nucleus.h1 ? 2 : 1),
               ),
+              if (hit.signal case final s?)
+                context.repo.referenceById(s.refId)?.short ?? s.refId,
             ].join(' · '),
           ),
           trailing: ShiftChip(
             nucleus: _nucleus,
-            shift: hit.shift,
+            value: hit.value,
             mult: hit.mult,
           ),
           onTap: isResidual
@@ -280,7 +283,7 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
                       for (final pair in m.matched)
                         ShiftChip(
                           nucleus: _nucleus,
-                          shift: pair.signal.shift,
+                          value: pair.signal,
                           mult: pair.signal.mult,
                         ),
                     ],

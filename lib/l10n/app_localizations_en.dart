@@ -52,13 +52,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reference => 'Reference';
 
   @override
-  String get notVerified => 'Not verified';
-
-  @override
-  String get notVerifiedHint =>
-      'Preliminary data – to be checked against the cited article.';
-
-  @override
   String get solvent => 'Solvent';
 
   @override
@@ -193,5 +186,71 @@ class AppLocalizationsEn extends AppLocalizations {
       one: '1 impurity',
     );
     return '$_temp0';
+  }
+
+  @override
+  String get properties => 'Physical properties';
+
+  @override
+  String get density => 'Density (20 °C)';
+
+  @override
+  String get dielectric => 'Dielectric constant';
+
+  @override
+  String get molecularWeight => 'Molecular weight';
+
+  @override
+  String get mpBpNote =>
+      'Melting and boiling points are those of the unlabeled compound (except D₂O).';
+
+  @override
+  String get storage => 'Storage';
+
+  @override
+  String get storageRt => 'Room temperature, away from light and moisture.';
+
+  @override
+  String get storageRt1y =>
+      'Room temperature, away from light and moisture. Stable for one year (unopened); re-analyze after that.';
+
+  @override
+  String get storageFridge6m =>
+      'Refrigerated (−5 to 5 °C), away from light and moisture. Stable for six months (unopened); re-analyze after that.';
+
+  @override
+  String get hodTemperature => 'HDO shift vs temperature';
+
+  @override
+  String get hodTemperatureNote =>
+      'Gottlieb 1997, eq 1. Referenced to sodium 3-(trimethylsilyl)propanesulfonate.';
+
+  @override
+  String get chem21Recommended => 'CHEM21: recommended';
+
+  @override
+  String get chem21Problematic => 'CHEM21: problematic';
+
+  @override
+  String get chem21Hint =>
+      'Rating in the CHEM21 solvent selection guide, as listed by Babij 2016.';
+
+  @override
+  String get note => 'Note';
+
+  @override
+  String get hodOnChart => 'HOD (CIL chart)';
+
+  @override
+  String get sources => 'Sources';
+
+  @override
+  String residualFrom(String source) {
+    return 'From $source';
+  }
+
+  @override
+  String hodAt(String temp, String shift) {
+    return 'δ(HDO) at $temp °C: $shift ppm';
   }
 }

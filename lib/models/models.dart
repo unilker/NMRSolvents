@@ -1,6 +1,7 @@
 /// Data models for deuterated solvents, impurities and literature references.
 ///
-/// All models are immutable and built from the JSON files in `assets/data/`.
+/// All models are immutable and built from the JSON files in `assets/data/`,
+/// which tool/build_data.py generates from the transcribed articles.
 library;
 
 enum Nucleus {
@@ -19,6 +20,23 @@ enum Nucleus {
     (n) => n.code == code,
     orElse: () => throw FormatException('Unknown nucleus: $code'),
   );
+}
+
+/// CHEM21 solvent selection guide rating, as reported by Babij 2016.
+enum Chem21 {
+  recommended('rec'),
+  problematic('prob');
+
+  const Chem21(this.code);
+
+  final String code;
+
+  static Chem21? fromCode(String? code) {
+    for (final c in Chem21.values) {
+      if (c.code == code) return c;
+    }
+    return null;
+  }
 }
 
 /// A text available in several languages, keyed by language code.
@@ -40,56 +58,83 @@ class LocalizedText {
 class Reference {
   const Reference({
     required this.id,
+    required this.short,
     required this.authors,
     required this.title,
-    required this.journal,
-    required this.year,
-    required this.volume,
-    required this.pages,
-    required this.doi,
+    required this.source,
+    this.doi,
   });
 
   factory Reference.fromJson(Map<String, dynamic> json) => Reference(
     id: json['id'] as String,
+    short: json['short'] as String,
     authors: json['authors'] as String,
     title: json['title'] as String,
-    journal: json['journal'] as String,
-    year: json['year'] as int,
-    volume: json['volume'] as String,
-    pages: json['pages'] as String,
-    doi: json['doi'] as String,
+    source: json['source'] as String,
+    doi: json['doi'] as String?,
   );
 
   final String id;
+
+  /// Short label such as "Fulmer 2010".
+  final String short;
   final String authors;
   final String title;
-  final String journal;
-  final int year;
-  final String volume;
-  final String pages;
-  final String doi;
+  final String source;
+  final String? doi;
 
-  String get citation => '$authors. $journal $year, $volume, $pages.';
-  String get doiUrl => 'https://doi.org/$doi';
+  String get citation => '$authors. $source.';
+  String? get doiUrl => doi == null ? null : 'https://doi.org/$doi';
+}
+
+/// A chemical shift that may be a single value or a range (multiplets).
+mixin ShiftValue {
+  double get shift;
+
+  /// Upper end of the range, or null for a single value.
+  double? get shiftMax;
+
+  /// Distance in ppm from [ppm] to this shift; 0 inside a range.
+  double distanceTo(double ppm) {
+    final max = shiftMax;
+    if (max == null) return (shift - ppm).abs();
+    if (ppm < shift) return shift - ppm;
+    if (ppm > max) return ppm - max;
+    return 0;
+  }
+
+  /// Midpoint, used for sorting.
+  double get center => shiftMax == null ? shift : (shift + shiftMax!) / 2;
 }
 
 /// A residual (non-deuterated) peak of a deuterated NMR solvent.
-class ResidualPeak {
+class ResidualPeak with ShiftValue {
   const ResidualPeak({
     required this.nucleus,
     required this.shift,
-    required this.mult,
+    required this.refId,
+    this.mult,
+    this.coupling,
   });
 
   factory ResidualPeak.fromJson(Map<String, dynamic> json) => ResidualPeak(
     nucleus: Nucleus.fromCode(json['nucleus'] as String),
     shift: (json['shift'] as num).toDouble(),
-    mult: json['mult'] as String,
+    refId: json['ref'] as String,
+    mult: json['mult'] as String?,
+    coupling: ((json['JHD'] ?? json['JCD']) as num?)?.toDouble(),
   );
 
   final Nucleus nucleus;
+  @override
   final double shift;
-  final String mult;
+  @override
+  double? get shiftMax => null;
+  final String refId;
+  final String? mult;
+
+  /// J(H,D) or J(C,D) in Hz, when reported.
+  final double? coupling;
 }
 
 class Solvent {
@@ -98,26 +143,39 @@ class Solvent {
     required this.name,
     required this.formula,
     required this.residual,
-    required this.waterShift,
-    required this.meltingPoint,
-    required this.boilingPoint,
-    required this.refId,
-    required this.verified,
+    this.waterShift,
+    this.waterRefId,
+    this.hodCil,
+    this.density,
+    this.meltingPoint,
+    this.boilingPoint,
+    this.dielectric,
+    this.molecularWeight,
+    this.note,
+    this.storage,
   });
 
-  factory Solvent.fromJson(Map<String, dynamic> json) => Solvent(
-    id: json['id'] as String,
-    name: LocalizedText.fromJson(json['name'] as Map<String, dynamic>),
-    formula: json['formula'] as String,
-    residual: (json['residual'] as List)
-        .map((e) => ResidualPeak.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    waterShift: (json['waterShift'] as num?)?.toDouble(),
-    meltingPoint: (json['meltingPoint'] as num?)?.toDouble(),
-    boilingPoint: (json['boilingPoint'] as num?)?.toDouble(),
-    refId: json['ref'] as String?,
-    verified: json['verified'] as bool? ?? false,
-  );
+  factory Solvent.fromJson(Map<String, dynamic> json) {
+    final water = json['water'] as Map<String, dynamic>?;
+    return Solvent(
+      id: json['id'] as String,
+      name: LocalizedText.fromJson(json['name'] as Map<String, dynamic>),
+      formula: json['formula'] as String,
+      residual: (json['residual'] as List)
+          .map((e) => ResidualPeak.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      waterShift: (water?['shift'] as num?)?.toDouble(),
+      waterRefId: water?['ref'] as String?,
+      hodCil: json['hodCil'] as String?,
+      density: (json['density'] as num?)?.toDouble(),
+      meltingPoint: json['meltingPoint']?.toString(),
+      boilingPoint: json['boilingPoint']?.toString(),
+      dielectric: (json['dielectric'] as num?)?.toDouble(),
+      molecularWeight: (json['molecularWeight'] as num?)?.toDouble(),
+      note: json['note'] as String?,
+      storage: json['storage'] as String?,
+    );
+  }
 
   final String id;
   final LocalizedText name;
@@ -126,40 +184,91 @@ class Solvent {
 
   /// ¹H shift of residual water (H₂O/HOD) in this solvent.
   final double? waterShift;
-  final double? meltingPoint;
-  final double? boilingPoint;
-  final String? refId;
+  final String? waterRefId;
 
-  /// Whether the values were checked against the cited article.
-  final bool verified;
+  /// HOD shift as printed on the CIL chart (may be a range like "2.4-2.5").
+  final String? hodCil;
 
-  List<ResidualPeak> residualFor(Nucleus nucleus) =>
-      residual.where((p) => p.nucleus == nucleus).toList();
+  /// g/mL at 20 °C.
+  final double? density;
+
+  /// °C, of the unlabeled compound (except D₂O); may be a range.
+  final String? meltingPoint;
+  final String? boilingPoint;
+  final double? dielectric;
+  final double? molecularWeight;
+  final String? note;
+
+  /// Storage code from the CIL chart: rt, rt_1y or fridge_6m.
+  final String? storage;
+
+  /// Reference ids of the residual peak sets, most authoritative first.
+  List<String> get residualRefs {
+    final refs = <String>[];
+    for (final p in residual) {
+      if (!refs.contains(p.refId)) refs.add(p.refId);
+    }
+    return refs;
+  }
+
+  /// Residual peaks used for display and searching: from the first source
+  /// (Fulmer 2010 where available, otherwise the CIL chart).
+  List<ResidualPeak> residualFor(Nucleus nucleus) {
+    for (final ref in residualRefs) {
+      final peaks = residual
+          .where((p) => p.refId == ref && p.nucleus == nucleus)
+          .toList();
+      if (peaks.isNotEmpty) return peaks;
+    }
+    return const [];
+  }
 }
 
 /// One NMR signal of an impurity measured in a given deuterated solvent.
-class Signal {
+class Signal with ShiftValue {
   const Signal({
     required this.solventId,
     required this.nucleus,
     required this.shift,
-    required this.mult,
+    required this.refId,
+    this.shiftMax,
+    this.mult,
+    this.coupling,
     this.assignment,
+    this.note,
   });
 
   factory Signal.fromJson(Map<String, dynamic> json) => Signal(
     solventId: json['solvent'] as String,
     nucleus: Nucleus.fromCode(json['nucleus'] as String),
     shift: (json['shift'] as num).toDouble(),
-    mult: json['mult'] as String,
+    shiftMax: (json['shiftMax'] as num?)?.toDouble(),
+    refId: json['ref'] as String,
+    mult: json['mult'] as String?,
+    coupling: json['J'] as String?,
     assignment: json['assignment'] as String?,
+    note: json['note'] as String?,
   );
 
   final String solventId;
   final Nucleus nucleus;
+  @override
   final double shift;
-  final String mult;
+  @override
+  final double? shiftMax;
+  final String refId;
+  final String? mult;
+
+  /// Coupling constant(s) in Hz as printed, e.g. "7" or "6.4, 1.5".
+  final String? coupling;
   final String? assignment;
+  final String? note;
+
+  /// "t (7)" style multiplicity with coupling.
+  String? get multWithJ {
+    if (mult == null) return null;
+    return coupling == null ? mult : '$mult ($coupling)';
+  }
 }
 
 class Impurity {
@@ -169,8 +278,8 @@ class Impurity {
     required this.formula,
     required this.aliases,
     required this.signals,
-    required this.refId,
-    required this.verified,
+    this.chem21,
+    this.note,
   });
 
   factory Impurity.fromJson(Map<String, dynamic> json) => Impurity(
@@ -181,8 +290,8 @@ class Impurity {
     signals: (json['signals'] as List)
         .map((e) => Signal.fromJson(e as Map<String, dynamic>))
         .toList(),
-    refId: json['ref'] as String?,
-    verified: json['verified'] as bool? ?? false,
+    chem21: Chem21.fromCode(json['chem21'] as String?),
+    note: json['note'] as String?,
   );
 
   final String id;
@@ -190,9 +299,10 @@ class Impurity {
   final String formula;
   final List<String> aliases;
   final List<Signal> signals;
-  final String? refId;
-  final bool verified;
+  final Chem21? chem21;
+  final String? note;
 
+  /// Signals in [solventId], highest shift first.
   List<Signal> signalsIn(String solventId, [Nucleus? nucleus]) =>
       signals
           .where(
@@ -201,7 +311,18 @@ class Impurity {
                 (nucleus == null || s.nucleus == nucleus),
           )
           .toList()
-        ..sort((a, b) => b.shift.compareTo(a.shift));
+        ..sort((a, b) => b.center.compareTo(a.center));
 
   Set<String> get solventIds => signals.map((s) => s.solventId).toSet();
+
+  /// Reference ids used for [solventId], in order of appearance.
+  List<String> refsIn(String solventId) {
+    final refs = <String>[];
+    for (final s in signals) {
+      if (s.solventId == solventId && !refs.contains(s.refId)) {
+        refs.add(s.refId);
+      }
+    }
+    return refs;
+  }
 }

@@ -18,16 +18,23 @@ class ImpurityDetailScreen extends StatefulWidget {
 }
 
 class _ImpurityDetailScreenState extends State<ImpurityDetailScreen> {
-  late String? _solventId;
+  String? _solventId;
 
   @override
-  void initState() {
-    super.initState();
-    final available = widget.impurity.solventIds;
-    _solventId = available.contains(widget.initialSolventId)
-        ? widget.initialSolventId
-        : (available.isEmpty ? null : available.first);
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_solventId != null) return;
+    final solvents = _solvents();
+    final initial = widget.initialSolventId;
+    _solventId = solvents.any((s) => s.id == initial)
+        ? initial
+        : (solvents.isEmpty ? null : solvents.first.id);
   }
+
+  /// Solvents with data for this impurity, in the app's solvent order.
+  List<Solvent> _solvents() => context.repo.solvents
+      .where((s) => widget.impurity.solventIds.contains(s.id))
+      .toList();
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +42,9 @@ class _ImpurityDetailScreenState extends State<ImpurityDetailScreen> {
     final repo = context.repo;
     final theme = Theme.of(context);
     final impurity = widget.impurity;
-    final solvents = repo.solvents
-        .where((s) => impurity.solventIds.contains(s.id))
-        .toList();
+    final solvents = _solvents();
     final solvent = _solventId == null ? null : repo.solventById(_solventId!);
-    final reference = repo.referenceById(impurity.refId);
+    final allRefs = {for (final s in impurity.signals) s.refId};
 
     return Scaffold(
       appBar: AppBar(title: Text(impurity.name.of(context.lang))),
@@ -67,9 +72,9 @@ class _ImpurityDetailScreenState extends State<ImpurityDetailScreen> {
                     '${l10n.aliases}: ${impurity.aliases.join(', ')}',
                     style: theme.textTheme.bodyMedium,
                   ),
-                if (!impurity.verified) ...[
-                  const SizedBox(height: 6),
-                  const UnverifiedBadge(),
+                if (impurity.chem21 != null) ...[
+                  const SizedBox(height: 8),
+                  Chem21Badge(impurity.chem21!),
                 ],
               ],
             ),
@@ -93,17 +98,36 @@ class _ImpurityDetailScreenState extends State<ImpurityDetailScreen> {
               ],
             ),
           ),
-          if (solvent != null)
+          if (solvent != null) ...[
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+              child: Wrap(
+                spacing: 6,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [
+                  Text('${l10n.reference}:', style: theme.textTheme.bodySmall),
+                  for (final ref in impurity.refsIn(solvent.id)) SourceTag(ref),
+                ],
+              ),
+            ),
             for (final nucleus in Nucleus.values)
               _SignalTable(
                 impurity: impurity,
                 solvent: solvent,
                 nucleus: nucleus,
               ),
-          if (reference != null) ...[
-            SectionHeader(l10n.reference),
-            ReferenceCard(reference),
           ],
+          if (impurity.note != null)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
+              child: Text(
+                '${l10n.note}: ${impurity.note}',
+                style: theme.textTheme.bodySmall,
+              ),
+            ),
+          SectionHeader(l10n.sources),
+          for (final id in allRefs)
+            if (repo.referenceById(id) case final ref?) ReferenceCard(ref),
         ],
       ),
     );
@@ -126,8 +150,12 @@ class _SignalTable extends StatelessWidget {
     final l10n = context.l10n;
     final signals = impurity.signalsIn(solvent.id, nucleus);
     final color = nucleusColor(context, nucleus);
+    final small = Theme.of(context).textTheme.bodySmall;
+    Widget cell(Widget child) =>
+        Padding(padding: const EdgeInsets.symmetric(vertical: 4), child: child);
+
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
       child: Card(
         margin: EdgeInsets.zero,
         child: Padding(
@@ -149,16 +177,13 @@ class _SignalTable extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               if (signals.isEmpty)
-                Text(
-                  l10n.noDataForSolvent,
-                  style: Theme.of(context).textTheme.bodySmall,
-                )
+                Text(l10n.noDataForSolvent, style: small)
               else
                 Table(
                   columnWidths: const {
-                    0: FlexColumnWidth(1.2),
-                    1: FlexColumnWidth(1),
-                    2: FlexColumnWidth(1.4),
+                    0: FlexColumnWidth(1.4),
+                    1: FlexColumnWidth(1.3),
+                    2: FlexColumnWidth(1.3),
                   },
                   children: [
                     TableRow(
@@ -178,29 +203,30 @@ class _SignalTable extends StatelessWidget {
                     for (final s in signals)
                       TableRow(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 4),
-                            child: Text(
-                              formatShift(s.shift),
-                              style: TextStyle(
-                                color: color,
-                                fontWeight: FontWeight.w700,
-                              ),
+                          cell(
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  formatShiftValue(s),
+                                  style: TextStyle(
+                                    color: color,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                                if (s.note != null) Text(s.note!, style: small),
+                              ],
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 4),
-                            child: Text(
-                              s.mult,
+                          cell(
+                            Text(
+                              s.multWithJ ?? '–',
                               style: const TextStyle(
                                 fontStyle: FontStyle.italic,
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 4),
-                            child: Text(s.assignment ?? '–'),
-                          ),
+                          cell(Text(prettyFormula(s.assignment ?? '–'))),
                         ],
                       ),
                   ],

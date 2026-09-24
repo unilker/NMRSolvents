@@ -52,13 +52,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get reference => 'Kaynak';
 
   @override
-  String get notVerified => 'Doğrulanmadı';
-
-  @override
-  String get notVerifiedHint =>
-      'Ön veri – kaynak makale ile karşılaştırılarak doğrulanacak.';
-
-  @override
   String get solvent => 'Çözücü';
 
   @override
@@ -187,5 +180,71 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String impurityCount(int count) {
     return '$count safsızlık';
+  }
+
+  @override
+  String get properties => 'Fiziksel özellikler';
+
+  @override
+  String get density => 'Yoğunluk (20 °C)';
+
+  @override
+  String get dielectric => 'Dielektrik sabiti';
+
+  @override
+  String get molecularWeight => 'Molekül ağırlığı';
+
+  @override
+  String get mpBpNote =>
+      'Erime ve kaynama noktaları döteryumsuz bileşiğe aittir (D₂O hariç).';
+
+  @override
+  String get storage => 'Saklama';
+
+  @override
+  String get storageRt => 'Oda sıcaklığında, ışık ve nemden uzak saklayın.';
+
+  @override
+  String get storageRt1y =>
+      'Oda sıcaklığında, ışık ve nemden uzak saklayın. Açılmamış şişe 1 yıl kararlıdır; sonrasında saflığı yeniden kontrol edilmelidir.';
+
+  @override
+  String get storageFridge6m =>
+      'Buzdolabında (−5 ile 5 °C), ışık ve nemden uzak saklayın. Açılmamış şişe 6 ay kararlıdır; sonrasında saflığı yeniden kontrol edilmelidir.';
+
+  @override
+  String get hodTemperature => 'Sıcaklığa göre HDO kayması';
+
+  @override
+  String get hodTemperatureNote =>
+      'Gottlieb 1997, denklem 1. Sodyum 3-(trimetilsilil)propansülfonata göre.';
+
+  @override
+  String get chem21Recommended => 'CHEM21: önerilen';
+
+  @override
+  String get chem21Problematic => 'CHEM21: sorunlu';
+
+  @override
+  String get chem21Hint =>
+      'CHEM21 çözücü seçim rehberindeki derecesi (Babij 2016\'ya göre).';
+
+  @override
+  String get note => 'Not';
+
+  @override
+  String get hodOnChart => 'HOD (CIL tablosu)';
+
+  @override
+  String get sources => 'Kaynaklar';
+
+  @override
+  String residualFrom(String source) {
+    return '$source verisi';
+  }
+
+  @override
+  String hodAt(String temp, String shift) {
+    return '$temp °C\'de δ(HDO): $shift ppm';
   }
 }

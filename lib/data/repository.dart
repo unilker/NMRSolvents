@@ -53,6 +53,12 @@ class NmrRepository {
 
   Reference? referenceById(String? id) => id == null ? null : references[id];
 
+  /// Solvents in which at least one impurity was measured, in list order.
+  late final List<Solvent> solventsWithImpurityData = () {
+    final ids = {for (final i in impurities) ...i.solventIds};
+    return solvents.where((s) => ids.contains(s.id)).toList();
+  }();
+
   /// Impurities that have at least one signal recorded in [solventId].
   List<Impurity> impuritiesIn(String solventId) => impurities
       .where((i) => i.signals.any((s) => s.solventId == solventId))

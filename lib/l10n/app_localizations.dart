@@ -182,18 +182,6 @@ abstract class AppLocalizations {
   /// **'Reference'**
   String get reference;
 
-  /// No description provided for @notVerified.
-  ///
-  /// In en, this message translates to:
-  /// **'Not verified'**
-  String get notVerified;
-
-  /// No description provided for @notVerifiedHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Preliminary data – to be checked against the cited article.'**
-  String get notVerifiedHint;
-
   /// No description provided for @solvent.
   ///
   /// In en, this message translates to:
@@ -433,6 +421,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count, plural, =1{1 impurity} other{{count} impurities}}'**
   String impurityCount(int count);
+
+  /// No description provided for @properties.
+  ///
+  /// In en, this message translates to:
+  /// **'Physical properties'**
+  String get properties;
+
+  /// No description provided for @density.
+  ///
+  /// In en, this message translates to:
+  /// **'Density (20 °C)'**
+  String get density;
+
+  /// No description provided for @dielectric.
+  ///
+  /// In en, this message translates to:
+  /// **'Dielectric constant'**
+  String get dielectric;
+
+  /// No description provided for @molecularWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Molecular weight'**
+  String get molecularWeight;
+
+  /// No description provided for @mpBpNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Melting and boiling points are those of the unlabeled compound (except D₂O).'**
+  String get mpBpNote;
+
+  /// No description provided for @storage.
+  ///
+  /// In en, this message translates to:
+  /// **'Storage'**
+  String get storage;
+
+  /// No description provided for @storageRt.
+  ///
+  /// In en, this message translates to:
+  /// **'Room temperature, away from light and moisture.'**
+  String get storageRt;
+
+  /// No description provided for @storageRt1y.
+  ///
+  /// In en, this message translates to:
+  /// **'Room temperature, away from light and moisture. Stable for one year (unopened); re-analyze after that.'**
+  String get storageRt1y;
+
+  /// No description provided for @storageFridge6m.
+  ///
+  /// In en, this message translates to:
+  /// **'Refrigerated (−5 to 5 °C), away from light and moisture. Stable for six months (unopened); re-analyze after that.'**
+  String get storageFridge6m;
+
+  /// No description provided for @hodTemperature.
+  ///
+  /// In en, this message translates to:
+  /// **'HDO shift vs temperature'**
+  String get hodTemperature;
+
+  /// No description provided for @hodTemperatureNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Gottlieb 1997, eq 1. Referenced to sodium 3-(trimethylsilyl)propanesulfonate.'**
+  String get hodTemperatureNote;
+
+  /// No description provided for @chem21Recommended.
+  ///
+  /// In en, this message translates to:
+  /// **'CHEM21: recommended'**
+  String get chem21Recommended;
+
+  /// No description provided for @chem21Problematic.
+  ///
+  /// In en, this message translates to:
+  /// **'CHEM21: problematic'**
+  String get chem21Problematic;
+
+  /// No description provided for @chem21Hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Rating in the CHEM21 solvent selection guide, as listed by Babij 2016.'**
+  String get chem21Hint;
+
+  /// No description provided for @note.
+  ///
+  /// In en, this message translates to:
+  /// **'Note'**
+  String get note;
+
+  /// No description provided for @hodOnChart.
+  ///
+  /// In en, this message translates to:
+  /// **'HOD (CIL chart)'**
+  String get hodOnChart;
+
+  /// No description provided for @sources.
+  ///
+  /// In en, this message translates to:
+  /// **'Sources'**
+  String get sources;
+
+  /// No description provided for @residualFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'From {source}'**
+  String residualFrom(String source);
+
+  /// No description provided for @hodAt.
+  ///
+  /// In en, this message translates to:
+  /// **'δ(HDO) at {temp} °C: {shift} ppm'**
+  String hodAt(String temp, String shift);
 }
 
 class _AppLocalizationsDelegate

@@ -14,8 +14,6 @@
   "boilingPoint": "Boiling point",
   "impuritiesInSolvent": "Impurities in this solvent",
   "reference": "Reference",
-  "notVerified": "Not verified",
-  "notVerifiedHint": "Preliminary data – to be checked against the cited article.",
   "solvent": "Solvent",
   "allSolvents": "All solvents",
   "formula": "Formula",
@@ -91,6 +89,42 @@
     "placeholders": {
       "count": {
         "type": "int"
+      }
+    }
+  },
+  "properties": "Physical properties",
+  "density": "Density (20 °C)",
+  "dielectric": "Dielectric constant",
+  "molecularWeight": "Molecular weight",
+  "mpBpNote": "Melting and boiling points are those of the unlabeled compound (except D₂O).",
+  "storage": "Storage",
+  "storageRt": "Room temperature, away from light and moisture.",
+  "storageRt1y": "Room temperature, away from light and moisture. Stable for one year (unopened); re-analyze after that.",
+  "storageFridge6m": "Refrigerated (−5 to 5 °C), away from light and moisture. Stable for six months (unopened); re-analyze after that.",
+  "hodTemperature": "HDO shift vs temperature",
+  "hodTemperatureNote": "Gottlieb 1997, eq 1. Referenced to sodium 3-(trimethylsilyl)propanesulfonate.",
+  "chem21Recommended": "CHEM21: recommended",
+  "chem21Problematic": "CHEM21: problematic",
+  "chem21Hint": "Rating in the CHEM21 solvent selection guide, as listed by Babij 2016.",
+  "note": "Note",
+  "hodOnChart": "HOD (CIL chart)",
+  "sources": "Sources",
+  "residualFrom": "From {source}",
+  "@residualFrom": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "hodAt": "δ(HDO) at {temp} °C: {shift} ppm",
+  "@hodAt": {
+    "placeholders": {
+      "temp": {
+        "type": "String"
+      },
+      "shift": {
+        "type": "String"
       }
     }
   }

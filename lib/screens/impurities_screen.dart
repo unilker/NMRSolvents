@@ -97,9 +97,19 @@ class _ImpurityTile extends StatelessWidget {
         : impurity.signalsIn(solventId!, Nucleus.h1);
 
     return ListTile(
-      title: Text(
-        impurity.name.of(context.lang),
-        style: const TextStyle(fontWeight: FontWeight.w600),
+      title: Row(
+        children: [
+          Flexible(
+            child: Text(
+              impurity.name.of(context.lang),
+              style: const TextStyle(fontWeight: FontWeight.w600),
+            ),
+          ),
+          if (impurity.chem21 != null) ...[
+            const SizedBox(width: 6),
+            Chem21Badge(impurity.chem21!, compact: true),
+          ],
+        ],
       ),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,7 +122,7 @@ class _ImpurityTile extends StatelessWidget {
               runSpacing: 4,
               children: [
                 for (final s in h1)
-                  ShiftChip(nucleus: Nucleus.h1, shift: s.shift, mult: s.mult),
+                  ShiftChip(nucleus: Nucleus.h1, value: s, mult: s.mult),
               ],
             ),
           ],

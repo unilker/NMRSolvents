@@ -35,11 +35,38 @@ extension ContextX on BuildContext {
 
 String formatShift(double shift) => shift.toStringAsFixed(2);
 
-/// Renders the digits of a molecular formula as subscripts: CDCl3 → CDCl₃.
-String prettyFormula(String formula) => formula.replaceAllMapped(
-  RegExp(r'\d'),
-  (m) => '₀₁₂₃₄₅₆₇₈₉'[int.parse(m[0]!)],
-);
+/// "7.26", or "7.22–7.28" for a range.
+String formatShiftValue(ShiftValue v) => v.shiftMax == null
+    ? formatShift(v.shift)
+    : '${formatShift(v.shift)}–${formatShift(v.shiftMax!)}';
+
+/// Uppercases with Turkish dotted/dotless i rules when [lang] is "tr".
+String localeUpper(String text, String lang) => lang == 'tr'
+    ? text.replaceAll('i', 'İ').replaceAll('ı', 'I').toUpperCase()
+    : text.toUpperCase();
+
+/// Renders atom counts as subscripts: CDCl3 → CDCl₃, (CH3)2 → (CH₃)₂.
+///
+/// Only digits following a letter, a closing bracket or another count are
+/// counts; position numbers such as the ones in "CH(2,4,6)" are kept.
+String prettyFormula(String formula) {
+  const sub = '₀₁₂₃₄₅₆₇₈₉';
+  final out = StringBuffer();
+  var inCount = false;
+  for (final ch in formula.split('')) {
+    final digit = int.tryParse(ch);
+    final prev = out.isEmpty ? '' : out.toString()[out.length - 1];
+    final afterAtom = RegExp(r'[A-Za-z\)\]]').hasMatch(prev);
+    if (digit != null && (afterAtom || inCount)) {
+      out.write(sub[digit]);
+      inCount = true;
+    } else {
+      out.write(ch);
+      inCount = false;
+    }
+  }
+  return out.toString();
+}
 
 Color nucleusColor(BuildContext context, Nucleus nucleus) {
   final c = NmrColors.of(context);
@@ -79,12 +106,12 @@ class ShiftChip extends StatelessWidget {
   const ShiftChip({
     super.key,
     required this.nucleus,
-    required this.shift,
+    required this.value,
     this.mult,
   });
 
   final Nucleus nucleus;
-  final double shift;
+  final ShiftValue value;
   final String? mult;
 
   @override
@@ -100,7 +127,7 @@ class ShiftChip extends StatelessWidget {
         TextSpan(
           children: [
             TextSpan(
-              text: formatShift(shift),
+              text: formatShiftValue(value),
               style: TextStyle(color: color, fontWeight: FontWeight.w700),
             ),
             if (mult != null)
@@ -122,26 +149,69 @@ class ShiftChip extends StatelessWidget {
   }
 }
 
-/// Flags data that has not yet been checked against its source article.
-class UnverifiedBadge extends StatelessWidget {
-  const UnverifiedBadge({super.key});
+/// Small label naming the article a value comes from, e.g. "Fulmer 2010".
+class SourceTag extends StatelessWidget {
+  const SourceTag(this.refId, {super.key});
+
+  final String refId;
 
   @override
   Widget build(BuildContext context) {
-    final color = Theme.of(context).colorScheme.secondary;
+    final ref = context.repo.referenceById(refId);
+    final scheme = Theme.of(context).colorScheme;
     return Tooltip(
-      message: context.l10n.notVerifiedHint,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(Icons.info_outline, size: 14, color: color),
-          const SizedBox(width: 3),
-          Text(
-            context.l10n.notVerified,
-            style: TextStyle(fontSize: 11, color: color),
-          ),
-        ],
+      message: ref?.citation ?? refId,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+        decoration: BoxDecoration(
+          border: Border.all(color: scheme.outlineVariant),
+          borderRadius: BorderRadius.circular(4),
+        ),
+        child: Text(
+          ref?.short ?? refId,
+          style: TextStyle(fontSize: 11, color: scheme.onSurfaceVariant),
+        ),
       ),
+    );
+  }
+}
+
+/// Green "recommended" / amber "problematic" CHEM21 rating.
+class Chem21Badge extends StatelessWidget {
+  const Chem21Badge(this.rating, {super.key, this.compact = false});
+
+  final Chem21 rating;
+
+  /// Icon only, for list rows.
+  final bool compact;
+
+  static const _green = Color(0xFF2E9E44);
+  static const _amber = Color(0xFFE0A800);
+
+  @override
+  Widget build(BuildContext context) {
+    final rec = rating == Chem21.recommended;
+    final color = rec ? _green : _amber;
+    final icon = Icon(
+      rec ? Icons.change_history : Icons.details,
+      size: compact ? 14 : 16,
+      color: color,
+    );
+    final label = rec
+        ? context.l10n.chem21Recommended
+        : context.l10n.chem21Problematic;
+    return Tooltip(
+      message: '$label\n${context.l10n.chem21Hint}',
+      child: compact
+          ? icon
+          : Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                icon,
+                const SizedBox(width: 4),
+                Text(label, style: TextStyle(fontSize: 12, color: color)),
+              ],
+            ),
     );
   }
 }
@@ -155,7 +225,7 @@ class SectionHeader extends StatelessWidget {
   Widget build(BuildContext context) => Padding(
     padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
     child: Text(
-      text.toUpperCase(),
+      localeUpper(text, context.lang),
       style: Theme.of(context).textTheme.labelMedium?.copyWith(
         color: Theme.of(context).colorScheme.primary,
         fontWeight: FontWeight.w700,
@@ -202,7 +272,7 @@ class SearchField extends StatelessWidget {
 }
 
 /// Dropdown to pick a deuterated solvent. [allowAll] adds an "all" entry
-/// represented by a null value.
+/// represented by a null value. Only solvents with impurity data are listed.
 class SolventDropdown extends StatelessWidget {
   const SolventDropdown({
     super.key,
@@ -217,7 +287,7 @@ class SolventDropdown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final solvents = context.repo.solvents;
+    final solvents = context.repo.solventsWithImpurityData;
     return DropdownButtonFormField<String?>(
       initialValue: value,
       isExpanded: true,
@@ -266,25 +336,29 @@ class ReferenceCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(reference.citation, style: theme.textTheme.bodySmall),
-                  const SizedBox(height: 4),
-                  Text(
-                    'DOI: ${reference.doi}',
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.primary,
+                  if (reference.doi != null) ...[
+                    const SizedBox(height: 4),
+                    Text(
+                      'DOI: ${reference.doi}',
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: theme.colorScheme.primary,
+                      ),
                     ),
-                  ),
+                  ],
                 ],
               ),
             ),
-            IconButton(
-              tooltip: 'DOI',
-              icon: const Icon(Icons.copy, size: 18),
-              onPressed: () {
-                Clipboard.setData(ClipboardData(text: reference.doiUrl));
-                ScaffoldMessenger.of(context)
-                    .showSnackBar(SnackBar(content: Text(context.l10n.copied)));
-              },
-            ),
+            if (reference.doiUrl != null)
+              IconButton(
+                tooltip: 'DOI',
+                icon: const Icon(Icons.copy, size: 18),
+                onPressed: () {
+                  Clipboard.setData(ClipboardData(text: reference.doiUrl!));
+                  ScaffoldMessenger.of(
+                    context,
+                  ).showSnackBar(SnackBar(content: Text(context.l10n.copied)));
+                },
+              ),
           ],
         ),
       ),

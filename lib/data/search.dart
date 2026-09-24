@@ -105,22 +105,24 @@ enum HitSource { impurity, residualSolvent }
 class PeakHit {
   const PeakHit({
     required this.source,
-    required this.shift,
-    required this.mult,
+    required this.value,
     required this.delta,
+    this.mult,
     this.impurity,
+    this.signal,
     this.solvent,
-    this.assignment,
   });
 
   final HitSource source;
-  final Impurity? impurity;
-  final Solvent? solvent;
-  final double shift;
-  final String mult;
-  final String? assignment;
 
-  /// Absolute distance from the queried shift, in ppm.
+  /// The matched shift (a [Signal] or a [ResidualPeak]).
+  final ShiftValue value;
+  final String? mult;
+  final Impurity? impurity;
+  final Signal? signal;
+  final Solvent? solvent;
+
+  /// Distance from the queried shift in ppm (0 inside a reported range).
   final double delta;
 }
 
@@ -134,27 +136,29 @@ List<PeakHit> findPeaksNear({
   required double tolerance,
   String? multiplicity,
 }) {
-  bool multOk(String m) => multiplicity == null || m == multiplicity;
+  // Peaks without a reported multiplicity are never filtered out.
+  bool multOk(String? m) =>
+      multiplicity == null || m == null || m == multiplicity;
   final hits = <PeakHit>[
     for (final p in solvent.residualFor(nucleus))
-      if ((p.shift - ppm).abs() <= tolerance && multOk(p.mult))
+      if (p.distanceTo(ppm) <= tolerance && multOk(p.mult))
         PeakHit(
           source: HitSource.residualSolvent,
-          solvent: solvent,
-          shift: p.shift,
+          value: p,
           mult: p.mult,
-          delta: (p.shift - ppm).abs(),
+          solvent: solvent,
+          delta: p.distanceTo(ppm),
         ),
     for (final i in impurities)
       for (final s in i.signalsIn(solvent.id, nucleus))
-        if ((s.shift - ppm).abs() <= tolerance && multOk(s.mult))
+        if (s.distanceTo(ppm) <= tolerance && multOk(s.mult))
           PeakHit(
             source: HitSource.impurity,
-            impurity: i,
-            shift: s.shift,
+            value: s,
             mult: s.mult,
-            assignment: s.assignment,
-            delta: (s.shift - ppm).abs(),
+            impurity: i,
+            signal: s,
+            delta: s.distanceTo(ppm),
           ),
   ]..sort((a, b) => a.delta.compareTo(b.delta));
   return hits;
@@ -205,7 +209,7 @@ List<MultiPeakMatch> matchMultiplePeaks({
       var bestDelta = double.infinity;
       for (var k = 0; k < observed.length; k++) {
         if (used.contains(k)) continue;
-        final d = (observed[k] - signal.shift).abs();
+        final d = signal.distanceTo(observed[k]);
         if (d <= tolerance && d < bestDelta) {
           bestDelta = d;
           bestIndex = k;
@@ -220,7 +224,7 @@ List<MultiPeakMatch> matchMultiplePeaks({
     final coverage = matched.length / signals.length;
     final meanDelta =
         matched
-            .map((m) => (m.observed - m.signal.shift).abs())
+            .map((m) => m.signal.distanceTo(m.observed))
             .reduce((a, b) => a + b) /
         matched.length;
     final closeness = tolerance == 0 ? 1.0 : 1 - 0.5 * (meanDelta / tolerance);
@@ -239,3 +243,8 @@ List<MultiPeakMatch> matchMultiplePeaks({
   });
   return results;
 }
+
+/// ¹H chemical shift of HDO in D₂O at [celsius], Gottlieb 1997 eq 1:
+/// δ = 5.060 − 0.0122·T + 2.11×10⁻⁵·T².
+double hdoShiftInD2O(double celsius) =>
+    5.060 - 0.0122 * celsius + 2.11e-5 * celsius * celsius;

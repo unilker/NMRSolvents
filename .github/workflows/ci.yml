@@ -17,6 +17,8 @@ jobs:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           channel: stable
           cache: true
+      - name: Data files are up to date with tool/sources
+        run: python3 tool/build_data.py && git diff --exit-code assets/data
       - run: flutter pub get
       - run: dart format --output=none --set-exit-if-changed lib test
       - run: flutter analyze

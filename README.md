@@ -10,8 +10,8 @@ and the ¹H/¹³C chemical shifts of common trace impurities. Turkish and Englis
 
 | Sekme | İçerik |
 |---|---|
-| **Çözücüler** | Kalıntı ¹H/¹³C pikleri, multiplisite, su piki, erime/kaynama noktası, o çözücüdeki safsızlıklar |
-| **Safsızlıklar** | Ad (TR/EN), kısaltma (EtOAc, DCM…) veya formülle arama, çözücüye göre filtre |
+| **Çözücüler** | Kalıntı ¹H/¹³C pikleri (kaynağa göre, J değerleriyle), su/HOD piki, fiziksel özellikler, saklama koşulları, o çözücüdeki safsızlıklar. D₂O için sıcaklığa göre HDO kayması hesaplayıcısı |
+| **Safsızlıklar** | Ad (TR/EN), kısaltma (EtOAc, DCM…) veya formülle arama, çözücüye göre filtre, CHEM21 yeşil kimya derecesi, sinyal başına kaynak |
 | **Pik ara** | *Tek pik*: δ ± tolerans ve multiplisiteye göre ters arama (çözücünün kendi pikleri dahil)<br>*Çoklu pik*: birden fazla gözlenen piki girip en olası safsızlıkları puanlı sıralama |
 | **Ayarlar** | Dil (cihaz/Türkçe/English), 6 renk teması, açık/koyu/sistem görünümü, kaynaklar |
 
@@ -19,38 +19,45 @@ and the ¹H/¹³C chemical shifts of common trace impurities. Turkish and Englis
 - Arama Türkçe karakterlere duyarsızdır: `diklorometan`, `DİKLOROMETAN`, `DCM`, `CH2Cl2` aynı sonucu verir.
 - Pik girişi hem `2.05, 4.12` hem `2,05 4,12` biçimini kabul eder.
 
-## Veri
+## Veri ve kaynaklar
 
-Tüm veriler `assets/data/` altında düz JSON dosyalarıdır; yeni veri eklemek için kod
-değiştirmek gerekmez.
+| Kaynak | İçerik |
+|---|---|
+| Fulmer ve ark., *Organometallics* **2010**, 29, 2176 | 12 döteryumlu çözücüde 45 safsızlık, ¹H ve ¹³C |
+| Gottlieb, Kotlyar, Nudelman, *J. Org. Chem.* **1997**, 62, 7512 | Fulmer'de olmayan bileşikler (MTBE, BHT, DMAc, DMSO, MEK), D₂O'da tuzlar, HDO–sıcaklık denklemi |
+| Babij ve ark., *Org. Process Res. Dev.* **2016**, 20, 661 | Endüstride tercih edilen 48 çözücü, 6 döteryumlu çözücü, CHEM21 dereceleri |
+| Cambridge Isotope Laboratories, *NMR Solvent Data Chart* | 19 döteryumlu çözücünün kalıntı pikleri, J(H,D)/J(C,D), HOD, yoğunluk, e.n./k.n., dielektrik sabiti, saklama |
 
-- `references.json` — makaleler (DOI ile)
-- `solvents.json` — döteryumlu çözücüler
-- `impurities.json` — safsızlıklar ve her çözücüdeki sinyalleri
+Toplam: **20 çözücü, 86 safsızlık, 3245 sinyal.** Uygulamadaki her değer, geldiği makaleyle birlikte gösterilir.
 
-Örnek bir safsızlık kaydı:
+**Birleştirme kuralı.** Aynı bileşik aynı çözücüde birden fazla makalede varsa öncelik
+**Fulmer 2010 > Gottlieb 1997 > Babij 2016** şeklindedir. Fulmer, Gottlieb'in verilerini
+yeniden ölçüp düzeltmiştir. Babij ise daha önce yayımlanmış çözücüler için Gottlieb ile
+Fulmer'in verilerini kullanır. Sonraki kaynaklar yalnızca önceki kaynaklarda eksik olan
+çözücüleri ve bileşikleri tamamlar. Kalıntı çözücü piklerinde Fulmer esastır; CIL
+değerleri ikinci bir set olarak ayrıca gösterilir.
 
-```json
-{
-  "id": "ethyl_acetate",
-  "name": { "en": "Ethyl acetate", "tr": "Etil asetat" },
-  "formula": "CH3COOCH2CH3",
-  "aliases": ["EtOAc", "AcOEt"],
-  "signals": [
-    { "solvent": "cdcl3", "nucleus": "1H",  "shift": 2.05,  "mult": "s", "assignment": "CH3CO" },
-    { "solvent": "cdcl3", "nucleus": "13C", "shift": 171.36, "mult": "s", "assignment": "CO" }
-  ],
-  "ref": "gottlieb1997",
-  "verified": false
-}
-```
+**Aktarım ve doğrulama** (`tool/`):
 
-> **Not:** Mevcut veri seti bir başlangıç setidir ve `"verified": false` olarak
-> işaretlidir; uygulamada "Doğrulanmadı" etiketiyle görünür. Değerler kaynak
-> makalelerle karşılaştırıldıkça `true` yapılacaktır.
+- `extract_fulmer.py`, `extract_gottlieb.py`: PDF metin katmanından tabloları kelime
+  koordinatlarıyla yeniden kurar. Çıktılar `tool/sources/*.json` dosyalarına yazılır ve
+  basılı sayfayla karşılaştırılmıştır.
+- `sources/babij2016.py`: Babij tabloları PDF'de resim olarak gömülü olduğu için elle
+  aktarılmıştır. `check_babij.py`, bu aktarımı bağımsız bir Tesseract OCR okumasıyla hücre
+  hücre karşılaştırır. Uyuşmayan hücrelerin hepsi büyütülmüş görüntüde kontrol
+  edilmiştir.
+- `sources/cil_chart.py`: CIL tablosunun aktarımı.
+- `build_data.py`: kaynakları birleştirip `assets/data/*.json` dosyalarını üretir.
+  CI, bu dosyaların kaynaklarla güncel olduğunu denetler.
 
-`test/search_test.dart` her çözücü/kaynak kimliğinin geçerli olduğunu ve her kaydın
-Türkçe ve İngilizce adı bulunduğunu denetler.
+Makalelerdeki bilinen baskı hataları: Fulmer Tablo 2'de asetonun TFE-d₃ sütununda CO ve
+CH₃ değerleri yer değiştirmiştir; uygulamada düzeltilmiş ve not düşülmüştür. Babij
+Tablo 2'de MEK CH₂**CH₃** değeri CD₃CN için 7.14 basılmıştır; Gottlieb'in 8.14 değeri
+öncelikli olduğu için bu değer kullanılmaz.
+
+Yeni bir makale eklemek için: tabloyu `tool/sources/` altına aktarın, bileşik adlarını
+`build_data.py` içindeki `SOURCE_NAMES` ve `IMPURITIES` tablolarına ekleyin, ardından
+`python3 tool/build_data.py` komutunu çalıştırın.
 
 ## Geliştirme
 
