@@ -1,0 +1,323 @@
+{
+  "@@locale": "en",
+  "appTitle": "NMR Solvent Impurities",
+  "tabSolvents": "Solvents",
+  "tabImpurities": "Impurities",
+  "tabPeakSearch": "Peak search",
+  "tabSettings": "Settings",
+  "searchSolventsHint": "Search solvents",
+  "searchImpuritiesHint": "Name, abbreviation or formula",
+  "noResults": "No results",
+  "residualPeaks": "Residual solvent peaks",
+  "waterPeak": "Water (H₂O/HOD)",
+  "meltingPoint": "Melting point",
+  "boilingPoint": "Boiling point",
+  "impuritiesInSolvent": "Impurities in this solvent",
+  "reference": "Reference",
+  "solvent": "Solvent",
+  "allSolvents": "All solvents",
+  "formula": "Formula",
+  "aliases": "Also known as",
+  "noDataForSolvent": "No data for this solvent",
+  "shift": "δ (ppm)",
+  "multiplicity": "Multiplicity",
+  "assignment": "Assignment",
+  "nucleus": "Nucleus",
+  "singlePeak": "Single peak",
+  "multiplePeaks": "Multiple peaks",
+  "shiftInputLabel": "Chemical shift (ppm)",
+  "anyMultiplicity": "Any",
+  "residualSolventPeak": "Residual solvent peak",
+  "enterValueToSearch": "Enter a chemical shift to search",
+  "language": "Language",
+  "systemLanguage": "Device language",
+  "theme": "Theme",
+  "appearance": "Appearance",
+  "modeSystem": "System",
+  "modeLight": "Light",
+  "modeDark": "Dark",
+  "darkOnlyTheme": "This theme is always dark",
+  "aboutText": "NMR Solvent Impurities is a quick reference for identifying the residual signals of deuterated solvents and common trace impurities in NMR spectra. The data were compiled from the peer-reviewed literature and a manufacturer's solvent chart, and the app works fully offline.",
+  "themeClassic": "Classic (red · blue · black)",
+  "themeMidnight": "Midnight",
+  "themeCrimson": "Crimson",
+  "themeOcean": "Ocean",
+  "themeEmerald": "Emerald",
+  "themeGraphite": "Graphite",
+  "copied": "Copied",
+  "toleranceLabel": "Tolerance: ±{value} ppm",
+  "@toleranceLabel": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "matchedSignals": "{matched} of {total} signals matched",
+  "@matchedSignals": {
+    "placeholders": {
+      "matched": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "signalsIn": "Signals in {solvent}",
+  "@signalsIn": {
+    "placeholders": {
+      "solvent": {
+        "type": "String"
+      }
+    }
+  },
+  "deltaPpm": "Δ {value} ppm",
+  "@deltaPpm": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "impurityCount": "{count, plural, =1{1 impurity} other{{count} impurities}}",
+  "@impurityCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "properties": "Physical properties",
+  "density": "Density (20 °C)",
+  "dielectric": "Dielectric constant",
+  "molecularWeight": "Molecular weight",
+  "mpBpNote": "Melting and boiling points are those of the unlabeled compound (except D₂O).",
+  "storage": "Storage",
+  "storageRt": "Room temperature, away from light and moisture.",
+  "storageRt1y": "Room temperature, away from light and moisture. Stable for one year (unopened); re-analyze after that.",
+  "storageFridge6m": "Refrigerated (−5 to 5 °C), away from light and moisture. Stable for six months (unopened); re-analyze after that.",
+  "hodTemperature": "HDO shift vs temperature",
+  "hodTemperatureNote": "Gottlieb 1997, eq 1. Referenced to sodium 3-(trimethylsilyl)propanesulfonate.",
+  "note": "Note",
+  "hodOnChart": "HOD (CIL chart)",
+  "sources": "Sources",
+  "residualFrom": "From {source}",
+  "@residualFrom": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "hodAt": "δ(HDO) at {temp} °C: {shift} ppm",
+  "@hodAt": {
+    "placeholders": {
+      "temp": {
+        "type": "String"
+      },
+      "shift": {
+        "type": "String"
+      }
+    }
+  },
+  "stepSolvent": "Solvent",
+  "stepShift": "Chemical shift",
+  "stepShifts": "Observed peaks",
+  "stepMultiplicity": "Splitting (multiplicity)",
+  "multiplicityHint": "Pick the pattern you see in your spectrum.",
+  "multS": "singlet",
+  "multD": "doublet",
+  "multT": "triplet",
+  "multQ": "quartet",
+  "multQuint": "quintet",
+  "multSept": "septet",
+  "multM": "multiplet",
+  "multDd": "doublet of doublets",
+  "multBrS": "broad singlet",
+  "matchExact": "Exact match",
+  "matchCompatible": "Compatible splitting",
+  "matchCompatibleHint": "Reported as a multiplet or a more complex pattern that can look like the one you saw.",
+  "matchUnknown": "Splitting not reported",
+  "nearestHeader": "Nothing within ±{tol} ppm. Closest signals:",
+  "@nearestHeader": {
+    "placeholders": {
+      "tol": {
+        "type": "String"
+      }
+    }
+  },
+  "resultCount": "{count, plural, =1{1 result} other{{count} results}}",
+  "@resultCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "closeExactHeader": "Nearby exact matches (outside the tolerance):",
+  "addPeak": "Add peak",
+  "removePeak": "Remove peak",
+  "stepMultiplicityShort": "Splitting",
+  "peakRowsHint": "Enter each peak and, if you can see it, its splitting. You can also paste a list such as \"2.05 s, 4.12 q, 1.26 t\".",
+  "peakLabel": "Peak {n}",
+  "@peakLabel": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "tabInfo": "Info",
+  "developer": "Developer",
+  "aboutApp": "About the app",
+  "features": "Features",
+  "feature1": "Solvent guide: residual ¹H/¹³C peaks with coupling constants, water/HOD peak, physical properties and storage.",
+  "feature2": "Impurity tables: search by name, abbreviation or formula, with the source of every value.",
+  "feature3": "Peak search: enter the solvent, chemical shift and splitting of a peak in your spectrum to find what it may be.",
+  "feature4": "Multiple peaks: enter several peaks, with their splittings, to rank the most likely impurities.",
+  "feature5": "Temperature-dependent HDO shift calculator for D₂O.",
+  "feature6": "Turkish and English interface, six colour themes, light and dark mode.",
+  "dataContent": "Data",
+  "dataMethodText": "Values were transcribed from the tables of the references below and checked against the printed tables. When a compound appears in the same solvent in more than one source, the order of precedence is Fulmer 2010 > Gottlieb 1997 > Babij 2016; later sources only fill in missing data. The app shows the source of every value. Green-chemistry scores and rankings come from the original CHEM21 guide.",
+  "disclaimerTitle": "Important note",
+  "disclaimerText": "Chemical shifts vary with concentration, temperature, pH and instrument. This app is a reference aid; for a definitive assignment consult the original sources and your own measurements. The tabulated data belong to their publishers and to Cambridge Isotope Laboratories; this app is not affiliated with them.",
+  "referenceList": "References",
+  "versionLabel": "Version {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStats": "{solvents} deuterated solvents · {impurities} impurities · {signals} signals",
+  "@dataStats": {
+    "placeholders": {
+      "solvents": {
+        "type": "int"
+      },
+      "impurities": {
+        "type": "int"
+      },
+      "signals": {
+        "type": "int"
+      }
+    }
+  },
+  "rankRecommended": "Recommended",
+  "rankProblematic": "Problematic",
+  "rankHazardous": "Hazardous",
+  "rankHighlyHazardous": "Highly hazardous",
+  "rankRecommendedDef": "To be tested first in a screening exercise, if there is no chemical incompatibility with the process.",
+  "rankProblematicDef": "Can be used in the lab or kilo lab, but scale-up to pilot plant or production needs specific measures or significant energy.",
+  "rankHazardousDef": "Very strong constraints on scale-up; substituting them during process development is a priority.",
+  "rankHighlyHazardousDef": "To be avoided, even in the laboratory.",
+  "greenChemistry": "Green chemistry (CHEM21)",
+  "safetyScore": "Safety",
+  "healthScore": "Health",
+  "envScore": "Environment",
+  "flashPoint": "Flash point",
+  "worstH3": "Worst health statement",
+  "worstH4": "Environment statement",
+  "hNone": "None (full REACh registration)",
+  "hNa": "Not available (no full REACh registration)",
+  "rankingDefault": "Ranking from the scores",
+  "rankingFinal": "CHEM21 ranking",
+  "rankChangedNote": "The CHEM21 team changed the ranking from the scores after discussion.",
+  "casNumber": "CAS No.",
+  "noteSolid": "Solid at 20 °C",
+  "noteWaterSensitive": "Water sensitive",
+  "nmrSolventsView": "NMR solvents",
+  "chem21GuideView": "CHEM21 guide",
+  "chem21Intro": "Solvent selection guide of the CHEM21 consortium for the pharmaceutical industry. Each solvent is scored 1–10 for safety, health and environment (1 is best) and ranked in four classes.",
+  "chem21BabijNote": "The CHEM21 marks in the Babij 2016 table differ from this original guide for some solvents; the app uses the original guide (Prat 2016).",
+  "searchChem21Hint": "Search solvents",
+  "howScored": "How are solvents scored?",
+  "rankClasses": "Ranking classes",
+  "scoreColors": "Scores 1–3 are green, 4–6 yellow and 7–10 red.",
+  "safetyRule": "Based on the flash point: >60 °C → 1; 24–60 °C → 3; 0–23 °C → 4; −1 to −20 °C → 5; below −20 °C → 7. One point is added for each of: auto-ignition temperature below 200 °C, resistivity above 10⁸ Ω·m (static charge build-up) and ability to form peroxides (EUH019). Solvents with a decomposition energy above 500 J/g, such as nitromethane, score 10.",
+  "healthRule": "Based on the most severe GHS/CLP hazard statement: carcinogen, mutagen or reprotoxic cat. 1 (H340, H350, H360) → 9, cat. 2 (H341, H351, H361) → 6; acute toxicity H300/H310/H330 → 9, H301/H311/H331 → 6, H302/H312/H332/H336 → 2; organ toxicity H370/H372 → 6, H334 → 4, H304/H371/H373 → 2; irritation H314 → 7, H318 → 4, H315/H317/H319/H335 → 2. One point is added if the boiling point is below 85 °C. A fully registered solvent without H3xx statements scores 1; without full data, 5.",
+  "envRule": "The higher of two scores: boiling point (70–139 °C → 3; 50–69 or 140–200 °C → 5; below 50 or above 200 °C → 7) and aquatic hazard statements (none → 3; H412/H413 → 5; H400/H410/H411 → 7). Without full REACh registration → 5; water → 1; ozone-depleting (H420) → 10.",
+  "rankRule": "Ranking from the scores (the most stringent rule applies): any score ≥ 8, or two red scores (7–10) → hazardous; one score of 7, or two yellow scores (4–6) → problematic; otherwise recommended. For the classical solvents the CHEM21 team set the final ranking after discussion; highly hazardous is only assigned then.",
+  "showNmrData": "NMR data",
+  "deuteratedForms": "Deuterated NMR solvents",
+  "family": "Family",
+  "hStatementNote": "Hazard statement wording from the GHS/CLP regulation.",
+  "chem21For": "Unlabeled {name}",
+  "@chem21For": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "chem21Count": "{count, plural, =1{1 solvent} other{{count} solvents}}",
+  "@chem21Count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "feature7": "CHEM21 green-chemistry guide: safety, health and environment scores and ranking of 75 solvents, and how they are scored.",
+  "tabRecords": "Records",
+  "saveResults": "Save results",
+  "sampleName": "Sample name",
+  "sampleNameRequired": "Enter a sample name",
+  "analysisDate": "Analysis date",
+  "noteOptional": "Note (optional)",
+  "markIdentified": "Mark the impurities you identified in the spectrum.",
+  "identifiedSection": "Identified",
+  "otherCandidates": "Other candidates",
+  "save": "Save",
+  "recordSaved": "Record saved",
+  "view": "View",
+  "newRecord": "New record",
+  "editRecord": "Edit record",
+  "recordsEmpty": "No saved records yet. Run a search in Peak search and tap \"Save results\".",
+  "searchRecordsHint": "Sample name or note",
+  "deleteRecord": "Delete record",
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "copyAsText": "Copy as text",
+  "enteredPeaks": "Entered peaks",
+  "searchType": "Search",
+  "noneIdentified": "No impurity marked as identified.",
+  "recordHeader": "NMR Solvent Impurities – analysis record",
+  "localOnlyNote": "Records are stored only on this device. Uninstalling the app deletes them; use \"Copy as text\" to keep a copy.",
+  "tolerance": "Tolerance",
+  "edit": "Edit",
+  "deleteConfirm": "Delete the record \"{name}\"?",
+  "@deleteConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "peakCount": "{count, plural, =1{1 peak} other{{count} peaks}}",
+  "@peakCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "identifiedCount": "{count} identified",
+  "@identifiedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "savedOn": "Saved on {date}",
+  "@savedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  }
+}

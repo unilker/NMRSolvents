@@ -1,0 +1,42 @@
+[
+ {
+  "id": "fulmer2010",
+  "short": "Fulmer 2010",
+  "authors": "G. R. Fulmer, A. J. M. Miller, N. H. Sherden, H. E. Gottlieb, A. Nudelman, B. M. Stoltz, J. E. Bercaw, K. I. Goldberg",
+  "title": "NMR Chemical Shifts of Trace Impurities: Common Laboratory Solvents, Organics, and Gases in Deuterated Solvents Relevant to the Organometallic Chemist",
+  "source": "Organometallics 2010, 29, 2176-2179",
+  "doi": "10.1021/om100106e"
+ },
+ {
+  "id": "gottlieb1997",
+  "short": "Gottlieb 1997",
+  "authors": "H. E. Gottlieb, V. Kotlyar, A. Nudelman",
+  "title": "NMR Chemical Shifts of Common Laboratory Solvents as Trace Impurities",
+  "source": "J. Org. Chem. 1997, 62, 7512-7515",
+  "doi": "10.1021/jo971176v"
+ },
+ {
+  "id": "babij2016",
+  "short": "Babij 2016",
+  "authors": "N. R. Babij, E. O. McCusker, G. T. Whiteker, B. Canturk, N. Choy, L. C. Creemer, C. V. De Amicis, N. M. Hewlett, P. L. Johnson, J. A. Knobelsdorf, F. Li, B. A. Lorsbach, B. M. Nugent, S. J. Ryan, M. R. Smith, Q. Yang",
+  "title": "NMR Chemical Shifts of Trace Impurities: Industrially Preferred Solvents Used in Process and Green Chemistry",
+  "source": "Org. Process Res. Dev. 2016, 20, 661-667",
+  "doi": "10.1021/acs.oprd.5b00417"
+ },
+ {
+  "id": "prat2016",
+  "short": "Prat 2016 (CHEM21)",
+  "authors": "D. Prat, A. Wells, J. Hayler, H. Sneddon, C. R. McElroy, S. Abou-Shehada, P. J. Dunn",
+  "title": "CHEM21 selection guide of classical- and less classical-solvents",
+  "source": "Green Chem. 2016, 18, 288-296",
+  "doi": "10.1039/c5gc01008j"
+ },
+ {
+  "id": "cil",
+  "short": "CIL",
+  "authors": "Cambridge Isotope Laboratories, Inc.",
+  "title": "NMR Solvent Data Chart",
+  "source": "isotope.com, NMR_SDC 5/15",
+  "doi": null
+ }
+]

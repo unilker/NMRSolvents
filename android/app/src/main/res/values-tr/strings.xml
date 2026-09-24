@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ana ekrandaki ad; tam başlık "NMR Çözücü Safsızlıkları". -->
+    <string name="app_name">NMR Safsızlık</string>
+</resources>

@@ -1,0 +1,3735 @@
+{
+ "ref": "gottlieb1997",
+ "h1": [
+  {
+   "compound": "water",
+   "group": "OH",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 1.56
+    },
+    "acetone_d6": {
+     "shift": 2.84
+    },
+    "dmso_d6": {
+     "shift": 3.33
+    },
+    "c6d6": {
+     "shift": 0.4
+    },
+    "cd3cn": {
+     "shift": 2.13
+    },
+    "cd3od": {
+     "shift": 4.87
+    }
+   }
+  },
+  {
+   "compound": "acetic acid",
+   "group": "CH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 2.1
+    },
+    "acetone_d6": {
+     "shift": 1.96
+    },
+    "dmso_d6": {
+     "shift": 1.91
+    },
+    "c6d6": {
+     "shift": 1.55
+    },
+    "cd3cn": {
+     "shift": 1.96
+    },
+    "cd3od": {
+     "shift": 1.99
+    },
+    "d2o": {
+     "shift": 2.08
+    }
+   }
+  },
+  {
+   "compound": "acetone",
+   "group": "CH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 2.17
+    },
+    "acetone_d6": {
+     "shift": 2.09
+    },
+    "dmso_d6": {
+     "shift": 2.09
+    },
+    "c6d6": {
+     "shift": 1.55
+    },
+    "cd3cn": {
+     "shift": 2.08
+    },
+    "cd3od": {
+     "shift": 2.15
+    },
+    "d2o": {
+     "shift": 2.22
+    }
+   }
+  },
+  {
+   "compound": "acetonitrile",
+   "group": "CH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 2.1
+    },
+    "acetone_d6": {
+     "shift": 2.05
+    },
+    "dmso_d6": {
+     "shift": 2.07
+    },
+    "c6d6": {
+     "shift": 1.55
+    },
+    "cd3cn": {
+     "shift": 1.96
+    },
+    "cd3od": {
+     "shift": 2.03
+    },
+    "d2o": {
+     "shift": 2.06
+    }
+   }
+  },
+  {
+   "compound": "benzene",
+   "group": "CH",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 7.36
+    },
+    "acetone_d6": {
+     "shift": 7.36
+    },
+    "dmso_d6": {
+     "shift": 7.37
+    },
+    "c6d6": {
+     "shift": 7.15
+    },
+    "cd3cn": {
+     "shift": 7.37
+    },
+    "cd3od": {
+     "shift": 7.33
+    }
+   }
+  },
+  {
+   "compound": "tert-butyl alcohol",
+   "group": "CH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 1.28
+    },
+    "acetone_d6": {
+     "shift": 1.18
+    },
+    "dmso_d6": {
+     "shift": 1.11
+    },
+    "c6d6": {
+     "shift": 1.05
+    },
+    "cd3cn": {
+     "shift": 1.16
+    },
+    "cd3od": {
+     "shift": 1.4
+    },
+    "d2o": {
+     "shift": 1.24
+    }
+   }
+  },
+  {
+   "compound": "tert-butyl alcohol",
+   "group": "OH",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "dmso_d6": {
+     "shift": 4.19
+    },
+    "c6d6": {
+     "shift": 1.55
+    },
+    "cd3cn": {
+     "shift": 2.18
+    }
+   }
+  },
+  {
+   "compound": "tert-butyl methyl ether",
+   "group": "CCH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 1.19
+    },
+    "acetone_d6": {
+     "shift": 1.13
+    },
+    "dmso_d6": {
+     "shift": 1.11
+    },
+    "c6d6": {
+     "shift": 1.07
+    },
+    "cd3cn": {
+     "shift": 1.14
+    },
+    "cd3od": {
+     "shift": 1.15
+    },
+    "d2o": {
+     "shift": 1.21
+    }
+   }
+  },
+  {
+   "compound": "tert-butyl methyl ether",
+   "group": "OCH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 3.22
+    },
+    "acetone_d6": {
+     "shift": 3.13
+    },
+    "dmso_d6": {
+     "shift": 3.08
+    },
+    "c6d6": {
+     "shift": 3.04
+    },
+    "cd3cn": {
+     "shift": 3.13
+    },
+    "cd3od": {
+     "shift": 3.2
+    },
+    "d2o": {
+     "shift": 3.22
+    }
+   }
+  },
+  {
+   "compound": "BHT",
+   "group": "ArH",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 6.98
+    },
+    "acetone_d6": {
+     "shift": 6.96
+    },
+    "dmso_d6": {
+     "shift": 6.87
+    },
+    "c6d6": {
+     "shift": 7.05
+    },
+    "cd3cn": {
+     "shift": 6.97
+    },
+    "cd3od": {
+     "shift": 6.92
+    }
+   }
+  },
+  {
+   "compound": "BHT",
+   "group": "OH",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 5.01
+    },
+    "dmso_d6": {
+     "shift": 6.65
+    },
+    "c6d6": {
+     "shift": 4.79
+    },
+    "cd3cn": {
+     "shift": 5.2
+    }
+   }
+  },
+  {
+   "compound": "BHT",
+   "group": "ArCH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 2.27
+    },
+    "acetone_d6": {
+     "shift": 2.22
+    },
+    "dmso_d6": {
+     "shift": 2.18
+    },
+    "c6d6": {
+     "shift": 2.24
+    },
+    "cd3cn": {
+     "shift": 2.22
+    },
+    "cd3od": {
+     "shift": 2.21
+    }
+   }
+  },
+  {
+   "compound": "BHT",
+   "group": "ArC(CH3)3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 1.43
+    },
+    "acetone_d6": {
+     "shift": 1.41
+    },
+    "dmso_d6": {
+     "shift": 1.36
+    },
+    "c6d6": {
+     "shift": 1.38
+    },
+    "cd3cn": {
+     "shift": 1.39
+    },
+    "cd3od": {
+     "shift": 1.4
+    }
+   }
+  },
+  {
+   "compound": "chloroform",
+   "group": "CH",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 7.26
+    },
+    "acetone_d6": {
+     "shift": 8.02
+    },
+    "dmso_d6": {
+     "shift": 8.32
+    },
+    "c6d6": {
+     "shift": 6.15
+    },
+    "cd3cn": {
+     "shift": 7.58
+    },
+    "cd3od": {
+     "shift": 7.9
+    }
+   }
+  },
+  {
+   "compound": "cyclohexane",
+   "group": "CH2",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 1.43
+    },
+    "acetone_d6": {
+     "shift": 1.43
+    },
+    "dmso_d6": {
+     "shift": 1.4
+    },
+    "c6d6": {
+     "shift": 1.4
+    },
+    "cd3cn": {
+     "shift": 1.44
+    },
+    "cd3od": {
+     "shift": 1.45
+    }
+   }
+  },
+  {
+   "compound": "1,2-dichloroethane",
+   "group": "CH2",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 3.73
+    },
+    "acetone_d6": {
+     "shift": 3.87
+    },
+    "dmso_d6": {
+     "shift": 3.9
+    },
+    "c6d6": {
+     "shift": 2.9
+    },
+    "cd3cn": {
+     "shift": 3.81
+    },
+    "cd3od": {
+     "shift": 3.78
+    }
+   }
+  },
+  {
+   "compound": "dichloromethane",
+   "group": "CH2",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 5.3
+    },
+    "acetone_d6": {
+     "shift": 5.63
+    },
+    "dmso_d6": {
+     "shift": 5.76
+    },
+    "c6d6": {
+     "shift": 4.27
+    },
+    "cd3cn": {
+     "shift": 5.44
+    },
+    "cd3od": {
+     "shift": 5.49
+    }
+   }
+  },
+  {
+   "compound": "diethyl ether",
+   "group": "CH3",
+   "mult": "t",
+   "J": "7",
+   "values": {
+    "cdcl3": {
+     "shift": 1.21
+    },
+    "acetone_d6": {
+     "shift": 1.11
+    },
+    "dmso_d6": {
+     "shift": 1.09
+    },
+    "c6d6": {
+     "shift": 1.11
+    },
+    "cd3cn": {
+     "shift": 1.12
+    },
+    "cd3od": {
+     "shift": 1.18
+    },
+    "d2o": {
+     "shift": 1.17
+    }
+   }
+  },
+  {
+   "compound": "diethyl ether",
+   "group": "CH2",
+   "mult": "q",
+   "J": "7",
+   "values": {
+    "cdcl3": {
+     "shift": 3.48
+    },
+    "acetone_d6": {
+     "shift": 3.41
+    },
+    "dmso_d6": {
+     "shift": 3.38
+    },
+    "c6d6": {
+     "shift": 3.26
+    },
+    "cd3cn": {
+     "shift": 3.42
+    },
+    "cd3od": {
+     "shift": 3.49
+    },
+    "d2o": {
+     "shift": 3.56
+    }
+   }
+  },
+  {
+   "compound": "diglyme",
+   "group": "CH2",
+   "mult": "m",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 3.65
+    },
+    "acetone_d6": {
+     "shift": 3.56
+    },
+    "dmso_d6": {
+     "shift": 3.51
+    },
+    "c6d6": {
+     "shift": 3.46
+    },
+    "cd3cn": {
+     "shift": 3.53
+    },
+    "cd3od": {
+     "shift": 3.61
+    },
+    "d2o": {
+     "shift": 3.67
+    }
+   }
+  },
+  {
+   "compound": "diglyme",
+   "group": "CH2",
+   "mult": "m",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 3.57
+    },
+    "acetone_d6": {
+     "shift": 3.47
+    },
+    "dmso_d6": {
+     "shift": 3.38
+    },
+    "c6d6": {
+     "shift": 3.34
+    },
+    "cd3cn": {
+     "shift": 3.45
+    },
+    "cd3od": {
+     "shift": 3.58
+    },
+    "d2o": {
+     "shift": 3.61
+    }
+   }
+  },
+  {
+   "compound": "diglyme",
+   "group": "OCH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 3.39
+    },
+    "acetone_d6": {
+     "shift": 3.28
+    },
+    "dmso_d6": {
+     "shift": 3.24
+    },
+    "c6d6": {
+     "shift": 3.11
+    },
+    "cd3cn": {
+     "shift": 3.29
+    },
+    "cd3od": {
+     "shift": 3.35
+    },
+    "d2o": {
+     "shift": 3.37
+    }
+   }
+  },
+  {
+   "compound": "1,2-dimethoxyethane",
+   "group": "CH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 3.4
+    },
+    "acetone_d6": {
+     "shift": 3.28
+    },
+    "dmso_d6": {
+     "shift": 3.24
+    },
+    "c6d6": {
+     "shift": 3.12
+    },
+    "cd3cn": {
+     "shift": 3.28
+    },
+    "cd3od": {
+     "shift": 3.35
+    },
+    "d2o": {
+     "shift": 3.37
+    }
+   }
+  },
+  {
+   "compound": "1,2-dimethoxyethane",
+   "group": "CH2",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 3.55
+    },
+    "acetone_d6": {
+     "shift": 3.46
+    },
+    "dmso_d6": {
+     "shift": 3.43
+    },
+    "c6d6": {
+     "shift": 3.33
+    },
+    "cd3cn": {
+     "shift": 3.45
+    },
+    "cd3od": {
+     "shift": 3.52
+    },
+    "d2o": {
+     "shift": 3.6
+    }
+   }
+  },
+  {
+   "compound": "dimethylacetamide",
+   "group": "CH3CO",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 2.09
+    },
+    "acetone_d6": {
+     "shift": 1.97
+    },
+    "dmso_d6": {
+     "shift": 1.96
+    },
+    "c6d6": {
+     "shift": 1.6
+    },
+    "cd3cn": {
+     "shift": 1.97
+    },
+    "cd3od": {
+     "shift": 2.07
+    },
+    "d2o": {
+     "shift": 2.08
+    }
+   }
+  },
+  {
+   "compound": "dimethylacetamide",
+   "group": "NCH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 3.02
+    },
+    "acetone_d6": {
+     "shift": 3.0
+    },
+    "dmso_d6": {
+     "shift": 2.94
+    },
+    "c6d6": {
+     "shift": 2.57
+    },
+    "cd3cn": {
+     "shift": 2.96
+    },
+    "cd3od": {
+     "shift": 3.31
+    },
+    "d2o": {
+     "shift": 3.06
+    }
+   }
+  },
+  {
+   "compound": "dimethylacetamide",
+   "group": "NCH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 2.94
+    },
+    "acetone_d6": {
+     "shift": 2.83
+    },
+    "dmso_d6": {
+     "shift": 2.78
+    },
+    "c6d6": {
+     "shift": 2.05
+    },
+    "cd3cn": {
+     "shift": 2.83
+    },
+    "cd3od": {
+     "shift": 2.92
+    },
+    "d2o": {
+     "shift": 2.9
+    }
+   }
+  },
+  {
+   "compound": "dimethylformamide",
+   "group": "CH",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 8.02
+    },
+    "acetone_d6": {
+     "shift": 7.96
+    },
+    "dmso_d6": {
+     "shift": 7.95
+    },
+    "c6d6": {
+     "shift": 7.63
+    },
+    "cd3cn": {
+     "shift": 7.92
+    },
+    "cd3od": {
+     "shift": 7.97
+    },
+    "d2o": {
+     "shift": 7.92
+    }
+   }
+  },
+  {
+   "compound": "dimethylformamide",
+   "group": "CH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 2.96
+    },
+    "acetone_d6": {
+     "shift": 2.94
+    },
+    "dmso_d6": {
+     "shift": 2.89
+    },
+    "c6d6": {
+     "shift": 2.36
+    },
+    "cd3cn": {
+     "shift": 2.89
+    },
+    "cd3od": {
+     "shift": 2.99
+    },
+    "d2o": {
+     "shift": 3.01
+    }
+   }
+  },
+  {
+   "compound": "dimethylformamide",
+   "group": "CH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 2.88
+    },
+    "acetone_d6": {
+     "shift": 2.78
+    },
+    "dmso_d6": {
+     "shift": 2.73
+    },
+    "c6d6": {
+     "shift": 1.86
+    },
+    "cd3cn": {
+     "shift": 2.77
+    },
+    "cd3od": {
+     "shift": 2.86
+    },
+    "d2o": {
+     "shift": 2.85
+    }
+   }
+  },
+  {
+   "compound": "dimethyl sulfoxide",
+   "group": "CH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 2.62
+    },
+    "acetone_d6": {
+     "shift": 2.52
+    },
+    "dmso_d6": {
+     "shift": 2.54
+    },
+    "c6d6": {
+     "shift": 1.68
+    },
+    "cd3cn": {
+     "shift": 2.5
+    },
+    "cd3od": {
+     "shift": 2.65
+    },
+    "d2o": {
+     "shift": 2.71
+    }
+   }
+  },
+  {
+   "compound": "dioxane",
+   "group": "CH2",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 3.71
+    },
+    "acetone_d6": {
+     "shift": 3.59
+    },
+    "dmso_d6": {
+     "shift": 3.57
+    },
+    "c6d6": {
+     "shift": 3.35
+    },
+    "cd3cn": {
+     "shift": 3.6
+    },
+    "cd3od": {
+     "shift": 3.66
+    },
+    "d2o": {
+     "shift": 3.75
+    }
+   }
+  },
+  {
+   "compound": "ethanol",
+   "group": "CH3",
+   "mult": "t",
+   "J": "7",
+   "values": {
+    "cdcl3": {
+     "shift": 1.25
+    },
+    "acetone_d6": {
+     "shift": 1.12
+    },
+    "dmso_d6": {
+     "shift": 1.06
+    },
+    "c6d6": {
+     "shift": 0.96
+    },
+    "cd3cn": {
+     "shift": 1.12
+    },
+    "cd3od": {
+     "shift": 1.19
+    },
+    "d2o": {
+     "shift": 1.17
+    }
+   }
+  },
+  {
+   "compound": "ethanol",
+   "group": "CH2",
+   "mult": "q",
+   "J": "7",
+   "values": {
+    "cdcl3": {
+     "shift": 3.72
+    },
+    "acetone_d6": {
+     "shift": 3.57
+    },
+    "dmso_d6": {
+     "shift": 3.44
+    },
+    "c6d6": {
+     "shift": 3.34
+    },
+    "cd3cn": {
+     "shift": 3.54
+    },
+    "cd3od": {
+     "shift": 3.6
+    },
+    "d2o": {
+     "shift": 3.65
+    }
+   }
+  },
+  {
+   "compound": "ethanol",
+   "group": "OH",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 1.32
+    },
+    "acetone_d6": {
+     "shift": 3.39
+    },
+    "dmso_d6": {
+     "shift": 4.63
+    },
+    "cd3cn": {
+     "shift": 2.47
+    }
+   }
+  },
+  {
+   "compound": "ethyl acetate",
+   "group": "CH3CO",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 2.05
+    },
+    "acetone_d6": {
+     "shift": 1.97
+    },
+    "dmso_d6": {
+     "shift": 1.99
+    },
+    "c6d6": {
+     "shift": 1.65
+    },
+    "cd3cn": {
+     "shift": 1.97
+    },
+    "cd3od": {
+     "shift": 2.01
+    },
+    "d2o": {
+     "shift": 2.07
+    }
+   }
+  },
+  {
+   "compound": "ethyl acetate",
+   "group": "CH2CH3",
+   "mult": "q",
+   "J": "7",
+   "values": {
+    "cdcl3": {
+     "shift": 4.12
+    },
+    "acetone_d6": {
+     "shift": 4.05
+    },
+    "dmso_d6": {
+     "shift": 4.03
+    },
+    "c6d6": {
+     "shift": 3.89
+    },
+    "cd3cn": {
+     "shift": 4.06
+    },
+    "cd3od": {
+     "shift": 4.09
+    },
+    "d2o": {
+     "shift": 4.14
+    }
+   }
+  },
+  {
+   "compound": "ethyl acetate",
+   "group": "CH2CH3",
+   "mult": "t",
+   "J": "7",
+   "values": {
+    "cdcl3": {
+     "shift": 1.26
+    },
+    "acetone_d6": {
+     "shift": 1.2
+    },
+    "dmso_d6": {
+     "shift": 1.17
+    },
+    "c6d6": {
+     "shift": 0.92
+    },
+    "cd3cn": {
+     "shift": 1.2
+    },
+    "cd3od": {
+     "shift": 1.24
+    },
+    "d2o": {
+     "shift": 1.24
+    }
+   }
+  },
+  {
+   "compound": "ethyl methyl ketone",
+   "group": "CH3CO",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 2.14
+    },
+    "acetone_d6": {
+     "shift": 2.07
+    },
+    "dmso_d6": {
+     "shift": 2.07
+    },
+    "c6d6": {
+     "shift": 1.58
+    },
+    "cd3cn": {
+     "shift": 2.06
+    },
+    "cd3od": {
+     "shift": 2.12
+    },
+    "d2o": {
+     "shift": 2.19
+    }
+   }
+  },
+  {
+   "compound": "ethyl methyl ketone",
+   "group": "CH2CH3",
+   "mult": "q",
+   "J": "7",
+   "values": {
+    "cdcl3": {
+     "shift": 2.46
+    },
+    "acetone_d6": {
+     "shift": 2.45
+    },
+    "dmso_d6": {
+     "shift": 2.43
+    },
+    "c6d6": {
+     "shift": 1.81
+    },
+    "cd3cn": {
+     "shift": 2.43
+    },
+    "cd3od": {
+     "shift": 2.5
+    },
+    "d2o": {
+     "shift": 3.18
+    }
+   }
+  },
+  {
+   "compound": "ethyl methyl ketone",
+   "group": "CH2CH3",
+   "mult": "t",
+   "J": "7",
+   "values": {
+    "cdcl3": {
+     "shift": 1.06
+    },
+    "acetone_d6": {
+     "shift": 0.96
+    },
+    "dmso_d6": {
+     "shift": 0.91
+    },
+    "c6d6": {
+     "shift": 0.85
+    },
+    "cd3cn": {
+     "shift": 0.96
+    },
+    "cd3od": {
+     "shift": 1.01
+    },
+    "d2o": {
+     "shift": 1.26
+    }
+   }
+  },
+  {
+   "compound": "ethylene glycol",
+   "group": "CH",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 3.76
+    },
+    "acetone_d6": {
+     "shift": 3.28
+    },
+    "dmso_d6": {
+     "shift": 3.34
+    },
+    "c6d6": {
+     "shift": 3.41
+    },
+    "cd3cn": {
+     "shift": 3.51
+    },
+    "cd3od": {
+     "shift": 3.59
+    },
+    "d2o": {
+     "shift": 3.65
+    }
+   }
+  },
+  {
+   "compound": "grease",
+   "group": "CH3",
+   "mult": "m",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 0.86
+    },
+    "acetone_d6": {
+     "shift": 0.87
+    },
+    "c6d6": {
+     "shift": 0.92
+    },
+    "cd3cn": {
+     "shift": 0.86
+    },
+    "cd3od": {
+     "shift": 0.88
+    }
+   }
+  },
+  {
+   "compound": "grease",
+   "group": "CH2",
+   "mult": "br s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 1.26
+    },
+    "acetone_d6": {
+     "shift": 1.29
+    },
+    "c6d6": {
+     "shift": 1.36
+    },
+    "cd3cn": {
+     "shift": 1.27
+    },
+    "cd3od": {
+     "shift": 1.29
+    }
+   }
+  },
+  {
+   "compound": "n-hexane",
+   "group": "CH3",
+   "mult": "t",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 0.88
+    },
+    "acetone_d6": {
+     "shift": 0.88
+    },
+    "dmso_d6": {
+     "shift": 0.86
+    },
+    "c6d6": {
+     "shift": 0.89
+    },
+    "cd3cn": {
+     "shift": 0.89
+    },
+    "cd3od": {
+     "shift": 0.9
+    }
+   }
+  },
+  {
+   "compound": "n-hexane",
+   "group": "CH2",
+   "mult": "m",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 1.26
+    },
+    "acetone_d6": {
+     "shift": 1.28
+    },
+    "dmso_d6": {
+     "shift": 1.25
+    },
+    "c6d6": {
+     "shift": 1.24
+    },
+    "cd3cn": {
+     "shift": 1.28
+    },
+    "cd3od": {
+     "shift": 1.29
+    }
+   }
+  },
+  {
+   "compound": "HMPA",
+   "group": "CH3",
+   "mult": "d",
+   "J": "9.5",
+   "values": {
+    "cdcl3": {
+     "shift": 2.65
+    },
+    "acetone_d6": {
+     "shift": 2.59
+    },
+    "dmso_d6": {
+     "shift": 2.53
+    },
+    "c6d6": {
+     "shift": 2.4
+    },
+    "cd3cn": {
+     "shift": 2.57
+    },
+    "cd3od": {
+     "shift": 2.64
+    },
+    "d2o": {
+     "shift": 2.61
+    }
+   }
+  },
+  {
+   "compound": "methanol",
+   "group": "CH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 3.49
+    },
+    "acetone_d6": {
+     "shift": 3.31
+    },
+    "dmso_d6": {
+     "shift": 3.16
+    },
+    "c6d6": {
+     "shift": 3.07
+    },
+    "cd3cn": {
+     "shift": 3.28
+    },
+    "cd3od": {
+     "shift": 3.34
+    },
+    "d2o": {
+     "shift": 3.34
+    }
+   }
+  },
+  {
+   "compound": "methanol",
+   "group": "OH",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 1.09
+    },
+    "acetone_d6": {
+     "shift": 3.12
+    },
+    "dmso_d6": {
+     "shift": 4.01
+    },
+    "cd3cn": {
+     "shift": 2.16
+    }
+   }
+  },
+  {
+   "compound": "nitromethane",
+   "group": "CH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 4.33
+    },
+    "acetone_d6": {
+     "shift": 4.43
+    },
+    "dmso_d6": {
+     "shift": 4.42
+    },
+    "c6d6": {
+     "shift": 2.94
+    },
+    "cd3cn": {
+     "shift": 4.31
+    },
+    "cd3od": {
+     "shift": 4.34
+    },
+    "d2o": {
+     "shift": 4.4
+    }
+   }
+  },
+  {
+   "compound": "n-pentane",
+   "group": "CH3",
+   "mult": "t",
+   "J": "7",
+   "values": {
+    "cdcl3": {
+     "shift": 0.88
+    },
+    "acetone_d6": {
+     "shift": 0.88
+    },
+    "dmso_d6": {
+     "shift": 0.86
+    },
+    "c6d6": {
+     "shift": 0.87
+    },
+    "cd3cn": {
+     "shift": 0.89
+    },
+    "cd3od": {
+     "shift": 0.9
+    }
+   }
+  },
+  {
+   "compound": "n-pentane",
+   "group": "CH2",
+   "mult": "m",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 1.27
+    },
+    "acetone_d6": {
+     "shift": 1.27
+    },
+    "dmso_d6": {
+     "shift": 1.27
+    },
+    "c6d6": {
+     "shift": 1.23
+    },
+    "cd3cn": {
+     "shift": 1.29
+    },
+    "cd3od": {
+     "shift": 1.29
+    }
+   }
+  },
+  {
+   "compound": "2-propanol",
+   "group": "CH3",
+   "mult": "d",
+   "J": "6",
+   "values": {
+    "cdcl3": {
+     "shift": 1.22
+    },
+    "acetone_d6": {
+     "shift": 1.1
+    },
+    "dmso_d6": {
+     "shift": 1.04
+    },
+    "c6d6": {
+     "shift": 0.95
+    },
+    "cd3cn": {
+     "shift": 1.09
+    },
+    "cd3od": {
+     "shift": 1.5
+    },
+    "d2o": {
+     "shift": 1.17
+    }
+   }
+  },
+  {
+   "compound": "2-propanol",
+   "group": "CH",
+   "mult": "sept",
+   "J": "6",
+   "values": {
+    "cdcl3": {
+     "shift": 4.04
+    },
+    "acetone_d6": {
+     "shift": 3.9
+    },
+    "dmso_d6": {
+     "shift": 3.78
+    },
+    "c6d6": {
+     "shift": 3.67
+    },
+    "cd3cn": {
+     "shift": 3.87
+    },
+    "cd3od": {
+     "shift": 3.92
+    },
+    "d2o": {
+     "shift": 4.02
+    }
+   }
+  },
+  {
+   "compound": "pyridine",
+   "group": "CH(2)",
+   "mult": "m",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 8.62
+    },
+    "acetone_d6": {
+     "shift": 8.58
+    },
+    "dmso_d6": {
+     "shift": 8.58
+    },
+    "c6d6": {
+     "shift": 8.53
+    },
+    "cd3cn": {
+     "shift": 8.57
+    },
+    "cd3od": {
+     "shift": 8.53
+    },
+    "d2o": {
+     "shift": 8.52
+    }
+   }
+  },
+  {
+   "compound": "pyridine",
+   "group": "CH(3)",
+   "mult": "m",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 7.29
+    },
+    "acetone_d6": {
+     "shift": 7.35
+    },
+    "dmso_d6": {
+     "shift": 7.39
+    },
+    "c6d6": {
+     "shift": 6.66
+    },
+    "cd3cn": {
+     "shift": 7.33
+    },
+    "cd3od": {
+     "shift": 7.44
+    },
+    "d2o": {
+     "shift": 7.45
+    }
+   }
+  },
+  {
+   "compound": "pyridine",
+   "group": "CH(4)",
+   "mult": "m",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 7.68
+    },
+    "acetone_d6": {
+     "shift": 7.76
+    },
+    "dmso_d6": {
+     "shift": 7.79
+    },
+    "c6d6": {
+     "shift": 6.98
+    },
+    "cd3cn": {
+     "shift": 7.73
+    },
+    "cd3od": {
+     "shift": 7.85
+    },
+    "d2o": {
+     "shift": 7.87
+    }
+   }
+  },
+  {
+   "compound": "silicone grease",
+   "group": "CH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 0.07
+    },
+    "acetone_d6": {
+     "shift": 0.13
+    },
+    "c6d6": {
+     "shift": 0.29
+    },
+    "cd3cn": {
+     "shift": 0.08
+    },
+    "cd3od": {
+     "shift": 0.1
+    }
+   }
+  },
+  {
+   "compound": "tetrahydrofuran",
+   "group": "CH2",
+   "mult": "m",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 1.85
+    },
+    "acetone_d6": {
+     "shift": 1.79
+    },
+    "dmso_d6": {
+     "shift": 1.76
+    },
+    "c6d6": {
+     "shift": 1.4
+    },
+    "cd3cn": {
+     "shift": 1.8
+    },
+    "cd3od": {
+     "shift": 1.87
+    },
+    "d2o": {
+     "shift": 1.88
+    }
+   }
+  },
+  {
+   "compound": "tetrahydrofuran",
+   "group": "CH2O",
+   "mult": "m",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 3.76
+    },
+    "acetone_d6": {
+     "shift": 3.63
+    },
+    "dmso_d6": {
+     "shift": 3.6
+    },
+    "c6d6": {
+     "shift": 3.57
+    },
+    "cd3cn": {
+     "shift": 3.64
+    },
+    "cd3od": {
+     "shift": 3.71
+    },
+    "d2o": {
+     "shift": 3.74
+    }
+   }
+  },
+  {
+   "compound": "toluene",
+   "group": "CH3",
+   "mult": "s",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 2.36
+    },
+    "acetone_d6": {
+     "shift": 2.32
+    },
+    "dmso_d6": {
+     "shift": 2.3
+    },
+    "c6d6": {
+     "shift": 2.11
+    },
+    "cd3cn": {
+     "shift": 2.33
+    },
+    "cd3od": {
+     "shift": 2.32
+    }
+   }
+  },
+  {
+   "compound": "toluene",
+   "group": "CH(o/p)",
+   "mult": "m",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 7.17
+    },
+    "acetone_d6": {
+     "shift": 7.1,
+     "shiftMax": 7.2
+    },
+    "dmso_d6": {
+     "shift": 7.18
+    },
+    "c6d6": {
+     "shift": 7.02
+    },
+    "cd3cn": {
+     "shift": 7.1,
+     "shiftMax": 7.3
+    },
+    "cd3od": {
+     "shift": 7.16
+    }
+   }
+  },
+  {
+   "compound": "toluene",
+   "group": "CH(m)",
+   "mult": "m",
+   "J": null,
+   "values": {
+    "cdcl3": {
+     "shift": 7.25
+    },
+    "acetone_d6": {
+     "shift": 7.1,
+     "shiftMax": 7.2
+    },
+    "dmso_d6": {
+     "shift": 7.25
+    },
+    "c6d6": {
+     "shift": 7.13
+    },
+    "cd3cn": {
+     "shift": 7.1,
+     "shiftMax": 7.3
+    },
+    "cd3od": {
+     "shift": 7.16
+    }
+   }
+  },
+  {
+   "compound": "triethylamine",
+   "group": "CH3",
+   "mult": "t",
+   "J": "7",
+   "values": {
+    "cdcl3": {
+     "shift": 1.03
+    },
+    "acetone_d6": {
+     "shift": 0.96
+    },
+    "dmso_d6": {
+     "shift": 0.93
+    },
+    "c6d6": {
+     "shift": 0.96
+    },
+    "cd3cn": {
+     "shift": 0.96
+    },
+    "cd3od": {
+     "shift": 1.05
+    },
+    "d2o": {
+     "shift": 0.99
+    }
+   }
+  },
+  {
+   "compound": "triethylamine",
+   "group": "CH2",
+   "mult": "q",
+   "J": "7",
+   "values": {
+    "cdcl3": {
+     "shift": 2.53
+    },
+    "acetone_d6": {
+     "shift": 2.45
+    },
+    "dmso_d6": {
+     "shift": 2.43
+    },
+    "c6d6": {
+     "shift": 2.4
+    },
+    "cd3cn": {
+     "shift": 2.45
+    },
+    "cd3od": {
+     "shift": 2.58
+    },
+    "d2o": {
+     "shift": 2.57
+    }
+   }
+  }
+ ],
+ "c13": [
+  {
+   "compound": "acetic acid",
+   "group": "CO",
+   "values": {
+    "cdcl3": {
+     "shift": 175.99
+    },
+    "acetone_d6": {
+     "shift": 172.31
+    },
+    "dmso_d6": {
+     "shift": 171.93
+    },
+    "c6d6": {
+     "shift": 175.82
+    },
+    "cd3cn": {
+     "shift": 173.21
+    },
+    "cd3od": {
+     "shift": 175.11
+    },
+    "d2o": {
+     "shift": 177.21
+    }
+   }
+  },
+  {
+   "compound": "acetic acid",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 20.81
+    },
+    "acetone_d6": {
+     "shift": 20.51
+    },
+    "dmso_d6": {
+     "shift": 20.95
+    },
+    "c6d6": {
+     "shift": 20.37
+    },
+    "cd3cn": {
+     "shift": 20.73
+    },
+    "cd3od": {
+     "shift": 20.56
+    },
+    "d2o": {
+     "shift": 21.03
+    }
+   }
+  },
+  {
+   "compound": "acetone",
+   "group": "CO",
+   "values": {
+    "cdcl3": {
+     "shift": 207.07
+    },
+    "acetone_d6": {
+     "shift": 205.87
+    },
+    "dmso_d6": {
+     "shift": 206.31
+    },
+    "c6d6": {
+     "shift": 204.43
+    },
+    "cd3cn": {
+     "shift": 207.43
+    },
+    "cd3od": {
+     "shift": 209.67
+    },
+    "d2o": {
+     "shift": 215.94
+    }
+   }
+  },
+  {
+   "compound": "acetone",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 30.92
+    },
+    "acetone_d6": {
+     "shift": 30.6
+    },
+    "dmso_d6": {
+     "shift": 30.56
+    },
+    "c6d6": {
+     "shift": 30.14
+    },
+    "cd3cn": {
+     "shift": 30.91
+    },
+    "cd3od": {
+     "shift": 30.67
+    },
+    "d2o": {
+     "shift": 30.89
+    }
+   }
+  },
+  {
+   "compound": "acetonitrile",
+   "group": "CN",
+   "values": {
+    "cdcl3": {
+     "shift": 116.43
+    },
+    "acetone_d6": {
+     "shift": 117.6
+    },
+    "dmso_d6": {
+     "shift": 117.91
+    },
+    "c6d6": {
+     "shift": 116.02
+    },
+    "cd3cn": {
+     "shift": 118.26
+    },
+    "cd3od": {
+     "shift": 118.06
+    },
+    "d2o": {
+     "shift": 119.68
+    }
+   }
+  },
+  {
+   "compound": "acetonitrile",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 1.89
+    },
+    "acetone_d6": {
+     "shift": 1.12
+    },
+    "dmso_d6": {
+     "shift": 1.03
+    },
+    "c6d6": {
+     "shift": 0.2
+    },
+    "cd3cn": {
+     "shift": 1.79
+    },
+    "cd3od": {
+     "shift": 0.85
+    },
+    "d2o": {
+     "shift": 1.47
+    }
+   }
+  },
+  {
+   "compound": "benzene",
+   "group": "CH",
+   "values": {
+    "cdcl3": {
+     "shift": 128.37
+    },
+    "acetone_d6": {
+     "shift": 129.15
+    },
+    "dmso_d6": {
+     "shift": 128.3
+    },
+    "c6d6": {
+     "shift": 128.62
+    },
+    "cd3cn": {
+     "shift": 129.32
+    },
+    "cd3od": {
+     "shift": 129.34
+    }
+   }
+  },
+  {
+   "compound": "tert-butyl alcohol",
+   "group": "C",
+   "values": {
+    "cdcl3": {
+     "shift": 69.15
+    },
+    "acetone_d6": {
+     "shift": 68.13
+    },
+    "dmso_d6": {
+     "shift": 66.88
+    },
+    "c6d6": {
+     "shift": 68.19
+    },
+    "cd3cn": {
+     "shift": 68.74
+    },
+    "cd3od": {
+     "shift": 69.4
+    },
+    "d2o": {
+     "shift": 70.36
+    }
+   }
+  },
+  {
+   "compound": "tert-butyl alcohol",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 31.25
+    },
+    "acetone_d6": {
+     "shift": 30.72
+    },
+    "dmso_d6": {
+     "shift": 30.38
+    },
+    "c6d6": {
+     "shift": 30.47
+    },
+    "cd3cn": {
+     "shift": 30.68
+    },
+    "cd3od": {
+     "shift": 30.91
+    },
+    "d2o": {
+     "shift": 30.29
+    }
+   }
+  },
+  {
+   "compound": "tert-butyl methyl ether",
+   "group": "OCH3",
+   "values": {
+    "cdcl3": {
+     "shift": 49.45
+    },
+    "acetone_d6": {
+     "shift": 49.35
+    },
+    "dmso_d6": {
+     "shift": 48.7
+    },
+    "c6d6": {
+     "shift": 49.19
+    },
+    "cd3cn": {
+     "shift": 49.52
+    },
+    "cd3od": {
+     "shift": 49.66
+    },
+    "d2o": {
+     "shift": 49.37
+    }
+   }
+  },
+  {
+   "compound": "tert-butyl methyl ether",
+   "group": "C",
+   "values": {
+    "cdcl3": {
+     "shift": 72.87
+    },
+    "acetone_d6": {
+     "shift": 72.81
+    },
+    "dmso_d6": {
+     "shift": 72.04
+    },
+    "c6d6": {
+     "shift": 72.4
+    },
+    "cd3cn": {
+     "shift": 73.17
+    },
+    "cd3od": {
+     "shift": 74.32
+    },
+    "d2o": {
+     "shift": 75.62
+    }
+   }
+  },
+  {
+   "compound": "tert-butyl methyl ether",
+   "group": "CCH3",
+   "values": {
+    "cdcl3": {
+     "shift": 26.99
+    },
+    "acetone_d6": {
+     "shift": 27.24
+    },
+    "dmso_d6": {
+     "shift": 26.79
+    },
+    "c6d6": {
+     "shift": 27.09
+    },
+    "cd3cn": {
+     "shift": 27.28
+    },
+    "cd3od": {
+     "shift": 27.22
+    },
+    "d2o": {
+     "shift": 26.6
+    }
+   }
+  },
+  {
+   "compound": "BHT",
+   "group": "C(1)",
+   "values": {
+    "cdcl3": {
+     "shift": 151.55
+    },
+    "acetone_d6": {
+     "shift": 152.51
+    },
+    "dmso_d6": {
+     "shift": 151.47
+    },
+    "c6d6": {
+     "shift": 152.05
+    },
+    "cd3cn": {
+     "shift": 152.42
+    },
+    "cd3od": {
+     "shift": 152.85
+    }
+   }
+  },
+  {
+   "compound": "BHT",
+   "group": "C(2)",
+   "values": {
+    "cdcl3": {
+     "shift": 135.87
+    },
+    "acetone_d6": {
+     "shift": 138.19
+    },
+    "dmso_d6": {
+     "shift": 139.12
+    },
+    "c6d6": {
+     "shift": 136.08
+    },
+    "cd3cn": {
+     "shift": 138.13
+    },
+    "cd3od": {
+     "shift": 139.09
+    }
+   }
+  },
+  {
+   "compound": "BHT",
+   "group": "CH(3)",
+   "values": {
+    "cdcl3": {
+     "shift": 125.55
+    },
+    "acetone_d6": {
+     "shift": 129.05
+    },
+    "dmso_d6": {
+     "shift": 127.97
+    },
+    "c6d6": {
+     "shift": 128.52
+    },
+    "cd3cn": {
+     "shift": 129.61
+    },
+    "cd3od": {
+     "shift": 129.49
+    }
+   }
+  },
+  {
+   "compound": "BHT",
+   "group": "C(4)",
+   "values": {
+    "cdcl3": {
+     "shift": 128.27
+    },
+    "acetone_d6": {
+     "shift": 126.03
+    },
+    "dmso_d6": {
+     "shift": 124.85
+    },
+    "c6d6": {
+     "shift": 125.83
+    },
+    "cd3cn": {
+     "shift": 126.38
+    },
+    "cd3od": {
+     "shift": 126.11
+    }
+   }
+  },
+  {
+   "compound": "BHT",
+   "group": "CH3Ar",
+   "values": {
+    "cdcl3": {
+     "shift": 21.2
+    },
+    "acetone_d6": {
+     "shift": 21.31
+    },
+    "dmso_d6": {
+     "shift": 20.97
+    },
+    "c6d6": {
+     "shift": 21.4
+    },
+    "cd3cn": {
+     "shift": 21.23
+    },
+    "cd3od": {
+     "shift": 21.38
+    }
+   }
+  },
+  {
+   "compound": "BHT",
+   "group": "CH3C",
+   "values": {
+    "cdcl3": {
+     "shift": 30.33
+    },
+    "acetone_d6": {
+     "shift": 31.61
+    },
+    "dmso_d6": {
+     "shift": 31.25
+    },
+    "c6d6": {
+     "shift": 31.34
+    },
+    "cd3cn": {
+     "shift": 31.5
+    },
+    "cd3od": {
+     "shift": 31.15
+    }
+   }
+  },
+  {
+   "compound": "BHT",
+   "group": "C",
+   "values": {
+    "cdcl3": {
+     "shift": 34.25
+    },
+    "acetone_d6": {
+     "shift": 35.0
+    },
+    "dmso_d6": {
+     "shift": 34.33
+    },
+    "c6d6": {
+     "shift": 34.35
+    },
+    "cd3cn": {
+     "shift": 35.05
+    },
+    "cd3od": {
+     "shift": 35.36
+    }
+   }
+  },
+  {
+   "compound": "chloroform",
+   "group": "CH",
+   "values": {
+    "cdcl3": {
+     "shift": 77.36
+    },
+    "acetone_d6": {
+     "shift": 79.19
+    },
+    "dmso_d6": {
+     "shift": 79.16
+    },
+    "c6d6": {
+     "shift": 77.79
+    },
+    "cd3cn": {
+     "shift": 79.17
+    },
+    "cd3od": {
+     "shift": 79.44
+    }
+   }
+  },
+  {
+   "compound": "cyclohexane",
+   "group": "CH2",
+   "values": {
+    "cdcl3": {
+     "shift": 26.94
+    },
+    "acetone_d6": {
+     "shift": 27.51
+    },
+    "dmso_d6": {
+     "shift": 26.33
+    },
+    "c6d6": {
+     "shift": 27.23
+    },
+    "cd3cn": {
+     "shift": 27.63
+    },
+    "cd3od": {
+     "shift": 27.96
+    }
+   }
+  },
+  {
+   "compound": "1,2-dichloroethane",
+   "group": "CH2",
+   "values": {
+    "cdcl3": {
+     "shift": 43.5
+    },
+    "acetone_d6": {
+     "shift": 45.25
+    },
+    "dmso_d6": {
+     "shift": 45.02
+    },
+    "c6d6": {
+     "shift": 43.59
+    },
+    "cd3cn": {
+     "shift": 45.54
+    },
+    "cd3od": {
+     "shift": 45.11
+    }
+   }
+  },
+  {
+   "compound": "dichloromethane",
+   "group": "CH2",
+   "values": {
+    "cdcl3": {
+     "shift": 53.52
+    },
+    "acetone_d6": {
+     "shift": 54.95
+    },
+    "dmso_d6": {
+     "shift": 54.84
+    },
+    "c6d6": {
+     "shift": 53.46
+    },
+    "cd3cn": {
+     "shift": 55.32
+    },
+    "cd3od": {
+     "shift": 54.78
+    }
+   }
+  },
+  {
+   "compound": "diethyl ether",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 15.2
+    },
+    "acetone_d6": {
+     "shift": 15.78
+    },
+    "dmso_d6": {
+     "shift": 15.12
+    },
+    "c6d6": {
+     "shift": 15.46
+    },
+    "cd3cn": {
+     "shift": 15.63
+    },
+    "cd3od": {
+     "shift": 15.46
+    },
+    "d2o": {
+     "shift": 14.77
+    }
+   }
+  },
+  {
+   "compound": "diethyl ether",
+   "group": "CH2",
+   "values": {
+    "cdcl3": {
+     "shift": 65.91
+    },
+    "acetone_d6": {
+     "shift": 66.12
+    },
+    "dmso_d6": {
+     "shift": 62.05
+    },
+    "c6d6": {
+     "shift": 65.94
+    },
+    "cd3cn": {
+     "shift": 66.32
+    },
+    "cd3od": {
+     "shift": 66.88
+    },
+    "d2o": {
+     "shift": 66.42
+    }
+   }
+  },
+  {
+   "compound": "diglyme",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 59.01
+    },
+    "acetone_d6": {
+     "shift": 58.77
+    },
+    "dmso_d6": {
+     "shift": 57.98
+    },
+    "c6d6": {
+     "shift": 58.66
+    },
+    "cd3cn": {
+     "shift": 58.9
+    },
+    "cd3od": {
+     "shift": 59.06
+    },
+    "d2o": {
+     "shift": 58.67
+    }
+   }
+  },
+  {
+   "compound": "diglyme",
+   "group": "CH2",
+   "values": {
+    "cdcl3": {
+     "shift": 70.51
+    },
+    "acetone_d6": {
+     "shift": 71.03
+    },
+    "dmso_d6": {
+     "shift": 69.54
+    },
+    "c6d6": {
+     "shift": 70.87
+    },
+    "cd3cn": {
+     "shift": 70.99
+    },
+    "cd3od": {
+     "shift": 71.33
+    },
+    "d2o": {
+     "shift": 70.05
+    }
+   }
+  },
+  {
+   "compound": "diglyme",
+   "group": "CH2",
+   "values": {
+    "cdcl3": {
+     "shift": 71.9
+    },
+    "acetone_d6": {
+     "shift": 72.63
+    },
+    "dmso_d6": {
+     "shift": 71.25
+    },
+    "c6d6": {
+     "shift": 72.35
+    },
+    "cd3cn": {
+     "shift": 72.63
+    },
+    "cd3od": {
+     "shift": 72.92
+    },
+    "d2o": {
+     "shift": 71.63
+    }
+   }
+  },
+  {
+   "compound": "1,2-dimethoxyethane",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 59.08
+    },
+    "acetone_d6": {
+     "shift": 58.45
+    },
+    "dmso_d6": {
+     "shift": 58.01
+    },
+    "c6d6": {
+     "shift": 58.68
+    },
+    "cd3cn": {
+     "shift": 58.89
+    },
+    "cd3od": {
+     "shift": 59.06
+    },
+    "d2o": {
+     "shift": 58.67
+    }
+   }
+  },
+  {
+   "compound": "1,2-dimethoxyethane",
+   "group": "CH2",
+   "values": {
+    "cdcl3": {
+     "shift": 71.84
+    },
+    "acetone_d6": {
+     "shift": 72.47
+    },
+    "dmso_d6": {
+     "shift": 17.07
+    },
+    "c6d6": {
+     "shift": 72.21
+    },
+    "cd3cn": {
+     "shift": 72.47
+    },
+    "cd3od": {
+     "shift": 72.72
+    },
+    "d2o": {
+     "shift": 71.49
+    }
+   }
+  },
+  {
+   "compound": "dimethylacetamide",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 21.53
+    },
+    "acetone_d6": {
+     "shift": 21.51
+    },
+    "dmso_d6": {
+     "shift": 21.29
+    },
+    "c6d6": {
+     "shift": 21.16
+    },
+    "cd3cn": {
+     "shift": 21.76
+    },
+    "cd3od": {
+     "shift": 21.32
+    },
+    "d2o": {
+     "shift": 21.09
+    }
+   }
+  },
+  {
+   "compound": "dimethylacetamide",
+   "group": "CO",
+   "values": {
+    "cdcl3": {
+     "shift": 171.07
+    },
+    "acetone_d6": {
+     "shift": 170.61
+    },
+    "dmso_d6": {
+     "shift": 169.54
+    },
+    "c6d6": {
+     "shift": 169.95
+    },
+    "cd3cn": {
+     "shift": 171.31
+    },
+    "cd3od": {
+     "shift": 173.32
+    },
+    "d2o": {
+     "shift": 174.57
+    }
+   }
+  },
+  {
+   "compound": "dimethylacetamide",
+   "group": "NCH3",
+   "values": {
+    "cdcl3": {
+     "shift": 35.28
+    },
+    "acetone_d6": {
+     "shift": 34.89
+    },
+    "dmso_d6": {
+     "shift": 37.38
+    },
+    "c6d6": {
+     "shift": 34.67
+    },
+    "cd3cn": {
+     "shift": 35.17
+    },
+    "cd3od": {
+     "shift": 35.5
+    },
+    "d2o": {
+     "shift": 35.03
+    }
+   }
+  },
+  {
+   "compound": "dimethylacetamide",
+   "group": "NCH3",
+   "values": {
+    "cdcl3": {
+     "shift": 38.13
+    },
+    "acetone_d6": {
+     "shift": 37.92
+    },
+    "dmso_d6": {
+     "shift": 34.42
+    },
+    "c6d6": {
+     "shift": 37.03
+    },
+    "cd3cn": {
+     "shift": 38.26
+    },
+    "cd3od": {
+     "shift": 38.43
+    },
+    "d2o": {
+     "shift": 38.76
+    }
+   }
+  },
+  {
+   "compound": "dimethylformamide",
+   "group": "CH",
+   "values": {
+    "cdcl3": {
+     "shift": 162.62
+    },
+    "acetone_d6": {
+     "shift": 162.79
+    },
+    "dmso_d6": {
+     "shift": 162.29
+    },
+    "c6d6": {
+     "shift": 162.13
+    },
+    "cd3cn": {
+     "shift": 163.31
+    },
+    "cd3od": {
+     "shift": 164.73
+    },
+    "d2o": {
+     "shift": 165.53
+    }
+   }
+  },
+  {
+   "compound": "dimethylformamide",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 36.5
+    },
+    "acetone_d6": {
+     "shift": 36.15
+    },
+    "dmso_d6": {
+     "shift": 35.73
+    },
+    "c6d6": {
+     "shift": 35.25
+    },
+    "cd3cn": {
+     "shift": 36.57
+    },
+    "cd3od": {
+     "shift": 36.89
+    },
+    "d2o": {
+     "shift": 37.54
+    }
+   }
+  },
+  {
+   "compound": "dimethylformamide",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 31.45
+    },
+    "acetone_d6": {
+     "shift": 31.03
+    },
+    "dmso_d6": {
+     "shift": 30.73
+    },
+    "c6d6": {
+     "shift": 30.72
+    },
+    "cd3cn": {
+     "shift": 31.32
+    },
+    "cd3od": {
+     "shift": 31.61
+    },
+    "d2o": {
+     "shift": 32.03
+    }
+   }
+  },
+  {
+   "compound": "dimethyl sulfoxide",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 40.76
+    },
+    "acetone_d6": {
+     "shift": 41.23
+    },
+    "dmso_d6": {
+     "shift": 40.45
+    },
+    "c6d6": {
+     "shift": 40.03
+    },
+    "cd3cn": {
+     "shift": 41.31
+    },
+    "cd3od": {
+     "shift": 40.45
+    },
+    "d2o": {
+     "shift": 39.39
+    }
+   }
+  },
+  {
+   "compound": "dioxane",
+   "group": "CH2",
+   "values": {
+    "cdcl3": {
+     "shift": 67.14
+    },
+    "acetone_d6": {
+     "shift": 67.6
+    },
+    "dmso_d6": {
+     "shift": 66.36
+    },
+    "c6d6": {
+     "shift": 67.16
+    },
+    "cd3cn": {
+     "shift": 67.72
+    },
+    "cd3od": {
+     "shift": 68.11
+    },
+    "d2o": {
+     "shift": 67.19
+    }
+   }
+  },
+  {
+   "compound": "ethanol",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 18.41
+    },
+    "acetone_d6": {
+     "shift": 18.89
+    },
+    "dmso_d6": {
+     "shift": 18.51
+    },
+    "c6d6": {
+     "shift": 18.72
+    },
+    "cd3cn": {
+     "shift": 18.8
+    },
+    "cd3od": {
+     "shift": 18.4
+    },
+    "d2o": {
+     "shift": 17.47
+    }
+   }
+  },
+  {
+   "compound": "ethanol",
+   "group": "CH2",
+   "values": {
+    "cdcl3": {
+     "shift": 58.28
+    },
+    "acetone_d6": {
+     "shift": 57.72
+    },
+    "dmso_d6": {
+     "shift": 56.07
+    },
+    "c6d6": {
+     "shift": 57.86
+    },
+    "cd3cn": {
+     "shift": 57.96
+    },
+    "cd3od": {
+     "shift": 58.26
+    },
+    "d2o": {
+     "shift": 58.05
+    }
+   }
+  },
+  {
+   "compound": "ethyl acetate",
+   "group": "CH3CO",
+   "values": {
+    "cdcl3": {
+     "shift": 21.04
+    },
+    "acetone_d6": {
+     "shift": 20.83
+    },
+    "dmso_d6": {
+     "shift": 20.68
+    },
+    "c6d6": {
+     "shift": 20.56
+    },
+    "cd3cn": {
+     "shift": 21.16
+    },
+    "cd3od": {
+     "shift": 20.88
+    },
+    "d2o": {
+     "shift": 21.15
+    }
+   }
+  },
+  {
+   "compound": "ethyl acetate",
+   "group": "CO",
+   "values": {
+    "cdcl3": {
+     "shift": 171.36
+    },
+    "acetone_d6": {
+     "shift": 170.96
+    },
+    "dmso_d6": {
+     "shift": 170.31
+    },
+    "c6d6": {
+     "shift": 170.44
+    },
+    "cd3cn": {
+     "shift": 171.68
+    },
+    "cd3od": {
+     "shift": 172.89
+    },
+    "d2o": {
+     "shift": 175.26
+    }
+   }
+  },
+  {
+   "compound": "ethyl acetate",
+   "group": "CH2",
+   "values": {
+    "cdcl3": {
+     "shift": 60.49
+    },
+    "acetone_d6": {
+     "shift": 60.56
+    },
+    "dmso_d6": {
+     "shift": 59.74
+    },
+    "c6d6": {
+     "shift": 60.21
+    },
+    "cd3cn": {
+     "shift": 60.98
+    },
+    "cd3od": {
+     "shift": 61.5
+    },
+    "d2o": {
+     "shift": 62.32
+    }
+   }
+  },
+  {
+   "compound": "ethyl acetate",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 14.19
+    },
+    "acetone_d6": {
+     "shift": 14.5
+    },
+    "dmso_d6": {
+     "shift": 14.4
+    },
+    "c6d6": {
+     "shift": 14.19
+    },
+    "cd3cn": {
+     "shift": 14.54
+    },
+    "cd3od": {
+     "shift": 14.49
+    },
+    "d2o": {
+     "shift": 13.92
+    }
+   }
+  },
+  {
+   "compound": "ethyl methyl ketone",
+   "group": "CH3CO",
+   "values": {
+    "cdcl3": {
+     "shift": 29.49
+    },
+    "acetone_d6": {
+     "shift": 29.3
+    },
+    "dmso_d6": {
+     "shift": 29.26
+    },
+    "c6d6": {
+     "shift": 28.56
+    },
+    "cd3cn": {
+     "shift": 29.6
+    },
+    "cd3od": {
+     "shift": 29.39
+    },
+    "d2o": {
+     "shift": 29.49
+    }
+   }
+  },
+  {
+   "compound": "ethyl methyl ketone",
+   "group": "CO",
+   "values": {
+    "cdcl3": {
+     "shift": 209.56
+    },
+    "acetone_d6": {
+     "shift": 208.3
+    },
+    "dmso_d6": {
+     "shift": 208.72
+    },
+    "c6d6": {
+     "shift": 206.55
+    },
+    "cd3cn": {
+     "shift": 209.88
+    },
+    "cd3od": {
+     "shift": 212.16
+    },
+    "d2o": {
+     "shift": 218.43
+    }
+   }
+  },
+  {
+   "compound": "ethyl methyl ketone",
+   "group": "CH2CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 36.89
+    },
+    "acetone_d6": {
+     "shift": 36.75
+    },
+    "dmso_d6": {
+     "shift": 35.83
+    },
+    "c6d6": {
+     "shift": 36.36
+    },
+    "cd3cn": {
+     "shift": 37.09
+    },
+    "cd3od": {
+     "shift": 37.34
+    },
+    "d2o": {
+     "shift": 37.27
+    }
+   }
+  },
+  {
+   "compound": "ethyl methyl ketone",
+   "group": "CH2CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 7.86
+    },
+    "acetone_d6": {
+     "shift": 8.03
+    },
+    "dmso_d6": {
+     "shift": 7.61
+    },
+    "c6d6": {
+     "shift": 7.91
+    },
+    "cd3cn": {
+     "shift": 8.14
+    },
+    "cd3od": {
+     "shift": 8.09
+    },
+    "d2o": {
+     "shift": 7.87
+    }
+   }
+  },
+  {
+   "compound": "ethylene glycol",
+   "group": "CH2",
+   "values": {
+    "cdcl3": {
+     "shift": 63.79
+    },
+    "acetone_d6": {
+     "shift": 64.26
+    },
+    "dmso_d6": {
+     "shift": 62.76
+    },
+    "c6d6": {
+     "shift": 64.34
+    },
+    "cd3cn": {
+     "shift": 64.22
+    },
+    "cd3od": {
+     "shift": 64.3
+    },
+    "d2o": {
+     "shift": 63.17
+    }
+   }
+  },
+  {
+   "compound": "grease",
+   "group": "CH2",
+   "values": {
+    "cdcl3": {
+     "shift": 29.76
+    },
+    "acetone_d6": {
+     "shift": 30.73
+    },
+    "dmso_d6": {
+     "shift": 29.2
+    },
+    "c6d6": {
+     "shift": 30.21
+    },
+    "cd3cn": {
+     "shift": 30.86
+    },
+    "cd3od": {
+     "shift": 31.29
+    }
+   }
+  },
+  {
+   "compound": "n-hexane",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 14.14
+    },
+    "acetone_d6": {
+     "shift": 14.34
+    },
+    "dmso_d6": {
+     "shift": 13.88
+    },
+    "c6d6": {
+     "shift": 14.32
+    },
+    "cd3cn": {
+     "shift": 14.43
+    },
+    "cd3od": {
+     "shift": 14.45
+    }
+   }
+  },
+  {
+   "compound": "n-hexane",
+   "group": "CH2(2)",
+   "values": {
+    "cdcl3": {
+     "shift": 22.7
+    },
+    "acetone_d6": {
+     "shift": 23.28
+    },
+    "dmso_d6": {
+     "shift": 22.05
+    },
+    "c6d6": {
+     "shift": 23.04
+    },
+    "cd3cn": {
+     "shift": 23.4
+    },
+    "cd3od": {
+     "shift": 23.68
+    }
+   }
+  },
+  {
+   "compound": "n-hexane",
+   "group": "CH2(3)",
+   "values": {
+    "cdcl3": {
+     "shift": 31.64
+    },
+    "acetone_d6": {
+     "shift": 32.3
+    },
+    "dmso_d6": {
+     "shift": 30.95
+    },
+    "c6d6": {
+     "shift": 31.96
+    },
+    "cd3cn": {
+     "shift": 32.36
+    },
+    "cd3od": {
+     "shift": 32.73
+    }
+   }
+  },
+  {
+   "compound": "HMPA",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 36.87
+    },
+    "acetone_d6": {
+     "shift": 37.04
+    },
+    "dmso_d6": {
+     "shift": 36.42
+    },
+    "c6d6": {
+     "shift": 36.88
+    },
+    "cd3cn": {
+     "shift": 37.1
+    },
+    "cd3od": {
+     "shift": 37.0
+    },
+    "d2o": {
+     "shift": 36.46
+    }
+   }
+  },
+  {
+   "compound": "methanol",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 50.41
+    },
+    "acetone_d6": {
+     "shift": 49.77
+    },
+    "dmso_d6": {
+     "shift": 48.59
+    },
+    "c6d6": {
+     "shift": 49.97
+    },
+    "cd3cn": {
+     "shift": 49.9
+    },
+    "cd3od": {
+     "shift": 49.86
+    },
+    "d2o": {
+     "shift": 49.5
+    }
+   }
+  },
+  {
+   "compound": "nitromethane",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 62.5
+    },
+    "acetone_d6": {
+     "shift": 63.21
+    },
+    "dmso_d6": {
+     "shift": 63.28
+    },
+    "c6d6": {
+     "shift": 61.16
+    },
+    "cd3cn": {
+     "shift": 63.66
+    },
+    "cd3od": {
+     "shift": 63.08
+    },
+    "d2o": {
+     "shift": 63.22
+    }
+   }
+  },
+  {
+   "compound": "n-pentane",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 14.08
+    },
+    "acetone_d6": {
+     "shift": 14.29
+    },
+    "dmso_d6": {
+     "shift": 13.28
+    },
+    "c6d6": {
+     "shift": 14.25
+    },
+    "cd3cn": {
+     "shift": 14.37
+    },
+    "cd3od": {
+     "shift": 14.39
+    }
+   }
+  },
+  {
+   "compound": "n-pentane",
+   "group": "CH2(2)",
+   "values": {
+    "cdcl3": {
+     "shift": 22.38
+    },
+    "acetone_d6": {
+     "shift": 22.98
+    },
+    "dmso_d6": {
+     "shift": 21.7
+    },
+    "c6d6": {
+     "shift": 22.72
+    },
+    "cd3cn": {
+     "shift": 23.08
+    },
+    "cd3od": {
+     "shift": 23.38
+    }
+   }
+  },
+  {
+   "compound": "n-pentane",
+   "group": "CH2(3)",
+   "values": {
+    "cdcl3": {
+     "shift": 34.16
+    },
+    "acetone_d6": {
+     "shift": 34.83
+    },
+    "dmso_d6": {
+     "shift": 33.48
+    },
+    "c6d6": {
+     "shift": 34.45
+    },
+    "cd3cn": {
+     "shift": 34.89
+    },
+    "cd3od": {
+     "shift": 35.3
+    }
+   }
+  },
+  {
+   "compound": "2-propanol",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 25.14
+    },
+    "acetone_d6": {
+     "shift": 25.67
+    },
+    "dmso_d6": {
+     "shift": 25.43
+    },
+    "c6d6": {
+     "shift": 25.18
+    },
+    "cd3cn": {
+     "shift": 25.55
+    },
+    "cd3od": {
+     "shift": 25.27
+    },
+    "d2o": {
+     "shift": 24.38
+    }
+   }
+  },
+  {
+   "compound": "2-propanol",
+   "group": "CH",
+   "values": {
+    "cdcl3": {
+     "shift": 64.5
+    },
+    "acetone_d6": {
+     "shift": 63.85
+    },
+    "dmso_d6": {
+     "shift": 64.92
+    },
+    "c6d6": {
+     "shift": 64.23
+    },
+    "cd3cn": {
+     "shift": 64.3
+    },
+    "cd3od": {
+     "shift": 64.71
+    },
+    "d2o": {
+     "shift": 64.88
+    }
+   }
+  },
+  {
+   "compound": "pyridine",
+   "group": "CH(2)",
+   "values": {
+    "cdcl3": {
+     "shift": 149.9
+    },
+    "acetone_d6": {
+     "shift": 150.67
+    },
+    "dmso_d6": {
+     "shift": 149.58
+    },
+    "c6d6": {
+     "shift": 150.27
+    },
+    "cd3cn": {
+     "shift": 150.76
+    },
+    "cd3od": {
+     "shift": 150.07
+    },
+    "d2o": {
+     "shift": 149.18
+    }
+   }
+  },
+  {
+   "compound": "pyridine",
+   "group": "CH(3)",
+   "values": {
+    "cdcl3": {
+     "shift": 123.75
+    },
+    "acetone_d6": {
+     "shift": 124.57
+    },
+    "dmso_d6": {
+     "shift": 123.84
+    },
+    "c6d6": {
+     "shift": 123.58
+    },
+    "cd3cn": {
+     "shift": 127.76
+    },
+    "cd3od": {
+     "shift": 125.53
+    },
+    "d2o": {
+     "shift": 125.12
+    }
+   }
+  },
+  {
+   "compound": "pyridine",
+   "group": "CH(4)",
+   "values": {
+    "cdcl3": {
+     "shift": 135.96
+    },
+    "acetone_d6": {
+     "shift": 136.56
+    },
+    "dmso_d6": {
+     "shift": 136.05
+    },
+    "c6d6": {
+     "shift": 135.28
+    },
+    "cd3cn": {
+     "shift": 136.89
+    },
+    "cd3od": {
+     "shift": 138.35
+    },
+    "d2o": {
+     "shift": 138.27
+    }
+   }
+  },
+  {
+   "compound": "silicone grease",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 1.04
+    },
+    "acetone_d6": {
+     "shift": 1.4
+    },
+    "c6d6": {
+     "shift": 1.38
+    },
+    "cd3od": {
+     "shift": 2.1
+    }
+   }
+  },
+  {
+   "compound": "tetrahydrofuran",
+   "group": "CH2",
+   "values": {
+    "cdcl3": {
+     "shift": 25.62
+    },
+    "acetone_d6": {
+     "shift": 26.15
+    },
+    "dmso_d6": {
+     "shift": 25.14
+    },
+    "c6d6": {
+     "shift": 25.72
+    },
+    "cd3cn": {
+     "shift": 26.27
+    },
+    "cd3od": {
+     "shift": 26.48
+    },
+    "d2o": {
+     "shift": 25.67
+    }
+   }
+  },
+  {
+   "compound": "tetrahydrofuran",
+   "group": "CH2O",
+   "values": {
+    "cdcl3": {
+     "shift": 67.97
+    },
+    "acetone_d6": {
+     "shift": 68.07
+    },
+    "dmso_d6": {
+     "shift": 67.03
+    },
+    "c6d6": {
+     "shift": 67.8
+    },
+    "cd3cn": {
+     "shift": 68.33
+    },
+    "cd3od": {
+     "shift": 68.83
+    },
+    "d2o": {
+     "shift": 68.68
+    }
+   }
+  },
+  {
+   "compound": "toluene",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 21.46
+    },
+    "acetone_d6": {
+     "shift": 21.46
+    },
+    "dmso_d6": {
+     "shift": 20.99
+    },
+    "c6d6": {
+     "shift": 21.1
+    },
+    "cd3cn": {
+     "shift": 21.5
+    },
+    "cd3od": {
+     "shift": 21.5
+    }
+   }
+  },
+  {
+   "compound": "toluene",
+   "group": "C(i)",
+   "values": {
+    "cdcl3": {
+     "shift": 137.89
+    },
+    "acetone_d6": {
+     "shift": 138.48
+    },
+    "dmso_d6": {
+     "shift": 137.35
+    },
+    "c6d6": {
+     "shift": 137.91
+    },
+    "cd3cn": {
+     "shift": 138.9
+    },
+    "cd3od": {
+     "shift": 138.85
+    }
+   }
+  },
+  {
+   "compound": "toluene",
+   "group": "CH(o)",
+   "values": {
+    "cdcl3": {
+     "shift": 129.07
+    },
+    "acetone_d6": {
+     "shift": 129.76
+    },
+    "dmso_d6": {
+     "shift": 128.88
+    },
+    "c6d6": {
+     "shift": 129.33
+    },
+    "cd3cn": {
+     "shift": 129.94
+    },
+    "cd3od": {
+     "shift": 129.91
+    }
+   }
+  },
+  {
+   "compound": "toluene",
+   "group": "CH(m)",
+   "values": {
+    "cdcl3": {
+     "shift": 128.26
+    },
+    "acetone_d6": {
+     "shift": 129.03
+    },
+    "dmso_d6": {
+     "shift": 128.18
+    },
+    "c6d6": {
+     "shift": 128.56
+    },
+    "cd3cn": {
+     "shift": 129.23
+    },
+    "cd3od": {
+     "shift": 129.2
+    }
+   }
+  },
+  {
+   "compound": "toluene",
+   "group": "CH(p)",
+   "values": {
+    "cdcl3": {
+     "shift": 125.33
+    },
+    "acetone_d6": {
+     "shift": 126.12
+    },
+    "dmso_d6": {
+     "shift": 125.29
+    },
+    "c6d6": {
+     "shift": 125.68
+    },
+    "cd3cn": {
+     "shift": 126.28
+    },
+    "cd3od": {
+     "shift": 126.29
+    }
+   }
+  },
+  {
+   "compound": "triethylamine",
+   "group": "CH3",
+   "values": {
+    "cdcl3": {
+     "shift": 11.61
+    },
+    "acetone_d6": {
+     "shift": 12.49
+    },
+    "dmso_d6": {
+     "shift": 11.74
+    },
+    "c6d6": {
+     "shift": 12.35
+    },
+    "cd3cn": {
+     "shift": 12.38
+    },
+    "cd3od": {
+     "shift": 11.09
+    },
+    "d2o": {
+     "shift": 9.07
+    }
+   }
+  },
+  {
+   "compound": "triethylamine",
+   "group": "CH2",
+   "values": {
+    "cdcl3": {
+     "shift": 46.25
+    },
+    "acetone_d6": {
+     "shift": 47.07
+    },
+    "dmso_d6": {
+     "shift": 45.74
+    },
+    "c6d6": {
+     "shift": 46.77
+    },
+    "cd3cn": {
+     "shift": 47.1
+    },
+    "cd3od": {
+     "shift": 46.96
+    },
+    "d2o": {
+     "shift": 47.19
+    }
+   }
+  }
+ ]
+}

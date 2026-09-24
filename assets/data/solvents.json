@@ -1,0 +1,1090 @@
+[
+ {
+  "id": "cdcl3",
+  "name": {
+   "en": "Chloroform-d",
+   "tr": "Kloroform-d"
+  },
+  "formula": "CDCl3",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 7.26,
+    "ref": "fulmer2010",
+    "mult": "s"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 77.16,
+    "ref": "fulmer2010",
+    "mult": "t"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 7.24,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 77.23,
+    "ref": "cil",
+    "mult": "t",
+    "JCD": 32.0
+   }
+  ],
+  "water": {
+   "shift": 1.56,
+   "ref": "fulmer2010"
+  },
+  "hodCil": "1.5",
+  "density": 1.5,
+  "meltingPoint": "-63.5",
+  "boilingPoint": "61-62",
+  "dielectric": 4.8,
+  "molecularWeight": 120.38,
+  "chem21": "chloroform",
+  "storage": "fridge_6m"
+ },
+ {
+  "id": "dmso_d6",
+  "name": {
+   "en": "Dimethyl sulfoxide-d6",
+   "tr": "Dimetil sülfoksit-d6"
+  },
+  "formula": "(CD3)2SO",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 2.5,
+    "ref": "fulmer2010",
+    "mult": "quint"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 39.52,
+    "ref": "fulmer2010",
+    "mult": "sept"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 2.5,
+    "ref": "cil",
+    "mult": "quint",
+    "JHD": 1.9
+   },
+   {
+    "nucleus": "13C",
+    "shift": 39.51,
+    "ref": "cil",
+    "mult": "sept",
+    "JCD": 21.0
+   }
+  ],
+  "water": {
+   "shift": 3.33,
+   "ref": "fulmer2010"
+  },
+  "hodCil": "3.3",
+  "density": 1.19,
+  "meltingPoint": "18.55",
+  "boilingPoint": "189",
+  "dielectric": 46.7,
+  "molecularWeight": 84.17,
+  "chem21": "dmso",
+  "storage": "rt"
+ },
+ {
+  "id": "acetone_d6",
+  "name": {
+   "en": "Acetone-d6",
+   "tr": "Aseton-d6"
+  },
+  "formula": "(CD3)2CO",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 2.05,
+    "ref": "fulmer2010",
+    "mult": "quint"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 29.84,
+    "ref": "fulmer2010",
+    "mult": "sept"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 206.26,
+    "ref": "fulmer2010",
+    "mult": "s"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 2.05,
+    "ref": "cil",
+    "mult": "quint",
+    "JHD": 2.2
+   },
+   {
+    "nucleus": "13C",
+    "shift": 206.68,
+    "ref": "cil",
+    "mult": "s",
+    "JCD": 0.9
+   },
+   {
+    "nucleus": "13C",
+    "shift": 29.92,
+    "ref": "cil",
+    "mult": "sept",
+    "JCD": 19.4
+   }
+  ],
+  "water": {
+   "shift": 2.84,
+   "ref": "fulmer2010"
+  },
+  "hodCil": "2.8",
+  "density": 0.87,
+  "meltingPoint": "-94",
+  "boilingPoint": "56.5",
+  "dielectric": 20.7,
+  "molecularWeight": 64.12,
+  "chem21": "acetone",
+  "storage": "rt"
+ },
+ {
+  "id": "cd3od",
+  "name": {
+   "en": "Methanol-d4",
+   "tr": "Metanol-d4"
+  },
+  "formula": "CD3OD",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 3.31,
+    "ref": "fulmer2010",
+    "mult": "quint"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 49.0,
+    "ref": "fulmer2010",
+    "mult": "sept"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 4.87,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 3.31,
+    "ref": "cil",
+    "mult": "quint",
+    "JHD": 1.7
+   },
+   {
+    "nucleus": "13C",
+    "shift": 49.15,
+    "ref": "cil",
+    "mult": "sept",
+    "JCD": 21.4
+   }
+  ],
+  "water": {
+   "shift": 4.87,
+   "ref": "fulmer2010"
+  },
+  "hodCil": "4.9",
+  "density": 0.89,
+  "meltingPoint": "-97.8",
+  "boilingPoint": "64.7",
+  "dielectric": 32.7,
+  "molecularWeight": 36.07,
+  "chem21": "methanol",
+  "storage": "rt"
+ },
+ {
+  "id": "d2o",
+  "name": {
+   "en": "Deuterium oxide",
+   "tr": "Döteryum oksit"
+  },
+  "formula": "D2O",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 4.79,
+    "ref": "fulmer2010",
+    "mult": "s"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 4.8,
+    "ref": "cil",
+    "mult": "s"
+   }
+  ],
+  "water": {
+   "shift": 4.8,
+   "ref": "cil"
+  },
+  "hodCil": "4.8",
+  "density": 1.11,
+  "meltingPoint": "3.81",
+  "boilingPoint": "101.42",
+  "dielectric": 78.5,
+  "molecularWeight": 20.03,
+  "note": "4.80 (DSS) / 4.81 (TSP)",
+  "chem21": "water",
+  "storage": "rt"
+ },
+ {
+  "id": "c6d6",
+  "name": {
+   "en": "Benzene-d6",
+   "tr": "Benzen-d6"
+  },
+  "formula": "C6D6",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 7.16,
+    "ref": "fulmer2010",
+    "mult": "s"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 128.06,
+    "ref": "fulmer2010",
+    "mult": "t"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 7.16,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 128.39,
+    "ref": "cil",
+    "mult": "t",
+    "JCD": 24.3
+   }
+  ],
+  "water": {
+   "shift": 0.4,
+   "ref": "fulmer2010"
+  },
+  "hodCil": "0.4",
+  "density": 0.95,
+  "meltingPoint": "5.5",
+  "boilingPoint": "80.1",
+  "dielectric": 2.3,
+  "molecularWeight": 84.15,
+  "chem21": "benzene",
+  "storage": "rt"
+ },
+ {
+  "id": "cd3cn",
+  "name": {
+   "en": "Acetonitrile-d3",
+   "tr": "Asetonitril-d3"
+  },
+  "formula": "CD3CN",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 1.94,
+    "ref": "fulmer2010",
+    "mult": "quint"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 1.32,
+    "ref": "fulmer2010",
+    "mult": "sept"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 118.26,
+    "ref": "fulmer2010",
+    "mult": "s"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 1.94,
+    "ref": "cil",
+    "mult": "quint",
+    "JHD": 2.5
+   },
+   {
+    "nucleus": "13C",
+    "shift": 118.69,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 1.39,
+    "ref": "cil",
+    "mult": "sept",
+    "JCD": 21
+   }
+  ],
+  "water": {
+   "shift": 2.13,
+   "ref": "fulmer2010"
+  },
+  "hodCil": "2.1",
+  "density": 0.84,
+  "meltingPoint": "-45",
+  "boilingPoint": "81.6",
+  "dielectric": 37.5,
+  "molecularWeight": 44.07,
+  "chem21": "acetonitrile",
+  "storage": "rt_1y"
+ },
+ {
+  "id": "cd2cl2",
+  "name": {
+   "en": "Methylene chloride-d2",
+   "tr": "Diklorometan-d2"
+  },
+  "formula": "CD2Cl2",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 5.32,
+    "ref": "fulmer2010",
+    "mult": "t"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 53.84,
+    "ref": "fulmer2010",
+    "mult": "quint"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 5.32,
+    "ref": "cil",
+    "mult": "t",
+    "JHD": 1.1
+   },
+   {
+    "nucleus": "13C",
+    "shift": 54.0,
+    "ref": "cil",
+    "mult": "quint",
+    "JCD": 27.2
+   }
+  ],
+  "water": {
+   "shift": 1.52,
+   "ref": "fulmer2010"
+  },
+  "hodCil": "1.5",
+  "density": 1.35,
+  "meltingPoint": "-95",
+  "boilingPoint": "39.75",
+  "dielectric": 8.9,
+  "molecularWeight": 86.95,
+  "chem21": "dichloromethane",
+  "storage": "rt"
+ },
+ {
+  "id": "thf_d8",
+  "name": {
+   "en": "Tetrahydrofuran-d8",
+   "tr": "Tetrahidrofuran-d8"
+  },
+  "formula": "C4D8O",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 1.72,
+    "ref": "fulmer2010",
+    "mult": "s"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 3.58,
+    "ref": "fulmer2010",
+    "mult": "s"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 67.21,
+    "ref": "fulmer2010",
+    "mult": "quint"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 25.31,
+    "ref": "fulmer2010",
+    "mult": "quint"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 3.58,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 1.73,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 67.57,
+    "ref": "cil",
+    "mult": "quint",
+    "JCD": 22.2
+   },
+   {
+    "nucleus": "13C",
+    "shift": 25.37,
+    "ref": "cil",
+    "mult": "quint",
+    "JCD": 20.2
+   }
+  ],
+  "water": {
+   "shift": 2.46,
+   "ref": "fulmer2010"
+  },
+  "hodCil": "2.4-2.5",
+  "density": 0.99,
+  "meltingPoint": "-108.5",
+  "boilingPoint": "66",
+  "dielectric": 7.6,
+  "molecularWeight": 80.16,
+  "chem21": "thf",
+  "storage": "fridge_6m"
+ },
+ {
+  "id": "toluene_d8",
+  "name": {
+   "en": "Toluene-d8",
+   "tr": "Toluen-d8"
+  },
+  "formula": "C6D5CD3",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 2.08,
+    "ref": "fulmer2010",
+    "mult": "quint"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 6.97,
+    "ref": "fulmer2010",
+    "mult": "quint"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 7.01,
+    "ref": "fulmer2010",
+    "mult": "s"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 7.09,
+    "ref": "fulmer2010",
+    "mult": "m"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 137.48,
+    "ref": "fulmer2010",
+    "mult": "s"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 128.87,
+    "ref": "fulmer2010",
+    "mult": "t"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 127.96,
+    "ref": "fulmer2010",
+    "mult": "t"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 125.13,
+    "ref": "fulmer2010",
+    "mult": "t"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 20.43,
+    "ref": "fulmer2010",
+    "mult": "sept"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 7.09,
+    "ref": "cil",
+    "mult": "m"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 7.0,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 6.98,
+    "ref": "cil",
+    "mult": "quint"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 2.09,
+    "ref": "cil",
+    "mult": "quint",
+    "JHD": 2.3
+   },
+   {
+    "nucleus": "13C",
+    "shift": 137.86,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 129.24,
+    "ref": "cil",
+    "mult": "t",
+    "JCD": 23
+   },
+   {
+    "nucleus": "13C",
+    "shift": 128.33,
+    "ref": "cil",
+    "mult": "t",
+    "JCD": 24
+   },
+   {
+    "nucleus": "13C",
+    "shift": 125.49,
+    "ref": "cil",
+    "mult": "t",
+    "JCD": 24
+   },
+   {
+    "nucleus": "13C",
+    "shift": 20.4,
+    "ref": "cil",
+    "mult": "sept",
+    "JCD": 19
+   }
+  ],
+  "water": {
+   "shift": 0.43,
+   "ref": "fulmer2010"
+  },
+  "hodCil": "0.4",
+  "density": 0.94,
+  "meltingPoint": "-95",
+  "boilingPoint": "110.6",
+  "dielectric": 2.4,
+  "molecularWeight": 100.19,
+  "chem21": "toluene",
+  "storage": "rt"
+ },
+ {
+  "id": "c6d5cl",
+  "name": {
+   "en": "Chlorobenzene-d5",
+   "tr": "Klorobenzen-d5"
+  },
+  "formula": "C6D5Cl",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 6.96,
+    "ref": "fulmer2010"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 6.99,
+    "ref": "fulmer2010"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 7.14,
+    "ref": "fulmer2010"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 134.19,
+    "ref": "fulmer2010"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 129.26,
+    "ref": "fulmer2010"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 128.25,
+    "ref": "fulmer2010"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 125.96,
+    "ref": "fulmer2010"
+   }
+  ],
+  "water": {
+   "shift": 1.03,
+   "ref": "fulmer2010"
+  },
+  "chem21": "chlorobenzene"
+ },
+ {
+  "id": "tfe_d3",
+  "name": {
+   "en": "2,2,2-Trifluoroethanol-d3",
+   "tr": "2,2,2-Trifloroetanol-d3"
+  },
+  "formula": "CF3CD2OD",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 5.02,
+    "ref": "fulmer2010",
+    "mult": "s"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 3.88,
+    "ref": "fulmer2010",
+    "mult": "qt"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 61.5,
+    "ref": "fulmer2010",
+    "mult": "qquint"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 126.28,
+    "ref": "fulmer2010",
+    "mult": "q"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 5.02,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 3.88,
+    "ref": "cil",
+    "mult": "qt",
+    "JHD": 2
+   },
+   {
+    "nucleus": "13C",
+    "shift": 126.3,
+    "ref": "cil",
+    "mult": "q"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 61.5,
+    "ref": "cil",
+    "mult": "qquint",
+    "JCD": 22
+   }
+  ],
+  "water": {
+   "shift": 3.66,
+   "ref": "fulmer2010"
+  },
+  "hodCil": "5",
+  "density": 1.41,
+  "meltingPoint": "-43.5",
+  "boilingPoint": "74.05",
+  "molecularWeight": 103.06,
+  "storage": "rt"
+ },
+ {
+  "id": "acetic_acid_d4",
+  "name": {
+   "en": "Acetic acid-d4",
+   "tr": "Asetik asit-d4"
+  },
+  "formula": "CD3COOD",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 11.65,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 2.04,
+    "ref": "cil",
+    "mult": "quint",
+    "JHD": 2.2
+   },
+   {
+    "nucleus": "13C",
+    "shift": 178.99,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 20.0,
+    "ref": "cil",
+    "mult": "sept",
+    "JCD": 20
+   }
+  ],
+  "water": {
+   "shift": 11.5,
+   "ref": "cil"
+  },
+  "hodCil": "11.5",
+  "density": 1.12,
+  "meltingPoint": "16.7",
+  "boilingPoint": "118",
+  "dielectric": 6.1,
+  "molecularWeight": 64.08,
+  "chem21": "acetic_acid",
+  "storage": "rt"
+ },
+ {
+  "id": "cyclohexane_d12",
+  "name": {
+   "en": "Cyclohexane-d12",
+   "tr": "Siklohekzan-d12"
+  },
+  "formula": "C6D12",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 1.38,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 26.43,
+    "ref": "cil",
+    "mult": "quint",
+    "JCD": 19
+   }
+  ],
+  "water": {
+   "shift": 0.8,
+   "ref": "cil"
+  },
+  "hodCil": "0.8",
+  "density": 0.89,
+  "meltingPoint": "6.47",
+  "boilingPoint": "80.7",
+  "dielectric": 2.0,
+  "molecularWeight": 96.24,
+  "chem21": "cyclohexane",
+  "storage": "rt"
+ },
+ {
+  "id": "dmf_d7",
+  "name": {
+   "en": "N,N-Dimethylformamide-d7",
+   "tr": "N,N-Dimetilformamid-d7"
+  },
+  "formula": "DCON(CD3)2",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 8.03,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 2.92,
+    "ref": "cil",
+    "mult": "quint",
+    "JHD": 1.9
+   },
+   {
+    "nucleus": "1H",
+    "shift": 2.75,
+    "ref": "cil",
+    "mult": "quint",
+    "JHD": 1.9
+   },
+   {
+    "nucleus": "13C",
+    "shift": 163.15,
+    "ref": "cil",
+    "mult": "t",
+    "JCD": 29.4
+   },
+   {
+    "nucleus": "13C",
+    "shift": 34.89,
+    "ref": "cil",
+    "mult": "sept",
+    "JCD": 21.0
+   },
+   {
+    "nucleus": "13C",
+    "shift": 29.76,
+    "ref": "cil",
+    "mult": "sept",
+    "JCD": 21.1
+   }
+  ],
+  "water": {
+   "shift": 3.5,
+   "ref": "cil"
+  },
+  "hodCil": "3.5",
+  "density": 1.03,
+  "meltingPoint": "-61",
+  "boilingPoint": "153",
+  "dielectric": 36.7,
+  "molecularWeight": 80.14,
+  "chem21": "dmf",
+  "storage": "rt"
+ },
+ {
+  "id": "dioxane_d8",
+  "name": {
+   "en": "1,4-Dioxane-d8",
+   "tr": "1,4-Dioksan-d8"
+  },
+  "formula": "C4D8O2",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 3.53,
+    "ref": "cil",
+    "mult": "m"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 66.66,
+    "ref": "cil",
+    "mult": "quint",
+    "JCD": 21.9
+   }
+  ],
+  "water": {
+   "shift": 2.4,
+   "ref": "cil"
+  },
+  "hodCil": "2.4",
+  "density": 1.13,
+  "meltingPoint": "11.8",
+  "boilingPoint": "101.1",
+  "dielectric": 2.2,
+  "molecularWeight": 96.16,
+  "chem21": "dioxane",
+  "storage": "rt"
+ },
+ {
+  "id": "ethanol_d6",
+  "name": {
+   "en": "Ethanol-d6",
+   "tr": "Etanol-d6"
+  },
+  "formula": "CD3CD2OD",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 5.19,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 3.56,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 1.11,
+    "ref": "cil",
+    "mult": "m"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 56.96,
+    "ref": "cil",
+    "mult": "quint",
+    "JCD": 22
+   },
+   {
+    "nucleus": "13C",
+    "shift": 17.31,
+    "ref": "cil",
+    "mult": "sept",
+    "JCD": 19
+   }
+  ],
+  "water": {
+   "shift": 5.3,
+   "ref": "cil"
+  },
+  "hodCil": "5.3",
+  "density": 0.89,
+  "meltingPoint": "-114.1",
+  "boilingPoint": "78.5",
+  "dielectric": 24.5,
+  "molecularWeight": 52.11,
+  "chem21": "ethanol",
+  "storage": "rt"
+ },
+ {
+  "id": "pyridine_d5",
+  "name": {
+   "en": "Pyridine-d5",
+   "tr": "Piridin-d5"
+  },
+  "formula": "C5D5N",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 8.74,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 7.58,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 7.22,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 150.35,
+    "ref": "cil",
+    "mult": "t",
+    "JCD": 27.5
+   },
+   {
+    "nucleus": "13C",
+    "shift": 135.91,
+    "ref": "cil",
+    "mult": "t",
+    "JCD": 24.5
+   },
+   {
+    "nucleus": "13C",
+    "shift": 123.87,
+    "ref": "cil",
+    "mult": "t",
+    "JCD": 25
+   }
+  ],
+  "water": {
+   "shift": 5.0,
+   "ref": "cil"
+  },
+  "hodCil": "5",
+  "density": 1.05,
+  "meltingPoint": "-41.6",
+  "boilingPoint": "115.2-115.3",
+  "dielectric": 12.4,
+  "molecularWeight": 84.13,
+  "chem21": "pyridine",
+  "storage": "rt"
+ },
+ {
+  "id": "tce_d2",
+  "name": {
+   "en": "1,1,2,2-Tetrachloroethane-d2",
+   "tr": "1,1,2,2-Tetrakloroetan-d2"
+  },
+  "formula": "CDCl2CDCl2",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 6.0,
+    "ref": "cil"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 73.78,
+    "ref": "cil",
+    "mult": "t"
+   }
+  ],
+  "density": 1.62,
+  "meltingPoint": "-44",
+  "boilingPoint": "146.5",
+  "dielectric": 8.2,
+  "molecularWeight": 169.86,
+  "storage": "rt"
+ },
+ {
+  "id": "tfa_d",
+  "name": {
+   "en": "Trifluoroacetic acid-d",
+   "tr": "Trifloroasetik asit-d"
+  },
+  "formula": "CF3COOD",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 11.5,
+    "ref": "cil",
+    "mult": "s"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 164.2,
+    "ref": "cil",
+    "mult": "q"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 116.6,
+    "ref": "cil",
+    "mult": "q"
+   }
+  ],
+  "water": {
+   "shift": 11.5,
+   "ref": "cil"
+  },
+  "hodCil": "11.5",
+  "density": 1.49,
+  "meltingPoint": "-15.4",
+  "boilingPoint": "72.4",
+  "molecularWeight": 115.03,
+  "storage": "rt"
+ }
+]
