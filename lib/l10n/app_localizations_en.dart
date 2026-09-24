@@ -10,7 +10,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'NMR Solvents';
+  String get appTitle => 'NMR Solvent Impurities';
 
   @override
   String get tabSolvents => 'Solvents';
@@ -122,7 +122,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aboutText =>
-      'NMR Solvents is a quick reference for identifying the residual signals of deuterated solvents and common trace impurities in NMR spectra. The data were compiled from the peer-reviewed literature and a manufacturer\'s solvent chart, and the app works fully offline.';
+      'NMR Solvent Impurities is a quick reference for identifying the residual signals of deuterated solvents and common trace impurities in NMR spectra. The data were compiled from the peer-reviewed literature and a manufacturer\'s solvent chart, and the app works fully offline.';
 
   @override
   String get themeClassic => 'Classic (red · blue · black)';
@@ -607,7 +607,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noneIdentified => 'No impurity marked as identified.';
 
   @override
-  String get recordHeader => 'NMR Solvents – analysis record';
+  String get recordHeader => 'NMR Solvent Impurities – analysis record';
 
   @override
   String get localOnlyNote =>

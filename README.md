@@ -1,9 +1,11 @@
-# NMR Solvents / NMR Çözücüler
+# NMR Çözücü Safsızlıkları / NMR Solvent Impurities
 
 Döteryumlu NMR çözücüleri ve yaygın eser safsızlıkların kimyasal kaymaları için
 Android ve iOS uygulaması. Tamamen çevrimdışı çalışır, Türkçe ve İngilizce destekler.
 
 **Geliştirici:** Dr. İlker ÜN
+
+Ana ekranda kısa adıyla görünür: **NMR Safsızlık** (Türkçe cihaz) / **NMR Impurities**.
 
 *A Flutter app for Android and iOS: offline reference for deuterated NMR solvents
 and the ¹H/¹³C chemical shifts of common trace impurities. Turkish and English UI.*

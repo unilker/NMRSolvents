@@ -101,7 +101,7 @@ abstract class AppLocalizations {
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
-  /// **'NMR Solvents'**
+  /// **'NMR Solvent Impurities'**
   String get appTitle;
 
   /// No description provided for @tabSolvents.
@@ -323,7 +323,7 @@ abstract class AppLocalizations {
   /// No description provided for @aboutText.
   ///
   /// In en, this message translates to:
-  /// **'NMR Solvents is a quick reference for identifying the residual signals of deuterated solvents and common trace impurities in NMR spectra. The data were compiled from the peer-reviewed literature and a manufacturer\'s solvent chart, and the app works fully offline.'**
+  /// **'NMR Solvent Impurities is a quick reference for identifying the residual signals of deuterated solvents and common trace impurities in NMR spectra. The data were compiled from the peer-reviewed literature and a manufacturer\'s solvent chart, and the app works fully offline.'**
   String get aboutText;
 
   /// No description provided for @themeClassic.
@@ -1145,7 +1145,7 @@ abstract class AppLocalizations {
   /// No description provided for @recordHeader.
   ///
   /// In en, this message translates to:
-  /// **'NMR Solvents – analysis record'**
+  /// **'NMR Solvent Impurities – analysis record'**
   String get recordHeader;
 
   /// No description provided for @localOnlyNote.

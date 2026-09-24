@@ -10,7 +10,7 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
-  String get appTitle => 'NMR Çözücüler';
+  String get appTitle => 'NMR Çözücü Safsızlıkları';
 
   @override
   String get tabSolvents => 'Çözücüler';
@@ -122,7 +122,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get aboutText =>
-      'NMR Çözücüler, NMR spektrumlarında sık karşılaşılan döteryumlu çözücü sinyallerini ve eser safsızlıkları hızlıca tanımlamak için hazırlanmış bir başvuru uygulamasıdır. Veriler hakemli literatürden ve bir üreticinin çözücü tablosundan derlenmiştir. Uygulama internet bağlantısı gerektirmeden çalışır.';
+      'NMR Çözücü Safsızlıkları, NMR spektrumlarında sık karşılaşılan döteryumlu çözücü sinyallerini ve eser safsızlıkları hızlıca tanımlamak için hazırlanmış bir başvuru uygulamasıdır. Veriler hakemli literatürden ve bir üreticinin çözücü tablosundan derlenmiştir. Uygulama internet bağlantısı gerektirmeden çalışır.';
 
   @override
   String get themeClassic => 'Klasik (kırmızı · mavi · siyah)';
@@ -590,7 +590,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get noneIdentified => 'Tanımlandı olarak işaretlenmiş safsızlık yok.';
 
   @override
-  String get recordHeader => 'NMR Çözücüler – analiz kaydı';
+  String get recordHeader => 'NMR Çözücü Safsızlıkları – analiz kaydı';
 
   @override
   String get localOnlyNote =>

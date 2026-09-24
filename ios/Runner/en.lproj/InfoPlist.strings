@@ -1,0 +1,3 @@
+/* Home screen name; the full title is "NMR Solvent Impurities". */
+"CFBundleDisplayName" = "NMR Impurities";
+"CFBundleName" = "NMR Impurities";
