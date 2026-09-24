@@ -20,7 +20,6 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final settings = AppScope.of(context).settings;
-    final repo = context.repo;
     final languageCode = settings.locale?.languageCode;
 
     return Scaffold(
@@ -118,13 +117,6 @@ class SettingsScreen extends StatelessWidget {
                   ),
               ],
             ),
-          ),
-          SectionHeader(l10n.references),
-          for (final r in repo.references.values) ReferenceCard(r),
-          SectionHeader(l10n.about),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Text(l10n.aboutText),
           ),
         ],
       ),

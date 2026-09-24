@@ -320,22 +320,10 @@ abstract class AppLocalizations {
   /// **'This theme is always dark'**
   String get darkOnlyTheme;
 
-  /// No description provided for @references.
-  ///
-  /// In en, this message translates to:
-  /// **'References'**
-  String get references;
-
-  /// No description provided for @about.
-  ///
-  /// In en, this message translates to:
-  /// **'About'**
-  String get about;
-
   /// No description provided for @aboutText.
   ///
   /// In en, this message translates to:
-  /// **'Quick reference for deuterated NMR solvents and the chemical shifts of common trace impurities. Works fully offline.'**
+  /// **'NMR Solvents is a quick reference for identifying the residual signals of deuterated solvents and common trace impurities in NMR spectra. The data were compiled from the peer-reviewed literature and a manufacturer\'s solvent chart, and the app works fully offline.'**
   String get aboutText;
 
   /// No description provided for @themeClassic.
@@ -679,6 +667,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Peak {n}'**
   String peakLabel(int n);
+
+  /// No description provided for @tabInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Info'**
+  String get tabInfo;
+
+  /// No description provided for @developer.
+  ///
+  /// In en, this message translates to:
+  /// **'Developer'**
+  String get developer;
+
+  /// No description provided for @aboutApp.
+  ///
+  /// In en, this message translates to:
+  /// **'About the app'**
+  String get aboutApp;
+
+  /// No description provided for @features.
+  ///
+  /// In en, this message translates to:
+  /// **'Features'**
+  String get features;
+
+  /// No description provided for @feature1.
+  ///
+  /// In en, this message translates to:
+  /// **'Solvent guide: residual ¹H/¹³C peaks with coupling constants, water/HOD peak, physical properties and storage.'**
+  String get feature1;
+
+  /// No description provided for @feature2.
+  ///
+  /// In en, this message translates to:
+  /// **'Impurity tables: search by name, abbreviation or formula; the source of every value and the CHEM21 green-chemistry rating.'**
+  String get feature2;
+
+  /// No description provided for @feature3.
+  ///
+  /// In en, this message translates to:
+  /// **'Peak search: enter the solvent, chemical shift and splitting of a peak in your spectrum to find what it may be.'**
+  String get feature3;
+
+  /// No description provided for @feature4.
+  ///
+  /// In en, this message translates to:
+  /// **'Multiple peaks: enter several peaks, with their splittings, to rank the most likely impurities.'**
+  String get feature4;
+
+  /// No description provided for @feature5.
+  ///
+  /// In en, this message translates to:
+  /// **'Temperature-dependent HDO shift calculator for D₂O.'**
+  String get feature5;
+
+  /// No description provided for @feature6.
+  ///
+  /// In en, this message translates to:
+  /// **'Turkish and English interface, six colour themes, light and dark mode.'**
+  String get feature6;
+
+  /// No description provided for @dataContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Data'**
+  String get dataContent;
+
+  /// No description provided for @dataMethodText.
+  ///
+  /// In en, this message translates to:
+  /// **'Values were transcribed from the tables of the references below and checked against the printed tables. When a compound appears in the same solvent in more than one source, the order of precedence is Fulmer 2010 > Gottlieb 1997 > Babij 2016; later sources only fill in missing data. The app shows the source of every value.'**
+  String get dataMethodText;
+
+  /// No description provided for @disclaimerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Important note'**
+  String get disclaimerTitle;
+
+  /// No description provided for @disclaimerText.
+  ///
+  /// In en, this message translates to:
+  /// **'Chemical shifts vary with concentration, temperature, pH and instrument. This app is a reference aid; for a definitive assignment consult the original sources and your own measurements. The tabulated data belong to their publishers and to Cambridge Isotope Laboratories; this app is not affiliated with them.'**
+  String get disclaimerText;
+
+  /// No description provided for @referenceList.
+  ///
+  /// In en, this message translates to:
+  /// **'References'**
+  String get referenceList;
+
+  /// No description provided for @versionLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Version {version}'**
+  String versionLabel(String version);
+
+  /// No description provided for @dataStats.
+  ///
+  /// In en, this message translates to:
+  /// **'{solvents} deuterated solvents · {impurities} impurities · {signals} signals'**
+  String dataStats(int solvents, int impurities, int signals);
+
+  /// No description provided for @chem21Source.
+  ///
+  /// In en, this message translates to:
+  /// **'CHEM21 ratings are used as listed in [{n}]; original guide: D. Prat et al., Green Chem. 2016, 18, 288.'**
+  String chem21Source(int n);
 }
 
 class _AppLocalizationsDelegate

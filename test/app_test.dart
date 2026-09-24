@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import 'dart:io';
+
 import 'package:nmr_solvents/app.dart';
+import 'package:nmr_solvents/app_info.dart';
 import 'package:nmr_solvents/data/repository.dart';
 import 'package:nmr_solvents/settings/settings_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -75,6 +79,36 @@ void main() {
     expect(find.byKey(const Key('peak-3')), findsNothing);
     expect(find.text('Etil asetat'), findsOneWidget);
     expect(find.text('4.12 q'), findsOneWidget);
+  });
+
+  testWidgets('info tab shows developer and numbered references', (
+    tester,
+  ) async {
+    tallScreen(tester);
+    await tester.pumpWidget(NmrApp(settings: settings, repository: repo));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Bilgi'));
+    await tester.pumpAndSettle();
+    expect(find.text('Dr. İlker ÜN'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.textContaining('[4] NMR Solvent Data Chart'),
+      300,
+      scrollable: find.byType(Scrollable).last,
+    );
+    for (final n in [1, 2, 3, 4]) {
+      // "[3]" also appears in the CHEM21 note under the list.
+      expect(find.textContaining('[$n] '), findsWidgets);
+    }
+    expect(find.textContaining('10.1021/om100106e'), findsOneWidget);
+  });
+
+  test('app version matches pubspec.yaml', () {
+    final pubspec = File('pubspec.yaml').readAsStringSync();
+    final version = RegExp(
+      r'^version: ([\d.]+)',
+      multiLine: true,
+    ).firstMatch(pubspec)![1];
+    expect(kAppVersion, version);
   });
 
   testWidgets('theme choice is applied and persisted', (tester) async {

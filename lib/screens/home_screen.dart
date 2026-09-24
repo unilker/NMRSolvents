@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/common.dart';
 import 'impurities_screen.dart';
+import 'info_screen.dart';
 import 'peak_search_screen.dart';
 import 'settings_screen.dart';
 import 'solvents_screen.dart';
@@ -26,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SolventsScreen(),
           ImpuritiesScreen(),
           PeakSearchScreen(),
+          InfoScreen(),
           SettingsScreen(),
         ],
       ),
@@ -47,6 +49,11 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: const Icon(Icons.manage_search_outlined),
             selectedIcon: const Icon(Icons.manage_search),
             label: l10n.tabPeakSearch,
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.info_outline),
+            selectedIcon: const Icon(Icons.info),
+            label: l10n.tabInfo,
           ),
           NavigationDestination(
             icon: const Icon(Icons.settings_outlined),

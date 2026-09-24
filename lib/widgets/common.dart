@@ -310,9 +310,12 @@ class SolventDropdown extends StatelessWidget {
 }
 
 class ReferenceCard extends StatelessWidget {
-  const ReferenceCard(this.reference, {super.key});
+  const ReferenceCard(this.reference, {super.key, this.number});
 
   final Reference reference;
+
+  /// Position in a numbered reference list, shown as "[1]".
+  final int? number;
 
   @override
   Widget build(BuildContext context) {
@@ -329,7 +332,9 @@ class ReferenceCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    reference.title,
+                    number == null
+                        ? reference.title
+                        : '[$number] ${reference.title}',
                     style: theme.textTheme.bodyMedium?.copyWith(
                       fontWeight: FontWeight.w600,
                     ),

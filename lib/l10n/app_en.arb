@@ -37,9 +37,7 @@
   "modeLight": "Light",
   "modeDark": "Dark",
   "darkOnlyTheme": "This theme is always dark",
-  "references": "References",
-  "about": "About",
-  "aboutText": "Quick reference for deuterated NMR solvents and the chemical shifts of common trace impurities. Works fully offline.",
+  "aboutText": "NMR Solvents is a quick reference for identifying the residual signals of deuterated solvents and common trace impurities in NMR spectra. The data were compiled from the peer-reviewed literature and a manufacturer's solvent chart, and the app works fully offline.",
   "themeClassic": "Classic (red · blue · black)",
   "themeMidnight": "Midnight",
   "themeCrimson": "Crimson",
@@ -167,6 +165,51 @@
   "peakRowsHint": "Enter each peak and, if you can see it, its splitting. You can also paste a list such as \"2.05 s, 4.12 q, 1.26 t\".",
   "peakLabel": "Peak {n}",
   "@peakLabel": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "tabInfo": "Info",
+  "developer": "Developer",
+  "aboutApp": "About the app",
+  "features": "Features",
+  "feature1": "Solvent guide: residual ¹H/¹³C peaks with coupling constants, water/HOD peak, physical properties and storage.",
+  "feature2": "Impurity tables: search by name, abbreviation or formula; the source of every value and the CHEM21 green-chemistry rating.",
+  "feature3": "Peak search: enter the solvent, chemical shift and splitting of a peak in your spectrum to find what it may be.",
+  "feature4": "Multiple peaks: enter several peaks, with their splittings, to rank the most likely impurities.",
+  "feature5": "Temperature-dependent HDO shift calculator for D₂O.",
+  "feature6": "Turkish and English interface, six colour themes, light and dark mode.",
+  "dataContent": "Data",
+  "dataMethodText": "Values were transcribed from the tables of the references below and checked against the printed tables. When a compound appears in the same solvent in more than one source, the order of precedence is Fulmer 2010 > Gottlieb 1997 > Babij 2016; later sources only fill in missing data. The app shows the source of every value.",
+  "disclaimerTitle": "Important note",
+  "disclaimerText": "Chemical shifts vary with concentration, temperature, pH and instrument. This app is a reference aid; for a definitive assignment consult the original sources and your own measurements. The tabulated data belong to their publishers and to Cambridge Isotope Laboratories; this app is not affiliated with them.",
+  "referenceList": "References",
+  "versionLabel": "Version {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "dataStats": "{solvents} deuterated solvents · {impurities} impurities · {signals} signals",
+  "@dataStats": {
+    "placeholders": {
+      "solvents": {
+        "type": "int"
+      },
+      "impurities": {
+        "type": "int"
+      },
+      "signals": {
+        "type": "int"
+      }
+    }
+  },
+  "chem21Source": "CHEM21 ratings are used as listed in [{n}]; original guide: D. Prat et al., Green Chem. 2016, 18, 288.",
+  "@chem21Source": {
     "placeholders": {
       "n": {
         "type": "int"

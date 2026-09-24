@@ -121,14 +121,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get darkOnlyTheme => 'Bu tema her zaman koyudur';
 
   @override
-  String get references => 'Kaynaklar';
-
-  @override
-  String get about => 'Hakkında';
-
-  @override
   String get aboutText =>
-      'Döteryumlu NMR çözücüleri ve yaygın eser safsızlıkların kimyasal kaymaları için hızlı başvuru. Tamamen çevrimdışı çalışır.';
+      'NMR Çözücüler, NMR spektrumlarında sık karşılaşılan döteryumlu çözücü sinyallerini ve eser safsızlıkları hızlıca tanımlamak için hazırlanmış bir başvuru uygulamasıdır. Veriler hakemli literatürden ve bir üreticinin çözücü tablosundan derlenmiştir. Uygulama internet bağlantısı gerektirmeden çalışır.';
 
   @override
   String get themeClassic => 'Klasik (kırmızı · mavi · siyah)';
@@ -326,5 +320,72 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String peakLabel(int n) {
     return 'Pik $n';
+  }
+
+  @override
+  String get tabInfo => 'Bilgi';
+
+  @override
+  String get developer => 'Geliştirici';
+
+  @override
+  String get aboutApp => 'Uygulama hakkında';
+
+  @override
+  String get features => 'Özellikler';
+
+  @override
+  String get feature1 =>
+      'Çözücü rehberi: J değerleriyle kalıntı ¹H/¹³C pikleri, su/HOD piki, fiziksel özellikler ve saklama koşulları.';
+
+  @override
+  String get feature2 =>
+      'Safsızlık tabloları: ad, kısaltma veya formülle arama; her değerin kaynağı ve CHEM21 yeşil kimya derecesi.';
+
+  @override
+  String get feature3 =>
+      'Pik arama: spektrumunuzdaki pikin çözücüsünü, kimyasal kaymasını ve yarılmasını girerek neye ait olabileceğini bulun.';
+
+  @override
+  String get feature4 =>
+      'Çoklu pik: birden fazla piki yarılmalarıyla girerek en olası safsızlıkları puanlı sıralayın.';
+
+  @override
+  String get feature5 => 'D₂O için sıcaklığa bağlı HDO kayması hesaplayıcısı.';
+
+  @override
+  String get feature6 =>
+      'Türkçe ve İngilizce arayüz, altı renk teması, açık ve koyu görünüm.';
+
+  @override
+  String get dataContent => 'Veri içeriği';
+
+  @override
+  String get dataMethodText =>
+      'Değerler aşağıdaki kaynakların tablolarından aktarılmış ve basılı tablolarla karşılaştırılarak doğrulanmıştır. Aynı bileşik aynı çözücüde birden fazla kaynakta yer aldığında öncelik sırası Fulmer 2010 > Gottlieb 1997 > Babij 2016\'dır; sonraki kaynaklar yalnızca eksik verileri tamamlar. Uygulama her değerin hangi kaynaktan geldiğini gösterir.';
+
+  @override
+  String get disclaimerTitle => 'Önemli not';
+
+  @override
+  String get disclaimerText =>
+      'Kimyasal kaymalar derişime, sıcaklığa, pH\'a ve cihaza göre değişebilir. Bu uygulama bir başvuru aracıdır; kesin tanımlama için orijinal kaynaklara ve kendi ölçümlerinize başvurun. Tablolardaki veriler ilgili yayıncılara ve Cambridge Isotope Laboratories\'e aittir; bu uygulamanın onlarla bir bağlantısı yoktur.';
+
+  @override
+  String get referenceList => 'Kaynakça';
+
+  @override
+  String versionLabel(String version) {
+    return 'Sürüm $version';
+  }
+
+  @override
+  String dataStats(int solvents, int impurities, int signals) {
+    return '$solvents döteryumlu çözücü · $impurities safsızlık · $signals sinyal';
+  }
+
+  @override
+  String chem21Source(int n) {
+    return 'CHEM21 dereceleri [$n] numaralı kaynakta verildiği şekliyle kullanılmıştır; rehberin özgün kaynağı: D. Prat ve ark., Green Chem. 2016, 18, 288.';
   }
 }
