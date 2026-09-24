@@ -1,0 +1,307 @@
+[
+ {
+  "id": "cdcl3",
+  "name": {
+   "en": "Chloroform-d",
+   "tr": "Kloroform-d"
+  },
+  "formula": "CDCl3",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 7.26,
+    "mult": "s"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 77.16,
+    "mult": "t"
+   }
+  ],
+  "waterShift": 1.56,
+  "meltingPoint": -64,
+  "boilingPoint": 61,
+  "ref": "fulmer2010",
+  "verified": false
+ },
+ {
+  "id": "acetone_d6",
+  "name": {
+   "en": "Acetone-d6",
+   "tr": "Aseton-d6"
+  },
+  "formula": "(CD3)2CO",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 2.05,
+    "mult": "quint"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 29.84,
+    "mult": "sept"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 206.26,
+    "mult": "s"
+   }
+  ],
+  "waterShift": 2.84,
+  "meltingPoint": -94,
+  "boilingPoint": 56,
+  "ref": "fulmer2010",
+  "verified": false
+ },
+ {
+  "id": "dmso_d6",
+  "name": {
+   "en": "Dimethyl sulfoxide-d6",
+   "tr": "Dimetil sülfoksit-d6"
+  },
+  "formula": "(CD3)2SO",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 2.5,
+    "mult": "quint"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 39.52,
+    "mult": "sept"
+   }
+  ],
+  "waterShift": 3.33,
+  "meltingPoint": 20,
+  "boilingPoint": 189,
+  "ref": "fulmer2010",
+  "verified": false
+ },
+ {
+  "id": "cd3cn",
+  "name": {
+   "en": "Acetonitrile-d3",
+   "tr": "Asetonitril-d3"
+  },
+  "formula": "CD3CN",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 1.94,
+    "mult": "quint"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 1.32,
+    "mult": "sept"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 118.26,
+    "mult": "s"
+   }
+  ],
+  "waterShift": 2.13,
+  "meltingPoint": -45,
+  "boilingPoint": 82,
+  "ref": "fulmer2010",
+  "verified": false
+ },
+ {
+  "id": "cd3od",
+  "name": {
+   "en": "Methanol-d4",
+   "tr": "Metanol-d4"
+  },
+  "formula": "CD3OD",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 3.31,
+    "mult": "quint"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 4.87,
+    "mult": "s"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 49.0,
+    "mult": "sept"
+   }
+  ],
+  "waterShift": 4.87,
+  "meltingPoint": -98,
+  "boilingPoint": 65,
+  "ref": "fulmer2010",
+  "verified": false
+ },
+ {
+  "id": "d2o",
+  "name": {
+   "en": "Deuterium oxide",
+   "tr": "Döteryum oksit"
+  },
+  "formula": "D2O",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 4.79,
+    "mult": "s"
+   }
+  ],
+  "waterShift": 4.79,
+  "meltingPoint": 3.8,
+  "boilingPoint": 101.4,
+  "ref": "fulmer2010",
+  "verified": false
+ },
+ {
+  "id": "c6d6",
+  "name": {
+   "en": "Benzene-d6",
+   "tr": "Benzen-d6"
+  },
+  "formula": "C6D6",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 7.16,
+    "mult": "s"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 128.06,
+    "mult": "t"
+   }
+  ],
+  "waterShift": 0.4,
+  "meltingPoint": 6.8,
+  "boilingPoint": 79,
+  "ref": "fulmer2010",
+  "verified": false
+ },
+ {
+  "id": "cd2cl2",
+  "name": {
+   "en": "Dichloromethane-d2",
+   "tr": "Diklorometan-d2"
+  },
+  "formula": "CD2Cl2",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 5.32,
+    "mult": "t"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 53.84,
+    "mult": "quint"
+   }
+  ],
+  "waterShift": 1.52,
+  "meltingPoint": -95,
+  "boilingPoint": 40,
+  "ref": "fulmer2010",
+  "verified": false
+ },
+ {
+  "id": "thf_d8",
+  "name": {
+   "en": "Tetrahydrofuran-d8",
+   "tr": "Tetrahidrofuran-d8"
+  },
+  "formula": "C4D8O",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 1.72,
+    "mult": "m"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 3.58,
+    "mult": "m"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 25.31,
+    "mult": "quint"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 67.21,
+    "mult": "quint"
+   }
+  ],
+  "waterShift": 2.46,
+  "meltingPoint": -109,
+  "boilingPoint": 65,
+  "ref": "fulmer2010",
+  "verified": false
+ },
+ {
+  "id": "toluene_d8",
+  "name": {
+   "en": "Toluene-d8",
+   "tr": "Toluen-d8"
+  },
+  "formula": "C6D5CD3",
+  "residual": [
+   {
+    "nucleus": "1H",
+    "shift": 2.08,
+    "mult": "quint"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 6.97,
+    "mult": "m"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 7.01,
+    "mult": "m"
+   },
+   {
+    "nucleus": "1H",
+    "shift": 7.09,
+    "mult": "m"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 20.43,
+    "mult": "sept"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 125.13,
+    "mult": "t"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 127.96,
+    "mult": "t"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 128.87,
+    "mult": "t"
+   },
+   {
+    "nucleus": "13C",
+    "shift": 137.48,
+    "mult": "s"
+   }
+  ],
+  "waterShift": 0.43,
+  "meltingPoint": -95,
+  "boilingPoint": 111,
+  "ref": "fulmer2010",
+  "verified": false
+ }
+]

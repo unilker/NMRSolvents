@@ -1,0 +1,1249 @@
+[
+ {
+  "id": "acetic_acid",
+  "name": {
+   "en": "Acetic acid",
+   "tr": "Asetik asit"
+  },
+  "formula": "CH3COOH",
+  "aliases": [
+   "AcOH"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 2.1,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 20.81,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 175.99,
+    "mult": "s",
+    "assignment": "CO"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 1.91,
+    "mult": "s",
+    "assignment": "CH3"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "acetone",
+  "name": {
+   "en": "Acetone",
+   "tr": "Aseton"
+  },
+  "formula": "(CH3)2CO",
+  "aliases": [
+   "propanone"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 2.17,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 30.92,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 207.07,
+    "mult": "s",
+    "assignment": "CO"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 2.09,
+    "mult": "s",
+    "assignment": "CH3"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "acetonitrile",
+  "name": {
+   "en": "Acetonitrile",
+   "tr": "Asetonitril"
+  },
+  "formula": "CH3CN",
+  "aliases": [
+   "MeCN",
+   "ACN"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 2.1,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 1.89,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 116.43,
+    "mult": "s",
+    "assignment": "CN"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 2.07,
+    "mult": "s",
+    "assignment": "CH3"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "benzene",
+  "name": {
+   "en": "Benzene",
+   "tr": "Benzen"
+  },
+  "formula": "C6H6",
+  "aliases": [],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 7.36,
+    "mult": "s",
+    "assignment": "CH"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 128.37,
+    "mult": "s",
+    "assignment": "CH"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 7.37,
+    "mult": "s",
+    "assignment": "CH"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "tbuoh",
+  "name": {
+   "en": "tert-Butyl alcohol",
+   "tr": "tert-Bütil alkol"
+  },
+  "formula": "(CH3)3COH",
+  "aliases": [
+   "tBuOH",
+   "t-butanol"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 1.28,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 31.25,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 69.15,
+    "mult": "s",
+    "assignment": "C"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "chloroform",
+  "name": {
+   "en": "Chloroform",
+   "tr": "Kloroform"
+  },
+  "formula": "CHCl3",
+  "aliases": [],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 77.36,
+    "mult": "s",
+    "assignment": "CH"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 8.32,
+    "mult": "s",
+    "assignment": "CH"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "cyclohexane",
+  "name": {
+   "en": "Cyclohexane",
+   "tr": "Siklohekzan"
+  },
+  "formula": "C6H12",
+  "aliases": [],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 1.43,
+    "mult": "s",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 26.94,
+    "mult": "s",
+    "assignment": "CH2"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "dichloromethane",
+  "name": {
+   "en": "Dichloromethane",
+   "tr": "Diklorometan"
+  },
+  "formula": "CH2Cl2",
+  "aliases": [
+   "DCM",
+   "methylene chloride"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 5.3,
+    "mult": "s",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 53.52,
+    "mult": "s",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 5.76,
+    "mult": "s",
+    "assignment": "CH2"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "diethyl_ether",
+  "name": {
+   "en": "Diethyl ether",
+   "tr": "Dietil eter"
+  },
+  "formula": "(CH3CH2)2O",
+  "aliases": [
+   "Et2O",
+   "ether"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 1.21,
+    "mult": "t",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 3.48,
+    "mult": "q",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 15.2,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 65.91,
+    "mult": "s",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 1.09,
+    "mult": "t",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 3.38,
+    "mult": "q",
+    "assignment": "CH2"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "dmf",
+  "name": {
+   "en": "N,N-Dimethylformamide",
+   "tr": "N,N-Dimetilformamid"
+  },
+  "formula": "HCON(CH3)2",
+  "aliases": [
+   "DMF"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 8.02,
+    "mult": "s",
+    "assignment": "CHO"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 2.96,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 2.88,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 162.62,
+    "mult": "s",
+    "assignment": "CO"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 36.5,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 31.39,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 7.95,
+    "mult": "s",
+    "assignment": "CHO"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 2.89,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 2.73,
+    "mult": "s",
+    "assignment": "CH3"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "dmso",
+  "name": {
+   "en": "Dimethyl sulfoxide",
+   "tr": "Dimetil sülfoksit"
+  },
+  "formula": "(CH3)2SO",
+  "aliases": [
+   "DMSO"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 2.62,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 40.76,
+    "mult": "s",
+    "assignment": "CH3"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "dioxane",
+  "name": {
+   "en": "1,4-Dioxane",
+   "tr": "1,4-Dioksan"
+  },
+  "formula": "C4H8O2",
+  "aliases": [
+   "dioxane"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 3.71,
+    "mult": "s",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 67.14,
+    "mult": "s",
+    "assignment": "CH2"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "ethanol",
+  "name": {
+   "en": "Ethanol",
+   "tr": "Etanol"
+  },
+  "formula": "CH3CH2OH",
+  "aliases": [
+   "EtOH"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 1.25,
+    "mult": "t",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 3.72,
+    "mult": "q",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 18.41,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 58.28,
+    "mult": "s",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 1.06,
+    "mult": "t",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 3.44,
+    "mult": "m",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 4.34,
+    "mult": "t",
+    "assignment": "OH"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "ethyl_acetate",
+  "name": {
+   "en": "Ethyl acetate",
+   "tr": "Etil asetat"
+  },
+  "formula": "CH3COOCH2CH3",
+  "aliases": [
+   "EtOAc",
+   "AcOEt"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 2.05,
+    "mult": "s",
+    "assignment": "CH3CO"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 4.12,
+    "mult": "q",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 1.26,
+    "mult": "t",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 21.04,
+    "mult": "s",
+    "assignment": "CH3CO"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 171.36,
+    "mult": "s",
+    "assignment": "CO"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 60.49,
+    "mult": "s",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 14.19,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 1.99,
+    "mult": "s",
+    "assignment": "CH3CO"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 4.03,
+    "mult": "q",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 1.17,
+    "mult": "t",
+    "assignment": "CH3"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "grease",
+  "name": {
+   "en": "Grease",
+   "tr": "Gres (yağ)"
+  },
+  "formula": "",
+  "aliases": [
+   "hydrocarbon grease"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 0.86,
+    "mult": "m",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 1.26,
+    "mult": "br s",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 29.76,
+    "mult": "s",
+    "assignment": "CH2"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "hexane",
+  "name": {
+   "en": "n-Hexane",
+   "tr": "n-Hekzan"
+  },
+  "formula": "C6H14",
+  "aliases": [
+   "hexanes"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 0.88,
+    "mult": "t",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 1.26,
+    "mult": "m",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 14.14,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 22.7,
+    "mult": "s",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 31.64,
+    "mult": "s",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 0.86,
+    "mult": "t",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 1.25,
+    "mult": "m",
+    "assignment": "CH2"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "methanol",
+  "name": {
+   "en": "Methanol",
+   "tr": "Metanol"
+  },
+  "formula": "CH3OH",
+  "aliases": [
+   "MeOH"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 3.49,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 50.41,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 3.16,
+    "mult": "d",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 4.01,
+    "mult": "q",
+    "assignment": "OH"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "pentane",
+  "name": {
+   "en": "n-Pentane",
+   "tr": "n-Pentan"
+  },
+  "formula": "C5H12",
+  "aliases": [],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 0.88,
+    "mult": "t",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 1.27,
+    "mult": "m",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 14.08,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 22.38,
+    "mult": "s",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 34.16,
+    "mult": "s",
+    "assignment": "CH2"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "isopropanol",
+  "name": {
+   "en": "2-Propanol",
+   "tr": "2-Propanol (izopropanol)"
+  },
+  "formula": "(CH3)2CHOH",
+  "aliases": [
+   "IPA",
+   "isopropyl alcohol"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 1.22,
+    "mult": "d",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 4.04,
+    "mult": "sept",
+    "assignment": "CH"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 25.14,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 64.5,
+    "mult": "s",
+    "assignment": "CH"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "pyridine",
+  "name": {
+   "en": "Pyridine",
+   "tr": "Piridin"
+  },
+  "formula": "C5H5N",
+  "aliases": [],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 8.62,
+    "mult": "m",
+    "assignment": "CH(2)"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 7.29,
+    "mult": "m",
+    "assignment": "CH(3)"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 7.68,
+    "mult": "m",
+    "assignment": "CH(4)"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 149.9,
+    "mult": "s",
+    "assignment": "CH(2)"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 123.75,
+    "mult": "s",
+    "assignment": "CH(3)"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 135.96,
+    "mult": "s",
+    "assignment": "CH(4)"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "silicone_grease",
+  "name": {
+   "en": "Silicone grease",
+   "tr": "Silikon gres"
+  },
+  "formula": "",
+  "aliases": [
+   "siloxane"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 0.07,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 1.19,
+    "mult": "s",
+    "assignment": "CH3"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "thf",
+  "name": {
+   "en": "Tetrahydrofuran",
+   "tr": "Tetrahidrofuran"
+  },
+  "formula": "C4H8O",
+  "aliases": [
+   "THF"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 1.85,
+    "mult": "m",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 3.76,
+    "mult": "m",
+    "assignment": "CH2O"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 25.62,
+    "mult": "s",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 67.97,
+    "mult": "s",
+    "assignment": "CH2O"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 1.76,
+    "mult": "m",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 3.6,
+    "mult": "m",
+    "assignment": "CH2O"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "toluene",
+  "name": {
+   "en": "Toluene",
+   "tr": "Toluen"
+  },
+  "formula": "C6H5CH3",
+  "aliases": [],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 2.36,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 7.17,
+    "mult": "m",
+    "assignment": "CH(2,4,6)"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 7.25,
+    "mult": "m",
+    "assignment": "CH(3,5)"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 21.46,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 137.89,
+    "mult": "s",
+    "assignment": "C(i)"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 129.07,
+    "mult": "s",
+    "assignment": "CH(o)"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 128.26,
+    "mult": "s",
+    "assignment": "CH(m)"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 125.33,
+    "mult": "s",
+    "assignment": "CH(p)"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 2.3,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 7.18,
+    "mult": "m",
+    "assignment": "CH(2,4,6)"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 7.25,
+    "mult": "m",
+    "assignment": "CH(3,5)"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "triethylamine",
+  "name": {
+   "en": "Triethylamine",
+   "tr": "Trietilamin"
+  },
+  "formula": "(CH3CH2)3N",
+  "aliases": [
+   "Et3N",
+   "TEA"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 1.03,
+    "mult": "t",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 2.53,
+    "mult": "q",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 11.61,
+    "mult": "s",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "cdcl3",
+    "nucleus": "13C",
+    "shift": 46.25,
+    "mult": "s",
+    "assignment": "CH2"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 0.93,
+    "mult": "t",
+    "assignment": "CH3"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 2.43,
+    "mult": "q",
+    "assignment": "CH2"
+   }
+  ],
+  "ref": "gottlieb1997",
+  "verified": false
+ },
+ {
+  "id": "water",
+  "name": {
+   "en": "Water",
+   "tr": "Su"
+  },
+  "formula": "H2O",
+  "aliases": [
+   "H2O",
+   "HOD",
+   "HDO"
+  ],
+  "signals": [
+   {
+    "solvent": "cdcl3",
+    "nucleus": "1H",
+    "shift": 1.56,
+    "mult": "s",
+    "assignment": "H2O/HOD"
+   },
+   {
+    "solvent": "acetone_d6",
+    "nucleus": "1H",
+    "shift": 2.84,
+    "mult": "s",
+    "assignment": "H2O/HOD"
+   },
+   {
+    "solvent": "dmso_d6",
+    "nucleus": "1H",
+    "shift": 3.33,
+    "mult": "s",
+    "assignment": "H2O/HOD"
+   },
+   {
+    "solvent": "cd3cn",
+    "nucleus": "1H",
+    "shift": 2.13,
+    "mult": "s",
+    "assignment": "H2O/HOD"
+   },
+   {
+    "solvent": "cd3od",
+    "nucleus": "1H",
+    "shift": 4.87,
+    "mult": "s",
+    "assignment": "H2O/HOD"
+   },
+   {
+    "solvent": "d2o",
+    "nucleus": "1H",
+    "shift": 4.79,
+    "mult": "s",
+    "assignment": "H2O/HOD"
+   },
+   {
+    "solvent": "c6d6",
+    "nucleus": "1H",
+    "shift": 0.4,
+    "mult": "s",
+    "assignment": "H2O/HOD"
+   },
+   {
+    "solvent": "cd2cl2",
+    "nucleus": "1H",
+    "shift": 1.52,
+    "mult": "s",
+    "assignment": "H2O/HOD"
+   },
+   {
+    "solvent": "thf_d8",
+    "nucleus": "1H",
+    "shift": 2.46,
+    "mult": "s",
+    "assignment": "H2O/HOD"
+   },
+   {
+    "solvent": "toluene_d8",
+    "nucleus": "1H",
+    "shift": 0.43,
+    "mult": "s",
+    "assignment": "H2O/HOD"
+   }
+  ],
+  "ref": "fulmer2010",
+  "verified": false
+ }
+]

@@ -1,0 +1,97 @@
+{
+  "@@locale": "en",
+  "appTitle": "NMR Solvents",
+  "tabSolvents": "Solvents",
+  "tabImpurities": "Impurities",
+  "tabPeakSearch": "Peak search",
+  "tabSettings": "Settings",
+  "searchSolventsHint": "Search solvents",
+  "searchImpuritiesHint": "Name, abbreviation or formula",
+  "noResults": "No results",
+  "residualPeaks": "Residual solvent peaks",
+  "waterPeak": "Water (H₂O/HOD)",
+  "meltingPoint": "Melting point",
+  "boilingPoint": "Boiling point",
+  "impuritiesInSolvent": "Impurities in this solvent",
+  "reference": "Reference",
+  "notVerified": "Not verified",
+  "notVerifiedHint": "Preliminary data – to be checked against the cited article.",
+  "solvent": "Solvent",
+  "allSolvents": "All solvents",
+  "formula": "Formula",
+  "aliases": "Also known as",
+  "noDataForSolvent": "No data for this solvent",
+  "shift": "δ (ppm)",
+  "multiplicity": "Multiplicity",
+  "assignment": "Assignment",
+  "nucleus": "Nucleus",
+  "singlePeak": "Single peak",
+  "multiplePeaks": "Multiple peaks",
+  "shiftInputLabel": "Chemical shift (ppm)",
+  "peaksInputLabel": "Observed peaks (ppm)",
+  "peaksInputHint": "e.g. 2.05, 4.12, 1.26",
+  "anyMultiplicity": "Any",
+  "residualSolventPeak": "Residual solvent peak",
+  "enterValueToSearch": "Enter a chemical shift to search",
+  "language": "Language",
+  "systemLanguage": "Device language",
+  "theme": "Theme",
+  "appearance": "Appearance",
+  "modeSystem": "System",
+  "modeLight": "Light",
+  "modeDark": "Dark",
+  "darkOnlyTheme": "This theme is always dark",
+  "references": "References",
+  "about": "About",
+  "aboutText": "Quick reference for deuterated NMR solvents and the chemical shifts of common trace impurities. Works fully offline.",
+  "themeClassic": "Classic (red · blue · black)",
+  "themeMidnight": "Midnight",
+  "themeCrimson": "Crimson",
+  "themeOcean": "Ocean",
+  "themeEmerald": "Emerald",
+  "themeGraphite": "Graphite",
+  "copied": "Copied",
+  "toleranceLabel": "Tolerance: ±{value} ppm",
+  "@toleranceLabel": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "matchedSignals": "{matched} of {total} signals matched",
+  "@matchedSignals": {
+    "placeholders": {
+      "matched": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "signalsIn": "Signals in {solvent}",
+  "@signalsIn": {
+    "placeholders": {
+      "solvent": {
+        "type": "String"
+      }
+    }
+  },
+  "deltaPpm": "Δ {value} ppm",
+  "@deltaPpm": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "impurityCount": "{count, plural, =1{1 impurity} other{{count} impurities}}",
+  "@impurityCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

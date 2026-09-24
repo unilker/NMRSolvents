@@ -1,0 +1,197 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for English (`en`).
+class AppLocalizationsEn extends AppLocalizations {
+  AppLocalizationsEn([String locale = 'en']) : super(locale);
+
+  @override
+  String get appTitle => 'NMR Solvents';
+
+  @override
+  String get tabSolvents => 'Solvents';
+
+  @override
+  String get tabImpurities => 'Impurities';
+
+  @override
+  String get tabPeakSearch => 'Peak search';
+
+  @override
+  String get tabSettings => 'Settings';
+
+  @override
+  String get searchSolventsHint => 'Search solvents';
+
+  @override
+  String get searchImpuritiesHint => 'Name, abbreviation or formula';
+
+  @override
+  String get noResults => 'No results';
+
+  @override
+  String get residualPeaks => 'Residual solvent peaks';
+
+  @override
+  String get waterPeak => 'Water (H₂O/HOD)';
+
+  @override
+  String get meltingPoint => 'Melting point';
+
+  @override
+  String get boilingPoint => 'Boiling point';
+
+  @override
+  String get impuritiesInSolvent => 'Impurities in this solvent';
+
+  @override
+  String get reference => 'Reference';
+
+  @override
+  String get notVerified => 'Not verified';
+
+  @override
+  String get notVerifiedHint =>
+      'Preliminary data – to be checked against the cited article.';
+
+  @override
+  String get solvent => 'Solvent';
+
+  @override
+  String get allSolvents => 'All solvents';
+
+  @override
+  String get formula => 'Formula';
+
+  @override
+  String get aliases => 'Also known as';
+
+  @override
+  String get noDataForSolvent => 'No data for this solvent';
+
+  @override
+  String get shift => 'δ (ppm)';
+
+  @override
+  String get multiplicity => 'Multiplicity';
+
+  @override
+  String get assignment => 'Assignment';
+
+  @override
+  String get nucleus => 'Nucleus';
+
+  @override
+  String get singlePeak => 'Single peak';
+
+  @override
+  String get multiplePeaks => 'Multiple peaks';
+
+  @override
+  String get shiftInputLabel => 'Chemical shift (ppm)';
+
+  @override
+  String get peaksInputLabel => 'Observed peaks (ppm)';
+
+  @override
+  String get peaksInputHint => 'e.g. 2.05, 4.12, 1.26';
+
+  @override
+  String get anyMultiplicity => 'Any';
+
+  @override
+  String get residualSolventPeak => 'Residual solvent peak';
+
+  @override
+  String get enterValueToSearch => 'Enter a chemical shift to search';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get systemLanguage => 'Device language';
+
+  @override
+  String get theme => 'Theme';
+
+  @override
+  String get appearance => 'Appearance';
+
+  @override
+  String get modeSystem => 'System';
+
+  @override
+  String get modeLight => 'Light';
+
+  @override
+  String get modeDark => 'Dark';
+
+  @override
+  String get darkOnlyTheme => 'This theme is always dark';
+
+  @override
+  String get references => 'References';
+
+  @override
+  String get about => 'About';
+
+  @override
+  String get aboutText =>
+      'Quick reference for deuterated NMR solvents and the chemical shifts of common trace impurities. Works fully offline.';
+
+  @override
+  String get themeClassic => 'Classic (red · blue · black)';
+
+  @override
+  String get themeMidnight => 'Midnight';
+
+  @override
+  String get themeCrimson => 'Crimson';
+
+  @override
+  String get themeOcean => 'Ocean';
+
+  @override
+  String get themeEmerald => 'Emerald';
+
+  @override
+  String get themeGraphite => 'Graphite';
+
+  @override
+  String get copied => 'Copied';
+
+  @override
+  String toleranceLabel(String value) {
+    return 'Tolerance: ±$value ppm';
+  }
+
+  @override
+  String matchedSignals(int matched, int total) {
+    return '$matched of $total signals matched';
+  }
+
+  @override
+  String signalsIn(String solvent) {
+    return 'Signals in $solvent';
+  }
+
+  @override
+  String deltaPpm(String value) {
+    return 'Δ $value ppm';
+  }
+
+  @override
+  String impurityCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count impurities',
+      one: '1 impurity',
+    );
+    return '$_temp0';
+  }
+}
