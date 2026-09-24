@@ -31,7 +31,7 @@ class InfoScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(l10n.tabInfo)),
       body: ListView(
-        padding: const EdgeInsets.only(bottom: 24),
+        padding: pageBottomPadding(context, 24),
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 20, 16, 0),

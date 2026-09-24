@@ -82,7 +82,7 @@ class _SolventsScreenState extends State<SolventsScreen> {
                     text: context.l10n.noResults,
                   )
                 : ListView.builder(
-                    padding: const EdgeInsets.only(bottom: 16),
+                    padding: pageBottomPadding(context, 16),
                     itemCount: solvents.length,
                     itemBuilder: (context, i) => _SolventCard(solvents[i]),
                   ),
@@ -200,7 +200,7 @@ class SolventDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(prettyFormula(solvent.formula))),
       body: ListView(
-        padding: const EdgeInsets.only(bottom: 24),
+        padding: pageBottomPadding(context, 24),
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),

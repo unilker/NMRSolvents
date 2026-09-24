@@ -298,6 +298,7 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
             _singleResults(context, solvent, shifts.first, tolerance)
           else
             _multiResults(context, solvent, observed, tolerance),
+          SliverPadding(padding: pageBottomPadding(context, 8)),
         ],
       ),
     );

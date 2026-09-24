@@ -178,7 +178,7 @@ class _RecordsScreenState extends State<RecordsScreen> {
               )
               .toList();
           return ListView(
-            padding: const EdgeInsets.only(bottom: 24),
+            padding: pageBottomPadding(context, 24),
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
@@ -340,7 +340,7 @@ class RecordDetailScreen extends StatelessWidget {
             ],
           ),
           body: ListView(
-            padding: const EdgeInsets.only(bottom: 24),
+            padding: pageBottomPadding(context, 24),
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),

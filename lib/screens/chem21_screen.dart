@@ -48,7 +48,7 @@ class _Chem21GuideViewState extends State<Chem21GuideView> {
     }
 
     return ListView(
-      padding: const EdgeInsets.only(bottom: 24),
+      padding: pageBottomPadding(context, 24),
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
@@ -173,7 +173,7 @@ class Chem21DetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(entry.name.of(context.lang))),
       body: ListView(
-        padding: const EdgeInsets.only(bottom: 24),
+        padding: pageBottomPadding(context, 24),
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
@@ -260,7 +260,7 @@ class Chem21ScoringScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(l10n.howScored)),
       body: ListView(
-        padding: const EdgeInsets.only(bottom: 24),
+        padding: pageBottomPadding(context, 24),
         children: [
           SectionHeader(l10n.rankClasses),
           for (final r in Chem21.values)

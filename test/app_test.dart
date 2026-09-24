@@ -118,6 +118,30 @@ void main() {
     expect(find.textContaining('10.1021/om100106e'), findsOneWidget);
   });
 
+  testWidgets('pages leave room for the system navigation bar', (tester) async {
+    tallScreen(tester);
+    // Android 15+ edge to edge: the navigation buttons cover 48 dp.
+    tester.view.padding = const FakeViewPadding(bottom: 48 * 2.6);
+    await tester.pumpWidget(
+      NmrApp(settings: settings, repository: repo, records: records),
+    );
+    await tester.pumpAndSettle();
+    double listBottom() =>
+        (tester.widget<ListView>(find.byType(ListView).last).padding!
+                as EdgeInsets)
+            .bottom;
+
+    // Inside the tabs the navigation bar already takes the inset.
+    await tester.tap(find.text('Ayarlar'));
+    await tester.pumpAndSettle();
+    expect(listBottom(), 24);
+
+    // A pushed page scrolls its last lines above the navigation buttons.
+    await tester.tap(find.byKey(const Key('aboutApp')));
+    await tester.pumpAndSettle();
+    expect(listBottom(), 24 + 48);
+  });
+
   testWidgets('CHEM21 guide filters by ranking', (tester) async {
     tallScreen(tester);
     await tester.pumpWidget(

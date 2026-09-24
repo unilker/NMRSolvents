@@ -26,7 +26,7 @@ class SettingsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(l10n.tabSettings)),
       body: ListView(
-        padding: const EdgeInsets.only(bottom: 24),
+        padding: pageBottomPadding(context, 24),
         children: [
           Card(
             margin: const EdgeInsets.fromLTRB(16, 16, 16, 0),

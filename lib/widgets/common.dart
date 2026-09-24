@@ -32,6 +32,12 @@ class AppScope extends InheritedWidget {
       records != oldWidget.records;
 }
 
+/// Bottom padding for a scrolling page: [extra] plus the part of the screen
+/// covered by the system navigation bar. Android 15+ draws apps edge to
+/// edge, so without this the last lines sit under the navigation buttons.
+EdgeInsets pageBottomPadding(BuildContext context, double extra) =>
+    EdgeInsets.only(bottom: extra + MediaQuery.paddingOf(context).bottom);
+
 extension ContextX on BuildContext {
   AppLocalizations get l10n => AppLocalizations.of(this);
   NmrRepository get repo => AppScope.of(this).repository;
