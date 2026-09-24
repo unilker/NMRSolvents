@@ -22,21 +22,101 @@ enum Nucleus {
   );
 }
 
-/// CHEM21 solvent selection guide rating, as reported by Babij 2016.
+/// CHEM21 solvent guide ranking (Prat et al., Green Chem. 2016).
 enum Chem21 {
   recommended('rec'),
-  problematic('prob');
+  problematic('prob'),
+  hazardous('haz'),
+  highlyHazardous('hh');
 
   const Chem21(this.code);
 
   final String code;
 
-  static Chem21? fromCode(String? code) {
-    for (final c in Chem21.values) {
-      if (c.code == code) return c;
-    }
-    return null;
-  }
+  static Chem21 fromCode(String code) => Chem21.values.firstWhere(
+    (c) => c.code == code,
+    orElse: () => throw FormatException('Unknown CHEM21 ranking: $code'),
+  );
+}
+
+/// One solvent of the CHEM21 guide (Tables 7 and 8 of Prat 2016).
+class Chem21Entry {
+  const Chem21Entry({
+    required this.id,
+    required this.name,
+    required this.printed,
+    required this.family,
+    required this.bp,
+    required this.fp,
+    required this.h3,
+    required this.h4,
+    required this.safety,
+    required this.health,
+    required this.env,
+    required this.rankDefault,
+    required this.rank,
+    required this.table,
+    required this.impurityIds,
+    this.cas,
+    this.note,
+  });
+
+  factory Chem21Entry.fromJson(Map<String, dynamic> json) => Chem21Entry(
+    id: json['id'] as String,
+    name: LocalizedText.fromJson(json['name'] as Map<String, dynamic>),
+    printed: json['printed'] as String,
+    family: LocalizedText.fromJson(json['family'] as Map<String, dynamic>),
+    bp: json['bp'] as String,
+    fp: json['fp'] as String,
+    h3: json['h3'] as String,
+    h4: json['h4'] as String,
+    safety: json['safety'] as int,
+    health: json['health'] as int,
+    env: json['env'] as int,
+    rankDefault: Chem21.fromCode(json['rankDefault'] as String),
+    rank: Chem21.fromCode(json['rank'] as String),
+    table: json['table'] as int,
+    impurityIds: (json['impurities'] as List).cast<String>(),
+    cas: json['cas'] as String?,
+    note: json['note'] as String?,
+  );
+
+  final String id;
+  final LocalizedText name;
+
+  /// Name as printed in the paper, e.g. "MEK" or "i-PrOAc".
+  final String printed;
+  final LocalizedText family;
+
+  /// Boiling and flash points in °C as printed ("na", ">200"…).
+  final String bp;
+  final String fp;
+
+  /// Worst health (H3xx) and environment (H4xx) statements: a code such as
+  /// "H351", "None" (none after full REACh registration) or "n.a." (no full
+  /// registration).
+  final String h3;
+  final String h4;
+
+  /// Scores from 1 (best) to 10.
+  final int safety;
+  final int health;
+  final int env;
+
+  /// Ranking from the scores alone, and the final ranking of the guide
+  /// (after the CHEM21 team's discussion, for Table 7 solvents).
+  final Chem21 rankDefault;
+  final Chem21 rank;
+
+  /// 7: classical solvents, 8: less classical solvents.
+  final int table;
+
+  /// Impurities in this app that this entry rates.
+  final List<String> impurityIds;
+  final String? cas;
+
+  /// "solid" (at 20 °C) or "water_sensitive".
+  final String? note;
 }
 
 /// A text available in several languages, keyed by language code.
@@ -153,6 +233,7 @@ class Solvent {
     this.molecularWeight,
     this.note,
     this.storage,
+    this.chem21Id,
   });
 
   factory Solvent.fromJson(Map<String, dynamic> json) {
@@ -174,6 +255,7 @@ class Solvent {
       molecularWeight: (json['molecularWeight'] as num?)?.toDouble(),
       note: json['note'] as String?,
       storage: json['storage'] as String?,
+      chem21Id: json['chem21'] as String?,
     );
   }
 
@@ -201,6 +283,9 @@ class Solvent {
 
   /// Storage code from the CIL chart: rt, rt_1y or fridge_6m.
   final String? storage;
+
+  /// CHEM21 guide entry of the unlabeled solvent (e.g. chloroform for CDCl₃).
+  final String? chem21Id;
 
   /// Reference ids of the residual peak sets, most authoritative first.
   List<String> get residualRefs {
@@ -278,7 +363,7 @@ class Impurity {
     required this.formula,
     required this.aliases,
     required this.signals,
-    this.chem21,
+    this.chem21Id,
     this.note,
   });
 
@@ -290,7 +375,7 @@ class Impurity {
     signals: (json['signals'] as List)
         .map((e) => Signal.fromJson(e as Map<String, dynamic>))
         .toList(),
-    chem21: Chem21.fromCode(json['chem21'] as String?),
+    chem21Id: json['chem21'] as String?,
     note: json['note'] as String?,
   );
 
@@ -299,7 +384,9 @@ class Impurity {
   final String formula;
   final List<String> aliases;
   final List<Signal> signals;
-  final Chem21? chem21;
+
+  /// CHEM21 guide entry rating this compound, if any.
+  final String? chem21Id;
   final String? note;
 
   /// Signals in [solventId], highest shift first.

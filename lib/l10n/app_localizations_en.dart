@@ -214,16 +214,6 @@ class AppLocalizationsEn extends AppLocalizations {
       'Gottlieb 1997, eq 1. Referenced to sodium 3-(trimethylsilyl)propanesulfonate.';
 
   @override
-  String get chem21Recommended => 'CHEM21: recommended';
-
-  @override
-  String get chem21Problematic => 'CHEM21: problematic';
-
-  @override
-  String get chem21Hint =>
-      'Rating in the CHEM21 solvent selection guide, as listed by Babij 2016.';
-
-  @override
   String get note => 'Note';
 
   @override
@@ -353,7 +343,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get feature2 =>
-      'Impurity tables: search by name, abbreviation or formula; the source of every value and the CHEM21 green-chemistry rating.';
+      'Impurity tables: search by name, abbreviation or formula, with the source of every value.';
 
   @override
   String get feature3 =>
@@ -375,7 +365,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get dataMethodText =>
-      'Values were transcribed from the tables of the references below and checked against the printed tables. When a compound appears in the same solvent in more than one source, the order of precedence is Fulmer 2010 > Gottlieb 1997 > Babij 2016; later sources only fill in missing data. The app shows the source of every value.';
+      'Values were transcribed from the tables of the references below and checked against the printed tables. When a compound appears in the same solvent in more than one source, the order of precedence is Fulmer 2010 > Gottlieb 1997 > Babij 2016; later sources only fill in missing data. The app shows the source of every value. Green-chemistry scores and rankings come from the original CHEM21 guide.';
 
   @override
   String get disclaimerTitle => 'Important note';
@@ -398,7 +388,150 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String chem21Source(int n) {
-    return 'CHEM21 ratings are used as listed in [$n]; original guide: D. Prat et al., Green Chem. 2016, 18, 288.';
+  String get rankRecommended => 'Recommended';
+
+  @override
+  String get rankProblematic => 'Problematic';
+
+  @override
+  String get rankHazardous => 'Hazardous';
+
+  @override
+  String get rankHighlyHazardous => 'Highly hazardous';
+
+  @override
+  String get rankRecommendedDef =>
+      'To be tested first in a screening exercise, if there is no chemical incompatibility with the process.';
+
+  @override
+  String get rankProblematicDef =>
+      'Can be used in the lab or kilo lab, but scale-up to pilot plant or production needs specific measures or significant energy.';
+
+  @override
+  String get rankHazardousDef =>
+      'Very strong constraints on scale-up; substituting them during process development is a priority.';
+
+  @override
+  String get rankHighlyHazardousDef => 'To be avoided, even in the laboratory.';
+
+  @override
+  String get greenChemistry => 'Green chemistry (CHEM21)';
+
+  @override
+  String get safetyScore => 'Safety';
+
+  @override
+  String get healthScore => 'Health';
+
+  @override
+  String get envScore => 'Environment';
+
+  @override
+  String get flashPoint => 'Flash point';
+
+  @override
+  String get worstH3 => 'Worst health statement';
+
+  @override
+  String get worstH4 => 'Environment statement';
+
+  @override
+  String get hNone => 'None (full REACh registration)';
+
+  @override
+  String get hNa => 'Not available (no full REACh registration)';
+
+  @override
+  String get rankingDefault => 'Ranking from the scores';
+
+  @override
+  String get rankingFinal => 'CHEM21 ranking';
+
+  @override
+  String get rankChangedNote =>
+      'The CHEM21 team changed the ranking from the scores after discussion.';
+
+  @override
+  String get casNumber => 'CAS No.';
+
+  @override
+  String get noteSolid => 'Solid at 20 °C';
+
+  @override
+  String get noteWaterSensitive => 'Water sensitive';
+
+  @override
+  String get nmrSolventsView => 'NMR solvents';
+
+  @override
+  String get chem21GuideView => 'CHEM21 guide';
+
+  @override
+  String get chem21Intro =>
+      'Solvent selection guide of the CHEM21 consortium for the pharmaceutical industry. Each solvent is scored 1–10 for safety, health and environment (1 is best) and ranked in four classes.';
+
+  @override
+  String get chem21BabijNote =>
+      'The CHEM21 marks in the Babij 2016 table differ from this original guide for some solvents; the app uses the original guide (Prat 2016).';
+
+  @override
+  String get searchChem21Hint => 'Search solvents';
+
+  @override
+  String get howScored => 'How are solvents scored?';
+
+  @override
+  String get rankClasses => 'Ranking classes';
+
+  @override
+  String get scoreColors => 'Scores 1–3 are green, 4–6 yellow and 7–10 red.';
+
+  @override
+  String get safetyRule =>
+      'Based on the flash point: >60 °C → 1; 24–60 °C → 3; 0–23 °C → 4; −1 to −20 °C → 5; below −20 °C → 7. One point is added for each of: auto-ignition temperature below 200 °C, resistivity above 10⁸ Ω·m (static charge build-up) and ability to form peroxides (EUH019). Solvents with a decomposition energy above 500 J/g, such as nitromethane, score 10.';
+
+  @override
+  String get healthRule =>
+      'Based on the most severe GHS/CLP hazard statement: carcinogen, mutagen or reprotoxic cat. 1 (H340, H350, H360) → 9, cat. 2 (H341, H351, H361) → 6; acute toxicity H300/H310/H330 → 9, H301/H311/H331 → 6, H302/H312/H332/H336 → 2; organ toxicity H370/H372 → 6, H334 → 4, H304/H371/H373 → 2; irritation H314 → 7, H318 → 4, H315/H317/H319/H335 → 2. One point is added if the boiling point is below 85 °C. A fully registered solvent without H3xx statements scores 1; without full data, 5.';
+
+  @override
+  String get envRule =>
+      'The higher of two scores: boiling point (70–139 °C → 3; 50–69 or 140–200 °C → 5; below 50 or above 200 °C → 7) and aquatic hazard statements (none → 3; H412/H413 → 5; H400/H410/H411 → 7). Without full REACh registration → 5; water → 1; ozone-depleting (H420) → 10.';
+
+  @override
+  String get rankRule =>
+      'Ranking from the scores (the most stringent rule applies): any score ≥ 8, or two red scores (7–10) → hazardous; one score of 7, or two yellow scores (4–6) → problematic; otherwise recommended. For the classical solvents the CHEM21 team set the final ranking after discussion; highly hazardous is only assigned then.';
+
+  @override
+  String get showNmrData => 'NMR data';
+
+  @override
+  String get deuteratedForms => 'Deuterated NMR solvents';
+
+  @override
+  String get family => 'Family';
+
+  @override
+  String get hStatementNote =>
+      'Hazard statement wording from the GHS/CLP regulation.';
+
+  @override
+  String chem21For(String name) {
+    return 'Unlabeled $name';
   }
+
+  @override
+  String chem21Count(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count solvents',
+      one: '1 solvent',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get feature7 =>
+      'CHEM21 green-chemistry guide: safety, health and environment scores and ranking of 75 solvents, and how they are scored.';
 }

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../data/search.dart';
 import '../models/models.dart';
+import '../widgets/chem21_widgets.dart';
 import '../widgets/common.dart';
+import 'chem21_screen.dart';
 import 'impurity_detail_screen.dart';
 
 class SolventsScreen extends StatefulWidget {
@@ -14,6 +16,7 @@ class SolventsScreen extends StatefulWidget {
 
 class _SolventsScreenState extends State<SolventsScreen> {
   final _query = TextEditingController();
+  bool _guide = false;
 
   @override
   void dispose() {
@@ -23,6 +26,37 @@ class _SolventsScreenState extends State<SolventsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    final toggle = Padding(
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+      child: SegmentedButton<bool>(
+        segments: [
+          ButtonSegment(
+            value: false,
+            icon: const Icon(Icons.science_outlined),
+            label: Text(l10n.nmrSolventsView),
+          ),
+          ButtonSegment(
+            value: true,
+            icon: const Icon(Icons.eco_outlined),
+            label: Text(l10n.chem21GuideView),
+          ),
+        ],
+        selected: {_guide},
+        onSelectionChanged: (v) => setState(() => _guide = v.first),
+      ),
+    );
+    if (_guide) {
+      return Scaffold(
+        appBar: AppBar(title: Text(l10n.tabSolvents)),
+        body: Column(
+          children: [
+            toggle,
+            const Expanded(child: Chem21GuideView()),
+          ],
+        ),
+      );
+    }
     final solvents = searchSolventsByName(
       context.repo.solvents,
       _query.text,
@@ -32,6 +66,7 @@ class _SolventsScreenState extends State<SolventsScreen> {
       appBar: AppBar(title: Text(context.l10n.tabSolvents)),
       body: Column(
         children: [
+          toggle,
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
             child: SearchField(
@@ -159,6 +194,7 @@ class SolventDetailScreen extends StatelessWidget {
       ...solvent.residualRefs,
       ?solvent.waterRefId,
       if (solvent.density != null || solvent.storage != null) 'cil',
+      if (solvent.chem21Id != null) 'prat2016',
     };
 
     return Scaffold(
@@ -238,6 +274,13 @@ class SolventDetailScreen extends StatelessWidget {
                   _ => l10n.storageRt,
                 }),
               ),
+            ),
+          ],
+          if (repo.chem21ById(solvent.chem21Id) case final chem21?) ...[
+            SectionHeader(l10n.greenChemistry),
+            Chem21Card(
+              chem21,
+              subtitle: l10n.chem21For(chem21.name.of(context.lang)),
             ),
           ],
           if (impurities.isNotEmpty) ...[

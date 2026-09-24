@@ -1,0 +1,1878 @@
+[
+ {
+  "id": "water",
+  "name": {
+   "en": "Water",
+   "tr": "Su"
+  },
+  "printed": "Water",
+  "family": {
+   "en": "Water",
+   "tr": "Su"
+  },
+  "bp": "100",
+  "fp": "na",
+  "h3": "None",
+  "h4": "None",
+  "safety": 1,
+  "health": 1,
+  "env": 1,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 7,
+  "impurities": [
+   "water"
+  ]
+ },
+ {
+  "id": "methanol",
+  "name": {
+   "en": "Methanol",
+   "tr": "Metanol"
+  },
+  "printed": "MeOH",
+  "family": {
+   "en": "Alcohols",
+   "tr": "Alkoller"
+  },
+  "bp": "65",
+  "fp": "11",
+  "h3": "H301",
+  "h4": "None",
+  "safety": 4,
+  "health": 7,
+  "env": 5,
+  "rankDefault": "prob",
+  "rank": "rec",
+  "table": 7,
+  "impurities": [
+   "methanol"
+  ]
+ },
+ {
+  "id": "ethanol",
+  "name": {
+   "en": "Ethanol",
+   "tr": "Etanol"
+  },
+  "printed": "EtOH",
+  "family": {
+   "en": "Alcohols",
+   "tr": "Alkoller"
+  },
+  "bp": "78",
+  "fp": "13",
+  "h3": "H319",
+  "h4": "None",
+  "safety": 4,
+  "health": 3,
+  "env": 3,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 7,
+  "impurities": [
+   "ethanol"
+  ]
+ },
+ {
+  "id": "isopropanol",
+  "name": {
+   "en": "2-Propanol",
+   "tr": "2-Propanol (izopropanol)"
+  },
+  "printed": "i-PrOH",
+  "family": {
+   "en": "Alcohols",
+   "tr": "Alkoller"
+  },
+  "bp": "82",
+  "fp": "12",
+  "h3": "H319",
+  "h4": "None",
+  "safety": 4,
+  "health": 3,
+  "env": 3,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 7,
+  "impurities": [
+   "isopropanol"
+  ]
+ },
+ {
+  "id": "n_butanol",
+  "name": {
+   "en": "n-Butanol",
+   "tr": "n-Bütanol"
+  },
+  "printed": "n-BuOH",
+  "family": {
+   "en": "Alcohols",
+   "tr": "Alkoller"
+  },
+  "bp": "118",
+  "fp": "29",
+  "h3": "H318",
+  "h4": "None",
+  "safety": 3,
+  "health": 4,
+  "env": 3,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 7,
+  "impurities": [
+   "n_butanol"
+  ]
+ },
+ {
+  "id": "tert_butanol",
+  "name": {
+   "en": "tert-Butyl alcohol",
+   "tr": "tert-Bütil alkol"
+  },
+  "printed": "t-BuOH",
+  "family": {
+   "en": "Alcohols",
+   "tr": "Alkoller"
+  },
+  "bp": "82",
+  "fp": "11",
+  "h3": "H319",
+  "h4": "None",
+  "safety": 4,
+  "health": 3,
+  "env": 3,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 7,
+  "impurities": [
+   "tert_butanol"
+  ],
+  "note": "solid"
+ },
+ {
+  "id": "benzyl_alcohol",
+  "name": {
+   "en": "Benzyl alcohol",
+   "tr": "Benzil alkol"
+  },
+  "printed": "Benzyl alcohol",
+  "family": {
+   "en": "Alcohols",
+   "tr": "Alkoller"
+  },
+  "bp": "206",
+  "fp": "101",
+  "h3": "H302",
+  "h4": "None",
+  "safety": 1,
+  "health": 2,
+  "env": 7,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "benzyl_alcohol"
+  ]
+ },
+ {
+  "id": "ethylene_glycol",
+  "name": {
+   "en": "Ethylene glycol",
+   "tr": "Etilen glikol"
+  },
+  "printed": "Ethylene glycol",
+  "family": {
+   "en": "Alcohols",
+   "tr": "Alkoller"
+  },
+  "bp": "198",
+  "fp": "116",
+  "h3": "H302",
+  "h4": "None",
+  "safety": 1,
+  "health": 2,
+  "env": 5,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 7,
+  "impurities": [
+   "ethylene_glycol"
+  ]
+ },
+ {
+  "id": "acetone",
+  "name": {
+   "en": "Acetone",
+   "tr": "Aseton"
+  },
+  "printed": "Acetone",
+  "family": {
+   "en": "Ketones",
+   "tr": "Ketonlar"
+  },
+  "bp": "56",
+  "fp": "-18",
+  "h3": "H319",
+  "h4": "None",
+  "safety": 5,
+  "health": 3,
+  "env": 5,
+  "rankDefault": "prob",
+  "rank": "rec",
+  "table": 7,
+  "impurities": [
+   "acetone"
+  ]
+ },
+ {
+  "id": "mek",
+  "name": {
+   "en": "Ethyl methyl ketone",
+   "tr": "Etil metil keton"
+  },
+  "printed": "MEK",
+  "family": {
+   "en": "Ketones",
+   "tr": "Ketonlar"
+  },
+  "bp": "80",
+  "fp": "-6",
+  "h3": "H319",
+  "h4": "None",
+  "safety": 5,
+  "health": 3,
+  "env": 3,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 7,
+  "impurities": [
+   "mek"
+  ]
+ },
+ {
+  "id": "mibk",
+  "name": {
+   "en": "Methyl isobutyl ketone",
+   "tr": "Metil izobütil keton"
+  },
+  "printed": "MIBK",
+  "family": {
+   "en": "Ketones",
+   "tr": "Ketonlar"
+  },
+  "bp": "117",
+  "fp": "13",
+  "h3": "H319",
+  "h4": "None",
+  "safety": 4,
+  "health": 2,
+  "env": 3,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 7,
+  "impurities": [
+   "mibk"
+  ]
+ },
+ {
+  "id": "cyclohexanone",
+  "name": {
+   "en": "Cyclohexanone",
+   "tr": "Siklohekzanon"
+  },
+  "printed": "Cyclohexanone",
+  "family": {
+   "en": "Ketones",
+   "tr": "Ketonlar"
+  },
+  "bp": "156",
+  "fp": "43",
+  "h3": "H332",
+  "h4": "None",
+  "safety": 3,
+  "health": 2,
+  "env": 5,
+  "rankDefault": "rec",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "cyclohexanone"
+  ]
+ },
+ {
+  "id": "methyl_acetate",
+  "name": {
+   "en": "Methyl acetate",
+   "tr": "Metil asetat"
+  },
+  "printed": "Methyl acetate",
+  "family": {
+   "en": "Esters",
+   "tr": "Esterler"
+  },
+  "bp": "57",
+  "fp": "-10",
+  "h3": "H302",
+  "h4": "None",
+  "safety": 5,
+  "health": 3,
+  "env": 5,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "methyl_acetate"
+  ]
+ },
+ {
+  "id": "ethyl_acetate",
+  "name": {
+   "en": "Ethyl acetate",
+   "tr": "Etil asetat"
+  },
+  "printed": "Ethyl acetate",
+  "family": {
+   "en": "Esters",
+   "tr": "Esterler"
+  },
+  "bp": "77",
+  "fp": "-4",
+  "h3": "H319",
+  "h4": "None",
+  "safety": 5,
+  "health": 3,
+  "env": 3,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 7,
+  "impurities": [
+   "ethyl_acetate"
+  ]
+ },
+ {
+  "id": "isopropyl_acetate",
+  "name": {
+   "en": "Isopropyl acetate",
+   "tr": "İzopropil asetat"
+  },
+  "printed": "i-PrOAc",
+  "family": {
+   "en": "Esters",
+   "tr": "Esterler"
+  },
+  "bp": "89",
+  "fp": "2",
+  "h3": "H319",
+  "h4": "None",
+  "safety": 4,
+  "health": 2,
+  "env": 3,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 7,
+  "impurities": [
+   "isopropyl_acetate"
+  ]
+ },
+ {
+  "id": "n_butyl_acetate",
+  "name": {
+   "en": "n-Butyl acetate",
+   "tr": "n-Bütil asetat"
+  },
+  "printed": "n-BuOAc",
+  "family": {
+   "en": "Esters",
+   "tr": "Esterler"
+  },
+  "bp": "126",
+  "fp": "22",
+  "h3": "H336",
+  "h4": "None",
+  "safety": 4,
+  "health": 2,
+  "env": 3,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 7,
+  "impurities": [
+   "n_butyl_acetate"
+  ]
+ },
+ {
+  "id": "diethyl_ether",
+  "name": {
+   "en": "Diethyl ether",
+   "tr": "Dietil eter"
+  },
+  "printed": "Diethyl ether",
+  "family": {
+   "en": "Ethers",
+   "tr": "Eterler"
+  },
+  "bp": "34",
+  "fp": "-45",
+  "h3": "H302",
+  "h4": "None",
+  "safety": 10,
+  "health": 3,
+  "env": 7,
+  "rankDefault": "haz",
+  "rank": "hh",
+  "table": 7,
+  "impurities": [
+   "diethyl_ether"
+  ]
+ },
+ {
+  "id": "diisopropyl_ether",
+  "name": {
+   "en": "Diisopropyl ether",
+   "tr": "Diizopropil eter"
+  },
+  "printed": "Diisopropyl ether",
+  "family": {
+   "en": "Ethers",
+   "tr": "Eterler"
+  },
+  "bp": "69",
+  "fp": "-28",
+  "h3": "H336",
+  "h4": "None",
+  "safety": 9,
+  "health": 3,
+  "env": 5,
+  "rankDefault": "haz",
+  "rank": "haz",
+  "table": 7,
+  "impurities": []
+ },
+ {
+  "id": "mtbe",
+  "name": {
+   "en": "tert-Butyl methyl ether",
+   "tr": "tert-Bütil metil eter"
+  },
+  "printed": "MTBE",
+  "family": {
+   "en": "Ethers",
+   "tr": "Eterler"
+  },
+  "bp": "55",
+  "fp": "-28",
+  "h3": "H315",
+  "h4": "None",
+  "safety": 8,
+  "health": 3,
+  "env": 5,
+  "rankDefault": "haz",
+  "rank": "haz",
+  "table": 7,
+  "impurities": [
+   "mtbe"
+  ]
+ },
+ {
+  "id": "thf",
+  "name": {
+   "en": "Tetrahydrofuran",
+   "tr": "Tetrahidrofuran"
+  },
+  "printed": "THF",
+  "family": {
+   "en": "Ethers",
+   "tr": "Eterler"
+  },
+  "bp": "66",
+  "fp": "-14",
+  "h3": "H351",
+  "h4": "None",
+  "safety": 6,
+  "health": 7,
+  "env": 5,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "thf"
+  ]
+ },
+ {
+  "id": "me_thf",
+  "name": {
+   "en": "2-Methyltetrahydrofuran",
+   "tr": "2-Metiltetrahidrofuran"
+  },
+  "printed": "Me-THF",
+  "family": {
+   "en": "Ethers",
+   "tr": "Eterler"
+  },
+  "bp": "80",
+  "fp": "-11",
+  "h3": "H318",
+  "h4": "None",
+  "safety": 6,
+  "health": 5,
+  "env": 3,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "me_thf"
+  ]
+ },
+ {
+  "id": "dioxane",
+  "name": {
+   "en": "1,4-Dioxane",
+   "tr": "1,4-Dioksan"
+  },
+  "printed": "1,4-Dioxane",
+  "family": {
+   "en": "Ethers",
+   "tr": "Eterler"
+  },
+  "bp": "101",
+  "fp": "12",
+  "h3": "H351",
+  "h4": "None",
+  "safety": 7,
+  "health": 6,
+  "env": 3,
+  "rankDefault": "prob",
+  "rank": "haz",
+  "table": 7,
+  "impurities": [
+   "dioxane"
+  ]
+ },
+ {
+  "id": "anisole",
+  "name": {
+   "en": "Anisole",
+   "tr": "Anisol"
+  },
+  "printed": "Anisole",
+  "family": {
+   "en": "Ethers",
+   "tr": "Eterler"
+  },
+  "bp": "154",
+  "fp": "52",
+  "h3": "None",
+  "h4": "None",
+  "safety": 4,
+  "health": 1,
+  "env": 5,
+  "rankDefault": "prob",
+  "rank": "rec",
+  "table": 7,
+  "impurities": [
+   "anisole"
+  ]
+ },
+ {
+  "id": "dme",
+  "name": {
+   "en": "1,2-Dimethoxyethane",
+   "tr": "1,2-Dimetoksietan"
+  },
+  "printed": "DME",
+  "family": {
+   "en": "Ethers",
+   "tr": "Eterler"
+  },
+  "bp": "85",
+  "fp": "-6",
+  "h3": "H360",
+  "h4": "None",
+  "safety": 7,
+  "health": 10,
+  "env": 3,
+  "rankDefault": "haz",
+  "rank": "haz",
+  "table": 7,
+  "impurities": [
+   "dme"
+  ]
+ },
+ {
+  "id": "n_pentane",
+  "name": {
+   "en": "n-Pentane",
+   "tr": "n-Pentan"
+  },
+  "printed": "Pentane",
+  "family": {
+   "en": "Hydrocarbons",
+   "tr": "Hidrokarbonlar"
+  },
+  "bp": "36",
+  "fp": "-40",
+  "h3": "H304",
+  "h4": "H411",
+  "safety": 8,
+  "health": 3,
+  "env": 7,
+  "rankDefault": "haz",
+  "rank": "haz",
+  "table": 7,
+  "impurities": [
+   "n_pentane"
+  ]
+ },
+ {
+  "id": "n_hexane",
+  "name": {
+   "en": "n-Hexane",
+   "tr": "n-Hekzan"
+  },
+  "printed": "Hexane",
+  "family": {
+   "en": "Hydrocarbons",
+   "tr": "Hidrokarbonlar"
+  },
+  "bp": "69",
+  "fp": "-22",
+  "h3": "H361",
+  "h4": "H411",
+  "safety": 8,
+  "health": 7,
+  "env": 7,
+  "rankDefault": "haz",
+  "rank": "haz",
+  "table": 7,
+  "impurities": [
+   "n_hexane"
+  ]
+ },
+ {
+  "id": "n_heptane",
+  "name": {
+   "en": "n-Heptane",
+   "tr": "n-Heptan"
+  },
+  "printed": "Heptane",
+  "family": {
+   "en": "Hydrocarbons",
+   "tr": "Hidrokarbonlar"
+  },
+  "bp": "98",
+  "fp": "-4",
+  "h3": "H304",
+  "h4": "H410",
+  "safety": 6,
+  "health": 2,
+  "env": 7,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "n_heptane"
+  ]
+ },
+ {
+  "id": "cyclohexane",
+  "name": {
+   "en": "Cyclohexane",
+   "tr": "Siklohekzan"
+  },
+  "printed": "Cyclohexane",
+  "family": {
+   "en": "Hydrocarbons",
+   "tr": "Hidrokarbonlar"
+  },
+  "bp": "81",
+  "fp": "-17",
+  "h3": "H304",
+  "h4": "H410",
+  "safety": 6,
+  "health": 3,
+  "env": 7,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "cyclohexane"
+  ]
+ },
+ {
+  "id": "methylcyclohexane",
+  "name": {
+   "en": "Methylcyclohexane",
+   "tr": "Metilsiklohekzan"
+  },
+  "printed": "Me-cyclohexane",
+  "family": {
+   "en": "Hydrocarbons",
+   "tr": "Hidrokarbonlar"
+  },
+  "bp": "101",
+  "fp": "-4",
+  "h3": "H304",
+  "h4": "H411",
+  "safety": 6,
+  "health": 2,
+  "env": 7,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "methylcyclohexane"
+  ]
+ },
+ {
+  "id": "benzene",
+  "name": {
+   "en": "Benzene",
+   "tr": "Benzen"
+  },
+  "printed": "Benzene",
+  "family": {
+   "en": "Hydrocarbons",
+   "tr": "Hidrokarbonlar"
+  },
+  "bp": "80",
+  "fp": "-11",
+  "h3": "H350",
+  "h4": "None",
+  "safety": 6,
+  "health": 10,
+  "env": 3,
+  "rankDefault": "haz",
+  "rank": "hh",
+  "table": 7,
+  "impurities": [
+   "benzene"
+  ]
+ },
+ {
+  "id": "toluene",
+  "name": {
+   "en": "Toluene",
+   "tr": "Toluen"
+  },
+  "printed": "Toluene",
+  "family": {
+   "en": "Hydrocarbons",
+   "tr": "Hidrokarbonlar"
+  },
+  "bp": "111",
+  "fp": "4",
+  "h3": "H351",
+  "h4": "None",
+  "safety": 5,
+  "health": 6,
+  "env": 3,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "toluene"
+  ]
+ },
+ {
+  "id": "xylenes",
+  "name": {
+   "en": "Xylenes",
+   "tr": "Ksilenler"
+  },
+  "printed": "Xylenes",
+  "family": {
+   "en": "Hydrocarbons",
+   "tr": "Hidrokarbonlar"
+  },
+  "bp": "140",
+  "fp": "27",
+  "h3": "H312",
+  "h4": "None",
+  "safety": 4,
+  "health": 2,
+  "env": 5,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "o_xylene",
+   "m_xylene",
+   "p_xylene"
+  ]
+ },
+ {
+  "id": "dichloromethane",
+  "name": {
+   "en": "Dichloromethane",
+   "tr": "Diklorometan"
+  },
+  "printed": "DCM",
+  "family": {
+   "en": "Halogenated",
+   "tr": "Halojenli"
+  },
+  "bp": "40",
+  "fp": "na",
+  "h3": "H351",
+  "h4": "None",
+  "safety": 1,
+  "health": 7,
+  "env": 7,
+  "rankDefault": "haz",
+  "rank": "haz",
+  "table": 7,
+  "impurities": [
+   "dichloromethane"
+  ]
+ },
+ {
+  "id": "chloroform",
+  "name": {
+   "en": "Chloroform",
+   "tr": "Kloroform"
+  },
+  "printed": "Chloroform",
+  "family": {
+   "en": "Halogenated",
+   "tr": "Halojenli"
+  },
+  "bp": "61",
+  "fp": "na",
+  "h3": "H351",
+  "h4": "None",
+  "safety": 2,
+  "health": 7,
+  "env": 5,
+  "rankDefault": "prob",
+  "rank": "hh",
+  "table": 7,
+  "impurities": [
+   "chloroform"
+  ]
+ },
+ {
+  "id": "carbon_tetrachloride",
+  "name": {
+   "en": "Carbon tetrachloride",
+   "tr": "Karbon tetraklorür"
+  },
+  "printed": "CCl4",
+  "family": {
+   "en": "Halogenated",
+   "tr": "Halojenli"
+  },
+  "bp": "77",
+  "fp": "na",
+  "h3": "H351",
+  "h4": "H420",
+  "safety": 2,
+  "health": 7,
+  "env": 10,
+  "rankDefault": "haz",
+  "rank": "hh",
+  "table": 7,
+  "impurities": [
+   "carbon_tetrachloride"
+  ]
+ },
+ {
+  "id": "dce",
+  "name": {
+   "en": "1,2-Dichloroethane",
+   "tr": "1,2-Dikloroetan"
+  },
+  "printed": "DCE",
+  "family": {
+   "en": "Halogenated",
+   "tr": "Halojenli"
+  },
+  "bp": "84",
+  "fp": "13",
+  "h3": "H350",
+  "h4": "None",
+  "safety": 4,
+  "health": 10,
+  "env": 3,
+  "rankDefault": "haz",
+  "rank": "hh",
+  "table": 7,
+  "impurities": [
+   "dce"
+  ]
+ },
+ {
+  "id": "chlorobenzene",
+  "name": {
+   "en": "Chlorobenzene",
+   "tr": "Klorobenzen"
+  },
+  "printed": "Chlorobenzene",
+  "family": {
+   "en": "Halogenated",
+   "tr": "Halojenli"
+  },
+  "bp": "132",
+  "fp": "29",
+  "h3": "H332",
+  "h4": "H411",
+  "safety": 3,
+  "health": 2,
+  "env": 7,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "chlorobenzene"
+  ]
+ },
+ {
+  "id": "acetonitrile",
+  "name": {
+   "en": "Acetonitrile",
+   "tr": "Asetonitril"
+  },
+  "printed": "Acetonitrile",
+  "family": {
+   "en": "Aprotic polar",
+   "tr": "Aprotik polar"
+  },
+  "bp": "82",
+  "fp": "2",
+  "h3": "H319",
+  "h4": "None",
+  "safety": 4,
+  "health": 3,
+  "env": 3,
+  "rankDefault": "rec",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "acetonitrile"
+  ]
+ },
+ {
+  "id": "dmf",
+  "name": {
+   "en": "N,N-Dimethylformamide",
+   "tr": "N,N-Dimetilformamid"
+  },
+  "printed": "DMF",
+  "family": {
+   "en": "Aprotic polar",
+   "tr": "Aprotik polar"
+  },
+  "bp": "153",
+  "fp": "58",
+  "h3": "H360",
+  "h4": "None",
+  "safety": 3,
+  "health": 9,
+  "env": 5,
+  "rankDefault": "haz",
+  "rank": "haz",
+  "table": 7,
+  "impurities": [
+   "dmf"
+  ]
+ },
+ {
+  "id": "dma",
+  "name": {
+   "en": "N,N-Dimethylacetamide",
+   "tr": "N,N-Dimetilasetamid"
+  },
+  "printed": "DMAc",
+  "family": {
+   "en": "Aprotic polar",
+   "tr": "Aprotik polar"
+  },
+  "bp": "166",
+  "fp": "70",
+  "h3": "H360",
+  "h4": "None",
+  "safety": 1,
+  "health": 9,
+  "env": 5,
+  "rankDefault": "haz",
+  "rank": "haz",
+  "table": 7,
+  "impurities": [
+   "dma"
+  ]
+ },
+ {
+  "id": "nmp",
+  "name": {
+   "en": "N-Methyl-2-pyrrolidone (NMP)",
+   "tr": "N-Metil-2-pirolidon (NMP)"
+  },
+  "printed": "NMP",
+  "family": {
+   "en": "Aprotic polar",
+   "tr": "Aprotik polar"
+  },
+  "bp": "202",
+  "fp": "96",
+  "h3": "H360",
+  "h4": "None",
+  "safety": 1,
+  "health": 9,
+  "env": 7,
+  "rankDefault": "haz",
+  "rank": "haz",
+  "table": 7,
+  "impurities": []
+ },
+ {
+  "id": "dmpu",
+  "name": {
+   "en": "DMPU",
+   "tr": "DMPU"
+  },
+  "printed": "DMPU",
+  "family": {
+   "en": "Aprotic polar",
+   "tr": "Aprotik polar"
+  },
+  "bp": "246",
+  "fp": "121",
+  "h3": "H361",
+  "h4": "None",
+  "safety": 1,
+  "health": 6,
+  "env": 7,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "dmpu"
+  ]
+ },
+ {
+  "id": "dmso",
+  "name": {
+   "en": "Dimethyl sulfoxide",
+   "tr": "Dimetil sülfoksit"
+  },
+  "printed": "DMSO",
+  "family": {
+   "en": "Aprotic polar",
+   "tr": "Aprotik polar"
+  },
+  "bp": "189",
+  "fp": "95",
+  "h3": "None",
+  "h4": "None",
+  "safety": 1,
+  "health": 1,
+  "env": 5,
+  "rankDefault": "rec",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "dmso"
+  ],
+  "note": "solid"
+ },
+ {
+  "id": "sulfolane",
+  "name": {
+   "en": "Sulfolane",
+   "tr": "Sülfolan"
+  },
+  "printed": "Sulfolane",
+  "family": {
+   "en": "Aprotic polar",
+   "tr": "Aprotik polar"
+  },
+  "bp": "287",
+  "fp": "177",
+  "h3": "H360",
+  "h4": "None",
+  "safety": 1,
+  "health": 9,
+  "env": 7,
+  "rankDefault": "haz",
+  "rank": "haz",
+  "table": 7,
+  "impurities": [
+   "sulfolane"
+  ],
+  "note": "solid"
+ },
+ {
+  "id": "hmpa",
+  "name": {
+   "en": "Hexamethylphosphoramide",
+   "tr": "Hekzametilfosforamid"
+  },
+  "printed": "HMPA",
+  "family": {
+   "en": "Aprotic polar",
+   "tr": "Aprotik polar"
+  },
+  "bp": ">200",
+  "fp": "144",
+  "h3": "H350",
+  "h4": "None",
+  "safety": 1,
+  "health": 9,
+  "env": 7,
+  "rankDefault": "haz",
+  "rank": "hh",
+  "table": 7,
+  "impurities": [
+   "hmpa"
+  ]
+ },
+ {
+  "id": "nitromethane",
+  "name": {
+   "en": "Nitromethane",
+   "tr": "Nitrometan"
+  },
+  "printed": "Nitromethane",
+  "family": {
+   "en": "Aprotic polar",
+   "tr": "Aprotik polar"
+  },
+  "bp": "101",
+  "fp": "35",
+  "h3": "H302",
+  "h4": "None",
+  "safety": 10,
+  "health": 2,
+  "env": 3,
+  "rankDefault": "haz",
+  "rank": "hh",
+  "table": 7,
+  "impurities": [
+   "nitromethane"
+  ]
+ },
+ {
+  "id": "methoxyethanol",
+  "name": {
+   "en": "2-Methoxyethanol",
+   "tr": "2-Metoksietanol"
+  },
+  "printed": "Methoxy-ethanol",
+  "family": {
+   "en": "Miscellaneous",
+   "tr": "Diğer"
+  },
+  "bp": "125",
+  "fp": "42",
+  "h3": "H360",
+  "h4": "None",
+  "safety": 3,
+  "health": 9,
+  "env": 3,
+  "rankDefault": "haz",
+  "rank": "haz",
+  "table": 7,
+  "impurities": []
+ },
+ {
+  "id": "carbon_disulfide",
+  "name": {
+   "en": "Carbon disulfide",
+   "tr": "Karbon disülfür"
+  },
+  "printed": "Carbon disulfide",
+  "family": {
+   "en": "Miscellaneous",
+   "tr": "Diğer"
+  },
+  "bp": "46",
+  "fp": "-30",
+  "h3": "H361",
+  "h4": "H412",
+  "safety": 9,
+  "health": 7,
+  "env": 7,
+  "rankDefault": "haz",
+  "rank": "hh",
+  "table": 7,
+  "impurities": [
+   "carbon_disulfide"
+  ]
+ },
+ {
+  "id": "formic_acid",
+  "name": {
+   "en": "Formic acid",
+   "tr": "Formik asit"
+  },
+  "printed": "Formic acid",
+  "family": {
+   "en": "Acids",
+   "tr": "Asitler"
+  },
+  "bp": "101",
+  "fp": "49",
+  "h3": "H314",
+  "h4": "None",
+  "safety": 3,
+  "health": 7,
+  "env": 3,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "formic_acid"
+  ]
+ },
+ {
+  "id": "acetic_acid",
+  "name": {
+   "en": "Acetic acid",
+   "tr": "Asetik asit"
+  },
+  "printed": "Acetic acid",
+  "family": {
+   "en": "Acids",
+   "tr": "Asitler"
+  },
+  "bp": "118",
+  "fp": "39",
+  "h3": "H314",
+  "h4": "None",
+  "safety": 3,
+  "health": 7,
+  "env": 3,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "acetic_acid"
+  ]
+ },
+ {
+  "id": "acetic_anhydride",
+  "name": {
+   "en": "Acetic anhydride",
+   "tr": "Asetik anhidrit"
+  },
+  "printed": "Ac2O",
+  "family": {
+   "en": "Acids",
+   "tr": "Asitler"
+  },
+  "bp": "139",
+  "fp": "49",
+  "h3": "H314",
+  "h4": "None",
+  "safety": 3,
+  "health": 7,
+  "env": 3,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 7,
+  "impurities": [
+   "acetic_anhydride"
+  ]
+ },
+ {
+  "id": "pyridine",
+  "name": {
+   "en": "Pyridine",
+   "tr": "Piridin"
+  },
+  "printed": "Pyridine",
+  "family": {
+   "en": "Amines",
+   "tr": "Aminler"
+  },
+  "bp": "115",
+  "fp": "23",
+  "h3": "H302",
+  "h4": "None",
+  "safety": 4,
+  "health": 2,
+  "env": 3,
+  "rankDefault": "rec",
+  "rank": "haz",
+  "table": 7,
+  "impurities": [
+   "pyridine"
+  ]
+ },
+ {
+  "id": "triethylamine",
+  "name": {
+   "en": "Triethylamine",
+   "tr": "Trietilamin"
+  },
+  "printed": "TEA",
+  "family": {
+   "en": "Amines",
+   "tr": "Aminler"
+  },
+  "bp": "89",
+  "fp": "-6",
+  "h3": "H314",
+  "h4": "None",
+  "safety": 6,
+  "health": 7,
+  "env": 3,
+  "rankDefault": "prob",
+  "rank": "haz",
+  "table": 7,
+  "impurities": [
+   "triethylamine"
+  ]
+ },
+ {
+  "id": "isobutanol",
+  "name": {
+   "en": "Isobutanol",
+   "tr": "İzobütanol"
+  },
+  "printed": "i-Butanol",
+  "family": {
+   "en": "Alcohols",
+   "tr": "Alkoller"
+  },
+  "bp": "107",
+  "fp": "28",
+  "h3": "H318",
+  "h4": "None",
+  "safety": 3,
+  "health": 4,
+  "env": 3,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 8,
+  "impurities": [
+   "isobutanol"
+  ],
+  "cas": "78-83-1"
+ },
+ {
+  "id": "isoamyl_alcohol",
+  "name": {
+   "en": "Isoamyl alcohol",
+   "tr": "İzoamil alkol"
+  },
+  "printed": "i-Amyl alcohol",
+  "family": {
+   "en": "Alcohols",
+   "tr": "Alkoller"
+  },
+  "bp": "131",
+  "fp": "43",
+  "h3": "H315",
+  "h4": "None",
+  "safety": 3,
+  "health": 2,
+  "env": 3,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 8,
+  "impurities": [
+   "isoamyl_alcohol"
+  ],
+  "cas": "123-51-3"
+ },
+ {
+  "id": "propanediol",
+  "name": {
+   "en": "1,3-Propanediol",
+   "tr": "1,3-Propandiol"
+  },
+  "printed": "1,3-Propane diol",
+  "family": {
+   "en": "Alcohols",
+   "tr": "Alkoller"
+  },
+  "bp": "214",
+  "fp": ">100",
+  "h3": "None",
+  "h4": "None",
+  "safety": 1,
+  "health": 1,
+  "env": 7,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 8,
+  "impurities": [],
+  "cas": "504-63-2"
+ },
+ {
+  "id": "glycerol",
+  "name": {
+   "en": "Glycerol",
+   "tr": "Gliserol"
+  },
+  "printed": "Glycerol",
+  "family": {
+   "en": "Alcohols",
+   "tr": "Alkoller"
+  },
+  "bp": "290",
+  "fp": "177",
+  "h3": "None",
+  "h4": "None",
+  "safety": 1,
+  "health": 1,
+  "env": 7,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 8,
+  "impurities": [],
+  "cas": "56-81-5"
+ },
+ {
+  "id": "isobutyl_acetate",
+  "name": {
+   "en": "Isobutyl acetate",
+   "tr": "İzobütil asetat"
+  },
+  "printed": "i-Butyl acetate",
+  "family": {
+   "en": "Esters",
+   "tr": "Esterler"
+  },
+  "bp": "115",
+  "fp": "22",
+  "h3": "H336",
+  "h4": "None",
+  "safety": 4,
+  "health": 2,
+  "env": 3,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 8,
+  "impurities": [
+   "isobutyl_acetate"
+  ],
+  "cas": "110-19-0"
+ },
+ {
+  "id": "isoamyl_acetate",
+  "name": {
+   "en": "Isoamyl acetate",
+   "tr": "İzoamil asetat"
+  },
+  "printed": "i-Amyl acetate",
+  "family": {
+   "en": "Esters",
+   "tr": "Esterler"
+  },
+  "bp": "142",
+  "fp": "25",
+  "h3": "None",
+  "h4": "None",
+  "safety": 3,
+  "health": 1,
+  "env": 5,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 8,
+  "impurities": [
+   "isoamyl_acetate"
+  ],
+  "cas": "123-92-2"
+ },
+ {
+  "id": "glycol_diacetate",
+  "name": {
+   "en": "Glycol diacetate",
+   "tr": "Glikol diasetat"
+  },
+  "printed": "Glycol diacetate",
+  "family": {
+   "en": "Esters",
+   "tr": "Esterler"
+  },
+  "bp": "186",
+  "fp": "82",
+  "h3": "None",
+  "h4": "None",
+  "safety": 1,
+  "health": 1,
+  "env": 5,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 8,
+  "impurities": [
+   "glycol_diacetate"
+  ],
+  "cas": "111-55-7"
+ },
+ {
+  "id": "gvl",
+  "name": {
+   "en": "γ-Valerolactone",
+   "tr": "γ-Valerolakton"
+  },
+  "printed": "γ-Valerolactone",
+  "family": {
+   "en": "Esters",
+   "tr": "Esterler"
+  },
+  "bp": "207",
+  "fp": "100",
+  "h3": "n.a.",
+  "h4": "n.a.",
+  "safety": 1,
+  "health": 5,
+  "env": 7,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 8,
+  "impurities": [],
+  "cas": "108-29-2"
+ },
+ {
+  "id": "diethyl_succinate",
+  "name": {
+   "en": "Diethyl succinate",
+   "tr": "Dietil süksinat"
+  },
+  "printed": "Diethyl succinate",
+  "family": {
+   "en": "Esters",
+   "tr": "Esterler"
+  },
+  "bp": "218",
+  "fp": "91",
+  "h3": "n.a.",
+  "h4": "n.a.",
+  "safety": 1,
+  "health": 5,
+  "env": 7,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 8,
+  "impurities": [],
+  "cas": "123-25-1"
+ },
+ {
+  "id": "tame",
+  "name": {
+   "en": "tert-Amyl methyl ether",
+   "tr": "tert-Amil metil eter"
+  },
+  "printed": "TAME",
+  "family": {
+   "en": "Ethers",
+   "tr": "Eterler"
+  },
+  "bp": "86",
+  "fp": "-7",
+  "h3": "H302",
+  "h4": "None",
+  "safety": 6,
+  "health": 2,
+  "env": 3,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 8,
+  "impurities": [
+   "tame"
+  ],
+  "cas": "994-05-8"
+ },
+ {
+  "id": "cpme",
+  "name": {
+   "en": "Cyclopentyl methyl ether",
+   "tr": "Siklopentil metil eter"
+  },
+  "printed": "CPME",
+  "family": {
+   "en": "Ethers",
+   "tr": "Eterler"
+  },
+  "bp": "106",
+  "fp": "-1",
+  "h3": "H302",
+  "h4": "H412",
+  "safety": 7,
+  "health": 2,
+  "env": 5,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 8,
+  "impurities": [
+   "cpme"
+  ],
+  "cas": "5614-37-9"
+ },
+ {
+  "id": "etbe",
+  "name": {
+   "en": "Ethyl tert-butyl ether",
+   "tr": "Etil tert-bütil eter"
+  },
+  "printed": "ETBE",
+  "family": {
+   "en": "Ethers",
+   "tr": "Eterler"
+  },
+  "bp": "72",
+  "fp": "-19",
+  "h3": "H336",
+  "h4": "None",
+  "safety": 7,
+  "health": 3,
+  "env": 3,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 8,
+  "impurities": [
+   "etbe"
+  ],
+  "cas": "637-92-3"
+ },
+ {
+  "id": "limonene",
+  "name": {
+   "en": "D-Limonene",
+   "tr": "D-Limonen"
+  },
+  "printed": "D-Limonene",
+  "family": {
+   "en": "Hydrocarbons",
+   "tr": "Hidrokarbonlar"
+  },
+  "bp": "175",
+  "fp": "49",
+  "h3": "H304",
+  "h4": "H400",
+  "safety": 4,
+  "health": 2,
+  "env": 7,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 8,
+  "impurities": [],
+  "cas": "5989-27-5"
+ },
+ {
+  "id": "turpentine",
+  "name": {
+   "en": "Turpentine",
+   "tr": "Terebentin"
+  },
+  "printed": "Turpentine",
+  "family": {
+   "en": "Hydrocarbons",
+   "tr": "Hidrokarbonlar"
+  },
+  "bp": "166",
+  "fp": "38",
+  "h3": "H302",
+  "h4": "H411",
+  "safety": 4,
+  "health": 2,
+  "env": 7,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 8,
+  "impurities": [],
+  "cas": "8006-64-2"
+ },
+ {
+  "id": "p_cymene",
+  "name": {
+   "en": "p-Cymene",
+   "tr": "p-Simen"
+  },
+  "printed": "p-Cymene",
+  "family": {
+   "en": "Hydrocarbons",
+   "tr": "Hidrokarbonlar"
+  },
+  "bp": "177",
+  "fp": "27",
+  "h3": "n.a.",
+  "h4": "n.a.",
+  "safety": 4,
+  "health": 5,
+  "env": 5,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 8,
+  "impurities": [
+   "p_cymene"
+  ],
+  "cas": "99-87-6"
+ },
+ {
+  "id": "dimethyl_carbonate",
+  "name": {
+   "en": "Dimethyl carbonate",
+   "tr": "Dimetil karbonat"
+  },
+  "printed": "Dimethyl carbonate",
+  "family": {
+   "en": "Aprotic polar",
+   "tr": "Aprotik polar"
+  },
+  "bp": "90",
+  "fp": "16",
+  "h3": "None",
+  "h4": "None",
+  "safety": 4,
+  "health": 1,
+  "env": 3,
+  "rankDefault": "rec",
+  "rank": "rec",
+  "table": 8,
+  "impurities": [
+   "dimethyl_carbonate"
+  ],
+  "cas": "616-38-6",
+  "note": "water_sensitive"
+ },
+ {
+  "id": "ethylene_carbonate",
+  "name": {
+   "en": "Ethylene carbonate",
+   "tr": "Etilen karbonat"
+  },
+  "printed": "Ethylene carbonate",
+  "family": {
+   "en": "Aprotic polar",
+   "tr": "Aprotik polar"
+  },
+  "bp": "248",
+  "fp": "143",
+  "h3": "H302",
+  "h4": "None",
+  "safety": 1,
+  "health": 2,
+  "env": 7,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 8,
+  "impurities": [],
+  "cas": "96-49-1",
+  "note": "solid"
+ },
+ {
+  "id": "propylene_carbonate",
+  "name": {
+   "en": "Propylene carbonate",
+   "tr": "Propilen karbonat"
+  },
+  "printed": "Propylene carbonate",
+  "family": {
+   "en": "Aprotic polar",
+   "tr": "Aprotik polar"
+  },
+  "bp": "242",
+  "fp": "132",
+  "h3": "H319",
+  "h4": "None",
+  "safety": 1,
+  "health": 2,
+  "env": 7,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 8,
+  "impurities": [],
+  "cas": "108-32-7"
+ },
+ {
+  "id": "cyrene",
+  "name": {
+   "en": "Cyrene (dihydrolevoglucosenone)",
+   "tr": "Cyrene (dihidrolevoglukozenon)"
+  },
+  "printed": "Cyrene",
+  "family": {
+   "en": "Aprotic polar",
+   "tr": "Aprotik polar"
+  },
+  "bp": "203",
+  "fp": "61",
+  "h3": "H319",
+  "h4": "None",
+  "safety": 1,
+  "health": 2,
+  "env": 7,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 8,
+  "impurities": [],
+  "cas": "53716-82-8"
+ },
+ {
+  "id": "ethyl_lactate",
+  "name": {
+   "en": "L-Ethyl lactate",
+   "tr": "L-Etil laktat"
+  },
+  "printed": "Ethyl lactate",
+  "family": {
+   "en": "Miscellaneous",
+   "tr": "Diğer"
+  },
+  "bp": "155",
+  "fp": "47",
+  "h3": "H318",
+  "h4": "None",
+  "safety": 3,
+  "health": 4,
+  "env": 5,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 8,
+  "impurities": [
+   "ethyl_lactate"
+  ],
+  "cas": "687-47-8"
+ },
+ {
+  "id": "lactic_acid",
+  "name": {
+   "en": "Lactic acid",
+   "tr": "Laktik asit"
+  },
+  "printed": "Lactic acid",
+  "family": {
+   "en": "Miscellaneous",
+   "tr": "Diğer"
+  },
+  "bp": "230",
+  "fp": "113",
+  "h3": "H318",
+  "h4": "None",
+  "safety": 1,
+  "health": 4,
+  "env": 7,
+  "rankDefault": "prob",
+  "rank": "prob",
+  "table": 8,
+  "impurities": [],
+  "cas": "50-21-5"
+ },
+ {
+  "id": "thfa",
+  "name": {
+   "en": "Tetrahydrofurfuryl alcohol",
+   "tr": "Tetrahidrofurfuril alkol"
+  },
+  "printed": "TH-furfuryl alcohol",
+  "family": {
+   "en": "Miscellaneous",
+   "tr": "Diğer"
+  },
+  "bp": "178",
+  "fp": "75",
+  "h3": "H360",
+  "h4": "None",
+  "safety": 1,
+  "health": 9,
+  "env": 5,
+  "rankDefault": "haz",
+  "rank": "haz",
+  "table": 8,
+  "impurities": [],
+  "cas": "97-99-4"
+ }
+]

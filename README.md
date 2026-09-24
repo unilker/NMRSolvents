@@ -12,7 +12,7 @@ and the ¹H/¹³C chemical shifts of common trace impurities. Turkish and Englis
 
 | Sekme | İçerik |
 |---|---|
-| **Çözücüler** | Kalıntı ¹H/¹³C pikleri (kaynağa göre, J değerleriyle), su/HOD piki, fiziksel özellikler, saklama koşulları, o çözücüdeki safsızlıklar. D₂O için sıcaklığa göre HDO kayması hesaplayıcısı |
+| **Çözücüler** | Kalıntı ¹H/¹³C pikleri (kaynağa göre, J değerleriyle), su/HOD piki, fiziksel özellikler, saklama koşulları, o çözücüdeki safsızlıklar. D₂O için sıcaklığa göre HDO kayması hesaplayıcısı. *CHEM21 rehberi* görünümü: 75 çözücünün güvenlik/sağlık/çevre puanları, sıralaması (önerilen → çok tehlikeli), aileye göre gruplu ve filtrelenebilir; puanlamanın nasıl yapıldığı |
 | **Safsızlıklar** | Ad (TR/EN), kısaltma (EtOAc, DCM…) veya formülle arama, çözücüye göre filtre, CHEM21 yeşil kimya derecesi, sinyal başına kaynak |
 | **Pik ara** | *Tek pik*: spektrumda gördüğünüz pik için üç adım: ① çözücü, ② kimyasal kayma (ppm, ± tolerans), ③ yarılma (singlet, dublet, triplet…). Tam eşleşenler önce, uyumlu yarılmalar (ör. triplet için td/dt veya içinde triplet gizlenebilecek multiplet) sonra listelenir; tekil pik gibi uyumsuz olanlar elenir. Çözücünün kendi pikleri de aranır. Sonuç yoksa en yakın adaylar, yalnızca uyumlu sonuç varsa yakındaki tam eşleşmeler gösterilir.<br>*Çoklu pik*: her pik için ayrı satırda ppm ve yarılma (isteğe bağlı). "2,05 s; 4,12 q; 1,26 t" gibi yapıştırılan bir liste satırlara otomatik bölünür. Yarılması uyumsuz pik o sinyale eşlenmez; safsızlıklar eşleşen sinyal sayısına, yakınlığa ve yarılma uyumuna göre puanlanır. |
 | **Bilgi** | Geliştirici, uygulama hakkında, özellikler, veri içeriği ve hazırlanışı, önemli not, numaralı kaynakça |
@@ -28,7 +28,8 @@ and the ¹H/¹³C chemical shifts of common trace impurities. Turkish and Englis
 |---|---|
 | Fulmer ve ark., *Organometallics* **2010**, 29, 2176 | 12 döteryumlu çözücüde 45 safsızlık, ¹H ve ¹³C |
 | Gottlieb, Kotlyar, Nudelman, *J. Org. Chem.* **1997**, 62, 7512 | Fulmer'de olmayan bileşikler (MTBE, BHT, DMAc, DMSO, MEK), D₂O'da tuzlar, HDO–sıcaklık denklemi |
-| Babij ve ark., *Org. Process Res. Dev.* **2016**, 20, 661 | Endüstride tercih edilen 48 çözücü, 6 döteryumlu çözücü, CHEM21 dereceleri |
+| Babij ve ark., *Org. Process Res. Dev.* **2016**, 20, 661 | Endüstride tercih edilen 48 çözücü, 6 döteryumlu çözücü (CHEM21 işaretleri yerine özgün rehber kullanılır) |
+| Prat ve ark., *Green Chem.* **2016**, 18, 288 | CHEM21 çözücü seçim rehberi: Tablo 7 (53 klasik) ve Tablo 8 (22 yeni nesil çözücü) puanları ve sıralamaları, puanlama kuralları |
 | Cambridge Isotope Laboratories, *NMR Solvent Data Chart* | 19 döteryumlu çözücünün kalıntı pikleri, J(H,D)/J(C,D), HOD, yoğunluk, e.n./k.n., dielektrik sabiti, saklama |
 
 Toplam: **20 çözücü, 86 safsızlık, 3245 sinyal.** Uygulamadaki her değer, geldiği makaleyle birlikte gösterilir.
@@ -50,6 +51,10 @@ değerleri ikinci bir set olarak ayrıca gösterilir.
   hücre karşılaştırır. Uyuşmayan hücrelerin hepsi büyütülmüş görüntüde kontrol
   edilmiştir.
 - `sources/cil_chart.py`: CIL tablosunun aktarımı.
+- `sources/chem21_2016.py`: CHEM21 tablolarının aktarımı (resim). `check_chem21.py`, her
+  satırın sağlık/çevre puanlarını ve varsayılan sıralamasını makalenin kendi kurallarıyla
+  (Tablo 4–6) yeniden hesaplar; CI'de çalışır. Tek istisna DME'nin basılı sağlık puanıdır
+  (10; kural 9 verir).
 - `build_data.py`: kaynakları birleştirip `assets/data/*.json` dosyalarını üretir.
   CI, bu dosyaların kaynaklarla güncel olduğunu denetler.
 

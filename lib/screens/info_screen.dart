@@ -14,7 +14,6 @@ class InfoScreen extends StatelessWidget {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
     final references = repo.references.values.toList();
-    final babijNumber = references.indexWhere((r) => r.id == 'babij2016') + 1;
     final signalCount = repo.impurities.fold<int>(
       0,
       (n, i) => n + i.signals.length,
@@ -25,6 +24,7 @@ class InfoScreen extends StatelessWidget {
       (Icons.manage_search, l10n.feature3),
       (Icons.scatter_plot_outlined, l10n.feature4),
       (Icons.thermostat_outlined, l10n.feature5),
+      (Icons.eco_outlined, l10n.feature7),
       (Icons.palette_outlined, l10n.feature6),
     ];
 
@@ -132,14 +132,6 @@ class InfoScreen extends StatelessWidget {
           SectionHeader(l10n.referenceList),
           for (var i = 0; i < references.length; i++)
             ReferenceCard(references[i], number: i + 1),
-          if (babijNumber > 0)
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
-              child: Text(
-                l10n.chem21Source(babijNumber),
-                style: theme.textTheme.bodySmall,
-              ),
-            ),
         ],
       ),
     );

@@ -118,7 +118,7 @@
     "ref": "fulmer2010"
    }
   ],
-  "chem21": "rec"
+  "chem21": "water"
  },
  {
   "id": "acetic_acid",
@@ -396,7 +396,7 @@
     "ref": "fulmer2010"
    }
   ],
-  "chem21": "rec"
+  "chem21": "acetic_acid"
  },
  {
   "id": "acetic_anhydride",
@@ -498,7 +498,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "rec"
+  "chem21": "acetic_anhydride"
  },
  {
   "id": "acetone",
@@ -778,7 +778,7 @@
     "ref": "fulmer2010"
    }
   ],
-  "chem21": "rec"
+  "chem21": "acetone"
  },
  {
   "id": "acetonitrile",
@@ -1057,7 +1057,7 @@
     "ref": "fulmer2010"
    }
   ],
-  "chem21": "prob"
+  "chem21": "acetonitrile"
  },
  {
   "id": "anisole",
@@ -1403,7 +1403,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "rec",
+  "chem21": "anisole",
   "note": "In D2O a second set of resonances was observed: 6.79, t (7.9); 6.50-6.43, m; 3.08, s (Babij 2016)."
  },
  {
@@ -1580,7 +1580,8 @@
     "assignment": "CH",
     "ref": "fulmer2010"
    }
-  ]
+  ],
+  "chem21": "benzene"
  },
  {
   "id": "benzyl_alcohol",
@@ -2003,7 +2004,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "rec"
+  "chem21": "benzyl_alcohol"
  },
  {
   "id": "bht",
@@ -2923,7 +2924,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "rec"
+  "chem21": "n_butanol"
  },
  {
   "id": "isobutanol",
@@ -3264,7 +3265,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "rec"
+  "chem21": "isobutanol"
  },
  {
   "id": "tert_butanol",
@@ -3600,7 +3601,7 @@
     "ref": "fulmer2010"
    }
   ],
-  "chem21": "rec"
+  "chem21": "tert_butanol"
  },
  {
   "id": "n_butyl_acetate",
@@ -4130,7 +4131,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "rec"
+  "chem21": "n_butyl_acetate"
  },
  {
   "id": "isobutyl_acetate",
@@ -4564,7 +4565,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "rec"
+  "chem21": "isobutyl_acetate"
  },
  {
   "id": "mtbe",
@@ -4838,7 +4839,7 @@
     "ref": "gottlieb1997"
    }
   ],
-  "chem21": "prob"
+  "chem21": "mtbe"
  },
  {
   "id": "carbon_dioxide",
@@ -5021,7 +5022,8 @@
     "assignment": "CS2",
     "ref": "fulmer2010"
    }
-  ]
+  ],
+  "chem21": "carbon_disulfide"
  },
  {
   "id": "carbon_tetrachloride",
@@ -5116,7 +5118,8 @@
     "assignment": "CCl4",
     "ref": "fulmer2010"
    }
-  ]
+  ],
+  "chem21": "carbon_tetrachloride"
  },
  {
   "id": "chlorobenzene",
@@ -5324,7 +5327,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "prob"
+  "chem21": "chlorobenzene"
  },
  {
   "id": "chloroform",
@@ -5500,7 +5503,8 @@
     "assignment": "CH",
     "ref": "fulmer2010"
    }
-  ]
+  ],
+  "chem21": "chloroform"
  },
  {
   "id": "crown_18_6",
@@ -5870,7 +5874,7 @@
     "ref": "fulmer2010"
    }
   ],
-  "chem21": "prob"
+  "chem21": "cyclohexane"
  },
  {
   "id": "cyclohexanone",
@@ -6212,7 +6216,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "rec"
+  "chem21": "cyclohexanone"
  },
  {
   "id": "cpme",
@@ -6550,7 +6554,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "prob"
+  "chem21": "cpme"
  },
  {
   "id": "p_cymene",
@@ -6984,7 +6988,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "prob"
+  "chem21": "p_cymene"
  },
  {
   "id": "dce",
@@ -7162,7 +7166,8 @@
     "assignment": "CH2",
     "ref": "fulmer2010"
    }
-  ]
+  ],
+  "chem21": "dce"
  },
  {
   "id": "dichloromethane",
@@ -7343,7 +7348,7 @@
     "ref": "fulmer2010"
    }
   ],
-  "chem21": "prob"
+  "chem21": "dichloromethane"
  },
  {
   "id": "diethyl_ether",
@@ -7741,7 +7746,8 @@
     "assignment": "CH2",
     "ref": "fulmer2010"
    }
-  ]
+  ],
+  "chem21": "diethyl_ether"
  },
  {
   "id": "diglyme",
@@ -8668,7 +8674,8 @@
     "assignment": "CH2",
     "ref": "fulmer2010"
    }
-  ]
+  ],
+  "chem21": "dme"
  },
  {
   "id": "dma",
@@ -9046,7 +9053,8 @@
     "assignment": "NCH3",
     "ref": "gottlieb1997"
    }
-  ]
+  ],
+  "chem21": "dma"
  },
  {
   "id": "dimethyl_carbonate",
@@ -9192,7 +9200,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "rec"
+  "chem21": "dimethyl_carbonate"
  },
  {
   "id": "dmf",
@@ -9745,7 +9753,8 @@
     "assignment": "CH3",
     "ref": "fulmer2010"
    }
-  ]
+  ],
+  "chem21": "dmf"
  },
  {
   "id": "dmso",
@@ -9864,7 +9873,7 @@
     "ref": "gottlieb1997"
    }
   ],
-  "chem21": "prob"
+  "chem21": "dmso"
  },
  {
   "id": "dmpu",
@@ -10202,7 +10211,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "prob"
+  "chem21": "dmpu"
  },
  {
   "id": "dioxane",
@@ -10395,7 +10404,8 @@
     "assignment": "CH2",
     "ref": "fulmer2010"
    }
-  ]
+  ],
+  "chem21": "dioxane"
  },
  {
   "id": "ethane",
@@ -11049,7 +11059,7 @@
     "ref": "fulmer2010"
    }
   ],
-  "chem21": "rec"
+  "chem21": "ethanol"
  },
  {
   "id": "ethyl_acetate",
@@ -11712,7 +11722,7 @@
     "ref": "fulmer2010"
    }
   ],
-  "chem21": "rec"
+  "chem21": "ethyl_acetate"
  },
  {
   "id": "ethyl_lactate",
@@ -12182,7 +12192,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "prob"
+  "chem21": "ethyl_lactate"
  },
  {
   "id": "etbe",
@@ -12520,7 +12530,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "prob"
+  "chem21": "etbe"
  },
  {
   "id": "mek",
@@ -12914,7 +12924,7 @@
     "ref": "gottlieb1997"
    }
   ],
-  "chem21": "rec"
+  "chem21": "mek"
  },
  {
   "id": "ethylbenzene",
@@ -13362,8 +13372,7 @@
     "assignment": "CH3",
     "ref": "babij2016"
    }
-  ],
-  "chem21": "prob"
+  ]
  },
  {
   "id": "ethylene",
@@ -13741,7 +13750,7 @@
     "ref": "fulmer2010"
    }
   ],
-  "chem21": "rec"
+  "chem21": "ethylene_glycol"
  },
  {
   "id": "formic_acid",
@@ -13843,7 +13852,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "prob"
+  "chem21": "formic_acid"
  },
  {
   "id": "glycol_diacetate",
@@ -14079,7 +14088,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "rec"
+  "chem21": "glycol_diacetate"
  },
  {
   "id": "grease",
@@ -14612,7 +14621,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "prob"
+  "chem21": "n_heptane"
  },
  {
   "id": "hexamethylbenzene",
@@ -15297,7 +15306,8 @@
     "assignment": "CH2(3,4)",
     "ref": "fulmer2010"
    }
-  ]
+  ],
+  "chem21": "n_hexane"
  },
  {
   "id": "hmdso",
@@ -15695,7 +15705,8 @@
     "assignment": "CH3",
     "ref": "fulmer2010"
    }
-  ]
+  ],
+  "chem21": "hmpa"
  },
  {
   "id": "hydrogen",
@@ -16654,7 +16665,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "rec"
+  "chem21": "isoamyl_acetate"
  },
  {
   "id": "isoamyl_alcohol",
@@ -17083,7 +17094,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "rec"
+  "chem21": "isoamyl_alcohol"
  },
  {
   "id": "isopropanol",
@@ -17484,7 +17495,7 @@
     "ref": "fulmer2010"
    }
   ],
-  "chem21": "rec"
+  "chem21": "isopropanol"
  },
  {
   "id": "isopropyl_acetate",
@@ -17823,7 +17834,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "rec"
+  "chem21": "isopropyl_acetate"
  },
  {
   "id": "methane",
@@ -18257,7 +18268,7 @@
     "ref": "fulmer2010"
    }
   ],
-  "chem21": "rec"
+  "chem21": "methanol"
  },
  {
   "id": "methyl_acetate",
@@ -18493,7 +18504,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "rec"
+  "chem21": "methyl_acetate"
  },
  {
   "id": "methylcyclohexane",
@@ -18860,7 +18871,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "prob"
+  "chem21": "methylcyclohexane"
  },
  {
   "id": "mibk",
@@ -19295,7 +19306,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "rec"
+  "chem21": "mibk"
  },
  {
   "id": "me_thf",
@@ -19843,7 +19854,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "prob"
+  "chem21": "me_thf"
  },
  {
   "id": "nitromethane",
@@ -20034,7 +20045,8 @@
     "assignment": "CH3",
     "ref": "fulmer2010"
    }
-  ]
+  ],
+  "chem21": "nitromethane"
  },
  {
   "id": "n_pentane",
@@ -20465,7 +20477,8 @@
     "assignment": "CH2(3)",
     "ref": "fulmer2010"
    }
-  ]
+  ],
+  "chem21": "n_pentane"
  },
  {
   "id": "propane",
@@ -22062,7 +22075,7 @@
     "ref": "fulmer2010"
    }
   ],
-  "chem21": "prob"
+  "chem21": "pyridine"
  },
  {
   "id": "pyrrole",
@@ -23215,7 +23228,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "rec"
+  "chem21": "sulfolane"
  },
  {
   "id": "tame",
@@ -23643,7 +23656,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "prob"
+  "chem21": "tame"
  },
  {
   "id": "thf",
@@ -24017,7 +24030,7 @@
     "ref": "fulmer2010"
    }
   ],
-  "chem21": "prob"
+  "chem21": "thf"
  },
  {
   "id": "toluene",
@@ -24713,7 +24726,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "prob"
+  "chem21": "toluene"
  },
  {
   "id": "triethylamine",
@@ -25111,7 +25124,8 @@
     "assignment": "CH2",
     "ref": "fulmer2010"
    }
-  ]
+  ],
+  "chem21": "triethylamine"
  },
  {
   "id": "o_xylene",
@@ -25351,7 +25365,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "prob"
+  "chem21": "xylenes"
  },
  {
   "id": "m_xylene",
@@ -25697,7 +25711,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "prob"
+  "chem21": "xylenes"
  },
  {
   "id": "p_xylene",
@@ -25913,7 +25927,7 @@
     "ref": "babij2016"
    }
   ],
-  "chem21": "prob"
+  "chem21": "xylenes"
  },
  {
   "id": "sodium_formate",

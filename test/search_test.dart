@@ -15,6 +15,7 @@ NmrRepository loadRepo() {
     solvents: read('solvents'),
     impurities: read('impurities'),
     references: read('references'),
+    chem21: read('chem21'),
   );
 }
 
@@ -94,8 +95,6 @@ void main() {
     test('Babij 2016', () {
       expect(sig('cpme', 'cdcl3', Nucleus.h1, 'OCH3').single.shift, 3.28);
       expect(sig('tame', 'd2o', Nucleus.c13, 'C').single.shift, 77.73);
-      expect(imp('cpme').chem21, Chem21.problematic);
-      expect(imp('ethanol').chem21, Chem21.recommended);
       // "3.56 [3.55, t]": the bracket is the -OD isotopomer (footnote c).
       final ch2oh = sig('isoamyl_alcohol', 'acetone_d6', Nucleus.h1, 'CH2OH');
       expect(ch2oh.single.shift, 3.56);
@@ -132,6 +131,56 @@ void main() {
         2.92,
         2.75,
       ]);
+    });
+  });
+
+  group('CHEM21 guide (Prat 2016)', () {
+    Chem21Entry c21(String id) => repo.chem21ById(id)!;
+
+    test('75 solvents, links resolve both ways', () {
+      expect(repo.chem21.length, 75);
+      for (final e in repo.chem21) {
+        for (final id in e.impurityIds) {
+          expect(imp(id).chem21Id, e.id);
+        }
+      }
+      for (final i in repo.impurities.where((i) => i.chem21Id != null)) {
+        expect(repo.chem21ById(i.chem21Id), isNotNull, reason: i.id);
+      }
+      for (final s in repo.solvents.where((s) => s.chem21Id != null)) {
+        expect(repo.chem21ById(s.chem21Id), isNotNull, reason: s.id);
+      }
+    });
+
+    test('transcribed values', () {
+      final chloroform = c21('chloroform');
+      expect([chloroform.safety, chloroform.health, chloroform.env], [2, 7, 5]);
+      expect(chloroform.rankDefault, Chem21.problematic);
+      expect(chloroform.rank, Chem21.highlyHazardous);
+      expect(c21('methanol').rank, Chem21.recommended);
+      expect(c21('sulfolane').rank, Chem21.hazardous);
+      expect(c21('dme').health, 10);
+      expect(c21('tame').cas, '994-05-8');
+      expect(c21('tame').rank, Chem21.recommended);
+      expect(c21('xylenes').impurityIds, ['o_xylene', 'm_xylene', 'p_xylene']);
+      expect(repo.solventById('cdcl3')!.chem21Id, 'chloroform');
+    });
+
+    test('ranking by default follows Table 6 for every solvent', () {
+      Chem21 byDefault(Chem21Entry e) {
+        final s = [e.safety, e.health, e.env];
+        if (s.any((x) => x >= 8) || s.where((x) => x >= 7).length >= 2) {
+          return Chem21.hazardous;
+        }
+        if (s.contains(7) || s.where((x) => x >= 4 && x <= 6).length >= 2) {
+          return Chem21.problematic;
+        }
+        return Chem21.recommended;
+      }
+
+      for (final e in repo.chem21) {
+        expect(e.rankDefault, byDefault(e), reason: e.printed);
+      }
     });
   });
 

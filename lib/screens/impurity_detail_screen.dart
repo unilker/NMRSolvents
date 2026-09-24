@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/models.dart';
+import '../widgets/chem21_widgets.dart';
 import '../widgets/common.dart';
 
 class ImpurityDetailScreen extends StatefulWidget {
@@ -72,9 +73,9 @@ class _ImpurityDetailScreenState extends State<ImpurityDetailScreen> {
                     '${l10n.aliases}: ${impurity.aliases.join(', ')}',
                     style: theme.textTheme.bodyMedium,
                   ),
-                if (impurity.chem21 != null) ...[
+                if (repo.chem21ById(impurity.chem21Id) case final c?) ...[
                   const SizedBox(height: 8),
-                  Chem21Badge(impurity.chem21!),
+                  Chem21RankBadge(c.rank),
                 ],
               ],
             ),
@@ -125,8 +126,15 @@ class _ImpurityDetailScreenState extends State<ImpurityDetailScreen> {
                 style: theme.textTheme.bodySmall,
               ),
             ),
+          if (repo.chem21ById(impurity.chem21Id) case final chem21?) ...[
+            SectionHeader(l10n.greenChemistry),
+            Chem21Card(chem21),
+          ],
           SectionHeader(l10n.sources),
-          for (final id in allRefs)
+          for (final id in {
+            ...allRefs,
+            if (impurity.chem21Id != null) 'prat2016',
+          })
             if (repo.referenceById(id) case final ref?) ReferenceCard(ref),
         ],
       ),

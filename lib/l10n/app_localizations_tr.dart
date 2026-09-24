@@ -208,16 +208,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Gottlieb 1997, denklem 1. Sodyum 3-(trimetilsilil)propansülfonata göre.';
 
   @override
-  String get chem21Recommended => 'CHEM21: önerilen';
-
-  @override
-  String get chem21Problematic => 'CHEM21: sorunlu';
-
-  @override
-  String get chem21Hint =>
-      'CHEM21 çözücü seçim rehberindeki derecesi (Babij 2016\'ya göre).';
-
-  @override
   String get note => 'Not';
 
   @override
@@ -340,7 +330,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get feature2 =>
-      'Safsızlık tabloları: ad, kısaltma veya formülle arama; her değerin kaynağı ve CHEM21 yeşil kimya derecesi.';
+      'Safsızlık tabloları: ad, kısaltma veya formülle arama; her değerin kaynağı gösterilir.';
 
   @override
   String get feature3 =>
@@ -362,7 +352,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get dataMethodText =>
-      'Değerler aşağıdaki kaynakların tablolarından aktarılmış ve basılı tablolarla karşılaştırılarak doğrulanmıştır. Aynı bileşik aynı çözücüde birden fazla kaynakta yer aldığında öncelik sırası Fulmer 2010 > Gottlieb 1997 > Babij 2016\'dır; sonraki kaynaklar yalnızca eksik verileri tamamlar. Uygulama her değerin hangi kaynaktan geldiğini gösterir.';
+      'Değerler aşağıdaki kaynakların tablolarından aktarılmış ve basılı tablolarla karşılaştırılarak doğrulanmıştır. Aynı bileşik aynı çözücüde birden fazla kaynakta yer aldığında öncelik sırası Fulmer 2010 > Gottlieb 1997 > Babij 2016\'dır; sonraki kaynaklar yalnızca eksik verileri tamamlar. Uygulama her değerin hangi kaynaktan geldiğini gösterir. Yeşil kimya puanları ve sıralamaları özgün CHEM21 rehberinden alınmıştır.';
 
   @override
   String get disclaimerTitle => 'Önemli not';
@@ -385,7 +375,146 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String chem21Source(int n) {
-    return 'CHEM21 dereceleri [$n] numaralı kaynakta verildiği şekliyle kullanılmıştır; rehberin özgün kaynağı: D. Prat ve ark., Green Chem. 2016, 18, 288.';
+  String get rankRecommended => 'Önerilen';
+
+  @override
+  String get rankProblematic => 'Sorunlu';
+
+  @override
+  String get rankHazardous => 'Tehlikeli';
+
+  @override
+  String get rankHighlyHazardous => 'Çok tehlikeli';
+
+  @override
+  String get rankRecommendedDef =>
+      'Proses koşullarıyla kimyasal uyumsuzluk yoksa, tarama çalışmalarında ilk denenecek çözücüler.';
+
+  @override
+  String get rankProblematicDef =>
+      'Laboratuvarda ve kilolab ölçeğinde kullanılabilir; pilot tesis veya üretim ölçeğinde özel önlemler ya da yüksek enerji tüketimi gerektirir.';
+
+  @override
+  String get rankHazardousDef =>
+      'Ölçek büyütmede kısıtlar çok ağırdır; proses geliştirmede bu çözücülerin ikamesi önceliklidir.';
+
+  @override
+  String get rankHighlyHazardousDef =>
+      'Laboratuvarda bile kaçınılması gereken çözücüler.';
+
+  @override
+  String get greenChemistry => 'Yeşil kimya (CHEM21)';
+
+  @override
+  String get safetyScore => 'Güvenlik';
+
+  @override
+  String get healthScore => 'Sağlık';
+
+  @override
+  String get envScore => 'Çevre';
+
+  @override
+  String get flashPoint => 'Parlama noktası';
+
+  @override
+  String get worstH3 => 'En ağır sağlık ifadesi';
+
+  @override
+  String get worstH4 => 'Çevre ifadesi';
+
+  @override
+  String get hNone => 'Yok (tam REACh kaydı)';
+
+  @override
+  String get hNa => 'Veri yok (tam REACh kaydı yok)';
+
+  @override
+  String get rankingDefault => 'Puanlara göre sıralama';
+
+  @override
+  String get rankingFinal => 'CHEM21 sıralaması';
+
+  @override
+  String get rankChangedNote =>
+      'CHEM21 ekibi, puanlardan çıkan sıralamayı tartışma sonrasında değiştirmiştir.';
+
+  @override
+  String get casNumber => 'CAS No.';
+
+  @override
+  String get noteSolid => '20 °C\'de katı';
+
+  @override
+  String get noteWaterSensitive => 'Suya duyarlı';
+
+  @override
+  String get nmrSolventsView => 'NMR çözücüleri';
+
+  @override
+  String get chem21GuideView => 'CHEM21 rehberi';
+
+  @override
+  String get chem21Intro =>
+      'CHEM21 konsorsiyumunun ilaç endüstrisi için hazırladığı çözücü seçim rehberi. Her çözücü güvenlik, sağlık ve çevre açısından 1–10 arasında puanlanır (1 en iyi) ve dört sınıfa ayrılır.';
+
+  @override
+  String get chem21BabijNote =>
+      'Babij 2016 tablosundaki CHEM21 işaretleri bazı çözücülerde bu özgün rehberden farklıdır; uygulamada özgün rehber (Prat 2016) kullanılır.';
+
+  @override
+  String get searchChem21Hint => 'Çözücü ara';
+
+  @override
+  String get howScored => 'Puanlama nasıl yapılır?';
+
+  @override
+  String get rankClasses => 'Sıralama sınıfları';
+
+  @override
+  String get scoreColors =>
+      'Puanlar 1–3 yeşil, 4–6 sarı, 7–10 kırmızı gösterilir.';
+
+  @override
+  String get safetyRule =>
+      'Parlama noktasına göre verilir: >60 °C → 1; 24–60 °C → 3; 0–23 °C → 4; −1 ile −20 °C → 5; −20 °C\'nin altı → 7. Otomatik tutuşma sıcaklığının 200 °C\'nin altında olması, özdirencin 10⁸ Ω·m\'nin üzerinde olması (statik elektrik birikimi) ve peroksit oluşturma (EUH019) için her biri +1 eklenir. Bozunma enerjisi 500 J/g\'nin üzerinde olanlar (ör. nitrometan) 10 alır.';
+
+  @override
+  String get healthRule =>
+      'En ağır GHS/CLP tehlike ifadesine göre verilir: kanserojen, mutajen veya üreme için toksik kategori 1 (H340, H350, H360) → 9, kategori 2 (H341, H351, H361) → 6; akut toksisite H300/H310/H330 → 9, H301/H311/H331 → 6, H302/H312/H332/H336 → 2; hedef organ toksisitesi H370/H372 → 6, H334 → 4, H304/H371/H373 → 2; tahriş H314 → 7, H318 → 4, H315/H317/H319/H335 → 2. Kaynama noktası 85 °C\'nin altındaysa +1 eklenir. Tam REACh kaydı olup H3xx ifadesi olmayanlar 1, verisi eksik olanlar 5 alır.';
+
+  @override
+  String get envRule =>
+      'İki puandan yüksek olanı alınır: kaynama noktası (70–139 °C → 3; 50–69 veya 140–200 °C → 5; 50 °C\'nin altı veya 200 °C\'nin üstü → 7) ve sucul tehlike ifadeleri (yok → 3; H412/H413 → 5; H400/H410/H411 → 7). Tam REACh kaydı yoksa 5; su 1; ozon tabakasına zararlı (H420) çözücüler 10 alır.';
+
+  @override
+  String get rankRule =>
+      'Puanlara göre sıralama (en katı kural geçerlidir): herhangi bir puan ≥8 veya iki kırmızı puan (7–10) → tehlikeli; bir puan 7 veya iki sarı puan (4–6) → sorunlu; aksi halde önerilen. Klasik çözücülerde nihai sıralamayı CHEM21 ekibi tartışarak belirlemiştir; \"çok tehlikeli\" sınıfı yalnızca bu aşamada verilir.';
+
+  @override
+  String get showNmrData => 'NMR verileri';
+
+  @override
+  String get deuteratedForms => 'Döteryumlu NMR çözücüleri';
+
+  @override
+  String get family => 'Aile';
+
+  @override
+  String get hStatementNote =>
+      'Tehlike ifadelerinin metni GHS/CLP mevzuatından alınmıştır.';
+
+  @override
+  String chem21For(String name) {
+    return 'Döteryumsuz $name';
   }
+
+  @override
+  String chem21Count(int count) {
+    return '$count çözücü';
+  }
+
+  @override
+  String get feature7 =>
+      'CHEM21 yeşil kimya rehberi: 75 çözücünün güvenlik, sağlık ve çevre puanları, sıralaması ve puanlamanın nasıl yapıldığı.';
 }

@@ -176,46 +176,6 @@ class SourceTag extends StatelessWidget {
   }
 }
 
-/// Green "recommended" / amber "problematic" CHEM21 rating.
-class Chem21Badge extends StatelessWidget {
-  const Chem21Badge(this.rating, {super.key, this.compact = false});
-
-  final Chem21 rating;
-
-  /// Icon only, for list rows.
-  final bool compact;
-
-  static const _green = Color(0xFF2E9E44);
-  static const _amber = Color(0xFFE0A800);
-
-  @override
-  Widget build(BuildContext context) {
-    final rec = rating == Chem21.recommended;
-    final color = rec ? _green : _amber;
-    final icon = Icon(
-      rec ? Icons.change_history : Icons.details,
-      size: compact ? 14 : 16,
-      color: color,
-    );
-    final label = rec
-        ? context.l10n.chem21Recommended
-        : context.l10n.chem21Problematic;
-    return Tooltip(
-      message: '$label\n${context.l10n.chem21Hint}',
-      child: compact
-          ? icon
-          : Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                icon,
-                const SizedBox(width: 4),
-                Text(label, style: TextStyle(fontSize: 12, color: color)),
-              ],
-            ),
-    );
-  }
-}
-
 class SectionHeader extends StatelessWidget {
   const SectionHeader(this.text, {super.key});
 

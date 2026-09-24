@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../data/search.dart';
 import '../models/models.dart';
+import '../widgets/chem21_widgets.dart';
 import '../widgets/common.dart';
 import 'impurity_detail_screen.dart';
 
@@ -105,9 +106,9 @@ class _ImpurityTile extends StatelessWidget {
               style: const TextStyle(fontWeight: FontWeight.w600),
             ),
           ),
-          if (impurity.chem21 != null) ...[
+          if (context.repo.chem21ById(impurity.chem21Id) case final c?) ...[
             const SizedBox(width: 6),
-            Chem21Badge(impurity.chem21!, compact: true),
+            Chem21RankBadge(c.rank, compact: true),
           ],
         ],
       ),

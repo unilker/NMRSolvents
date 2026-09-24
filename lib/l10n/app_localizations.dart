@@ -464,24 +464,6 @@ abstract class AppLocalizations {
   /// **'Gottlieb 1997, eq 1. Referenced to sodium 3-(trimethylsilyl)propanesulfonate.'**
   String get hodTemperatureNote;
 
-  /// No description provided for @chem21Recommended.
-  ///
-  /// In en, this message translates to:
-  /// **'CHEM21: recommended'**
-  String get chem21Recommended;
-
-  /// No description provided for @chem21Problematic.
-  ///
-  /// In en, this message translates to:
-  /// **'CHEM21: problematic'**
-  String get chem21Problematic;
-
-  /// No description provided for @chem21Hint.
-  ///
-  /// In en, this message translates to:
-  /// **'Rating in the CHEM21 solvent selection guide, as listed by Babij 2016.'**
-  String get chem21Hint;
-
   /// No description provided for @note.
   ///
   /// In en, this message translates to:
@@ -701,7 +683,7 @@ abstract class AppLocalizations {
   /// No description provided for @feature2.
   ///
   /// In en, this message translates to:
-  /// **'Impurity tables: search by name, abbreviation or formula; the source of every value and the CHEM21 green-chemistry rating.'**
+  /// **'Impurity tables: search by name, abbreviation or formula, with the source of every value.'**
   String get feature2;
 
   /// No description provided for @feature3.
@@ -737,7 +719,7 @@ abstract class AppLocalizations {
   /// No description provided for @dataMethodText.
   ///
   /// In en, this message translates to:
-  /// **'Values were transcribed from the tables of the references below and checked against the printed tables. When a compound appears in the same solvent in more than one source, the order of precedence is Fulmer 2010 > Gottlieb 1997 > Babij 2016; later sources only fill in missing data. The app shows the source of every value.'**
+  /// **'Values were transcribed from the tables of the references below and checked against the printed tables. When a compound appears in the same solvent in more than one source, the order of precedence is Fulmer 2010 > Gottlieb 1997 > Babij 2016; later sources only fill in missing data. The app shows the source of every value. Green-chemistry scores and rankings come from the original CHEM21 guide.'**
   String get dataMethodText;
 
   /// No description provided for @disclaimerTitle.
@@ -770,11 +752,257 @@ abstract class AppLocalizations {
   /// **'{solvents} deuterated solvents · {impurities} impurities · {signals} signals'**
   String dataStats(int solvents, int impurities, int signals);
 
-  /// No description provided for @chem21Source.
+  /// No description provided for @rankRecommended.
   ///
   /// In en, this message translates to:
-  /// **'CHEM21 ratings are used as listed in [{n}]; original guide: D. Prat et al., Green Chem. 2016, 18, 288.'**
-  String chem21Source(int n);
+  /// **'Recommended'**
+  String get rankRecommended;
+
+  /// No description provided for @rankProblematic.
+  ///
+  /// In en, this message translates to:
+  /// **'Problematic'**
+  String get rankProblematic;
+
+  /// No description provided for @rankHazardous.
+  ///
+  /// In en, this message translates to:
+  /// **'Hazardous'**
+  String get rankHazardous;
+
+  /// No description provided for @rankHighlyHazardous.
+  ///
+  /// In en, this message translates to:
+  /// **'Highly hazardous'**
+  String get rankHighlyHazardous;
+
+  /// No description provided for @rankRecommendedDef.
+  ///
+  /// In en, this message translates to:
+  /// **'To be tested first in a screening exercise, if there is no chemical incompatibility with the process.'**
+  String get rankRecommendedDef;
+
+  /// No description provided for @rankProblematicDef.
+  ///
+  /// In en, this message translates to:
+  /// **'Can be used in the lab or kilo lab, but scale-up to pilot plant or production needs specific measures or significant energy.'**
+  String get rankProblematicDef;
+
+  /// No description provided for @rankHazardousDef.
+  ///
+  /// In en, this message translates to:
+  /// **'Very strong constraints on scale-up; substituting them during process development is a priority.'**
+  String get rankHazardousDef;
+
+  /// No description provided for @rankHighlyHazardousDef.
+  ///
+  /// In en, this message translates to:
+  /// **'To be avoided, even in the laboratory.'**
+  String get rankHighlyHazardousDef;
+
+  /// No description provided for @greenChemistry.
+  ///
+  /// In en, this message translates to:
+  /// **'Green chemistry (CHEM21)'**
+  String get greenChemistry;
+
+  /// No description provided for @safetyScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Safety'**
+  String get safetyScore;
+
+  /// No description provided for @healthScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Health'**
+  String get healthScore;
+
+  /// No description provided for @envScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Environment'**
+  String get envScore;
+
+  /// No description provided for @flashPoint.
+  ///
+  /// In en, this message translates to:
+  /// **'Flash point'**
+  String get flashPoint;
+
+  /// No description provided for @worstH3.
+  ///
+  /// In en, this message translates to:
+  /// **'Worst health statement'**
+  String get worstH3;
+
+  /// No description provided for @worstH4.
+  ///
+  /// In en, this message translates to:
+  /// **'Environment statement'**
+  String get worstH4;
+
+  /// No description provided for @hNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None (full REACh registration)'**
+  String get hNone;
+
+  /// No description provided for @hNa.
+  ///
+  /// In en, this message translates to:
+  /// **'Not available (no full REACh registration)'**
+  String get hNa;
+
+  /// No description provided for @rankingDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'Ranking from the scores'**
+  String get rankingDefault;
+
+  /// No description provided for @rankingFinal.
+  ///
+  /// In en, this message translates to:
+  /// **'CHEM21 ranking'**
+  String get rankingFinal;
+
+  /// No description provided for @rankChangedNote.
+  ///
+  /// In en, this message translates to:
+  /// **'The CHEM21 team changed the ranking from the scores after discussion.'**
+  String get rankChangedNote;
+
+  /// No description provided for @casNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'CAS No.'**
+  String get casNumber;
+
+  /// No description provided for @noteSolid.
+  ///
+  /// In en, this message translates to:
+  /// **'Solid at 20 °C'**
+  String get noteSolid;
+
+  /// No description provided for @noteWaterSensitive.
+  ///
+  /// In en, this message translates to:
+  /// **'Water sensitive'**
+  String get noteWaterSensitive;
+
+  /// No description provided for @nmrSolventsView.
+  ///
+  /// In en, this message translates to:
+  /// **'NMR solvents'**
+  String get nmrSolventsView;
+
+  /// No description provided for @chem21GuideView.
+  ///
+  /// In en, this message translates to:
+  /// **'CHEM21 guide'**
+  String get chem21GuideView;
+
+  /// No description provided for @chem21Intro.
+  ///
+  /// In en, this message translates to:
+  /// **'Solvent selection guide of the CHEM21 consortium for the pharmaceutical industry. Each solvent is scored 1–10 for safety, health and environment (1 is best) and ranked in four classes.'**
+  String get chem21Intro;
+
+  /// No description provided for @chem21BabijNote.
+  ///
+  /// In en, this message translates to:
+  /// **'The CHEM21 marks in the Babij 2016 table differ from this original guide for some solvents; the app uses the original guide (Prat 2016).'**
+  String get chem21BabijNote;
+
+  /// No description provided for @searchChem21Hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search solvents'**
+  String get searchChem21Hint;
+
+  /// No description provided for @howScored.
+  ///
+  /// In en, this message translates to:
+  /// **'How are solvents scored?'**
+  String get howScored;
+
+  /// No description provided for @rankClasses.
+  ///
+  /// In en, this message translates to:
+  /// **'Ranking classes'**
+  String get rankClasses;
+
+  /// No description provided for @scoreColors.
+  ///
+  /// In en, this message translates to:
+  /// **'Scores 1–3 are green, 4–6 yellow and 7–10 red.'**
+  String get scoreColors;
+
+  /// No description provided for @safetyRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Based on the flash point: >60 °C → 1; 24–60 °C → 3; 0–23 °C → 4; −1 to −20 °C → 5; below −20 °C → 7. One point is added for each of: auto-ignition temperature below 200 °C, resistivity above 10⁸ Ω·m (static charge build-up) and ability to form peroxides (EUH019). Solvents with a decomposition energy above 500 J/g, such as nitromethane, score 10.'**
+  String get safetyRule;
+
+  /// No description provided for @healthRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Based on the most severe GHS/CLP hazard statement: carcinogen, mutagen or reprotoxic cat. 1 (H340, H350, H360) → 9, cat. 2 (H341, H351, H361) → 6; acute toxicity H300/H310/H330 → 9, H301/H311/H331 → 6, H302/H312/H332/H336 → 2; organ toxicity H370/H372 → 6, H334 → 4, H304/H371/H373 → 2; irritation H314 → 7, H318 → 4, H315/H317/H319/H335 → 2. One point is added if the boiling point is below 85 °C. A fully registered solvent without H3xx statements scores 1; without full data, 5.'**
+  String get healthRule;
+
+  /// No description provided for @envRule.
+  ///
+  /// In en, this message translates to:
+  /// **'The higher of two scores: boiling point (70–139 °C → 3; 50–69 or 140–200 °C → 5; below 50 or above 200 °C → 7) and aquatic hazard statements (none → 3; H412/H413 → 5; H400/H410/H411 → 7). Without full REACh registration → 5; water → 1; ozone-depleting (H420) → 10.'**
+  String get envRule;
+
+  /// No description provided for @rankRule.
+  ///
+  /// In en, this message translates to:
+  /// **'Ranking from the scores (the most stringent rule applies): any score ≥ 8, or two red scores (7–10) → hazardous; one score of 7, or two yellow scores (4–6) → problematic; otherwise recommended. For the classical solvents the CHEM21 team set the final ranking after discussion; highly hazardous is only assigned then.'**
+  String get rankRule;
+
+  /// No description provided for @showNmrData.
+  ///
+  /// In en, this message translates to:
+  /// **'NMR data'**
+  String get showNmrData;
+
+  /// No description provided for @deuteratedForms.
+  ///
+  /// In en, this message translates to:
+  /// **'Deuterated NMR solvents'**
+  String get deuteratedForms;
+
+  /// No description provided for @family.
+  ///
+  /// In en, this message translates to:
+  /// **'Family'**
+  String get family;
+
+  /// No description provided for @hStatementNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Hazard statement wording from the GHS/CLP regulation.'**
+  String get hStatementNote;
+
+  /// No description provided for @chem21For.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlabeled {name}'**
+  String chem21For(String name);
+
+  /// No description provided for @chem21Count.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 solvent} other{{count} solvents}}'**
+  String chem21Count(int count);
+
+  /// No description provided for @feature7.
+  ///
+  /// In en, this message translates to:
+  /// **'CHEM21 green-chemistry guide: safety, health and environment scores and ranking of 75 solvents, and how they are scored.'**
+  String get feature7;
 }
 
 class _AppLocalizationsDelegate

@@ -91,15 +91,30 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Dr. İlker ÜN'), findsOneWidget);
     await tester.scrollUntilVisible(
-      find.textContaining('[4] NMR Solvent Data Chart'),
+      find.textContaining('[5] NMR Solvent Data Chart'),
       300,
       scrollable: find.byType(Scrollable).last,
     );
-    for (final n in [1, 2, 3, 4]) {
-      // "[3]" also appears in the CHEM21 note under the list.
-      expect(find.textContaining('[$n] '), findsWidgets);
+    for (final n in [1, 2, 3, 4, 5]) {
+      expect(find.textContaining('[$n] '), findsOneWidget);
     }
     expect(find.textContaining('10.1021/om100106e'), findsOneWidget);
+  });
+
+  testWidgets('CHEM21 guide filters by ranking', (tester) async {
+    tallScreen(tester);
+    await tester.pumpWidget(NmrApp(settings: settings, repository: repo));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('CHEM21 rehberi'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('rank-hh')));
+    await tester.pumpAndSettle();
+    expect(find.text('8 çözücü'), findsOneWidget);
+    expect(find.text('Kloroform'), findsOneWidget);
+    await tester.tap(find.text('Kloroform'));
+    await tester.pumpAndSettle();
+    expect(find.text('Çok tehlikeli'), findsWidgets);
+    expect(find.textContaining('H351'), findsOneWidget);
   });
 
   test('app version matches pubspec.yaml', () {

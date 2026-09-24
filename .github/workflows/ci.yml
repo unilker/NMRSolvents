@@ -19,6 +19,8 @@ jobs:
           cache: true
       - name: Data files are up to date with tool/sources
         run: python3 tool/build_data.py && git diff --exit-code assets/data
+      - name: CHEM21 transcription follows the paper's scoring rules
+        run: python3 tool/check_chem21.py
       - run: flutter pub get
       - run: dart format --output=none --set-exit-if-changed lib test
       - run: flutter analyze

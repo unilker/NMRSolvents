@@ -18,6 +18,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "sources"))
 import babij2016  # noqa: E402
+import chem21_2016  # noqa: E402
 import cil_chart  # noqa: E402
 
 OUT = os.path.join(HERE, "..", "assets", "data")
@@ -40,6 +41,11 @@ REFERENCES = [
          title="NMR Chemical Shifts of Trace Impurities: Industrially Preferred Solvents Used in "
                "Process and Green Chemistry",
          source="Org. Process Res. Dev. 2016, 20, 661-667", doi="10.1021/acs.oprd.5b00417"),
+    dict(id="prat2016", short="Prat 2016 (CHEM21)",
+         authors="D. Prat, A. Wells, J. Hayler, H. Sneddon, C. R. McElroy, S. Abou-Shehada, "
+                 "P. J. Dunn",
+         title="CHEM21 selection guide of classical- and less classical-solvents",
+         source="Green Chem. 2016, 18, 288-296", doi="10.1039/c5gc01008j"),
     dict(id="cil", short="CIL", authors="Cambridge Isotope Laboratories, Inc.",
          title="NMR Solvent Data Chart", source="isotope.com, NMR_SDC 5/15", doi=None),
 ]
@@ -207,6 +213,113 @@ SOURCE_NAMES = {
     "triethylamine": "triethylamine", "o-xylene": "o_xylene", "m-xylene": "m_xylene",
     "p-xylene": "p_xylene",
 }
+
+
+FAMILIES = {
+    "Water": ("Water", "Su"), "Alcohols": ("Alcohols", "Alkoller"),
+    "Ketones": ("Ketones", "Ketonlar"), "Esters": ("Esters", "Esterler"),
+    "Ethers": ("Ethers", "Eterler"), "Hydrocarbons": ("Hydrocarbons", "Hidrokarbonlar"),
+    "Halogenated": ("Halogenated", "Halojenli"),
+    "Aprotic polar": ("Aprotic polar", "Aprotik polar"),
+    "Miscellaneous": ("Miscellaneous", "Diğer"), "Acids": ("Acids", "Asitler"),
+    "Amines": ("Amines", "Aminler"),
+}
+
+# CHEM21 name as printed -> (id, impurity ids it rates, names for solvents we
+# have no NMR data for). Linked entries take their names from IMPURITIES.
+CHEM21_NAMES = {
+    "Water": ("water", ["water"]), "MeOH": ("methanol", ["methanol"]),
+    "EtOH": ("ethanol", ["ethanol"]), "i-PrOH": ("isopropanol", ["isopropanol"]),
+    "n-BuOH": ("n_butanol", ["n_butanol"]), "t-BuOH": ("tert_butanol", ["tert_butanol"]),
+    "Benzyl alcohol": ("benzyl_alcohol", ["benzyl_alcohol"]),
+    "Ethylene glycol": ("ethylene_glycol", ["ethylene_glycol"]),
+    "Acetone": ("acetone", ["acetone"]), "MEK": ("mek", ["mek"]),
+    "MIBK": ("mibk", ["mibk"]), "Cyclohexanone": ("cyclohexanone", ["cyclohexanone"]),
+    "Methyl acetate": ("methyl_acetate", ["methyl_acetate"]),
+    "Ethyl acetate": ("ethyl_acetate", ["ethyl_acetate"]),
+    "i-PrOAc": ("isopropyl_acetate", ["isopropyl_acetate"]),
+    "n-BuOAc": ("n_butyl_acetate", ["n_butyl_acetate"]),
+    "Diethyl ether": ("diethyl_ether", ["diethyl_ether"]),
+    "Diisopropyl ether": ("diisopropyl_ether", [], "Diisopropyl ether", "Diizopropil eter"),
+    "MTBE": ("mtbe", ["mtbe"]), "THF": ("thf", ["thf"]), "Me-THF": ("me_thf", ["me_thf"]),
+    "1,4-Dioxane": ("dioxane", ["dioxane"]), "Anisole": ("anisole", ["anisole"]),
+    "DME": ("dme", ["dme"]), "Pentane": ("n_pentane", ["n_pentane"]),
+    "Hexane": ("n_hexane", ["n_hexane"]), "Heptane": ("n_heptane", ["n_heptane"]),
+    "Cyclohexane": ("cyclohexane", ["cyclohexane"]),
+    "Me-cyclohexane": ("methylcyclohexane", ["methylcyclohexane"]),
+    "Benzene": ("benzene", ["benzene"]), "Toluene": ("toluene", ["toluene"]),
+    "Xylenes": ("xylenes", ["o_xylene", "m_xylene", "p_xylene"], "Xylenes", "Ksilenler"),
+    "DCM": ("dichloromethane", ["dichloromethane"]),
+    "Chloroform": ("chloroform", ["chloroform"]),
+    "CCl4": ("carbon_tetrachloride", ["carbon_tetrachloride"]), "DCE": ("dce", ["dce"]),
+    "Chlorobenzene": ("chlorobenzene", ["chlorobenzene"]),
+    "Acetonitrile": ("acetonitrile", ["acetonitrile"]), "DMF": ("dmf", ["dmf"]),
+    "DMAc": ("dma", ["dma"]),
+    "NMP": ("nmp", [], "N-Methyl-2-pyrrolidone (NMP)", "N-Metil-2-pirolidon (NMP)"),
+    "DMPU": ("dmpu", ["dmpu"]), "DMSO": ("dmso", ["dmso"]),
+    "Sulfolane": ("sulfolane", ["sulfolane"]), "HMPA": ("hmpa", ["hmpa"]),
+    "Nitromethane": ("nitromethane", ["nitromethane"]),
+    "Methoxy-ethanol": ("methoxyethanol", [], "2-Methoxyethanol", "2-Metoksietanol"),
+    "Carbon disulfide": ("carbon_disulfide", ["carbon_disulfide"]),
+    "Formic acid": ("formic_acid", ["formic_acid"]), "Acetic acid": ("acetic_acid", ["acetic_acid"]),
+    "Ac2O": ("acetic_anhydride", ["acetic_anhydride"]), "Pyridine": ("pyridine", ["pyridine"]),
+    "TEA": ("triethylamine", ["triethylamine"]),
+    "i-Butanol": ("isobutanol", ["isobutanol"]),
+    "i-Amyl alcohol": ("isoamyl_alcohol", ["isoamyl_alcohol"]),
+    "1,3-Propane diol": ("propanediol", [], "1,3-Propanediol", "1,3-Propandiol"),
+    "Glycerol": ("glycerol", [], "Glycerol", "Gliserol"),
+    "i-Butyl acetate": ("isobutyl_acetate", ["isobutyl_acetate"]),
+    "i-Amyl acetate": ("isoamyl_acetate", ["isoamyl_acetate"]),
+    "Glycol diacetate": ("glycol_diacetate", ["glycol_diacetate"]),
+    "γ-Valerolactone": ("gvl", [], "γ-Valerolactone", "γ-Valerolakton"),
+    "Diethyl succinate": ("diethyl_succinate", [], "Diethyl succinate", "Dietil süksinat"),
+    "TAME": ("tame", ["tame"]), "CPME": ("cpme", ["cpme"]), "ETBE": ("etbe", ["etbe"]),
+    "D-Limonene": ("limonene", [], "D-Limonene", "D-Limonen"),
+    "Turpentine": ("turpentine", [], "Turpentine", "Terebentin"),
+    "p-Cymene": ("p_cymene", ["p_cymene"]),
+    "Dimethyl carbonate": ("dimethyl_carbonate", ["dimethyl_carbonate"]),
+    "Ethylene carbonate": ("ethylene_carbonate", [], "Ethylene carbonate", "Etilen karbonat"),
+    "Propylene carbonate": ("propylene_carbonate", [], "Propylene carbonate", "Propilen karbonat"),
+    "Cyrene": ("cyrene", [], "Cyrene (dihydrolevoglucosenone)", "Cyrene (dihidrolevoglukozenon)"),
+    "Ethyl lactate": ("ethyl_lactate", ["ethyl_lactate"]),
+    "Lactic acid": ("lactic_acid", [], "Lactic acid", "Laktik asit"),
+    "TH-furfuryl alcohol": ("thfa", [], "Tetrahydrofurfuryl alcohol", "Tetrahidrofurfuril alkol"),
+}
+
+# Deuterated solvent -> CHEM21 entry of the unlabeled compound.
+SOLVENT_CHEM21 = {
+    "cdcl3": "chloroform", "dmso_d6": "dmso", "acetone_d6": "acetone", "cd3od": "methanol",
+    "d2o": "water", "c6d6": "benzene", "cd3cn": "acetonitrile", "cd2cl2": "dichloromethane",
+    "thf_d8": "thf", "toluene_d8": "toluene", "c6d5cl": "chlorobenzene",
+    "acetic_acid_d4": "acetic_acid", "cyclohexane_d12": "cyclohexane", "dmf_d7": "dmf",
+    "dioxane_d8": "dioxane", "ethanol_d6": "ethanol", "pyridine_d5": "pyridine",
+}
+
+
+def build_chem21():
+    entries = []
+    rows = [(7, r[0], r[1], None, *r[2:]) for r in chem21_2016.TABLE7] + [
+        (8, r[0], r[1], r[2], *r[3:], r[-1]) for r in chem21_2016.TABLE8]
+    for table, printed, family, cas, bp, fp, h3, h4, safety, health, env, default, final in rows:
+        cid, impurity_ids, *names = CHEM21_NAMES[printed]
+        if names:
+            en, tr = names
+        else:
+            en, tr = IMPURITIES[impurity_ids[0]][:2]
+        e = dict(id=cid, name={"en": en, "tr": tr}, printed=printed,
+                 family={"en": FAMILIES[family][0], "tr": FAMILIES[family][1]},
+                 bp=bp, fp=fp, h3=h3, h4=h4, safety=safety, health=health, env=env,
+                 rankDefault=default, rank=final, table=table, impurities=impurity_ids)
+        if cas:
+            e["cas"] = cas
+        if printed in chem21_2016.TABLE7_SOLID or chem21_2016.TABLE8_NOTES.get(printed) == "solid":
+            e["note"] = "solid"
+        elif chem21_2016.TABLE8_NOTES.get(printed) == "water_sensitive":
+            e["note"] = "water_sensitive"
+        entries.append(e)
+    ids = [e["id"] for e in entries]
+    assert len(ids) == len(set(ids)), "duplicate CHEM21 ids"
+    return entries
 
 
 def load_json(name):
@@ -378,6 +491,8 @@ def build_solvents(fulmer):
                 s[jk] = c[k]
         if c.get("h1_note"):
             s["note"] = c["h1_note"]
+        if sid in SOLVENT_CHEM21:
+            s["chem21"] = SOLVENT_CHEM21[sid]
         if sid != "c6d5cl":
             s["storage"] = cil_chart.STORAGE.get(sid, cil_chart.DEFAULT_STORAGE)
         solvents.append(s)
@@ -395,14 +510,24 @@ def main():
     merged = merge({"fulmer2010": from_table(fulmer, "fulmer2010"),
                     "gottlieb1997": g, "babij2016": babij})
 
+    chem21 = build_chem21()
+    chem21_by_impurity = {i: e["id"] for e in chem21 for i in e["impurities"]}
+    # Babij 2016 marks each solvent with a CHEM21 triangle; the original
+    # guide (Prat 2016) is used instead. Differences are listed for review.
+    rank_of = {e["id"]: e["rank"] for e in chem21}
+    for cid, babij_rank in sorted(ratings.items()):
+        if cid in chem21_by_impurity and rank_of[chem21_by_impurity[cid]] != babij_rank:
+            print(f"  CHEM21 differs from Babij for {cid}: "
+                  f"{rank_of[chem21_by_impurity[cid]]} (Prat) vs {babij_rank} (Babij)")
+
     impurities = []
     for cid, (en, tr, formula, aliases) in IMPURITIES.items():
         signals = merged[cid]
         assert signals, f"no data for {cid}"
         imp = dict(id=cid, name={"en": en, "tr": tr}, formula=formula, aliases=aliases,
                    signals=signals)
-        if cid in ratings:
-            imp["chem21"] = ratings[cid]
+        if cid in chem21_by_impurity:
+            imp["chem21"] = chem21_by_impurity[cid]
         if cid == "anisole":
             imp["note"] = ("In D2O a second set of resonances was observed: "
                            "6.79, t (7.9); 6.50-6.43, m; 3.08, s (Babij 2016).")
@@ -411,12 +536,13 @@ def main():
     solvents = build_solvents(fulmer)
     os.makedirs(OUT, exist_ok=True)
     for name, obj in (("references", REFERENCES), ("solvents", solvents),
-                      ("impurities", impurities)):
+                      ("impurities", impurities), ("chem21", chem21)):
         with open(os.path.join(OUT, f"{name}.json"), "w", encoding="utf-8") as f:
             json.dump(obj, f, ensure_ascii=False, indent=1)
             f.write("\n")
     n = sum(len(i["signals"]) for i in impurities)
-    print(f"{len(solvents)} solvents, {len(impurities)} impurities, {n} signals")
+    print(f"{len(solvents)} solvents, {len(impurities)} impurities, {n} signals, "
+          f"{len(chem21)} CHEM21 entries")
 
 
 if __name__ == "__main__":

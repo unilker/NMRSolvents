@@ -24,6 +24,14 @@
   "doi": "10.1021/acs.oprd.5b00417"
  },
  {
+  "id": "prat2016",
+  "short": "Prat 2016 (CHEM21)",
+  "authors": "D. Prat, A. Wells, J. Hayler, H. Sneddon, C. R. McElroy, S. Abou-Shehada, P. J. Dunn",
+  "title": "CHEM21 selection guide of classical- and less classical-solvents",
+  "source": "Green Chem. 2016, 18, 288-296",
+  "doi": "10.1039/c5gc01008j"
+ },
+ {
   "id": "cil",
   "short": "CIL",
   "authors": "Cambridge Isotope Laboratories, Inc.",

@@ -43,6 +43,7 @@
   "boilingPoint": "61-62",
   "dielectric": 4.8,
   "molecularWeight": 120.38,
+  "chem21": "chloroform",
   "storage": "fridge_6m"
  },
  {
@@ -90,6 +91,7 @@
   "boilingPoint": "189",
   "dielectric": 46.7,
   "molecularWeight": 84.17,
+  "chem21": "dmso",
   "storage": "rt"
  },
  {
@@ -150,6 +152,7 @@
   "boilingPoint": "56.5",
   "dielectric": 20.7,
   "molecularWeight": 64.12,
+  "chem21": "acetone",
   "storage": "rt"
  },
  {
@@ -203,6 +206,7 @@
   "boilingPoint": "64.7",
   "dielectric": 32.7,
   "molecularWeight": 36.07,
+  "chem21": "methanol",
   "storage": "rt"
  },
  {
@@ -237,6 +241,7 @@
   "dielectric": 78.5,
   "molecularWeight": 20.03,
   "note": "4.80 (DSS) / 4.81 (TSP)",
+  "chem21": "water",
   "storage": "rt"
  },
  {
@@ -283,6 +288,7 @@
   "boilingPoint": "80.1",
   "dielectric": 2.3,
   "molecularWeight": 84.15,
+  "chem21": "benzene",
   "storage": "rt"
  },
  {
@@ -342,6 +348,7 @@
   "boilingPoint": "81.6",
   "dielectric": 37.5,
   "molecularWeight": 44.07,
+  "chem21": "acetonitrile",
   "storage": "rt_1y"
  },
  {
@@ -389,6 +396,7 @@
   "boilingPoint": "39.75",
   "dielectric": 8.9,
   "molecularWeight": 86.95,
+  "chem21": "dichloromethane",
   "storage": "rt"
  },
  {
@@ -460,6 +468,7 @@
   "boilingPoint": "66",
   "dielectric": 7.6,
   "molecularWeight": 80.16,
+  "chem21": "thf",
   "storage": "fridge_6m"
  },
  {
@@ -594,6 +603,7 @@
   "boilingPoint": "110.6",
   "dielectric": 2.4,
   "molecularWeight": 100.19,
+  "chem21": "toluene",
   "storage": "rt"
  },
  {
@@ -643,7 +653,8 @@
   "water": {
    "shift": 1.03,
    "ref": "fulmer2010"
-  }
+  },
+  "chem21": "chlorobenzene"
  },
  {
   "id": "tfe_d3",
@@ -760,6 +771,7 @@
   "boilingPoint": "118",
   "dielectric": 6.1,
   "molecularWeight": 64.08,
+  "chem21": "acetic_acid",
   "storage": "rt"
  },
  {
@@ -794,6 +806,7 @@
   "boilingPoint": "80.7",
   "dielectric": 2.0,
   "molecularWeight": 96.24,
+  "chem21": "cyclohexane",
   "storage": "rt"
  },
  {
@@ -856,6 +869,7 @@
   "boilingPoint": "153",
   "dielectric": 36.7,
   "molecularWeight": 80.14,
+  "chem21": "dmf",
   "storage": "rt"
  },
  {
@@ -890,6 +904,7 @@
   "boilingPoint": "101.1",
   "dielectric": 2.2,
   "molecularWeight": 96.16,
+  "chem21": "dioxane",
   "storage": "rt"
  },
  {
@@ -943,6 +958,7 @@
   "boilingPoint": "78.5",
   "dielectric": 24.5,
   "molecularWeight": 52.11,
+  "chem21": "ethanol",
   "storage": "rt"
  },
  {
@@ -1003,6 +1019,7 @@
   "boilingPoint": "115.2-115.3",
   "dielectric": 12.4,
   "molecularWeight": 84.13,
+  "chem21": "pyridine",
   "storage": "rt"
  },
  {
