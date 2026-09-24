@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
 import '../theme/app_themes.dart';
 import '../widgets/common.dart';
+import 'info_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -27,6 +28,25 @@ class SettingsScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.only(bottom: 24),
         children: [
+          Card(
+            margin: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+            child: ListTile(
+              key: const Key('aboutApp'),
+              leading: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.asset(
+                  'assets/icon/app_icon_256.png',
+                  width: 36,
+                  height: 36,
+                ),
+              ),
+              title: Text(l10n.aboutApp),
+              subtitle: Text(l10n.tabInfo),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => const InfoScreen())),
+            ),
+          ),
           SectionHeader(l10n.language),
           RadioGroup<String?>(
             groupValue: languageCode,

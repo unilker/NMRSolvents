@@ -1003,6 +1003,192 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'CHEM21 green-chemistry guide: safety, health and environment scores and ranking of 75 solvents, and how they are scored.'**
   String get feature7;
+
+  /// No description provided for @tabRecords.
+  ///
+  /// In en, this message translates to:
+  /// **'Records'**
+  String get tabRecords;
+
+  /// No description provided for @saveResults.
+  ///
+  /// In en, this message translates to:
+  /// **'Save results'**
+  String get saveResults;
+
+  /// No description provided for @sampleName.
+  ///
+  /// In en, this message translates to:
+  /// **'Sample name'**
+  String get sampleName;
+
+  /// No description provided for @sampleNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a sample name'**
+  String get sampleNameRequired;
+
+  /// No description provided for @analysisDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Analysis date'**
+  String get analysisDate;
+
+  /// No description provided for @noteOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Note (optional)'**
+  String get noteOptional;
+
+  /// No description provided for @markIdentified.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark the impurities you identified in the spectrum.'**
+  String get markIdentified;
+
+  /// No description provided for @identifiedSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Identified'**
+  String get identifiedSection;
+
+  /// No description provided for @otherCandidates.
+  ///
+  /// In en, this message translates to:
+  /// **'Other candidates'**
+  String get otherCandidates;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @recordSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Record saved'**
+  String get recordSaved;
+
+  /// No description provided for @view.
+  ///
+  /// In en, this message translates to:
+  /// **'View'**
+  String get view;
+
+  /// No description provided for @newRecord.
+  ///
+  /// In en, this message translates to:
+  /// **'New record'**
+  String get newRecord;
+
+  /// No description provided for @editRecord.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit record'**
+  String get editRecord;
+
+  /// No description provided for @recordsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No saved records yet. Run a search in Peak search and tap \"Save results\".'**
+  String get recordsEmpty;
+
+  /// No description provided for @searchRecordsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Sample name or note'**
+  String get searchRecordsHint;
+
+  /// No description provided for @deleteRecord.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete record'**
+  String get deleteRecord;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @copyAsText.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy as text'**
+  String get copyAsText;
+
+  /// No description provided for @enteredPeaks.
+  ///
+  /// In en, this message translates to:
+  /// **'Entered peaks'**
+  String get enteredPeaks;
+
+  /// No description provided for @searchType.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get searchType;
+
+  /// No description provided for @noneIdentified.
+  ///
+  /// In en, this message translates to:
+  /// **'No impurity marked as identified.'**
+  String get noneIdentified;
+
+  /// No description provided for @recordHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'NMR Solvents – analysis record'**
+  String get recordHeader;
+
+  /// No description provided for @localOnlyNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Records are stored only on this device. Uninstalling the app deletes them; use \"Copy as text\" to keep a copy.'**
+  String get localOnlyNote;
+
+  /// No description provided for @tolerance.
+  ///
+  /// In en, this message translates to:
+  /// **'Tolerance'**
+  String get tolerance;
+
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
+
+  /// No description provided for @deleteConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete the record \"{name}\"?'**
+  String deleteConfirm(String name);
+
+  /// No description provided for @peakCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 peak} other{{count} peaks}}'**
+  String peakCount(int count);
+
+  /// No description provided for @identifiedCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} identified'**
+  String identifiedCount(int count);
+
+  /// No description provided for @savedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved on {date}'**
+  String savedOn(String date);
 }
 
 class _AppLocalizationsDelegate

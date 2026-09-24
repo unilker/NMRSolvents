@@ -534,4 +534,114 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get feature7 =>
       'CHEM21 green-chemistry guide: safety, health and environment scores and ranking of 75 solvents, and how they are scored.';
+
+  @override
+  String get tabRecords => 'Records';
+
+  @override
+  String get saveResults => 'Save results';
+
+  @override
+  String get sampleName => 'Sample name';
+
+  @override
+  String get sampleNameRequired => 'Enter a sample name';
+
+  @override
+  String get analysisDate => 'Analysis date';
+
+  @override
+  String get noteOptional => 'Note (optional)';
+
+  @override
+  String get markIdentified =>
+      'Mark the impurities you identified in the spectrum.';
+
+  @override
+  String get identifiedSection => 'Identified';
+
+  @override
+  String get otherCandidates => 'Other candidates';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get recordSaved => 'Record saved';
+
+  @override
+  String get view => 'View';
+
+  @override
+  String get newRecord => 'New record';
+
+  @override
+  String get editRecord => 'Edit record';
+
+  @override
+  String get recordsEmpty =>
+      'No saved records yet. Run a search in Peak search and tap \"Save results\".';
+
+  @override
+  String get searchRecordsHint => 'Sample name or note';
+
+  @override
+  String get deleteRecord => 'Delete record';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get copyAsText => 'Copy as text';
+
+  @override
+  String get enteredPeaks => 'Entered peaks';
+
+  @override
+  String get searchType => 'Search';
+
+  @override
+  String get noneIdentified => 'No impurity marked as identified.';
+
+  @override
+  String get recordHeader => 'NMR Solvents – analysis record';
+
+  @override
+  String get localOnlyNote =>
+      'Records are stored only on this device. Uninstalling the app deletes them; use \"Copy as text\" to keep a copy.';
+
+  @override
+  String get tolerance => 'Tolerance';
+
+  @override
+  String get edit => 'Edit';
+
+  @override
+  String deleteConfirm(String name) {
+    return 'Delete the record \"$name\"?';
+  }
+
+  @override
+  String peakCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count peaks',
+      one: '1 peak',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String identifiedCount(int count) {
+    return '$count identified';
+  }
+
+  @override
+  String savedOn(String date) {
+    return 'Saved on $date';
+  }
 }

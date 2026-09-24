@@ -517,4 +517,108 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get feature7 =>
       'CHEM21 yeşil kimya rehberi: 75 çözücünün güvenlik, sağlık ve çevre puanları, sıralaması ve puanlamanın nasıl yapıldığı.';
+
+  @override
+  String get tabRecords => 'Kayıtlar';
+
+  @override
+  String get saveResults => 'Sonuçları kaydet';
+
+  @override
+  String get sampleName => 'Numune adı';
+
+  @override
+  String get sampleNameRequired => 'Numune adını girin';
+
+  @override
+  String get analysisDate => 'Analiz tarihi';
+
+  @override
+  String get noteOptional => 'Not (isteğe bağlı)';
+
+  @override
+  String get markIdentified =>
+      'Spektrumda tanımladığınız safsızlıkları işaretleyin.';
+
+  @override
+  String get identifiedSection => 'Tanımlanan';
+
+  @override
+  String get otherCandidates => 'Diğer adaylar';
+
+  @override
+  String get save => 'Kaydet';
+
+  @override
+  String get recordSaved => 'Kayıt kaydedildi';
+
+  @override
+  String get view => 'Görüntüle';
+
+  @override
+  String get newRecord => 'Yeni kayıt';
+
+  @override
+  String get editRecord => 'Kaydı düzenle';
+
+  @override
+  String get recordsEmpty =>
+      'Henüz kayıt yok. Pik ara\'da bir arama yapıp \"Sonuçları kaydet\"e dokunun.';
+
+  @override
+  String get searchRecordsHint => 'Numune adı veya not';
+
+  @override
+  String get deleteRecord => 'Kaydı sil';
+
+  @override
+  String get cancel => 'Vazgeç';
+
+  @override
+  String get delete => 'Sil';
+
+  @override
+  String get copyAsText => 'Metin olarak kopyala';
+
+  @override
+  String get enteredPeaks => 'Girilen pikler';
+
+  @override
+  String get searchType => 'Arama';
+
+  @override
+  String get noneIdentified => 'Tanımlandı olarak işaretlenmiş safsızlık yok.';
+
+  @override
+  String get recordHeader => 'NMR Çözücüler – analiz kaydı';
+
+  @override
+  String get localOnlyNote =>
+      'Kayıtlar yalnızca bu cihazda saklanır. Uygulama silinirse kayıtlar da silinir; yedek için \"Metin olarak kopyala\"yı kullanın.';
+
+  @override
+  String get tolerance => 'Tolerans';
+
+  @override
+  String get edit => 'Düzenle';
+
+  @override
+  String deleteConfirm(String name) {
+    return '\"$name\" kaydı silinsin mi?';
+  }
+
+  @override
+  String peakCount(int count) {
+    return '$count pik';
+  }
+
+  @override
+  String identifiedCount(int count) {
+    return '$count tanımlandı';
+  }
+
+  @override
+  String savedOn(String date) {
+    return 'Kayıt tarihi: $date';
+  }
 }

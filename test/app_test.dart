@@ -6,6 +6,7 @@ import 'dart:io';
 import 'package:nmr_solvents/app.dart';
 import 'package:nmr_solvents/app_info.dart';
 import 'package:nmr_solvents/data/repository.dart';
+import 'package:nmr_solvents/records/records_store.dart';
 import 'package:nmr_solvents/settings/settings_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -19,15 +20,20 @@ void tallScreen(WidgetTester tester) {
 void main() {
   late NmrRepository repo;
   late SettingsController settings;
+  late RecordsStore records;
 
   setUp(() async {
     SharedPreferences.setMockInitialValues({'locale': 'tr'});
     repo = await NmrRepository.load();
-    settings = SettingsController(await SharedPreferences.getInstance());
+    final prefs = await SharedPreferences.getInstance();
+    settings = SettingsController(prefs);
+    records = RecordsStore(prefs);
   });
 
   testWidgets('shows Turkish tabs and switches to English', (tester) async {
-    await tester.pumpWidget(NmrApp(settings: settings, repository: repo));
+    await tester.pumpWidget(
+      NmrApp(settings: settings, repository: repo, records: records),
+    );
     await tester.pumpAndSettle();
     expect(find.text('Safsızlıklar'), findsOneWidget);
 
@@ -38,7 +44,9 @@ void main() {
 
   testWidgets('peak search finds dichloromethane at 5.30', (tester) async {
     tallScreen(tester);
-    await tester.pumpWidget(NmrApp(settings: settings, repository: repo));
+    await tester.pumpWidget(
+      NmrApp(settings: settings, repository: repo, records: records),
+    );
     await tester.pumpAndSettle();
     await tester.tap(find.text('Pik ara'));
     await tester.pumpAndSettle();
@@ -49,7 +57,9 @@ void main() {
 
   testWidgets('peak search with a splitting pattern', (tester) async {
     tallScreen(tester);
-    await tester.pumpWidget(NmrApp(settings: settings, repository: repo));
+    await tester.pumpWidget(
+      NmrApp(settings: settings, repository: repo, records: records),
+    );
     await tester.pumpAndSettle();
     await tester.tap(find.text('Pik ara'));
     await tester.pumpAndSettle();
@@ -63,7 +73,9 @@ void main() {
 
   testWidgets('multiple peaks: a pasted list becomes rows', (tester) async {
     tallScreen(tester);
-    await tester.pumpWidget(NmrApp(settings: settings, repository: repo));
+    await tester.pumpWidget(
+      NmrApp(settings: settings, repository: repo, records: records),
+    );
     await tester.pumpAndSettle();
     await tester.tap(find.text('Pik ara'));
     await tester.pumpAndSettle();
@@ -81,13 +93,17 @@ void main() {
     expect(find.text('4.12 q'), findsOneWidget);
   });
 
-  testWidgets('info tab shows developer and numbered references', (
+  testWidgets('info page (from settings) shows developer and references', (
     tester,
   ) async {
     tallScreen(tester);
-    await tester.pumpWidget(NmrApp(settings: settings, repository: repo));
+    await tester.pumpWidget(
+      NmrApp(settings: settings, repository: repo, records: records),
+    );
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Bilgi'));
+    await tester.tap(find.text('Ayarlar'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('aboutApp')));
     await tester.pumpAndSettle();
     expect(find.text('Dr. İlker ÜN'), findsOneWidget);
     expect(find.byKey(const Key('appIcon')), findsOneWidget);
@@ -104,7 +120,9 @@ void main() {
 
   testWidgets('CHEM21 guide filters by ranking', (tester) async {
     tallScreen(tester);
-    await tester.pumpWidget(NmrApp(settings: settings, repository: repo));
+    await tester.pumpWidget(
+      NmrApp(settings: settings, repository: repo, records: records),
+    );
     await tester.pumpAndSettle();
     await tester.tap(find.text('CHEM21 rehberi'));
     await tester.pumpAndSettle();
@@ -118,6 +136,71 @@ void main() {
     expect(find.textContaining('H351'), findsOneWidget);
   });
 
+  testWidgets('save a search as a record, view, edit and delete it', (
+    tester,
+  ) async {
+    tallScreen(tester);
+    await tester.pumpWidget(
+      NmrApp(settings: settings, repository: repo, records: records),
+    );
+    await tester.pumpAndSettle();
+
+    // Search: CDCl3, 5.30 ppm, singlet.
+    await tester.tap(find.text('Pik ara'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byKey(const Key('peakInput')), '5,30');
+    await tester.tap(find.byKey(const Key('mult-s')));
+    await tester.pumpAndSettle();
+
+    // Save it: the name is required.
+    await tester.tap(find.byKey(const Key('saveResults')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('saveRecord')));
+    await tester.pumpAndSettle();
+    expect(find.text('Numune adını girin'), findsOneWidget);
+    await tester.enterText(find.byKey(const Key('sampleName')), 'IU-042');
+    await tester.enterText(
+      find.byKey(const Key('recordNote')),
+      'kolon sonrası',
+    );
+    final dcm = find.widgetWithText(CheckboxListTile, 'Diklorometan');
+    await tester.ensureVisible(dcm);
+    await tester.tap(dcm);
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('saveRecord')));
+    await tester.pumpAndSettle();
+    expect(records.records.single.sampleName, 'IU-042');
+    expect(
+      records.records.single.identified.single.impurityId,
+      'dichloromethane',
+    );
+
+    // It is listed in the Records tab with the identified impurity.
+    await tester.tap(find.text('Kayıtlar'));
+    await tester.pumpAndSettle();
+    expect(find.text('IU-042'), findsOneWidget);
+    expect(find.text('Diklorometan'), findsOneWidget);
+
+    // Detail, then rename it.
+    await tester.tap(find.text('IU-042'));
+    await tester.pumpAndSettle();
+    expect(find.text('kolon sonrası'), findsOneWidget);
+    await tester.tap(find.byKey(const Key('editRecord')));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byKey(const Key('sampleName')), 'IU-043');
+    await tester.tap(find.byKey(const Key('saveRecord')));
+    await tester.pumpAndSettle();
+    expect(find.text('IU-043'), findsWidgets);
+
+    // Delete it.
+    await tester.tap(find.byKey(const Key('deleteRecord')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('confirmDelete')));
+    await tester.pumpAndSettle();
+    expect(records.records, isEmpty);
+    expect(find.textContaining('Henüz kayıt yok'), findsOneWidget);
+  });
+
   test('app version matches pubspec.yaml', () {
     final pubspec = File('pubspec.yaml').readAsStringSync();
     final version = RegExp(
@@ -128,7 +211,9 @@ void main() {
   });
 
   testWidgets('theme choice is applied and persisted', (tester) async {
-    await tester.pumpWidget(NmrApp(settings: settings, repository: repo));
+    await tester.pumpWidget(
+      NmrApp(settings: settings, repository: repo, records: records),
+    );
     await tester.pumpAndSettle();
     await settings.setPalette('midnight');
     await tester.pumpAndSettle();

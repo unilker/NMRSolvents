@@ -5,7 +5,10 @@ import '../l10n/app_localizations.dart';
 import '../models/models.dart';
 import '../theme/app_themes.dart';
 import '../widgets/common.dart';
+import '../records/analysis_record.dart';
+import '../records/records_store.dart';
 import 'impurity_detail_screen.dart';
+import 'records_screen.dart';
 
 enum _Mode { single, multiple }
 
@@ -391,19 +394,41 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
         if (i == 0) {
           return Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Row(
               children: [
-                Text(
-                  summary,
-                  style: const TextStyle(fontWeight: FontWeight.w700),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        summary,
+                        style: const TextStyle(fontWeight: FontWeight.w700),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        hits.isNotEmpty
+                            ? l10n.resultCount(hits.length)
+                            : l10n.nearestHeader(
+                                tolerance.toStringAsFixed(digits),
+                              ),
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
                 ),
-                const SizedBox(height: 2),
-                Text(
-                  hits.isNotEmpty
-                      ? l10n.resultCount(hits.length)
-                      : l10n.nearestHeader(tolerance.toStringAsFixed(digits)),
-                  style: Theme.of(context).textTheme.bodySmall,
+                _SaveButton(
+                  onPressed: () => _save(
+                    context,
+                    solvent: solvent,
+                    mode: SearchMode.single,
+                    peaks: [(ppm: ppm, mult: multiplicity)],
+                    tolerance: tolerance,
+                    hits: hitsFromPeakSearch(
+                      [...shown, ...closeExact].take(30).toList(),
+                      ppm,
+                      multiplicity,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -434,9 +459,34 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
     );
     if (matches.isEmpty) return _noResults(context);
     return SliverList.builder(
-      itemCount: matches.length,
-      itemBuilder: (context, i) {
-        final m = matches[i];
+      itemCount: matches.length + 1,
+      itemBuilder: (context, index) {
+        if (index == 0) {
+          return Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    context.l10n.resultCount(matches.length),
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ),
+                _SaveButton(
+                  onPressed: () => _save(
+                    context,
+                    solvent: solvent,
+                    mode: SearchMode.multiple,
+                    peaks: observed,
+                    tolerance: tolerance,
+                    hits: hitsFromMultiMatch(matches.take(20).toList()),
+                  ),
+                ),
+              ],
+            ),
+          );
+        }
+        final m = matches[index - 1];
         return Card(
           margin: const EdgeInsets.fromLTRB(16, 0, 16, 8),
           clipBehavior: Clip.antiAlias,
@@ -478,6 +528,33 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
           ),
         );
       },
+    );
+  }
+
+  /// Opens the record editor with the search shown on screen.
+  void _save(
+    BuildContext context, {
+    required Solvent solvent,
+    required SearchMode mode,
+    required List<ObservedPeak> peaks,
+    required double tolerance,
+    required List<RecordHit> hits,
+  }) {
+    final now = DateTime.now();
+    saveSearchAsRecord(
+      context,
+      AnalysisRecord(
+        id: RecordsStore.newId(),
+        sampleName: '',
+        analysisDate: DateTime(now.year, now.month, now.day),
+        createdAt: now,
+        solventId: solvent.id,
+        nucleus: _nucleus,
+        mode: mode,
+        peaks: peaks,
+        tolerance: tolerance,
+        hits: hits,
+      ),
     );
   }
 
@@ -798,4 +875,18 @@ class _PairRow extends StatelessWidget {
       ),
     );
   }
+}
+
+class _SaveButton extends StatelessWidget {
+  const _SaveButton({required this.onPressed});
+
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) => FilledButton.tonalIcon(
+    key: const Key('saveResults'),
+    onPressed: onPressed,
+    icon: const Icon(Icons.bookmark_add_outlined),
+    label: Text(context.l10n.saveResults),
+  );
 }

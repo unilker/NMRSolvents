@@ -260,5 +260,64 @@
       }
     }
   },
-  "feature7": "CHEM21 green-chemistry guide: safety, health and environment scores and ranking of 75 solvents, and how they are scored."
+  "feature7": "CHEM21 green-chemistry guide: safety, health and environment scores and ranking of 75 solvents, and how they are scored.",
+  "tabRecords": "Records",
+  "saveResults": "Save results",
+  "sampleName": "Sample name",
+  "sampleNameRequired": "Enter a sample name",
+  "analysisDate": "Analysis date",
+  "noteOptional": "Note (optional)",
+  "markIdentified": "Mark the impurities you identified in the spectrum.",
+  "identifiedSection": "Identified",
+  "otherCandidates": "Other candidates",
+  "save": "Save",
+  "recordSaved": "Record saved",
+  "view": "View",
+  "newRecord": "New record",
+  "editRecord": "Edit record",
+  "recordsEmpty": "No saved records yet. Run a search in Peak search and tap \"Save results\".",
+  "searchRecordsHint": "Sample name or note",
+  "deleteRecord": "Delete record",
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "copyAsText": "Copy as text",
+  "enteredPeaks": "Entered peaks",
+  "searchType": "Search",
+  "noneIdentified": "No impurity marked as identified.",
+  "recordHeader": "NMR Solvents – analysis record",
+  "localOnlyNote": "Records are stored only on this device. Uninstalling the app deletes them; use \"Copy as text\" to keep a copy.",
+  "tolerance": "Tolerance",
+  "edit": "Edit",
+  "deleteConfirm": "Delete the record \"{name}\"?",
+  "@deleteConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "peakCount": "{count, plural, =1{1 peak} other{{count} peaks}}",
+  "@peakCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "identifiedCount": "{count} identified",
+  "@identifiedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "savedOn": "Saved on {date}",
+  "@savedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  }
 }

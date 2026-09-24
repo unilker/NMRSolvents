@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../data/repository.dart';
 import '../l10n/app_localizations.dart';
 import '../models/models.dart';
+import '../records/records_store.dart';
 import '../settings/settings_controller.dart';
 import '../theme/app_themes.dart';
 
@@ -13,23 +14,28 @@ class AppScope extends InheritedWidget {
     super.key,
     required this.repository,
     required this.settings,
+    required this.records,
     required super.child,
   });
 
   final NmrRepository repository;
   final SettingsController settings;
+  final RecordsStore records;
 
   static AppScope of(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType<AppScope>()!;
 
   @override
   bool updateShouldNotify(AppScope oldWidget) =>
-      repository != oldWidget.repository || settings != oldWidget.settings;
+      repository != oldWidget.repository ||
+      settings != oldWidget.settings ||
+      records != oldWidget.records;
 }
 
 extension ContextX on BuildContext {
   AppLocalizations get l10n => AppLocalizations.of(this);
   NmrRepository get repo => AppScope.of(this).repository;
+  RecordsStore get records => AppScope.of(this).records;
   String get lang => Localizations.localeOf(this).languageCode;
 }
 
