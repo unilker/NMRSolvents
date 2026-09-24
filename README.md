@@ -95,6 +95,24 @@ lib/
 Her push'ta GitHub Actions testleri çalıştırır, Android APK'sı üretir (Actions →
 *nmr-solvents-apk* artifact) ve iOS derlemesini doğrular.
 
+## Android imzalama
+
+CI'nin ürettiği APK, depo ayarlarındaki iki gizli değerle (Settings → Secrets and
+variables → Actions) sabit bir yükleme anahtarıyla imzalanır; böylece yeni sürümler
+yüklü uygulamanın üzerine kurulabilir:
+
+| Secret | İçerik |
+|---|---|
+| `ANDROID_KEYSTORE_BASE64` | PKCS12 anahtar deposunun base64 hali (takma ad `upload`) |
+| `ANDROID_KEYSTORE_PASSWORD` | Depo ve anahtar parolası (ikisi aynı) |
+
+CI, derlenen APK'nın imza parmak izini anahtarınkiyle karşılaştırır. Secret'lar
+yoksa (ör. çatallardan gelen PR'lar) APK geçici hata ayıklama anahtarıyla imzalanır
+ve yüklü uygulamayı güncelleyemez. Yerelde imzalı derleme için `android/key.properties`
+dosyasına `storeFile`, `storePassword`, `keyAlias`, `keyPassword` yazın; bu dosya ve
+anahtar deposu `.gitignore` ile depo dışında tutulur. Anahtar kaybolursa aynı uygulama
+güncellenemez: yedeğini güvenli bir yerde saklayın.
+
 ## Uygulama simgesi
 
 Mavi zemin üzerinde beyaz NMR sinyalleri; büyüteç, kırmızı safsızlık pikini büyütür.

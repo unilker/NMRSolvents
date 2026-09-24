@@ -40,7 +40,38 @@ jobs:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           channel: stable
           cache: true
+      - name: Set up release signing
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        run: |
+          if [ -z "$KEYSTORE_BASE64" ] || [ -z "$KEYSTORE_PASSWORD" ]; then
+            echo "::warning::Signing secrets are not set; the APK is signed with a temporary debug key and cannot update an installed copy."
+            exit 0
+          fi
+          echo "$KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/upload-keystore.p12"
+          {
+            echo "storeFile=$RUNNER_TEMP/upload-keystore.p12"
+            echo "storePassword=$KEYSTORE_PASSWORD"
+            echo "keyAlias=upload"
+            echo "keyPassword=$KEYSTORE_PASSWORD"
+          } > android/key.properties
       - run: flutter build apk --release
+      - name: Check the APK is signed with the release key
+        if: hashFiles('android/key.properties') != ''
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        run: |
+          expected=$(keytool -list -v -storetype PKCS12 \
+            -keystore "$RUNNER_TEMP/upload-keystore.p12" \
+            -storepass "$KEYSTORE_PASSWORD" -alias upload \
+            | sed -n 's/.*SHA256: //p' | tr -d ':' | tr 'A-F' 'a-f')
+          apksigner="$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)/apksigner"
+          actual=$("$apksigner" verify --print-certs \
+            build/app/outputs/flutter-apk/app-release.apk \
+            | sed -n 's/.*certificate SHA-256 digest: //p' | head -1)
+          echo "APK signer SHA-256: $actual"
+          [ -n "$expected" ] && [ "$expected" = "$actual" ]
       - uses: actions/upload-artifact@v4
         with:
           name: nmr-solvents-apk
