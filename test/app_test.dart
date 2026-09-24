@@ -90,6 +90,7 @@ void main() {
     await tester.tap(find.text('Bilgi'));
     await tester.pumpAndSettle();
     expect(find.text('Dr. İlker ÜN'), findsOneWidget);
+    expect(find.byKey(const Key('appIcon')), findsOneWidget);
     await tester.scrollUntilVisible(
       find.textContaining('[5] NMR Solvent Data Chart'),
       300,

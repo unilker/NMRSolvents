@@ -93,6 +93,19 @@ lib/
 Her push'ta GitHub Actions testleri çalıştırır, Android APK'sı üretir (Actions →
 *nmr-solvents-apk* artifact) ve iOS derlemesini doğrular.
 
+## Uygulama simgesi
+
+Mavi zemin üzerinde beyaz NMR sinyalleri; büyüteç, kırmızı safsızlık pikini büyütür.
+Kaynak `tool/icon/make_icon.py` (SVG üretir) ve `tool/icon/render.js` (PNG'ye çevirir)
+dosyalarındadır. Değiştirdikten sonra:
+
+```bash
+python3 tool/icon/make_icon.py
+node tool/icon/render.js          # playwright-core + Chromium gerekir
+dart run flutter_launcher_icons   # Android (uyarlanabilir dahil) ve iOS boyutları
+git checkout ios/Runner.xcodeproj/project.pbxproj   # aracın ilgisiz bir Xcode ayarını değiştirmesini geri al
+```
+
 ## Kaynaklar
 
 - H. E. Gottlieb, V. Kotlyar, A. Nudelman, *J. Org. Chem.* **1997**, 62, 7512. doi:10.1021/jo971176v

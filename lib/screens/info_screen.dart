@@ -37,10 +37,14 @@ class InfoScreen extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(16, 20, 16, 0),
             child: Row(
               children: [
-                CircleAvatar(
-                  radius: 30,
-                  backgroundColor: scheme.primary,
-                  child: Icon(Icons.science, size: 32, color: scheme.onPrimary),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Image.asset(
+                    'assets/icon/app_icon_256.png',
+                    key: const Key('appIcon'),
+                    width: 64,
+                    height: 64,
+                  ),
                 ),
                 const SizedBox(width: 16),
                 Expanded(
