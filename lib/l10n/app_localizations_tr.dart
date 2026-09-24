@@ -247,4 +247,72 @@ class AppLocalizationsTr extends AppLocalizations {
   String hodAt(String temp, String shift) {
     return '$temp °C\'de δ(HDO): $shift ppm';
   }
+
+  @override
+  String get stepSolvent => 'Çözücü';
+
+  @override
+  String get stepShift => 'Kimyasal kayma';
+
+  @override
+  String get stepShifts => 'Gözlenen pikler';
+
+  @override
+  String get stepMultiplicity => 'Yarılma (çokluk)';
+
+  @override
+  String get multiplicityHint => 'Spektrumunuzda gördüğünüz yarılmayı seçin.';
+
+  @override
+  String get multS => 'singlet';
+
+  @override
+  String get multD => 'dublet';
+
+  @override
+  String get multT => 'triplet';
+
+  @override
+  String get multQ => 'kuartet';
+
+  @override
+  String get multQuint => 'kentet';
+
+  @override
+  String get multSept => 'septet';
+
+  @override
+  String get multM => 'multiplet';
+
+  @override
+  String get multDd => 'dublet dubleti';
+
+  @override
+  String get multBrS => 'geniş singlet';
+
+  @override
+  String get matchExact => 'Tam eşleşme';
+
+  @override
+  String get matchCompatible => 'Uyumlu yarılma';
+
+  @override
+  String get matchCompatibleHint =>
+      'Bu sinyal multiplet ya da daha karmaşık bir yarılma olarak bildirilmiş; gördüğünüz desen bunun içinde olabilir.';
+
+  @override
+  String get matchUnknown => 'Yarılma bildirilmemiş';
+
+  @override
+  String nearestHeader(String tol) {
+    return '±$tol ppm içinde sonuç yok. En yakın sinyaller:';
+  }
+
+  @override
+  String resultCount(int count) {
+    return '$count sonuç';
+  }
+
+  @override
+  String get closeExactHeader => 'Yakındaki tam eşleşmeler (tolerans dışında):';
 }

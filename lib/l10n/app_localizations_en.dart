@@ -253,4 +253,79 @@ class AppLocalizationsEn extends AppLocalizations {
   String hodAt(String temp, String shift) {
     return 'δ(HDO) at $temp °C: $shift ppm';
   }
+
+  @override
+  String get stepSolvent => 'Solvent';
+
+  @override
+  String get stepShift => 'Chemical shift';
+
+  @override
+  String get stepShifts => 'Observed peaks';
+
+  @override
+  String get stepMultiplicity => 'Splitting (multiplicity)';
+
+  @override
+  String get multiplicityHint => 'Pick the pattern you see in your spectrum.';
+
+  @override
+  String get multS => 'singlet';
+
+  @override
+  String get multD => 'doublet';
+
+  @override
+  String get multT => 'triplet';
+
+  @override
+  String get multQ => 'quartet';
+
+  @override
+  String get multQuint => 'quintet';
+
+  @override
+  String get multSept => 'septet';
+
+  @override
+  String get multM => 'multiplet';
+
+  @override
+  String get multDd => 'doublet of doublets';
+
+  @override
+  String get multBrS => 'broad singlet';
+
+  @override
+  String get matchExact => 'Exact match';
+
+  @override
+  String get matchCompatible => 'Compatible splitting';
+
+  @override
+  String get matchCompatibleHint =>
+      'Reported as a multiplet or a more complex pattern that can look like the one you saw.';
+
+  @override
+  String get matchUnknown => 'Splitting not reported';
+
+  @override
+  String nearestHeader(String tol) {
+    return 'Nothing within ±$tol ppm. Closest signals:';
+  }
+
+  @override
+  String resultCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count results',
+      one: '1 result',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get closeExactHeader =>
+      'Nearby exact matches (outside the tolerance):';
 }

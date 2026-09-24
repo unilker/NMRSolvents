@@ -354,6 +354,16 @@ def build_solvents(fulmer):
                 if j is not None:
                     p[jkey] = j
                 residual.append(p)
+        # Fulmer lists residual shifts without multiplicity; take it from the
+        # matching CIL peak (same nucleus, within 0.1 ppm 1H / 1 ppm 13C).
+        for p in residual:
+            if p["ref"] != "fulmer2010":
+                continue
+            window = 0.1 if p["nucleus"] == "1H" else 1.0
+            cil = [q for q in residual if q["ref"] == "cil" and q["nucleus"] == p["nucleus"]
+                   and abs(q["shift"] - p["shift"]) <= window and q.get("mult")]
+            if cil:
+                p["mult"] = min(cil, key=lambda q: abs(q["shift"] - p["shift"]))["mult"]
         s = dict(id=sid, name={"en": c["name"], "tr": SOLVENT_TR[sid]}, formula=c["formula"],
                  residual=residual)
         if sid in water:

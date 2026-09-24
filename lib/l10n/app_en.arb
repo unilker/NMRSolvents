@@ -127,5 +127,40 @@
         "type": "String"
       }
     }
-  }
+  },
+  "stepSolvent": "Solvent",
+  "stepShift": "Chemical shift",
+  "stepShifts": "Observed peaks",
+  "stepMultiplicity": "Splitting (multiplicity)",
+  "multiplicityHint": "Pick the pattern you see in your spectrum.",
+  "multS": "singlet",
+  "multD": "doublet",
+  "multT": "triplet",
+  "multQ": "quartet",
+  "multQuint": "quintet",
+  "multSept": "septet",
+  "multM": "multiplet",
+  "multDd": "doublet of doublets",
+  "multBrS": "broad singlet",
+  "matchExact": "Exact match",
+  "matchCompatible": "Compatible splitting",
+  "matchCompatibleHint": "Reported as a multiplet or a more complex pattern that can look like the one you saw.",
+  "matchUnknown": "Splitting not reported",
+  "nearestHeader": "Nothing within ±{tol} ppm. Closest signals:",
+  "@nearestHeader": {
+    "placeholders": {
+      "tol": {
+        "type": "String"
+      }
+    }
+  },
+  "resultCount": "{count, plural, =1{1 result} other{{count} results}}",
+  "@resultCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "closeExactHeader": "Nearby exact matches (outside the tolerance):"
 }

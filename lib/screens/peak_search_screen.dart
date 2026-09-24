@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../data/search.dart';
+import '../l10n/app_localizations.dart';
 import '../models/models.dart';
 import '../theme/app_themes.dart';
 import '../widgets/common.dart';
@@ -17,8 +18,17 @@ class PeakSearchScreen extends StatefulWidget {
 }
 
 class _PeakSearchScreenState extends State<PeakSearchScreen> {
-  static const _multiplicities = [
-    's', 'd', 't', 'q', 'quint', 'sept', 'm', 'br s', //
+  /// Splitting patterns offered in step 3, with their display names.
+  static List<(String, String)> _multiplicities(AppLocalizations l10n) => [
+    ('s', l10n.multS),
+    ('d', l10n.multD),
+    ('t', l10n.multT),
+    ('q', l10n.multQ),
+    ('quint', l10n.multQuint),
+    ('sept', l10n.multSept),
+    ('dd', l10n.multDd),
+    ('m', l10n.multM),
+    ('br s', l10n.multBrS),
   ];
 
   final _input = TextEditingController();
@@ -71,13 +81,40 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
                   selected: {_mode},
                   onSelectionChanged: (s) => setState(() => _mode = s.first),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 16),
+                _StepHeader(number: 1, title: l10n.stepSolvent),
+                SolventDropdown(
+                  value: _solventId,
+                  onChanged: (id) => setState(() => _solventId = id!),
+                ),
+                const SizedBox(height: 16),
+                _StepHeader(
+                  number: 2,
+                  title: _mode == _Mode.single
+                      ? l10n.stepShift
+                      : l10n.stepShifts,
+                ),
                 Row(
                   children: [
                     Expanded(
-                      child: SolventDropdown(
-                        value: _solventId,
-                        onChanged: (id) => setState(() => _solventId = id!),
+                      child: TextField(
+                        key: const Key('peakInput'),
+                        controller: _input,
+                        keyboardType: _mode == _Mode.single
+                            ? const TextInputType.numberWithOptions(
+                                decimal: true,
+                              )
+                            : TextInputType.text,
+                        decoration: InputDecoration(
+                          labelText: _mode == _Mode.single
+                              ? l10n.shiftInputLabel
+                              : l10n.peaksInputLabel,
+                          hintText: _mode == _Mode.single
+                              ? '4.30'
+                              : l10n.peaksInputHint,
+                          prefixIcon: const Icon(Icons.show_chart),
+                        ),
+                        onChanged: (_) => setState(() {}),
                       ),
                     ),
                     const SizedBox(width: 12),
@@ -93,25 +130,6 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 12),
-                TextField(
-                  key: const Key('peakInput'),
-                  controller: _input,
-                  keyboardType: _mode == _Mode.single
-                      ? const TextInputType.numberWithOptions(decimal: true)
-                      : TextInputType.text,
-                  decoration: InputDecoration(
-                    labelText: _mode == _Mode.single
-                        ? l10n.shiftInputLabel
-                        : l10n.peaksInputLabel,
-                    hintText: _mode == _Mode.single
-                        ? '2.05'
-                        : l10n.peaksInputHint,
-                    prefixIcon: const Icon(Icons.show_chart),
-                  ),
-                  onChanged: (_) => setState(() {}),
-                ),
-                const SizedBox(height: 8),
                 Row(
                   children: [
                     Text(
@@ -120,6 +138,7 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
                           _nucleus == Nucleus.h1 ? 2 : 1,
                         ),
                       ),
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                     Expanded(
                       child: Slider(
@@ -134,7 +153,13 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
                   ],
                 ),
                 // Multiplicities are only reported for ¹H.
-                if (_mode == _Mode.single && _nucleus == Nucleus.h1)
+                if (_mode == _Mode.single && _nucleus == Nucleus.h1) ...[
+                  _StepHeader(number: 3, title: l10n.stepMultiplicity),
+                  Text(
+                    l10n.multiplicityHint,
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  const SizedBox(height: 6),
                   Wrap(
                     spacing: 6,
                     runSpacing: 4,
@@ -144,14 +169,30 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
                         selected: _multiplicity == null,
                         onSelected: (_) => setState(() => _multiplicity = null),
                       ),
-                      for (final m in _multiplicities)
+                      for (final (code, name) in _multiplicities(l10n))
                         ChoiceChip(
-                          label: Text(m),
-                          selected: _multiplicity == m,
-                          onSelected: (_) => setState(() => _multiplicity = m),
+                          key: Key('mult-$code'),
+                          label: Text.rich(
+                            TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: code,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                    fontStyle: FontStyle.italic,
+                                  ),
+                                ),
+                                TextSpan(text: '  $name'),
+                              ],
+                            ),
+                          ),
+                          selected: _multiplicity == code,
+                          onSelected: (_) =>
+                              setState(() => _multiplicity = code),
                         ),
                     ],
                   ),
+                ],
                 const Divider(height: 24),
               ],
             ),
@@ -179,48 +220,104 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
     double ppm,
     double tolerance,
   ) {
+    final l10n = context.l10n;
+    final multiplicity = _nucleus == Nucleus.h1 ? _multiplicity : null;
     final hits = findPeaksNear(
       impurities: context.repo.impurities,
       solvent: solvent,
       nucleus: _nucleus,
       ppm: ppm,
       tolerance: tolerance,
-      multiplicity: _multiplicity,
+      multiplicity: multiplicity,
     );
-    if (hits.isEmpty) return _noResults(context);
-    return SliverList.builder(
-      itemCount: hits.length,
-      itemBuilder: (context, i) {
-        final hit = hits[i];
-        final isResidual = hit.source == HitSource.residualSolvent;
-        return ListTile(
-          leading: isResidual
-              ? Icon(Icons.opacity, color: NmrColors.of(context).residual)
-              : null,
-          title: Text(
-            isResidual
-                ? '${context.l10n.residualSolventPeak} (${prettyFormula(solvent.formula)})'
-                : hit.impurity!.name.of(context.lang),
-            style: const TextStyle(fontWeight: FontWeight.w600),
-          ),
-          subtitle: Text(
-            [
-              if (hit.signal?.assignment case final a?) prettyFormula(a),
-              context.l10n.deltaPpm(
-                hit.delta.toStringAsFixed(_nucleus == Nucleus.h1 ? 2 : 1),
-              ),
-              if (hit.signal case final s?)
-                context.repo.referenceById(s.refId)?.short ?? s.refId,
-            ].join(' · '),
-          ),
-          trailing: ShiftChip(
+    final digits = _nucleus == Nucleus.h1 ? 2 : 1;
+    final summary = [
+      prettyFormula(solvent.formula),
+      '${ppm.toStringAsFixed(digits)} ppm',
+      if (multiplicity != null)
+        _multiplicities(l10n).firstWhere((m) => m.$1 == multiplicity).$2,
+    ].join('  ·  ');
+
+    // Nothing inside the tolerance: offer the closest candidates instead of
+    // an empty page.
+    final nearest = hits.isNotEmpty
+        ? const <PeakHit>[]
+        : nearestPeaks(
+            impurities: context.repo.impurities,
+            solvent: solvent,
             nucleus: _nucleus,
-            value: hit.value,
-            mult: hit.mult,
-          ),
-          onTap: isResidual
-              ? null
-              : () => _openImpurity(context, hit.impurity!, solvent),
+            ppm: ppm,
+            maxDistance: _maxTolerance(_nucleus) * 3,
+            multiplicity: multiplicity,
+          );
+    // Only "compatible" hits inside the tolerance: also offer the closest
+    // exact matches a little further away (shifts vary with concentration
+    // and temperature).
+    final closeExact =
+        multiplicity == null ||
+            hits.isEmpty ||
+            hits.any((h) => h.multMatch == MultMatch.exact)
+        ? const <PeakHit>[]
+        : nearestPeaks(
+            impurities: context.repo.impurities,
+            solvent: solvent,
+            nucleus: _nucleus,
+            ppm: ppm,
+            maxDistance: _maxTolerance(_nucleus) * 3,
+            multiplicity: multiplicity,
+            limit: 20,
+          ).where((h) => h.multMatch == MultMatch.exact).take(3).toList();
+    if (hits.isEmpty && nearest.isEmpty) return _noResults(context);
+    final shown = hits.isNotEmpty ? hits : nearest;
+
+    return SliverList.builder(
+      itemCount:
+          shown.length + 1 + (closeExact.isEmpty ? 0 : closeExact.length + 1),
+      itemBuilder: (context, i) {
+        if (i > shown.length) {
+          final k = i - shown.length - 1;
+          if (k == 0) {
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 4),
+              child: Text(
+                l10n.closeExactHeader,
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+            );
+          }
+          return _HitTile(
+            hit: closeExact[k - 1],
+            solvent: solvent,
+            nucleus: _nucleus,
+            onOpen: (imp) => _openImpurity(context, imp, solvent),
+          );
+        }
+        if (i == 0) {
+          return Padding(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  summary,
+                  style: const TextStyle(fontWeight: FontWeight.w700),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  hits.isNotEmpty
+                      ? l10n.resultCount(hits.length)
+                      : l10n.nearestHeader(tolerance.toStringAsFixed(digits)),
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              ],
+            ),
+          );
+        }
+        return _HitTile(
+          hit: shown[i - 1],
+          solvent: solvent,
+          nucleus: _nucleus,
+          onOpen: (imp) => _openImpurity(context, imp, solvent),
         );
       },
     );
@@ -339,6 +436,128 @@ class _ScoreBadge extends StatelessWidget {
           fontSize: 12,
         ),
       ),
+    );
+  }
+}
+
+/// Numbered step title: ① Çözücü, ② Kimyasal kayma, ③ Yarılma.
+class _StepHeader extends StatelessWidget {
+  const _StepHeader({required this.number, required this.title});
+
+  final int number;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Row(
+        children: [
+          CircleAvatar(
+            radius: 11,
+            backgroundColor: scheme.primary,
+            child: Text(
+              '$number',
+              style: TextStyle(
+                color: scheme.onPrimary,
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+          const SizedBox(width: 8),
+          Text(
+            title,
+            style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 15),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _HitTile extends StatelessWidget {
+  const _HitTile({
+    required this.hit,
+    required this.solvent,
+    required this.nucleus,
+    required this.onOpen,
+  });
+
+  final PeakHit hit;
+  final Solvent solvent;
+  final Nucleus nucleus;
+  final ValueChanged<Impurity> onOpen;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    final scheme = Theme.of(context).colorScheme;
+    final isResidual = hit.source == HitSource.residualSolvent;
+    final (
+      IconData? icon,
+      Color? color,
+      String? label,
+      String? tip,
+    ) = switch (hit.multMatch) {
+      MultMatch.exact => (
+        Icons.check_circle,
+        scheme.primary,
+        l10n.matchExact,
+        null,
+      ),
+      MultMatch.compatible => (
+        Icons.adjust,
+        scheme.secondary,
+        l10n.matchCompatible,
+        l10n.matchCompatibleHint,
+      ),
+      MultMatch.unknown => (
+        Icons.help_outline,
+        scheme.onSurfaceVariant,
+        l10n.matchUnknown,
+        null,
+      ),
+      null => (null, null, null, null),
+    };
+
+    return ListTile(
+      leading: isResidual
+          ? Icon(Icons.opacity, color: NmrColors.of(context).residual)
+          : (icon == null ? null : Icon(icon, color: color)),
+      title: Text(
+        isResidual
+            ? '${l10n.residualSolventPeak} (${prettyFormula(solvent.formula)})'
+            : hit.impurity!.name.of(context.lang),
+        style: const TextStyle(fontWeight: FontWeight.w600),
+      ),
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            [
+              if (hit.signal?.assignment case final a?) prettyFormula(a),
+              l10n.deltaPpm(
+                hit.delta.toStringAsFixed(nucleus == Nucleus.h1 ? 2 : 1),
+              ),
+              if (hit.signal case final s?)
+                context.repo.referenceById(s.refId)?.short ?? s.refId,
+            ].join(' · '),
+          ),
+          if (label != null)
+            Tooltip(
+              message: tip ?? label,
+              child: Text(label, style: TextStyle(fontSize: 12, color: color)),
+            ),
+        ],
+      ),
+      trailing: ShiftChip(
+        nucleus: nucleus,
+        value: hit.value,
+        mult: hit.signal?.multWithJ ?? hit.mult,
+      ),
+      onTap: isResidual ? null : () => onOpen(hit.impurity!),
     );
   }
 }

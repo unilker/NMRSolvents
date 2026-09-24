@@ -101,6 +101,77 @@ List<double> parseShifts(String input) {
 
 enum HitSource { impurity, residualSolvent }
 
+/// How a known signal's multiplicity relates to the one the user saw.
+enum MultMatch {
+  /// Same pattern, e.g. "t" for "t" or "br t".
+  exact,
+
+  /// Could look like it: a multiplet ("m"), or a pattern containing the
+  /// observed one, e.g. "td" or "dt" for a triplet.
+  compatible,
+
+  /// The signal has no reported multiplicity (e.g. ¹³C, some solvent peaks).
+  unknown,
+}
+
+const _multUnits = [
+  'quint',
+  'sext',
+  'sept',
+  'nonet',
+  's',
+  'd',
+  't',
+  'q',
+  'p',
+  'm',
+];
+
+/// Splits a multiplicity into its units: "td" → [t, d], "septd" → [sept, d],
+/// "br t" → [t]. Returns null for text it does not understand.
+List<String>? multiplicityParts(String mult) {
+  var rest = mult.trim().toLowerCase().replaceFirst(RegExp(r'^br\s*'), '');
+  final parts = <String>[];
+  while (rest.isNotEmpty) {
+    final unit = _multUnits.where(rest.startsWith).firstOrNull;
+    if (unit == null) return null;
+    // "p" (pentet) is another name for a quintet.
+    parts.add(unit == 'p' ? 'quint' : unit);
+    rest = rest.substring(unit.length);
+  }
+  return parts.isEmpty ? null : parts;
+}
+
+/// Compares the multiplicity the user observed with a signal's reported one.
+/// Returns null when they cannot be the same peak.
+MultMatch? matchMultiplicity(String observed, String? reported) {
+  if (reported == null) return MultMatch.unknown;
+  final o = multiplicityParts(observed);
+  final r = multiplicityParts(reported);
+  if (o == null || r == null) return MultMatch.unknown;
+  if (_sameParts(o, r)) return MultMatch.exact;
+  // A multiplet can hide any split pattern, and vice versa, but not a
+  // singlet.
+  final oSinglet = _sameParts(o, const ['s']);
+  final rSinglet = _sameParts(r, const ['s']);
+  if (r.contains('m') && !oSinglet) return MultMatch.compatible;
+  if (o.contains('m') && !rSinglet) return MultMatch.compatible;
+  // "t" observed, "td" reported: the smaller coupling may be unresolved.
+  if (r.length > o.length && _containsAll(r, o)) return MultMatch.compatible;
+  return null;
+}
+
+bool _sameParts(List<String> a, List<String> b) =>
+    a.length == b.length && _containsAll(a, b);
+
+bool _containsAll(List<String> big, List<String> small) {
+  final left = [...big];
+  for (final u in small) {
+    if (!left.remove(u)) return false;
+  }
+  return true;
+}
+
 /// A known signal found near a user-entered shift.
 class PeakHit {
   const PeakHit({
@@ -108,6 +179,7 @@ class PeakHit {
     required this.value,
     required this.delta,
     this.mult,
+    this.multMatch,
     this.impurity,
     this.signal,
     this.solvent,
@@ -118,6 +190,9 @@ class PeakHit {
   /// The matched shift (a [Signal] or a [ResidualPeak]).
   final ShiftValue value;
   final String? mult;
+
+  /// Null when no multiplicity was given in the search.
+  final MultMatch? multMatch;
   final Impurity? impurity;
   final Signal? signal;
   final Solvent? solvent;
@@ -127,7 +202,11 @@ class PeakHit {
 }
 
 /// Finds every known signal within [tolerance] ppm of [ppm] in the given
-/// solvent, including the solvent's own residual peaks. Closest first.
+/// solvent, including the solvent's own residual peaks.
+///
+/// With a [multiplicity], signals that cannot have that pattern are left
+/// out, and the rest are ordered exact → compatible → unknown, then by
+/// distance. Without one, results are ordered by distance only.
 List<PeakHit> findPeaksNear({
   required List<Impurity> impurities,
   required Solvent solvent,
@@ -136,32 +215,66 @@ List<PeakHit> findPeaksNear({
   required double tolerance,
   String? multiplicity,
 }) {
-  // Peaks without a reported multiplicity are never filtered out.
-  bool multOk(String? m) =>
-      multiplicity == null || m == null || m == multiplicity;
-  final hits = <PeakHit>[
-    for (final p in solvent.residualFor(nucleus))
-      if (p.distanceTo(ppm) <= tolerance && multOk(p.mult))
-        PeakHit(
-          source: HitSource.residualSolvent,
-          value: p,
-          mult: p.mult,
-          solvent: solvent,
-          delta: p.distanceTo(ppm),
-        ),
-    for (final i in impurities)
-      for (final s in i.signalsIn(solvent.id, nucleus))
-        if (s.distanceTo(ppm) <= tolerance && multOk(s.mult))
-          PeakHit(
-            source: HitSource.impurity,
-            value: s,
-            mult: s.mult,
-            impurity: i,
-            signal: s,
-            delta: s.distanceTo(ppm),
-          ),
-  ]..sort((a, b) => a.delta.compareTo(b.delta));
+  final hits = <PeakHit>[];
+  void add(HitSource source, ShiftValue v, String? mult, [Impurity? i]) {
+    final delta = v.distanceTo(ppm);
+    if (delta > tolerance) return;
+    MultMatch? match;
+    if (multiplicity != null) {
+      match = matchMultiplicity(multiplicity, mult);
+      if (match == null) return;
+    }
+    hits.add(
+      PeakHit(
+        source: source,
+        value: v,
+        mult: mult,
+        multMatch: match,
+        impurity: i,
+        signal: v is Signal ? v : null,
+        solvent: source == HitSource.residualSolvent ? solvent : null,
+        delta: delta,
+      ),
+    );
+  }
+
+  for (final p in solvent.residualFor(nucleus)) {
+    add(HitSource.residualSolvent, p, p.mult);
+  }
+  for (final i in impurities) {
+    for (final s in i.signalsIn(solvent.id, nucleus)) {
+      add(HitSource.impurity, s, s.mult, i);
+    }
+  }
+  hits.sort((a, b) {
+    final byMatch = (a.multMatch?.index ?? 0).compareTo(
+      b.multMatch?.index ?? 0,
+    );
+    return byMatch != 0 ? byMatch : a.delta.compareTo(b.delta);
+  });
   return hits;
+}
+
+/// The [limit] closest signals within [maxDistance] ppm, for when nothing
+/// falls inside the chosen tolerance. Ordered by distance.
+List<PeakHit> nearestPeaks({
+  required List<Impurity> impurities,
+  required Solvent solvent,
+  required Nucleus nucleus,
+  required double ppm,
+  required double maxDistance,
+  String? multiplicity,
+  int limit = 5,
+}) {
+  final hits = findPeaksNear(
+    impurities: impurities,
+    solvent: solvent,
+    nucleus: nucleus,
+    ppm: ppm,
+    tolerance: maxDistance,
+    multiplicity: multiplicity,
+  )..sort((a, b) => a.delta.compareTo(b.delta));
+  return hits.take(limit).toList();
 }
 
 /// How well one impurity explains a set of observed peaks.

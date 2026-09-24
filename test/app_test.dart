@@ -5,6 +5,13 @@ import 'package:nmr_solvents/data/repository.dart';
 import 'package:nmr_solvents/settings/settings_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// A phone-width screen tall enough to show the form and the first results.
+void tallScreen(WidgetTester tester) {
+  tester.view.physicalSize = const Size(1080, 4200);
+  tester.view.devicePixelRatio = 2.6;
+  addTearDown(tester.view.reset);
+}
+
 void main() {
   late NmrRepository repo;
   late SettingsController settings;
@@ -26,6 +33,7 @@ void main() {
   });
 
   testWidgets('peak search finds dichloromethane at 5.30', (tester) async {
+    tallScreen(tester);
     await tester.pumpWidget(NmrApp(settings: settings, repository: repo));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Pik ara'));
@@ -33,6 +41,20 @@ void main() {
     await tester.enterText(find.byKey(const Key('peakInput')), '5,30');
     await tester.pumpAndSettle();
     expect(find.text('Diklorometan'), findsOneWidget);
+  });
+
+  testWidgets('peak search with a splitting pattern', (tester) async {
+    tallScreen(tester);
+    await tester.pumpWidget(NmrApp(settings: settings, repository: repo));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Pik ara'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byKey(const Key('peakInput')), '4,30');
+    await tester.tap(find.byKey(const Key('mult-t')));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('triplet'), findsWidgets);
+    expect(find.text('L-Etil laktat'), findsOneWidget);
+    expect(find.text('Nitrometan'), findsNothing);
   });
 
   testWidgets('theme choice is applied and persisted', (tester) async {

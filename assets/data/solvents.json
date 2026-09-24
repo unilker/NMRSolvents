@@ -10,12 +10,14 @@
    {
     "nucleus": "1H",
     "shift": 7.26,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "s"
    },
    {
     "nucleus": "13C",
     "shift": 77.16,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "t"
    },
    {
     "nucleus": "1H",
@@ -54,12 +56,14 @@
    {
     "nucleus": "1H",
     "shift": 2.5,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "quint"
    },
    {
     "nucleus": "13C",
     "shift": 39.52,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "sept"
    },
    {
     "nucleus": "1H",
@@ -99,17 +103,20 @@
    {
     "nucleus": "1H",
     "shift": 2.05,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "quint"
    },
    {
     "nucleus": "13C",
     "shift": 29.84,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "sept"
    },
    {
     "nucleus": "13C",
     "shift": 206.26,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "s"
    },
    {
     "nucleus": "1H",
@@ -156,12 +163,14 @@
    {
     "nucleus": "1H",
     "shift": 3.31,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "quint"
    },
    {
     "nucleus": "13C",
     "shift": 49.0,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "sept"
    },
    {
     "nucleus": "1H",
@@ -207,7 +216,8 @@
    {
     "nucleus": "1H",
     "shift": 4.79,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "s"
    },
    {
     "nucleus": "1H",
@@ -240,12 +250,14 @@
    {
     "nucleus": "1H",
     "shift": 7.16,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "s"
    },
    {
     "nucleus": "13C",
     "shift": 128.06,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "t"
    },
    {
     "nucleus": "1H",
@@ -284,17 +296,20 @@
    {
     "nucleus": "1H",
     "shift": 1.94,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "quint"
    },
    {
     "nucleus": "13C",
     "shift": 1.32,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "sept"
    },
    {
     "nucleus": "13C",
     "shift": 118.26,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "s"
    },
    {
     "nucleus": "1H",
@@ -340,12 +355,14 @@
    {
     "nucleus": "1H",
     "shift": 5.32,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "t"
    },
    {
     "nucleus": "13C",
     "shift": 53.84,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "quint"
    },
    {
     "nucleus": "1H",
@@ -385,22 +402,26 @@
    {
     "nucleus": "1H",
     "shift": 1.72,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "s"
    },
    {
     "nucleus": "1H",
     "shift": 3.58,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "s"
    },
    {
     "nucleus": "13C",
     "shift": 67.21,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "quint"
    },
    {
     "nucleus": "13C",
     "shift": 25.31,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "quint"
    },
    {
     "nucleus": "1H",
@@ -452,47 +473,56 @@
    {
     "nucleus": "1H",
     "shift": 2.08,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "quint"
    },
    {
     "nucleus": "1H",
     "shift": 6.97,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "quint"
    },
    {
     "nucleus": "1H",
     "shift": 7.01,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "s"
    },
    {
     "nucleus": "1H",
     "shift": 7.09,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "m"
    },
    {
     "nucleus": "13C",
     "shift": 137.48,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "s"
    },
    {
     "nucleus": "13C",
     "shift": 128.87,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "t"
    },
    {
     "nucleus": "13C",
     "shift": 127.96,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "t"
    },
    {
     "nucleus": "13C",
     "shift": 125.13,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "t"
    },
    {
     "nucleus": "13C",
     "shift": 20.43,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "sept"
    },
    {
     "nucleus": "1H",
@@ -626,22 +656,26 @@
    {
     "nucleus": "1H",
     "shift": 5.02,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "s"
    },
    {
     "nucleus": "1H",
     "shift": 3.88,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "qt"
    },
    {
     "nucleus": "13C",
     "shift": 61.5,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "qquint"
    },
    {
     "nucleus": "13C",
     "shift": 126.28,
-    "ref": "fulmer2010"
+    "ref": "fulmer2010",
+    "mult": "q"
    },
    {
     "nucleus": "1H",

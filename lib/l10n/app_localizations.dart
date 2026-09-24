@@ -535,6 +535,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'δ(HDO) at {temp} °C: {shift} ppm'**
   String hodAt(String temp, String shift);
+
+  /// No description provided for @stepSolvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Solvent'**
+  String get stepSolvent;
+
+  /// No description provided for @stepShift.
+  ///
+  /// In en, this message translates to:
+  /// **'Chemical shift'**
+  String get stepShift;
+
+  /// No description provided for @stepShifts.
+  ///
+  /// In en, this message translates to:
+  /// **'Observed peaks'**
+  String get stepShifts;
+
+  /// No description provided for @stepMultiplicity.
+  ///
+  /// In en, this message translates to:
+  /// **'Splitting (multiplicity)'**
+  String get stepMultiplicity;
+
+  /// No description provided for @multiplicityHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick the pattern you see in your spectrum.'**
+  String get multiplicityHint;
+
+  /// No description provided for @multS.
+  ///
+  /// In en, this message translates to:
+  /// **'singlet'**
+  String get multS;
+
+  /// No description provided for @multD.
+  ///
+  /// In en, this message translates to:
+  /// **'doublet'**
+  String get multD;
+
+  /// No description provided for @multT.
+  ///
+  /// In en, this message translates to:
+  /// **'triplet'**
+  String get multT;
+
+  /// No description provided for @multQ.
+  ///
+  /// In en, this message translates to:
+  /// **'quartet'**
+  String get multQ;
+
+  /// No description provided for @multQuint.
+  ///
+  /// In en, this message translates to:
+  /// **'quintet'**
+  String get multQuint;
+
+  /// No description provided for @multSept.
+  ///
+  /// In en, this message translates to:
+  /// **'septet'**
+  String get multSept;
+
+  /// No description provided for @multM.
+  ///
+  /// In en, this message translates to:
+  /// **'multiplet'**
+  String get multM;
+
+  /// No description provided for @multDd.
+  ///
+  /// In en, this message translates to:
+  /// **'doublet of doublets'**
+  String get multDd;
+
+  /// No description provided for @multBrS.
+  ///
+  /// In en, this message translates to:
+  /// **'broad singlet'**
+  String get multBrS;
+
+  /// No description provided for @matchExact.
+  ///
+  /// In en, this message translates to:
+  /// **'Exact match'**
+  String get matchExact;
+
+  /// No description provided for @matchCompatible.
+  ///
+  /// In en, this message translates to:
+  /// **'Compatible splitting'**
+  String get matchCompatible;
+
+  /// No description provided for @matchCompatibleHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Reported as a multiplet or a more complex pattern that can look like the one you saw.'**
+  String get matchCompatibleHint;
+
+  /// No description provided for @matchUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Splitting not reported'**
+  String get matchUnknown;
+
+  /// No description provided for @nearestHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing within ±{tol} ppm. Closest signals:'**
+  String nearestHeader(String tol);
+
+  /// No description provided for @resultCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 result} other{{count} results}}'**
+  String resultCount(int count);
+
+  /// No description provided for @closeExactHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'Nearby exact matches (outside the tolerance):'**
+  String get closeExactHeader;
 }
 
 class _AppLocalizationsDelegate

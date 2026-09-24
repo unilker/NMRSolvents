@@ -203,7 +203,91 @@ void main() {
       final all = near('cdcl3', 1.25, 0.05);
       final triplets = near('cdcl3', 1.25, 0.05, 't');
       expect(triplets.length, lessThan(all.length));
-      expect(triplets.every((h) => h.mult == 't' || h.mult == null), isTrue);
+      // Only triplets, patterns containing a triplet, multiplets, or
+      // signals without a reported multiplicity remain.
+      for (final h in triplets) {
+        expect(matchMultiplicity('t', h.mult), isNotNull, reason: h.mult);
+      }
+    });
+  });
+
+  group('matchMultiplicity', () {
+    test('exact, compatible, unknown and impossible patterns', () {
+      expect(matchMultiplicity('t', 't'), MultMatch.exact);
+      expect(matchMultiplicity('t', 'br t'), MultMatch.exact);
+      expect(matchMultiplicity('br s', 's'), MultMatch.exact);
+      expect(matchMultiplicity('quint', 'p'), MultMatch.exact);
+      expect(matchMultiplicity('t', 'td'), MultMatch.compatible);
+      expect(matchMultiplicity('d', 'dp'), MultMatch.compatible);
+      expect(matchMultiplicity('t', 'm'), MultMatch.compatible);
+      expect(matchMultiplicity('m', 'q'), MultMatch.compatible);
+      expect(matchMultiplicity('t', null), MultMatch.unknown);
+      expect(matchMultiplicity('s', 'm'), isNull);
+      expect(matchMultiplicity('t', 'q'), isNull);
+      expect(matchMultiplicity('dd', 'd'), isNull);
+    });
+  });
+
+  group('solvent + shift + splitting search', () {
+    List<PeakHit> search(
+      String solvent,
+      double ppm,
+      String? mult, [
+      double tol = 0.05,
+    ]) => findPeaksNear(
+      impurities: repo.impurities,
+      solvent: repo.solventById(solvent)!,
+      nucleus: Nucleus.h1,
+      ppm: ppm,
+      tolerance: tol,
+      multiplicity: mult,
+    );
+
+    test('4.3 ppm triplet in DMSO-d6: alcohol OH triplets first', () {
+      final hits = search('dmso_d6', 4.30, 't');
+      expect(hits.take(2).map((h) => h.impurity!.id).toSet(), {
+        'isoamyl_alcohol',
+        'n_butanol',
+      });
+      expect(hits.first.multMatch, MultMatch.exact);
+    });
+
+    test('4.3 ppm triplet in CDCl3: singlets are excluded, multiplet kept', () {
+      final hits = search('cdcl3', 4.30, 't');
+      final ids = hits.map((h) => h.impurity?.id).toSet();
+      expect(ids, contains('ethyl_lactate'));
+      expect(ids, isNot(contains('nitromethane'))); // 4.33 s
+      expect(ids, isNot(contains('glycol_diacetate'))); // 4.27 s
+      expect(
+        hits.firstWhere((h) => h.impurity?.id == 'ethyl_lactate').multMatch,
+        MultMatch.compatible,
+      );
+    });
+
+    test('exact matches are listed before compatible ones', () {
+      final hits = search('cdcl3', 1.25, 't', 0.1);
+      final ranks = hits.map((h) => h.multMatch!.index).toList();
+      expect(ranks, orderedEquals([...ranks]..sort()));
+    });
+
+    test('residual solvent peaks carry the CIL multiplicity', () {
+      final hit = search('dmso_d6', 2.50, 'quint', 0.01).first;
+      expect(hit.source, HitSource.residualSolvent);
+      expect(hit.multMatch, MultMatch.exact);
+    });
+
+    test('nearest peaks are offered when nothing is within tolerance', () {
+      expect(search('cdcl3', 4.45, 't', 0.005), isEmpty);
+      final nearest = nearestPeaks(
+        impurities: repo.impurities,
+        solvent: repo.solventById('cdcl3')!,
+        nucleus: Nucleus.h1,
+        ppm: 4.45,
+        maxDistance: 0.9,
+        multiplicity: 't',
+      );
+      expect(nearest, isNotEmpty);
+      expect(nearest.length, lessThanOrEqualTo(5));
     });
   });
 
