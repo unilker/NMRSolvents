@@ -57,6 +57,26 @@ void main() {
     expect(find.text('Nitrometan'), findsNothing);
   });
 
+  testWidgets('multiple peaks: a pasted list becomes rows', (tester) async {
+    tallScreen(tester);
+    await tester.pumpWidget(NmrApp(settings: settings, repository: repo));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Pik ara'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Çoklu pik'));
+    await tester.pumpAndSettle();
+    await tester.enterText(
+      find.byKey(const Key('peak-0')),
+      '2,05 s; 4,12 q; 1,26 t',
+    );
+    await tester.pumpAndSettle();
+    // Three rows from the pasted text; the empty starting rows are dropped.
+    expect(find.byKey(const Key('peak-2')), findsOneWidget);
+    expect(find.byKey(const Key('peak-3')), findsNothing);
+    expect(find.text('Etil asetat'), findsOneWidget);
+    expect(find.text('4.12 q'), findsOneWidget);
+  });
+
   testWidgets('theme choice is applied and persisted', (tester) async {
     await tester.pumpWidget(NmrApp(settings: settings, repository: repo));
     await tester.pumpAndSettle();

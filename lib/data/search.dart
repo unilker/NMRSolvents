@@ -82,21 +82,65 @@ List<Solvent> searchSolventsByName(
       .toList();
 }
 
+/// Splits typed or pasted text into tokens, turning Turkish decimal commas
+/// into points: "2,05 4,12" → [2.05, 4.12]; "2.05,4.12" → [2.05, 4.12].
+List<String> _tokens(String input) => input
+    .split(RegExp(r'[;\s]+|,\s+'))
+    .where((t) => t.isNotEmpty)
+    .expand((t) {
+      final commas = ','.allMatches(t).length;
+      if (commas == 0) return [t];
+      if (t.contains('.') || commas > 1) return t.split(',');
+      return [t.replaceAll(',', '.')];
+    })
+    .where((t) => t.isNotEmpty)
+    .toList();
+
 /// Parses a list of chemical shifts typed by the user.
 ///
 /// Accepts spaces, semicolons or ", " as separators and both "." and the
 /// Turkish decimal comma: "2.05, 4.12", "2,05 4,12" and "2.05;4.12" all work.
-List<double> parseShifts(String input) {
-  final tokens = input
-      .split(RegExp(r'[;\s]+|,\s+'))
-      .where((t) => t.isNotEmpty)
-      .expand((t) {
-        final commas = ','.allMatches(t).length;
-        if (commas == 0) return [t];
-        if (t.contains('.') || commas > 1) return t.split(',');
-        return [t.replaceAll(',', '.')];
-      });
-  return tokens.map((t) => double.tryParse(t)).whereType<double>().toList();
+List<double> parseShifts(String input) =>
+    _tokens(input).map(double.tryParse).whereType<double>().toList();
+
+/// A peak seen in the user's spectrum, with the splitting if known.
+typedef ObservedPeak = ({double ppm, String? mult});
+
+const _multNames = {
+  'singlet': 's', 'dublet': 'd', 'doublet': 'd', 'triplet': 't', //
+  'kuartet': 'q', 'quartet': 'q', 'kentet': 'quint', 'quintet': 'quint',
+  'pentet': 'quint', 'septet': 'sept', 'multiplet': 'm',
+};
+
+/// Returns the multiplicity code for "t", "triplet", "br s"…, or null.
+String? multiplicityCode(String text) {
+  final t = text.trim().toLowerCase();
+  if (t.isEmpty) return null;
+  if (_multNames[t] case final code?) return code;
+  return multiplicityParts(t) == null ? null : t;
+}
+
+/// Parses a peak list such as "2.05 s, 4.12 q, 1.26 t", "2,05 s; 4,12 q" or
+/// "7.26(s) 1.56". A multiplicity belongs to the number before it.
+List<ObservedPeak> parsePeakList(String input) {
+  final tokens = _tokens(input);
+  final peaks = <ObservedPeak>[];
+  final numberFirst = RegExp(r'^(-?\d+(?:\.\d+)?)([a-z ]*)$');
+  for (var i = 0; i < tokens.length; i++) {
+    var t = tokens[i].toLowerCase().replaceAll(RegExp(r'[()\[\]]'), '');
+    if (numberFirst.firstMatch(t) case final m?) {
+      peaks.add((ppm: double.parse(m[1]!), mult: multiplicityCode(m[2]!)));
+      continue;
+    }
+    if (t == 'br' && i + 1 < tokens.length) {
+      t = 'br ${tokens[++i].toLowerCase().replaceAll(RegExp(r'[()]'), '')}';
+    }
+    final code = multiplicityCode(t);
+    if (code != null && peaks.isNotEmpty && peaks.last.mult == null) {
+      peaks[peaks.length - 1] = (ppm: peaks.last.ppm, mult: code);
+    }
+  }
+  return peaks;
 }
 
 enum HitSource { impurity, residualSolvent }
@@ -277,6 +321,13 @@ List<PeakHit> nearestPeaks({
   return hits.take(limit).toList();
 }
 
+/// One observed peak paired with the impurity signal it is assigned to.
+typedef PeakPair = ({
+  ObservedPeak observed,
+  Signal signal,
+  MultMatch? multMatch,
+});
+
 /// How well one impurity explains a set of observed peaks.
 class MultiPeakMatch {
   const MultiPeakMatch({
@@ -288,65 +339,87 @@ class MultiPeakMatch {
 
   final Impurity impurity;
 
-  /// Pairs of (observed shift, impurity signal) that lie within tolerance.
-  final List<({double observed, Signal signal})> matched;
+  /// Observed peaks assigned to this impurity's signals, highest shift first.
+  final List<PeakPair> matched;
 
   /// Number of signals the impurity has in this solvent/nucleus.
   final int totalSignals;
 
-  /// 0..1, higher is better. Mostly the fraction of the impurity's signals
-  /// that were observed, reduced slightly by how far off the matches are.
+  /// 0..1, higher is better: the fraction of the impurity's signals that
+  /// were observed, each weighted by closeness and splitting agreement.
   final double score;
 }
 
+/// Weight of a pair by how well the splitting agrees (1 when none given).
+double _multWeight(MultMatch? m) => switch (m) {
+  null || MultMatch.exact => 1.0,
+  MultMatch.unknown => 0.9,
+  MultMatch.compatible => 0.8,
+};
+
 /// Ranks impurities by how many of their signals appear among [observed].
 ///
-/// Each impurity signal can be matched by at most one observed peak (the
-/// closest one), so a single peak cannot "explain" a triplet and quartet at
-/// once.
+/// A peak with a splitting can only be assigned to a signal whose
+/// multiplicity is compatible with it (see [matchMultiplicity]). Each signal
+/// and each observed peak is used at most once; the best pairs (closest,
+/// best splitting agreement) are assigned first.
 List<MultiPeakMatch> matchMultiplePeaks({
   required List<Impurity> impurities,
   required String solventId,
   required Nucleus nucleus,
-  required List<double> observed,
+  required List<ObservedPeak> observed,
   required double tolerance,
 }) {
   final results = <MultiPeakMatch>[];
   for (final impurity in impurities) {
     final signals = impurity.signalsIn(solventId, nucleus);
     if (signals.isEmpty) continue;
-    final matched = <({double observed, Signal signal})>[];
-    final used = <int>{};
-    for (final signal in signals) {
-      int? bestIndex;
-      var bestDelta = double.infinity;
-      for (var k = 0; k < observed.length; k++) {
-        if (used.contains(k)) continue;
-        final d = signal.distanceTo(observed[k]);
-        if (d <= tolerance && d < bestDelta) {
-          bestDelta = d;
-          bestIndex = k;
+
+    final candidates = <({int s, int o, double quality, MultMatch? mult})>[];
+    for (var si = 0; si < signals.length; si++) {
+      for (var oi = 0; oi < observed.length; oi++) {
+        final peak = observed[oi];
+        final delta = signals[si].distanceTo(peak.ppm);
+        if (delta > tolerance) continue;
+        MultMatch? mult;
+        if (peak.mult != null && nucleus == Nucleus.h1) {
+          mult = matchMultiplicity(peak.mult!, signals[si].mult);
+          if (mult == null) continue;
         }
-      }
-      if (bestIndex != null) {
-        used.add(bestIndex);
-        matched.add((observed: observed[bestIndex], signal: signal));
+        final closeness = tolerance == 0 ? 1.0 : 1 - 0.5 * delta / tolerance;
+        candidates.add((
+          s: si,
+          o: oi,
+          quality: closeness * _multWeight(mult),
+          mult: mult,
+        ));
       }
     }
+    candidates.sort((a, b) => b.quality.compareTo(a.quality));
+
+    final usedSignals = <int>{};
+    final usedPeaks = <int>{};
+    final matched = <PeakPair>[];
+    var total = 0.0;
+    for (final c in candidates) {
+      if (usedSignals.contains(c.s) || usedPeaks.contains(c.o)) continue;
+      usedSignals.add(c.s);
+      usedPeaks.add(c.o);
+      total += c.quality;
+      matched.add((
+        observed: observed[c.o],
+        signal: signals[c.s],
+        multMatch: c.mult,
+      ));
+    }
     if (matched.isEmpty) continue;
-    final coverage = matched.length / signals.length;
-    final meanDelta =
-        matched
-            .map((m) => m.signal.distanceTo(m.observed))
-            .reduce((a, b) => a + b) /
-        matched.length;
-    final closeness = tolerance == 0 ? 1.0 : 1 - 0.5 * (meanDelta / tolerance);
+    matched.sort((a, b) => b.signal.center.compareTo(a.signal.center));
     results.add(
       MultiPeakMatch(
         impurity: impurity,
         matched: matched,
         totalSignals: signals.length,
-        score: coverage * closeness,
+        score: total / signals.length,
       ),
     );
   }

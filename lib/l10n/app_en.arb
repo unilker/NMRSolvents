@@ -26,8 +26,6 @@
   "singlePeak": "Single peak",
   "multiplePeaks": "Multiple peaks",
   "shiftInputLabel": "Chemical shift (ppm)",
-  "peaksInputLabel": "Observed peaks (ppm)",
-  "peaksInputHint": "e.g. 2.05, 4.12, 1.26",
   "anyMultiplicity": "Any",
   "residualSolventPeak": "Residual solvent peak",
   "enterValueToSearch": "Enter a chemical shift to search",
@@ -162,5 +160,17 @@
       }
     }
   },
-  "closeExactHeader": "Nearby exact matches (outside the tolerance):"
+  "closeExactHeader": "Nearby exact matches (outside the tolerance):",
+  "addPeak": "Add peak",
+  "removePeak": "Remove peak",
+  "stepMultiplicityShort": "Splitting",
+  "peakRowsHint": "Enter each peak and, if you can see it, its splitting. You can also paste a list such as \"2.05 s, 4.12 q, 1.26 t\".",
+  "peakLabel": "Peak {n}",
+  "@peakLabel": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  }
 }

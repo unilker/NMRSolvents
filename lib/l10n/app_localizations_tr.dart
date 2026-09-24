@@ -88,12 +88,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get shiftInputLabel => 'Kimyasal kayma (ppm)';
 
   @override
-  String get peaksInputLabel => 'Gözlenen pikler (ppm)';
-
-  @override
-  String get peaksInputHint => 'örn. 2,05 4,12 1,26';
-
-  @override
   String get anyMultiplicity => 'Hepsi';
 
   @override
@@ -315,4 +309,22 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get closeExactHeader => 'Yakındaki tam eşleşmeler (tolerans dışında):';
+
+  @override
+  String get addPeak => 'Pik ekle';
+
+  @override
+  String get removePeak => 'Piki sil';
+
+  @override
+  String get stepMultiplicityShort => 'Yarılma';
+
+  @override
+  String get peakRowsHint =>
+      'Her piki ve görebiliyorsanız yarılmasını girin. \"2,05 s; 4,12 q; 1,26 t\" gibi bir listeyi de yapıştırabilirsiniz.';
+
+  @override
+  String peakLabel(int n) {
+    return 'Pik $n';
+  }
 }

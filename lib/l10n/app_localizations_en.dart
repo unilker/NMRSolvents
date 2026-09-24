@@ -88,12 +88,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get shiftInputLabel => 'Chemical shift (ppm)';
 
   @override
-  String get peaksInputLabel => 'Observed peaks (ppm)';
-
-  @override
-  String get peaksInputHint => 'e.g. 2.05, 4.12, 1.26';
-
-  @override
   String get anyMultiplicity => 'Any';
 
   @override
@@ -328,4 +322,22 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get closeExactHeader =>
       'Nearby exact matches (outside the tolerance):';
+
+  @override
+  String get addPeak => 'Add peak';
+
+  @override
+  String get removePeak => 'Remove peak';
+
+  @override
+  String get stepMultiplicityShort => 'Splitting';
+
+  @override
+  String get peakRowsHint =>
+      'Enter each peak and, if you can see it, its splitting. You can also paste a list such as \"2.05 s, 4.12 q, 1.26 t\".';
+
+  @override
+  String peakLabel(int n) {
+    return 'Peak $n';
+  }
 }

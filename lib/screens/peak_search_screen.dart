@@ -32,6 +32,9 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
   ];
 
   final _input = TextEditingController();
+
+  /// Peak rows of the multiple-peak mode: a shift field and a splitting each.
+  final List<_PeakRow> _rows = [_PeakRow(), _PeakRow(), _PeakRow()];
   _Mode _mode = _Mode.single;
   String _solventId = 'cdcl3';
   Nucleus _nucleus = Nucleus.h1;
@@ -46,7 +49,59 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
   @override
   void dispose() {
     _input.dispose();
+    for (final r in _rows) {
+      r.controller.dispose();
+    }
     super.dispose();
+  }
+
+  /// Peaks entered in the multiple-peak rows. A splitting typed after the
+  /// number ("4.12 q") counts when none is selected in the row.
+  List<ObservedPeak> _observedPeaks() => [
+    for (final r in _rows)
+      if (parsePeakList(r.controller.text).firstOrNull case final p?)
+        (ppm: p.ppm, mult: _nucleus == Nucleus.h1 ? (r.mult ?? p.mult) : null),
+  ];
+
+  /// A whole peak list pasted into one row ("2.05 s, 4.12 q, 1.26 t") is
+  /// spread over as many rows as it has peaks.
+  void _onRowChanged(int index, String text) {
+    final peaks = parsePeakList(text);
+    if (peaks.length < 2) {
+      setState(() {});
+      return;
+    }
+    setState(() {
+      // The pasted peaks replace this row; empty rows left over are dropped.
+      final pasted = _rows[index];
+      final removed = [
+        pasted,
+        ..._rows.where((r) => r.controller.text.trim().isEmpty),
+      ];
+      final rebuilt = [
+        for (final r in _rows)
+          if (r == pasted)
+            for (final p in peaks)
+              _PeakRow(text: _formatPpm(p.ppm))..mult = p.mult
+          else if (!removed.contains(r))
+            r,
+      ];
+      _rows
+        ..clear()
+        ..addAll(rebuilt);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        for (final r in removed) {
+          r.controller.dispose();
+        }
+      });
+    });
+  }
+
+  static String _formatPpm(double v) {
+    final s = v.toString();
+    return s.contains('.') && s.split('.').last.length < 2
+        ? v.toStringAsFixed(2)
+        : s;
   }
 
   @override
@@ -56,6 +111,9 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
     final solvent = repo.solventById(_solventId) ?? repo.solvents.first;
     final tolerance = _tolerance[_nucleus]!;
     final shifts = parseShifts(_input.text);
+    final observed = _mode == _Mode.multiple
+        ? _observedPeaks()
+        : const <ObservedPeak>[];
 
     return Scaffold(
       appBar: AppBar(title: Text(l10n.tabPeakSearch)),
@@ -94,42 +152,70 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
                       ? l10n.stepShift
                       : l10n.stepShifts,
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: TextField(
-                        key: const Key('peakInput'),
-                        controller: _input,
-                        keyboardType: _mode == _Mode.single
-                            ? const TextInputType.numberWithOptions(
-                                decimal: true,
-                              )
-                            : TextInputType.text,
-                        decoration: InputDecoration(
-                          labelText: _mode == _Mode.single
-                              ? l10n.shiftInputLabel
-                              : l10n.peaksInputLabel,
-                          hintText: _mode == _Mode.single
-                              ? '4.30'
-                              : l10n.peaksInputHint,
-                          prefixIcon: const Icon(Icons.show_chart),
+                if (_mode == _Mode.single)
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextField(
+                          key: const Key('peakInput'),
+                          controller: _input,
+                          keyboardType: const TextInputType.numberWithOptions(
+                            decimal: true,
+                          ),
+                          decoration: InputDecoration(
+                            labelText: l10n.shiftInputLabel,
+                            hintText: '4.30',
+                            prefixIcon: const Icon(Icons.show_chart),
+                          ),
+                          onChanged: (_) => setState(() {}),
                         ),
-                        onChanged: (_) => setState(() {}),
                       ),
+                      const SizedBox(width: 12),
+                      _nucleusToggle(),
+                    ],
+                  )
+                else ...[
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          l10n.peakRowsHint,
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      _nucleusToggle(),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  for (var i = 0; i < _rows.length; i++)
+                    _PeakRowEditor(
+                      key: ObjectKey(_rows[i]),
+                      index: i,
+                      row: _rows[i],
+                      showMultiplicity: _nucleus == Nucleus.h1,
+                      multiplicities: _multiplicities(l10n),
+                      onChanged: (text) => _onRowChanged(i, text),
+                      onMultChanged: (m) => setState(() => _rows[i].mult = m),
+                      onRemove: _rows.length > 1
+                          ? () => setState(() {
+                              final r = _rows.removeAt(i);
+                              WidgetsBinding.instance.addPostFrameCallback(
+                                (_) => r.controller.dispose(),
+                              );
+                            })
+                          : null,
                     ),
-                    const SizedBox(width: 12),
-                    SegmentedButton<Nucleus>(
-                      showSelectedIcon: false,
-                      segments: [
-                        for (final n in Nucleus.values)
-                          ButtonSegment(value: n, label: Text(n.label)),
-                      ],
-                      selected: {_nucleus},
-                      onSelectionChanged: (s) =>
-                          setState(() => _nucleus = s.first),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: TextButton.icon(
+                      key: const Key('addPeak'),
+                      onPressed: () => setState(() => _rows.add(_PeakRow())),
+                      icon: const Icon(Icons.add),
+                      label: Text(l10n.addPeak),
                     ),
-                  ],
-                ),
+                  ),
+                ],
                 Row(
                   children: [
                     Text(
@@ -197,7 +283,7 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
               ],
             ),
           ),
-          if (shifts.isEmpty)
+          if (_mode == _Mode.single ? shifts.isEmpty : observed.isEmpty)
             SliverFillRemaining(
               hasScrollBody: false,
               child: EmptyState(
@@ -208,11 +294,21 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
           else if (_mode == _Mode.single)
             _singleResults(context, solvent, shifts.first, tolerance)
           else
-            _multiResults(context, solvent, shifts, tolerance),
+            _multiResults(context, solvent, observed, tolerance),
         ],
       ),
     );
   }
+
+  Widget _nucleusToggle() => SegmentedButton<Nucleus>(
+    showSelectedIcon: false,
+    segments: [
+      for (final n in Nucleus.values)
+        ButtonSegment(value: n, label: Text(n.label)),
+    ],
+    selected: {_nucleus},
+    onSelectionChanged: (s) => setState(() => _nucleus = s.first),
+  );
 
   Widget _singleResults(
     BuildContext context,
@@ -326,14 +422,14 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
   Widget _multiResults(
     BuildContext context,
     Solvent solvent,
-    List<double> shifts,
+    List<ObservedPeak> observed,
     double tolerance,
   ) {
     final matches = matchMultiplePeaks(
       impurities: context.repo.impurities,
       solventId: solvent.id,
       nucleus: _nucleus,
-      observed: shifts,
+      observed: observed,
       tolerance: tolerance,
     );
     if (matches.isEmpty) return _noResults(context);
@@ -371,20 +467,11 @@ class _PeakSearchScreenState extends State<PeakSearchScreen> {
                       m.matched.length,
                       m.totalSignals,
                     ),
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const SizedBox(height: 6),
-                  Wrap(
-                    spacing: 4,
-                    runSpacing: 4,
-                    children: [
-                      for (final pair in m.matched)
-                        ShiftChip(
-                          nucleus: _nucleus,
-                          value: pair.signal,
-                          mult: pair.signal.mult,
-                        ),
-                    ],
-                  ),
+                  for (final pair in m.matched)
+                    _PairRow(pair: pair, nucleus: _nucleus),
                 ],
               ),
             ),
@@ -558,6 +645,157 @@ class _HitTile extends StatelessWidget {
         mult: hit.signal?.multWithJ ?? hit.mult,
       ),
       onTap: isResidual ? null : () => onOpen(hit.impurity!),
+    );
+  }
+}
+
+class _PeakRow {
+  _PeakRow({String text = ''}) : controller = TextEditingController(text: text);
+
+  final TextEditingController controller;
+  String? mult;
+}
+
+/// One observed peak in the multiple-peak mode: shift, splitting, remove.
+class _PeakRowEditor extends StatelessWidget {
+  const _PeakRowEditor({
+    super.key,
+    required this.index,
+    required this.row,
+    required this.showMultiplicity,
+    required this.multiplicities,
+    required this.onChanged,
+    required this.onMultChanged,
+    required this.onRemove,
+  });
+
+  final int index;
+  final _PeakRow row;
+  final bool showMultiplicity;
+  final List<(String, String)> multiplicities;
+  final ValueChanged<String> onChanged;
+  final ValueChanged<String?> onMultChanged;
+  final VoidCallback? onRemove;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 5,
+            child: TextField(
+              key: Key('peak-$index'),
+              controller: row.controller,
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                labelText: l10n.peakLabel(index + 1),
+                hintText: 'ppm',
+              ),
+              onChanged: onChanged,
+            ),
+          ),
+          if (showMultiplicity) ...[
+            const SizedBox(width: 8),
+            Expanded(
+              flex: 5,
+              child: DropdownButtonFormField<String?>(
+                key: Key('mult-row-$index'),
+                initialValue: row.mult,
+                isExpanded: true,
+                decoration: InputDecoration(
+                  labelText: l10n.stepMultiplicityShort,
+                ),
+                items: [
+                  const DropdownMenuItem(value: null, child: Text('—')),
+                  for (final (code, name) in multiplicities)
+                    DropdownMenuItem(
+                      value: code,
+                      child: Text(
+                        '$code · $name',
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                ],
+                onChanged: onMultChanged,
+              ),
+            ),
+          ],
+          IconButton(
+            tooltip: l10n.removePeak,
+            onPressed: onRemove,
+            icon: const Icon(Icons.close),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// "4.12 q → Ethyl acetate CH₂ 4.12 q (7)" line of a multiple-peak result.
+class _PairRow extends StatelessWidget {
+  const _PairRow({required this.pair, required this.nucleus});
+
+  final PeakPair pair;
+  final Nucleus nucleus;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    final scheme = Theme.of(context).colorScheme;
+    final (IconData icon, Color color, String tip) = switch (pair.multMatch) {
+      MultMatch.exact => (Icons.check_circle, scheme.primary, l10n.matchExact),
+      MultMatch.compatible => (
+        Icons.adjust,
+        scheme.secondary,
+        l10n.matchCompatibleHint,
+      ),
+      MultMatch.unknown => (
+        Icons.help_outline,
+        scheme.onSurfaceVariant,
+        l10n.matchUnknown,
+      ),
+      null => (Icons.circle_outlined, scheme.outline, ''),
+    };
+    final observed = [
+      formatShift(pair.observed.ppm),
+      ?pair.observed.mult,
+    ].join(' ');
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 2),
+      child: Row(
+        children: [
+          Tooltip(
+            message: tip,
+            child: Icon(icon, size: 16, color: color),
+          ),
+          const SizedBox(width: 6),
+          SizedBox(
+            width: 72,
+            child: Text(
+              observed,
+              style: const TextStyle(fontWeight: FontWeight.w600),
+            ),
+          ),
+          const Icon(Icons.arrow_right_alt, size: 18),
+          const SizedBox(width: 4),
+          ShiftChip(
+            nucleus: nucleus,
+            value: pair.signal,
+            mult: pair.signal.multWithJ,
+          ),
+          const SizedBox(width: 6),
+          Flexible(
+            child: Text(
+              prettyFormula(pair.signal.assignment ?? ''),
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -291,17 +291,69 @@ void main() {
     });
   });
 
+  group('parsePeakList', () {
+    test('numbers with optional splitting, dot or comma decimals', () {
+      const etoac = [
+        (ppm: 2.05, mult: 's'),
+        (ppm: 4.12, mult: 'q'),
+        (ppm: 1.26, mult: 't'),
+      ];
+      expect(parsePeakList('2.05 s, 4.12 q, 1.26 t'), etoac);
+      expect(parsePeakList('2,05 s; 4,12 q; 1,26 t'), etoac);
+      expect(parsePeakList('2.05s 4.12q 1.26t'), etoac);
+      expect(parsePeakList('7.26 (s) 1.56 br s 0.07 singlet 3.49'), [
+        (ppm: 7.26, mult: 's'),
+        (ppm: 1.56, mult: 'br s'),
+        (ppm: 0.07, mult: 's'),
+        (ppm: 3.49, mult: null),
+      ]);
+      expect(parsePeakList('4,3 triplet'), [(ppm: 4.3, mult: 't')]);
+      expect(parsePeakList('abc'), isEmpty);
+    });
+  });
+
   group('matchMultiplePeaks', () {
+    List<MultiPeakMatch> match(List<ObservedPeak> peaks, [double tol = 0.02]) =>
+        matchMultiplePeaks(
+          impurities: repo.impurities,
+          solventId: 'cdcl3',
+          nucleus: Nucleus.h1,
+          observed: peaks,
+          tolerance: tol,
+        );
+
     test('ethyl acetate peaks rank ethyl acetate first', () {
-      final matches = matchMultiplePeaks(
-        impurities: repo.impurities,
-        solventId: 'cdcl3',
-        nucleus: Nucleus.h1,
-        observed: [2.05, 4.12, 1.26],
-        tolerance: 0.02,
-      );
-      expect(matches.first.impurity.id, 'ethyl_acetate');
-      expect(matches.first.score, closeTo(1, 1e-9));
+      final m = match([
+        (ppm: 2.05, mult: null),
+        (ppm: 4.12, mult: null),
+        (ppm: 1.26, mult: null),
+      ]).first;
+      expect(m.impurity.id, 'ethyl_acetate');
+      expect(m.score, closeTo(1, 1e-9));
+    });
+
+    test('with splittings, every pair of ethyl acetate is an exact match', () {
+      final m = match(parsePeakList('2.05 s, 4.12 q, 1.26 t')).first;
+      expect(m.impurity.id, 'ethyl_acetate');
+      expect(m.matched.map((p) => p.multMatch), everyElement(MultMatch.exact));
+      expect(m.score, closeTo(1, 1e-9));
+    });
+
+    test('a peak cannot pair with an incompatible splitting', () {
+      // 1.26 is ethyl acetate's CH3 triplet; a singlet there is not it.
+      final ids = match([
+        (ppm: 1.26, mult: 's'),
+      ], 0.02).map((m) => m.impurity.id);
+      expect(ids, isNot(contains('ethyl_acetate')));
+      expect(ids, isNotEmpty); // e.g. grease, br s
+    });
+
+    test('a wrong splitting on one peak lowers the rank', () {
+      final right = match(parsePeakList('2.05 s, 4.12 q, 1.26 t'));
+      final wrong = match(parsePeakList('2.05 s, 4.12 s, 1.26 t'));
+      final etoac = wrong.firstWhere((m) => m.impurity.id == 'ethyl_acetate');
+      expect(etoac.matched.length, 2);
+      expect(etoac.score, lessThan(right.first.score));
     });
   });
 

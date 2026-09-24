@@ -254,18 +254,6 @@ abstract class AppLocalizations {
   /// **'Chemical shift (ppm)'**
   String get shiftInputLabel;
 
-  /// No description provided for @peaksInputLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Observed peaks (ppm)'**
-  String get peaksInputLabel;
-
-  /// No description provided for @peaksInputHint.
-  ///
-  /// In en, this message translates to:
-  /// **'e.g. 2.05, 4.12, 1.26'**
-  String get peaksInputHint;
-
   /// No description provided for @anyMultiplicity.
   ///
   /// In en, this message translates to:
@@ -661,6 +649,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Nearby exact matches (outside the tolerance):'**
   String get closeExactHeader;
+
+  /// No description provided for @addPeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Add peak'**
+  String get addPeak;
+
+  /// No description provided for @removePeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove peak'**
+  String get removePeak;
+
+  /// No description provided for @stepMultiplicityShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Splitting'**
+  String get stepMultiplicityShort;
+
+  /// No description provided for @peakRowsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter each peak and, if you can see it, its splitting. You can also paste a list such as \"2.05 s, 4.12 q, 1.26 t\".'**
+  String get peakRowsHint;
+
+  /// No description provided for @peakLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Peak {n}'**
+  String peakLabel(int n);
 }
 
 class _AppLocalizationsDelegate

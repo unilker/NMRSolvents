@@ -26,8 +26,6 @@
   "singlePeak": "Tek pik",
   "multiplePeaks": "Çoklu pik",
   "shiftInputLabel": "Kimyasal kayma (ppm)",
-  "peaksInputLabel": "Gözlenen pikler (ppm)",
-  "peaksInputHint": "örn. 2,05 4,12 1,26",
   "anyMultiplicity": "Hepsi",
   "residualSolventPeak": "Kalıntı çözücü piki",
   "enterValueToSearch": "Aramak için kimyasal kayma girin",
@@ -93,5 +91,10 @@
   "matchUnknown": "Yarılma bildirilmemiş",
   "nearestHeader": "±{tol} ppm içinde sonuç yok. En yakın sinyaller:",
   "resultCount": "{count} sonuç",
-  "closeExactHeader": "Yakındaki tam eşleşmeler (tolerans dışında):"
+  "closeExactHeader": "Yakındaki tam eşleşmeler (tolerans dışında):",
+  "addPeak": "Pik ekle",
+  "removePeak": "Piki sil",
+  "stepMultiplicityShort": "Yarılma",
+  "peakRowsHint": "Her piki ve görebiliyorsanız yarılmasını girin. \"2,05 s; 4,12 q; 1,26 t\" gibi bir listeyi de yapıştırabilirsiniz.",
+  "peakLabel": "Pik {n}"
 }
