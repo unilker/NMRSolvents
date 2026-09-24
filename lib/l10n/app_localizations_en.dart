@@ -644,4 +644,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String savedOn(String date) {
     return 'Saved on $date';
   }
+
+  @override
+  String get license => 'License';
+
+  @override
+  String get licenseText =>
+      'This app is free and open-source software, distributed under the GNU General Public License version 3 (GPL-3.0). It is free of charge, contains no ads and comes with no warranty. You may redistribute and modify it under the terms of that license.';
+
+  @override
+  String get sourceCode => 'Source code';
+
+  @override
+  String get packageLicenses => 'Licenses of packages used';
 }

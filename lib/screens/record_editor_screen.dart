@@ -90,7 +90,7 @@ class _RecordEditorScreenState extends State<RecordEditorScreen> {
       body: Form(
         key: _form,
         child: ListView(
-          padding: const EdgeInsets.only(bottom: 32),
+          padding: pageBottomPadding(context, 32),
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),

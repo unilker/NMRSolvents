@@ -1189,6 +1189,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Saved on {date}'**
   String savedOn(String date);
+
+  /// No description provided for @license.
+  ///
+  /// In en, this message translates to:
+  /// **'License'**
+  String get license;
+
+  /// No description provided for @licenseText.
+  ///
+  /// In en, this message translates to:
+  /// **'This app is free and open-source software, distributed under the GNU General Public License version 3 (GPL-3.0). It is free of charge, contains no ads and comes with no warranty. You may redistribute and modify it under the terms of that license.'**
+  String get licenseText;
+
+  /// No description provided for @sourceCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Source code'**
+  String get sourceCode;
+
+  /// No description provided for @packageLicenses.
+  ///
+  /// In en, this message translates to:
+  /// **'Licenses of packages used'**
+  String get packageLicenses;
 }
 
 class _AppLocalizationsDelegate

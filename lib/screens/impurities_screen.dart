@@ -68,7 +68,7 @@ class _ImpuritiesScreenState extends State<ImpuritiesScreen> {
                     text: context.l10n.noResults,
                   )
                 : ListView.separated(
-                    padding: const EdgeInsets.only(bottom: 16),
+                    padding: pageBottomPadding(context, 16),
                     itemCount: results.length,
                     separatorBuilder: (_, _) => const Divider(height: 1),
                     itemBuilder: (context, i) =>

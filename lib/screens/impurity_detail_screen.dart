@@ -50,7 +50,7 @@ class _ImpurityDetailScreenState extends State<ImpurityDetailScreen> {
     return Scaffold(
       appBar: AppBar(title: Text(impurity.name.of(context.lang))),
       body: ListView(
-        padding: const EdgeInsets.only(bottom: 24),
+        padding: pageBottomPadding(context, 24),
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),

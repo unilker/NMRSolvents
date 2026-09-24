@@ -95,6 +95,24 @@ lib/
 Her push'ta GitHub Actions testleri çalıştırır, Android APK'sı üretir (Actions →
 *nmr-solvents-apk* artifact) ve iOS derlemesini doğrular.
 
+## Android imzalama
+
+CI'nin ürettiği APK, depo ayarlarındaki iki gizli değerle (Settings → Secrets and
+variables → Actions) sabit bir yükleme anahtarıyla imzalanır; böylece yeni sürümler
+yüklü uygulamanın üzerine kurulabilir:
+
+| Secret | İçerik |
+|---|---|
+| `ANDROID_KEYSTORE_BASE64` | PKCS12 anahtar deposunun base64 hali (takma ad `upload`) |
+| `ANDROID_KEYSTORE_PASSWORD` | Depo ve anahtar parolası (ikisi aynı) |
+
+CI, derlenen APK'nın imza parmak izini anahtarınkiyle karşılaştırır. Secret'lar
+yoksa (ör. çatallardan gelen PR'lar) APK geçici hata ayıklama anahtarıyla imzalanır
+ve yüklü uygulamayı güncelleyemez. Yerelde imzalı derleme için `android/key.properties`
+dosyasına `storeFile`, `storePassword`, `keyAlias`, `keyPassword` yazın; bu dosya ve
+anahtar deposu `.gitignore` ile depo dışında tutulur. Anahtar kaybolursa aynı uygulama
+güncellenemez: yedeğini güvenli bir yerde saklayın.
+
 ## Uygulama simgesi
 
 Mavi zemin üzerinde beyaz NMR sinyalleri; büyüteç, kırmızı safsızlık pikini büyütür.
@@ -113,3 +131,25 @@ git checkout ios/Runner.xcodeproj/project.pbxproj   # aracın ilgisiz bir Xcode 
 - H. E. Gottlieb, V. Kotlyar, A. Nudelman, *J. Org. Chem.* **1997**, 62, 7512. doi:10.1021/jo971176v
 - G. R. Fulmer et al., *Organometallics* **2010**, 29, 2176. doi:10.1021/om100106e
 - N. R. Babij et al., *Org. Process Res. Dev.* **2016**, 20, 661. doi:10.1021/acs.oprd.5b00417
+- D. Prat et al., *Green Chem.* **2016**, 18, 288. doi:10.1039/c5gc01008j
+- Cambridge Isotope Laboratories, Inc., *NMR Solvent Data Chart*.
+
+## Lisans
+
+Copyright © 2026 Dr. İlker ÜN
+
+Bu program özgür yazılımdır: Free Software Foundation tarafından yayımlanan GNU
+Genel Kamu Lisansı'nın (GPL) 3. sürümü koşullarıyla yeniden dağıtabilir ve/veya
+değiştirebilirsiniz. Program yararlı olması umuduyla, ancak **hiçbir garanti
+olmaksızın** dağıtılmaktadır. Ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
+
+*This program is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, version 3. It is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY. See [LICENSE](LICENSE).*
+
+**Veriler:** Kimyasal kayma değerleri, fiziksel özellikler ve CHEM21 puanları
+yukarıdaki yayınlardan derlenmiştir; her değerin kaynağı uygulamada ve
+`assets/data/` dosyalarında gösterilir. Bu değerleri kullanırken lütfen orijinal
+yayınlara atıf yapın. Uygulamanın yayıncılar veya Cambridge Isotope Laboratories
+ile bir bağlantısı yoktur.

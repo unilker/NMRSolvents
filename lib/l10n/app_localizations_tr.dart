@@ -621,4 +621,17 @@ class AppLocalizationsTr extends AppLocalizations {
   String savedOn(String date) {
     return 'Kayıt tarihi: $date';
   }
+
+  @override
+  String get license => 'Lisans';
+
+  @override
+  String get licenseText =>
+      'Bu uygulama özgür ve açık kaynaklı bir yazılımdır; GNU Genel Kamu Lisansı sürüm 3 (GPL-3.0) koşullarıyla dağıtılır. Ücretsizdir, reklam içermez ve hiçbir garanti verilmez. Bu lisansın koşullarına uyarak yeniden dağıtabilir ve değiştirebilirsiniz.';
+
+  @override
+  String get sourceCode => 'Kaynak kodu';
+
+  @override
+  String get packageLicenses => 'Kullanılan paketlerin lisansları';
 }
