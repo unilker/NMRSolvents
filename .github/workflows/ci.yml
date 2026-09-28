@@ -21,6 +21,10 @@ jobs:
         run: python3 tool/build_data.py && git diff --exit-code assets/data
       - name: CHEM21 transcription follows the paper's scoring rules
         run: python3 tool/check_chem21.py
+      - name: Privacy policy page is up to date with PRIVACY.md
+        run: python3 tool/store/make_privacy_html.py && git diff --exit-code store/web
+      - name: Store texts fit the store limits
+        run: python3 tool/store/check_listing.py
       - run: flutter pub get
       - run: dart format --output=none --set-exit-if-changed lib test
       - run: flutter analyze
@@ -57,7 +61,9 @@ jobs:
             echo "keyPassword=$KEYSTORE_PASSWORD"
           } > android/key.properties
       - run: flutter build apk --release
-      - name: Check the APK is signed with the release key
+      # Google Play takes an app bundle, not an APK.
+      - run: flutter build appbundle --release
+      - name: Check the APK and app bundle are signed with the release key
         if: hashFiles('android/key.properties') != ''
         env:
           KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
@@ -72,10 +78,19 @@ jobs:
             | sed -n 's/.*certificate SHA-256 digest: //p' | head -1)
           echo "APK signer SHA-256: $actual"
           [ -n "$expected" ] && [ "$expected" = "$actual" ]
+          bundle=$(keytool -printcert \
+            -jarfile build/app/outputs/bundle/release/app-release.aab \
+            | sed -n 's/.*SHA256: //p' | head -1 | tr -d ':' | tr 'A-F' 'a-f')
+          echo "AAB signer SHA-256: $bundle"
+          [ "$expected" = "$bundle" ]
       - uses: actions/upload-artifact@v7
         with:
-          name: nmr-solvents-apk
+          name: nmr-impurities-apk
           path: build/app/outputs/flutter-apk/app-release.apk
+      - uses: actions/upload-artifact@v7
+        with:
+          name: nmr-impurities-aab
+          path: build/app/outputs/bundle/release/app-release.aab
 
   ios:
     needs: test

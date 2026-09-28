@@ -93,7 +93,13 @@ lib/
 ```
 
 Her push'ta GitHub Actions testleri çalıştırır, Android APK'sı üretir (Actions →
-*nmr-solvents-apk* artifact) ve iOS derlemesini doğrular.
+*nmr-impurities-apk* artifact; Google Play için imzalı app bundle: *nmr-impurities-aab*) ve iOS derlemesini doğrular.
+
+## Mağaza yayını
+
+Uygulama kimliği (Android ve iOS): `net.kimyager.nmrimpurities`. Google Play ve App Store
+için metinler, görseller, gizlilik politikası ve form cevapları [`store/`](store/README.md)
+klasöründedir; gizlilik politikası [PRIVACY.md](PRIVACY.md).
 
 ## Android imzalama
 

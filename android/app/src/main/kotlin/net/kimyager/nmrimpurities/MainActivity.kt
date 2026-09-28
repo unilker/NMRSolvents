@@ -1,4 +1,4 @@
-package com.nmrsolvents.nmr_solvents
+package net.kimyager.nmrimpurities
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -17,7 +17,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "com.nmrsolvents.nmr_solvents"
+    namespace = "net.kimyager.nmrimpurities"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -28,7 +28,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.nmrsolvents.nmr_solvents"
+        applicationId = "net.kimyager.nmrimpurities"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
