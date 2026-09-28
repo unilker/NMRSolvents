@@ -9,7 +9,7 @@ Google Play ve App Store için gereken metinler, görseller ve form cevapları.
 | `graphics/play-feature-{tr,en}.png` | Play tanıtım görseli (1024×500) |
 | `graphics/screenshots/play/{tr,en}/` | Play telefon ekran görüntüleri (1080×1920, 7 adet) |
 | `graphics/screenshots/apple/{tr,en}/` | App Store iPhone 6.9" ekran görüntüleri (1320×2868, 7 adet) |
-| `web/privacy.html` | Gizlilik politikası sayfası (`PRIVACY.md`'den üretilir); kimyager.net'e yüklenir |
+| `web/` | GitHub Pages sitesi: destek sayfası (`index.html`) ve gizlilik politikası (`privacy.html`, `PRIVACY.md`'den üretilir) |
 
 ## Kimlikler
 
@@ -19,10 +19,14 @@ Google Play ve App Store için gereken metinler, görseller ve form cevapları.
 
 ## Adresler
 
-- Gizlilik politikası: `store/web/privacy.html` dosyasını kimyager.net'e yükleyin, ör. `https://kimyager.net/nmrimpurities/privacy.html`
-  (hazır olana kadar: https://github.com/unilker/NMRSolvents/blob/main/PRIVACY.md)
-- Destek / web sitesi: https://kimyager.net (veya https://github.com/unilker/NMRSolvents/issues)
+`store/web/` GitHub Pages ile yayımlanır (`.github/workflows/pages.yml`, `main`'e her push'ta):
+
+- Gizlilik politikası: https://unilker.github.io/NMRSolvents/privacy.html
+- Destek sayfası: https://unilker.github.io/NMRSolvents/
+- Web sitesi: https://kimyager.net
 - Telif (App Store): `2026 Dr. İlker ÜN`
+
+İlk yayın için bir kez: depo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
 ## Form cevapları
 

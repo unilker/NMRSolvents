@@ -1,7 +1,7 @@
 """Build store/web/privacy.html from PRIVACY.md.
 
-The HTML page is uploaded to kimyager.net and its address is given to Google
-Play and the App Store as the privacy policy. PRIVACY.md stays the single
+The page is published with GitHub Pages (.github/workflows/pages.yml) and its
+address is given to Google Play and the App Store as the privacy policy. PRIVACY.md stays the single
 source; CI checks that the page is up to date.
 
 Handles only the Markdown PRIVACY.md uses: #/## headings, "- " bullets
