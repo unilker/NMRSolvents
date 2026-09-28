@@ -2,7 +2,7 @@
 library;
 
 /// Must match `version:` in pubspec.yaml (checked by a test).
-const kAppVersion = '0.1.3';
+const kAppVersion = '1.0.0';
 
 const kDeveloper = 'Dr. İlker ÜN';
 
