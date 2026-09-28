@@ -9,7 +9,6 @@ Google Play ve App Store için gereken metinler, görseller ve form cevapları.
 | `graphics/play-feature-{tr,en}.png` | Play tanıtım görseli (1024×500) |
 | `graphics/screenshots/play/{tr,en}/` | Play telefon ekran görüntüleri (1080×1920, 7 adet) |
 | `graphics/screenshots/apple/{tr,en}/` | App Store iPhone 6.9" ekran görüntüleri (1320×2868, 7 adet) |
-| `web/` | GitHub Pages sitesi: destek sayfası (`index.html`) ve gizlilik politikası (`privacy.html`, `PRIVACY.md`'den üretilir) |
 
 ## Kimlikler
 
@@ -19,14 +18,16 @@ Google Play ve App Store için gereken metinler, görseller ve form cevapları.
 
 ## Adresler
 
-`store/web/` GitHub Pages ile yayımlanır (`.github/workflows/pages.yml`, `main`'e her push'ta):
+Tanıtım ve gizlilik sayfaları kimyager.net'te yayımlanır (depo: github.com/unilker/kimyager.net,
+içerik `src/data/nmr-app.yaml`):
 
-- Gizlilik politikası: https://unilker.github.io/NMRSolvents/privacy.html
-- Destek sayfası: https://unilker.github.io/NMRSolvents/
-- Web sitesi: https://kimyager.net
+| | Türkçe | English |
+|---|---|---|
+| Gizlilik politikası | https://kimyager.net/uygulamalar/nmr-cozucu-safsizliklari/gizlilik/ | https://kimyager.net/en/apps/nmr-solvent-impurities/privacy/ |
+| Destek / web sitesi | https://kimyager.net/uygulamalar/nmr-cozucu-safsizliklari/ | https://kimyager.net/en/apps/nmr-solvent-impurities/ |
+
 - Telif (App Store): `2026 Dr. İlker ÜN`
-
-İlk yayın için bir kez: depo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+- `PRIVACY.md` değişirse kimyager.net'teki gizlilik sayfasını da aynı içerikle güncelleyin.
 
 ## Form cevapları
 

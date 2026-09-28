@@ -4,6 +4,8 @@
 
 Geliştirici / Developer: Dr. İlker ÜN · https://kimyager.net
 
+Yayımlanan sürüm / Published at: https://kimyager.net/uygulamalar/nmr-cozucu-safsizliklari/gizlilik/
+
 Yürürlük tarihi / Effective date: 28.09.2026
 
 ## Türkçe
@@ -27,7 +29,7 @@ Uygulama çocuklara yönelik değildir ve çocuklardan bilerek veri toplamaz (za
 kimseden veri toplamaz).
 
 Bu politika değişirse güncel hali bu sayfada yayımlanır. Sorularınız için:
-https://kimyager.net veya https://github.com/unilker/NMRSolvents/issues
+ilker@kimyager.net veya https://github.com/unilker/NMRSolvents/issues
 
 ## English
 
@@ -51,4 +53,4 @@ The app is not directed at children and does not knowingly collect data from chi
 (it collects no data from anyone).
 
 If this policy changes, the updated version will be published on this page. Questions:
-https://kimyager.net or https://github.com/unilker/NMRSolvents/issues
+ilker@kimyager.net or https://github.com/unilker/NMRSolvents/issues

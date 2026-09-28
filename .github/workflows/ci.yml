@@ -21,8 +21,6 @@ jobs:
         run: python3 tool/build_data.py && git diff --exit-code assets/data
       - name: CHEM21 transcription follows the paper's scoring rules
         run: python3 tool/check_chem21.py
-      - name: Privacy policy page is up to date with PRIVACY.md
-        run: python3 tool/store/make_privacy_html.py && git diff --exit-code store/web
       - name: Store texts fit the store limits
         run: python3 tool/store/check_listing.py
       - run: flutter pub get
