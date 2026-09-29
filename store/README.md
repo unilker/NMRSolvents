@@ -48,7 +48,7 @@ içerik `src/data/nmr-app.yaml`):
 | Fiyat | Ücretsiz; uygulama içi satın alma yok |
 | Reklam | Yok |
 | Kategori | Play: Eğitim · App Store: Eğitim (birincil), Başvuru / Reference (ikincil) |
-| Hedef kitle (Play) | 18 yaş ve üzeri; çocuklara yönelik değil |
+| Hedef kitle (Play) | 13–15, 16–17 ve 18+ (lise ve üniversite öğrencileri dahil); 13 yaş altı seçilmez (Aileler politikası) |
 | İçerik derecelendirmesi | Şiddet, cinsellik, kumar vb. yok → Herkes / 4+ |
 | Veri güvenliği (Play) | Veri toplanmıyor, paylaşılmıyor |
 | Uygulama gizliliği (Apple) | Data Not Collected |
