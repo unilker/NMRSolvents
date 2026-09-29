@@ -45,6 +45,7 @@ içerik `src/data/nmr-app.yaml`):
 
 | Soru | Cevap |
 |---|---|
+| Varsayılan / birincil dil | İngilizce (en-US) — ad "NMR Solvent Impurities"; Türkçe (tr-TR) çeviri olarak eklenir |
 | Fiyat | Ücretsiz; uygulama içi satın alma yok |
 | Reklam | Yok |
 | Kategori | Play: Eğitim · App Store: Eğitim (birincil), Başvuru / Reference (ikincil) |
