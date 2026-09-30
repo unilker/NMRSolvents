@@ -4,7 +4,31 @@ Answer to Apple's "Guideline 2.1 – Information Needed" request for the first s
 Paste it as the reply in App Store Connect and keep it in *App Review Information → Notes*
 for future submissions. Attach the screen recording to the reply.
 
----
+## Short version (App Review Notes field, max 4000 characters)
+
+1. SCREEN RECORDING
+Attached, recorded on a physical iPhone with the latest iOS. It starts at app launch and shows the typical flow. The app has no login/account, no user-generated content shared with others, and no paid content.
+
+2. PURPOSE AND AUDIENCE
+An offline NMR reference for chemistry students, researchers and lab technicians. NMR spectra often contain small signals from the deuterated solvent, water or trace lab solvents. Users enter what they see (solvent, shift in ppm, splitting) and instantly get matching impurities with literature values and sources. It also shows solvent data, a CHEM21 green-chemistry guide, and saves results on the device.
+
+3. HOW TO USE
+No login or sample files needed; all data are built in.
+- Peak search: solvent CDCl3, shift 1.26, tap "t triplet" -> ethyl acetate, ethanol, etc.
+- Multiple peaks: paste "2.05 s; 4.12 q; 1.26 t" -> ethyl acetate ranked first (3/3 signals).
+- Save results -> enter a sample name -> Save; view it in the Records tab.
+- Solvents, Impurities and Settings tabs (language, theme, About the app).
+
+4. EXTERNAL SERVICES
+None. No network connections, data providers, login, payments, analytics, ads or AI services. Data are bundled; records stay on the device.
+
+5. REGIONAL DIFFERENCES
+None. Same features and content in all regions; English or Turkish UI by device language.
+
+6. REGULATED / THIRD-PARTY MATERIAL
+Not a regulated or medical app. The values are factual scientific data from peer-reviewed publications and a public manufacturer chart, each shown with its source (full references with DOIs in the app): Gottlieb 1997 (J. Org. Chem.), Fulmer 2010 (Organometallics), Babij 2016 (Org. Process Res. Dev.), Prat 2016 (Green Chem., CHEM21), Cambridge Isotope Laboratories NMR Solvent Data Chart. No copyrighted text or tables are reproduced; the app is not affiliated with these publishers. Developer: Dr. İlker Ün, chemist (quantitative NMR). Free, no ads, open source (GPL-3.0): https://github.com/unilker/NMRSolvents
+
+## Full version (reply)
 
 Hello App Review team,
 
