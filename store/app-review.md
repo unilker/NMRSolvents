@@ -26,7 +26,7 @@ None. No network connections, data providers, login, payments, analytics, ads or
 None. Same features and content in all regions; English or Turkish UI by device language.
 
 6. REGULATED / THIRD-PARTY MATERIAL
-Not a regulated or medical app. The values are factual scientific data from peer-reviewed publications and a public manufacturer chart, each shown with its source (full references with DOIs in the app): Gottlieb 1997 (J. Org. Chem.), Fulmer 2010 (Organometallics), Babij 2016 (Org. Process Res. Dev.), Prat 2016 (Green Chem., CHEM21), Cambridge Isotope Laboratories NMR Solvent Data Chart. No copyrighted text or tables are reproduced; the app is not affiliated with these publishers. Developer: Dr. İlker Ün, chemist (quantitative NMR). Free, no ads, open source (GPL-3.0): https://github.com/unilker/NMRSolvents
+Not a regulated or medical app. The values are factual scientific data from peer-reviewed publications and a public manufacturer chart, each shown with its source (full references with DOIs in the app): Gottlieb 1997 (J. Org. Chem.), Fulmer 2010 (Organometallics), Babij 2016 (Org. Process Res. Dev.), Prat 2016 (Green Chem., CHEM21), Cambridge Isotope Laboratories NMR Solvent Data Chart. No copyrighted text or tables are reproduced; the app is not affiliated with these publishers. Developer: Dr. İlker Ün, chemist and Chief Senior Researcher at TÜBİTAK National Metrology Institute (UME), working on quantitative NMR. Free, no ads, open source (GPL-3.0): https://github.com/unilker/NMRSolvents
 
 ## Full version (reply)
 
