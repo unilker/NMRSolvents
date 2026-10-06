@@ -5,6 +5,8 @@ Android ve iOS uygulaması. Tamamen çevrimdışı çalışır, Türkçe ve İng
 
 **Geliştirici:** Dr. İlker ÜN
 
+**İndir:** [App Store](https://apps.apple.com/app/id6817373435) · Google Play (kapalı testte)
+
 Ana ekranda kısa adıyla görünür: **NMR Safsızlık** (Türkçe cihaz) / **NMR Impurities**.
 
 *A Flutter app for Android and iOS: offline reference for deuterated NMR solvents
