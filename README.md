@@ -5,7 +5,7 @@ Android ve iOS uygulaması. Tamamen çevrimdışı çalışır, Türkçe ve İng
 
 **Geliştirici:** Dr. İlker ÜN
 
-**İndir:** [App Store](https://apps.apple.com/app/id6817373435) · Google Play (kapalı testte)
+**İndir:** [App Store](https://apps.apple.com/app/id6817373435) · [Google Play](https://play.google.com/store/apps/details?id=net.kimyager.nmrimpurities)
 
 Ana ekranda kısa adıyla görünür: **NMR Safsızlık** (Türkçe cihaz) / **NMR Impurities**.
 
